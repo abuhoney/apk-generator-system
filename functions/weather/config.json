@@ -1,7 +1,7 @@
 {
   "function": "weather",
   "version": "1.0.0",
-  "generated_at": "2026-09-18T01:25:17Z",
+  "generated_at": "2026-09-18T01:50:39Z",
   "summary": {
     "files": 5,
     "ids": 53,
@@ -963,7 +963,7 @@
         "line_end": 2,
         "branch_of": null
       },
-      "_code": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(180deg, #0d1117 0%, #161b22 100%); color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+      "_code_ref": "body",
       "children": {}
     },
     ".weather-app": {
@@ -974,7 +974,7 @@
         "line_end": 3,
         "branch_of": null
       },
-      "_code": ".weather-app { max-width: 540px; margin: 0 auto; }",
+      "_code_ref": ".weather-app",
       "children": {}
     },
     "header h1": {
@@ -985,7 +985,7 @@
         "line_end": 4,
         "branch_of": null
       },
-      "_code": "header h1 { color: #58a6ff; font-size: 22px; }",
+      "_code_ref": "header h1",
       "children": {}
     },
     "header .meta": {
@@ -996,7 +996,7 @@
         "line_end": 5,
         "branch_of": null
       },
-      "_code": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+      "_code_ref": "header .meta",
       "children": {}
     },
     "header .meta code": {
@@ -1007,7 +1007,7 @@
         "line_end": 6,
         "branch_of": null
       },
-      "_code": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+      "_code_ref": "header .meta code",
       "children": {}
     },
     "#searchForm": {
@@ -1018,7 +1018,7 @@
         "line_end": 7,
         "branch_of": null
       },
-      "_code": "#searchForm { display: flex; gap: 8px; margin: 16px 0; }",
+      "_code_ref": "#searchForm",
       "children": {}
     },
     "#searchForm input": {
@@ -1029,7 +1029,7 @@
         "line_end": 8,
         "branch_of": null
       },
-      "_code": "#searchForm input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+      "_code_ref": "#searchForm input",
       "children": {}
     },
     "#searchForm button": {
@@ -1040,7 +1040,7 @@
         "line_end": 9,
         "branch_of": null
       },
-      "_code": "#searchForm button { background: #238636; color: #fff; border: none; padding: 0 18px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+      "_code_ref": "#searchForm button",
       "children": {}
     },
     ".weather-card": {
@@ -1051,7 +1051,7 @@
         "line_end": 10,
         "branch_of": null
       },
-      "_code": ".weather-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 16px; }",
+      "_code_ref": ".weather-card",
       "children": {}
     },
     ".weather-card .city": {
@@ -1062,7 +1062,7 @@
         "line_end": 11,
         "branch_of": null
       },
-      "_code": ".weather-card .city { color: #e6edf3; font-size: 24px; font-weight: 600; }",
+      "_code_ref": ".weather-card .city",
       "children": {}
     },
     ".weather-card .country": {
@@ -1073,7 +1073,7 @@
         "line_end": 12,
         "branch_of": null
       },
-      "_code": ".weather-card .country { color: #8b949e; font-size: 12px; margin-bottom: 12px; }",
+      "_code_ref": ".weather-card .country",
       "children": {}
     },
     ".weather-card .temp": {
@@ -1084,7 +1084,7 @@
         "line_end": 13,
         "branch_of": null
       },
-      "_code": ".weather-card .temp { color: #58a6ff; font-size: 48px; font-weight: 700; font-family: ui-monospace, monospace; }",
+      "_code_ref": ".weather-card .temp",
       "children": {}
     },
     ".weather-card .desc": {
@@ -1095,7 +1095,7 @@
         "line_end": 14,
         "branch_of": null
       },
-      "_code": ".weather-card .desc { color: #c9d1d9; font-size: 16px; margin-top: 4px; }",
+      "_code_ref": ".weather-card .desc",
       "children": {}
     },
     ".weather-card .icon": {
@@ -1106,7 +1106,7 @@
         "line_end": 15,
         "branch_of": null
       },
-      "_code": ".weather-card .icon { font-size: 56px; margin: 12px 0; }",
+      "_code_ref": ".weather-card .icon",
       "children": {}
     },
     ".weather-card .stats": {
@@ -1117,7 +1117,7 @@
         "line_end": 16,
         "branch_of": null
       },
-      "_code": ".weather-card .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #30363d; }",
+      "_code_ref": ".weather-card .stats",
       "children": {}
     },
     ".weather-card .stats div": {
@@ -1128,7 +1128,7 @@
         "line_end": 17,
         "branch_of": null
       },
-      "_code": ".weather-card .stats div { text-align: center; }",
+      "_code_ref": ".weather-card .stats div",
       "children": {}
     },
     ".weather-card .stats span": {
@@ -1139,7 +1139,7 @@
         "line_end": 18,
         "branch_of": null
       },
-      "_code": ".weather-card .stats span { display: block; color: #8b949e; font-size: 11px; margin-bottom: 4px; }",
+      "_code_ref": ".weather-card .stats span",
       "children": {}
     },
     ".weather-card .stats b": {
@@ -1150,7 +1150,7 @@
         "line_end": 19,
         "branch_of": null
       },
-      "_code": ".weather-card .stats b { color: #e6edf3; font-size: 14px; }",
+      "_code_ref": ".weather-card .stats b",
       "children": {}
     },
     ".weather-error": {
@@ -1161,7 +1161,7 @@
         "line_end": 20,
         "branch_of": null
       },
-      "_code": ".weather-error { background: rgba(248,81,73,0.1); border: 1px solid #f85149; border-radius: 8px; padding: 16px; color: #f85149; text-align: center; }",
+      "_code_ref": ".weather-error",
       "children": {}
     },
     ".weather-history": {
@@ -1172,7 +1172,7 @@
         "line_end": 21,
         "branch_of": null
       },
-      "_code": ".weather-history { margin-top: 16px; }",
+      "_code_ref": ".weather-history",
       "children": {}
     },
     ".weather-history h3": {
@@ -1183,7 +1183,7 @@
         "line_end": 22,
         "branch_of": null
       },
-      "_code": ".weather-history h3 { color: #58a6ff; font-size: 14px; margin-bottom: 8px; }",
+      "_code_ref": ".weather-history h3",
       "children": {}
     },
     ".weather-history ul": {
@@ -1194,7 +1194,7 @@
         "line_end": 23,
         "branch_of": null
       },
-      "_code": ".weather-history ul { list-style: none; }",
+      "_code_ref": ".weather-history ul",
       "children": {}
     },
     ".weather-history li": {
@@ -1205,7 +1205,7 @@
         "line_end": 24,
         "branch_of": null
       },
-      "_code": ".weather-history li { background: #161b22; padding: 10px 12px; border-radius: 6px; border: 1px solid #30363d; margin-bottom: 4px; cursor: pointer; font-size: 13px; }",
+      "_code_ref": ".weather-history li",
       "children": {}
     },
     ".weather-history li:hover": {
@@ -1216,7 +1216,7 @@
         "line_end": 25,
         "branch_of": null
       },
-      "_code": ".weather-history li:hover { border-color: #58a6ff; }",
+      "_code_ref": ".weather-history li:hover",
       "children": {}
     },
     "footer": {
@@ -1227,7 +1227,7 @@
         "line_end": 26,
         "branch_of": null
       },
-      "_code": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+      "_code_ref": "footer",
       "children": {}
     },
     "name": {
@@ -1238,7 +1238,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"name\": \"Weather\"\n}",
+      "_code_ref": "name",
       "children": {}
     },
     "version": {
@@ -1249,7 +1249,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"version\": \"1.0.0\"\n}",
+      "_code_ref": "version",
       "children": {}
     },
     "description": {
@@ -1260,7 +1260,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"description\": \"Current weather for any city using Open-Meteo\"\n}",
+      "_code_ref": "description",
       "children": {}
     },
     "package": {
@@ -1271,7 +1271,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"package\": \"com.bardom.app.weather\"\n}",
+      "_code_ref": "package",
       "children": {}
     },
     "entry": {
@@ -1282,7 +1282,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"entry\": \"template.html\"\n}",
+      "_code_ref": "entry",
       "children": {}
     },
     "min_sdk": {
@@ -1293,7 +1293,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"min_sdk\": 24\n}",
+      "_code_ref": "min_sdk",
       "children": {}
     },
     "target_sdk": {
@@ -1304,7 +1304,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"target_sdk\": 34\n}",
+      "_code_ref": "target_sdk",
       "children": {}
     },
     "permissions": {
@@ -1315,7 +1315,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+      "_code_ref": "permissions",
       "children": {}
     },
     "OPEN_METEO_GEO": {
@@ -1326,7 +1326,7 @@
         "line_end": 15,
         "branch_of": null
       },
-      "_code": "OPEN_METEO_GEO = \"https://geocoding-api.open-meteo.com/v1/search\"",
+      "_code_ref": "OPEN_METEO_GEO",
       "children": {}
     },
     "OPEN_METEO_FORECAST": {
@@ -1337,7 +1337,7 @@
         "line_end": 16,
         "branch_of": null
       },
-      "_code": "OPEN_METEO_FORECAST = \"https://api.open-meteo.com/v1/forecast\"",
+      "_code_ref": "OPEN_METEO_FORECAST",
       "children": {}
     },
     "WeatherResult": {
@@ -1348,7 +1348,7 @@
         "line_end": 33,
         "branch_of": null
       },
-      "_code": "class WeatherResult:\n    city: str\n    country: str\n    temperature: float\n    windspeed: float\n    weather_code: int\n    description: str\n    error: str = \"\"\n\n    def to_dict(self) -> dict:\n        return self.__dict__\n\n\n# WMO weather code → human description",
+      "_code_ref": "WeatherResult",
       "children": {
         "to_dict": {
           "_meta": {
@@ -1358,7 +1358,7 @@
             "line_end": 33,
             "branch_of": "WeatherResult"
           },
-          "_code": "    def to_dict(self) -> dict:\n        return self.__dict__\n\n\n# WMO weather code → human description",
+          "_code_ref": "to_dict",
           "children": {}
         }
       }
@@ -1371,7 +1371,7 @@
         "line_end": 34,
         "branch_of": null
       },
-      "_code": "_WMO = {",
+      "_code_ref": "_WMO",
       "children": {}
     },
     "_geocode": {
@@ -1382,7 +1382,7 @@
         "line_end": 64,
         "branch_of": null
       },
-      "_code": "def _geocode(city: str) -> dict:\n    params = urllib.parse.urlencode({\"name\": city, \"count\": 1, \"language\": \"en\", \"format\": \"json\"})\n    url = f\"{OPEN_METEO_GEO}?{params}\"\n    with urllib.request.urlopen(url, timeout=15) as r:\n        data = json.loads(r.read())\n    if not data.get(\"results\"):\n        return {}\n    first = data[\"results\"][0]\n    return {\n        \"name\": first.get(\"name\", city),\n        \"country\": first.get(\"country\", \"\"),\n        \"latitude\": first.get(\"latitude\"),\n        \"longitude\": first.get(\"longitude\"),\n    }\n\n",
+      "_code_ref": "_geocode",
       "children": {}
     },
     "_fetch_weather": {
@@ -1393,7 +1393,7 @@
         "line_end": 75,
         "branch_of": null
       },
-      "_code": "def _fetch_weather(lat: float, lon: float) -> dict:\n    params = urllib.parse.urlencode({\n        \"latitude\": lat, \"longitude\": lon,\n        \"current\": \"temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m\",\n        \"timezone\": \"auto\",\n    })\n    url = f\"{OPEN_METEO_FORECAST}?{params}\"\n    with urllib.request.urlopen(url, timeout=15) as r:\n        return json.loads(r.read())\n\n",
+      "_code_ref": "_fetch_weather",
       "children": {}
     },
     "get_weather": {
@@ -1404,7 +1404,7 @@
         "line_end": 95,
         "branch_of": null
       },
-      "_code": "def get_weather(city: str) -> WeatherResult:\n    try:\n        geo = _geocode(city)\n        if not geo:\n            return WeatherResult(city, \"\", 0, 0, 0, \"\", error=f\"City not found: {city}\")\n        wx = _fetch_weather(geo[\"latitude\"], geo[\"longitude\"])\n        cur = wx.get(\"current\", {})\n        code = int(cur.get(\"weather_code\", 0))\n        return WeatherResult(\n            city=geo[\"name\"],\n            country=geo[\"country\"],\n            temperature=cur.get(\"temperature_2m\", 0),\n            windspeed=cur.get(\"wind_speed_10m\", 0),\n            weather_code=code,\n            description=_WMO.get(code, \"Unknown\"),\n        )\n    except Exception as e:\n        return WeatherResult(city, \"\", 0, 0, 0, \"\", error=str(e))\n\n",
+      "_code_ref": "get_weather",
       "children": {}
     },
     "searchForm": {
@@ -1415,7 +1415,7 @@
         "line_end": 16,
         "branch_of": null
       },
-      "_code": "    <form id=\"searchForm\">",
+      "_code_ref": "searchForm",
       "children": {}
     },
     "cityInput": {
@@ -1426,7 +1426,7 @@
         "line_end": 17,
         "branch_of": null
       },
-      "_code": "      <input type=\"text\" id=\"cityInput\" placeholder=\"Enter city name...\" autocomplete=\"off\">",
+      "_code_ref": "cityInput",
       "children": {}
     },
     "weatherCard": {
@@ -1437,7 +1437,7 @@
         "line_end": 20,
         "branch_of": null
       },
-      "_code": "    <div class=\"weather-card\" id=\"weatherCard\" hidden>",
+      "_code_ref": "weatherCard",
       "children": {}
     },
     "city": {
@@ -1448,7 +1448,7 @@
         "line_end": 21,
         "branch_of": null
       },
-      "_code": "      <div class=\"city\" id=\"city\"></div>",
+      "_code_ref": "city",
       "children": {}
     },
     "country": {
@@ -1459,7 +1459,7 @@
         "line_end": 22,
         "branch_of": null
       },
-      "_code": "      <div class=\"country\" id=\"country\"></div>",
+      "_code_ref": "country",
       "children": {}
     },
     "temp": {
@@ -1470,7 +1470,7 @@
         "line_end": 23,
         "branch_of": null
       },
-      "_code": "      <div class=\"temp\" id=\"temp\"></div>",
+      "_code_ref": "temp",
       "children": {}
     },
     "desc": {
@@ -1481,7 +1481,7 @@
         "line_end": 24,
         "branch_of": null
       },
-      "_code": "      <div class=\"desc\" id=\"desc\"></div>",
+      "_code_ref": "desc",
       "children": {}
     },
     "icon": {
@@ -1492,7 +1492,7 @@
         "line_end": 25,
         "branch_of": null
       },
-      "_code": "      <div class=\"icon\" id=\"icon\"></div>",
+      "_code_ref": "icon",
       "children": {}
     },
     "wind": {
@@ -1503,7 +1503,7 @@
         "line_end": 27,
         "branch_of": null
       },
-      "_code": "        <div><span>Wind</span><b id=\"wind\"></b></div>",
+      "_code_ref": "wind",
       "children": {}
     },
     "code": {
@@ -1514,7 +1514,7 @@
         "line_end": 28,
         "branch_of": null
       },
-      "_code": "        <div><span>Code</span><b id=\"code\"></b></div>",
+      "_code_ref": "code",
       "children": {}
     },
     "errorCard": {
@@ -1525,7 +1525,7 @@
         "line_end": 31,
         "branch_of": null
       },
-      "_code": "    <div class=\"weather-error\" id=\"errorCard\" hidden></div>",
+      "_code_ref": "errorCard",
       "children": {}
     },
     "recentList": {
@@ -1536,7 +1536,7 @@
         "line_end": 34,
         "branch_of": null
       },
-      "_code": "      <ul id=\"recentList\"></ul>",
+      "_code_ref": "recentList",
       "children": {}
     }
   }
