@@ -28,7 +28,7 @@ import android.graphics.Color;
 public class MainActivity extends Activity {
     private WebView webView;
     private static final String BACKEND_URL =
-        "https://bardomai.onrender.com";
+        "https://bardompro-apk-gen.onrender.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
