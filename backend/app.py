@@ -521,6 +521,50 @@ def package_zip():
 
 
 # --------------------------------------------------------------------------- #
+# Payload routes — for the main APK's offline-first download
+# --------------------------------------------------------------------------- #
+@app.route("/api/build-payload", methods=["POST"])
+def build_payload():
+    """Build payload.json + payload.manifest.json + payload.enc."""
+    try:
+        from engine.payload_builder import build_all
+        result = build_all()
+        return jsonify({"ok": True, **result})
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e)})
+
+
+@app.route("/api/payload/manifest")
+def payload_manifest():
+    """Return the payload manifest (version + sha + size)."""
+    from engine.payload_builder import write_payload_manifest
+    import json
+    path = write_payload_manifest()
+    return jsonify(json.loads(path.read_text(encoding="utf-8")))
+
+
+@app.route("/api/payload/download")
+def payload_download():
+    """Download the encrypted payload blob."""
+    from engine.payload_builder import write_encrypted_payload
+    path = write_encrypted_payload()
+    return send_file(path, as_attachment=True, download_name="payload.enc")
+
+
+@app.route("/api/payload/info")
+def payload_info():
+    """Return payload info (functions count, size, version)."""
+    from engine.payload_builder import build_payload_json
+    payload = build_payload_json()
+    return jsonify({
+        "version": payload["version"],
+        "functions_count": len(payload["functions"]),
+        "function_names": list(payload["functions"].keys()),
+        "has_engine_html": bool(payload.get("engine_html")),
+    })
+
+
+# --------------------------------------------------------------------------- #
 # Entry point
 # --------------------------------------------------------------------------- #
 if __name__ == "__main__":
