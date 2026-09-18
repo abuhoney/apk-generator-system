@@ -1,0 +1,107 @@
+name: Build BardomPro Main APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'main-apk/**'
+      - 'main-apk/app/build.gradle'
+      - 'main-apk/build.gradle'
+      - 'main-apk/settings.gradle'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools build-tools;34.0.0 platforms;android-34'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.5'
+
+      - name: Create secrets.properties
+        env:
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+          BOT_USERNAME: ${{ secrets.BOT_USERNAME }}
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+          BACKEND_SECRET: ${{ secrets.BACKEND_SECRET }}
+        run: |
+          cat > main-apk/secrets.properties <<EOF
+          FIREBASE_API_KEY=${FIREBASE_API_KEY}
+          FIREBASE_DATABASE_URL=${FIREBASE_DATABASE_URL}
+          NEW_GITHUB_REPO=abuhoney/apk-generator-system
+          GITHUB_TOKEN=${GITHUB_TOKEN}
+          BOT_TOKEN=${BOT_TOKEN}
+          TELEGRAM_ADMIN_CHAT_ID=${TELEGRAM_ADMIN_CHAT_ID}
+          BOT_USERNAME=${BOT_USERNAME}
+          BACKEND_URL=${BACKEND_URL}
+          BACKEND_SECRET=${BACKEND_SECRET}
+          EOF
+
+      - name: Generate Gradle Wrapper
+        run: |
+          cd main-apk
+          mkdir -p gradle/wrapper
+          cat > gradle/wrapper/gradle-wrapper.properties <<EOF
+          distributionBase=GRADLE_USER_HOME
+          distributionPath=wrapper/dists
+          distributionUrl=https\://services.gradle.org/distributions/gradle-8.5-bin.zip
+          zipStoreBase=GRADLE_USER_HOME
+          zipStorePath=wrapper/dists
+          EOF
+          curl -fsSL -o gradle/wrapper/gradle-wrapper.jar \
+            "https://raw.githubusercontent.com/gradle/gradle/v8.5.0/gradle/wrapper/gradle-wrapper.jar"
+          curl -fsSL -o gradlew "https://raw.githubusercontent.com/gradle/gradle/v8.5.0/gradlew"
+          chmod +x gradlew
+
+      - name: Build Release APK
+        working-directory: main-apk
+        run: ./gradlew assembleRelease --no-daemon --stacktrace
+
+      - name: Sign APK
+        run: |
+          APK="main-apk/app/build/outputs/apk/release/app-release.apk"
+          if [ ! -f "$APK" ]; then
+            echo "Build failed — APK not found"
+            exit 1
+          fi
+          cp "$APK" "BardomPro-v6.0.0.apk"
+          echo "✅ APK built: $(ls -la BardomPro-v6.0.0.apk)"
+
+      - name: Upload to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v6.0.0-${{ github.run_number }}
+          files: BardomPro-v6.0.0.apk
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Notify Telegram
+        if: success()
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${BOT_TOKEN}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{\"chat_id\":\"${TELEGRAM_ADMIN_CHAT_ID}\",\"text\":\"✅ Main APK built and released!\nSize: $(du -h BardomPro-v6.0.0.apk | cut -f1)\",\"parse_mode\":\"Markdown\"}" || true
