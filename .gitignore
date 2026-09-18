@@ -1,0 +1,36 @@
+# Build outputs
+_builds/
+_output/
+sdk_config/
+*.pyc
+__pycache__/
+*.pyo
+*.apk
+*.keystore
+*.jks
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Env / secrets
+.env.local
+.env.production
+*.secret
+
+# Python
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+
+# Node (if any)
+node_modules/
