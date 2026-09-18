@@ -623,6 +623,23 @@ def _sign_apk(apk_path: Path) -> bool:
 # --------------------------------------------------------------------------- #
 # Public API
 # --------------------------------------------------------------------------- #
+def _ensure_aapt2() -> bool:
+    """Ensure aapt2 exists and is executable."""
+    if not AAPT2.exists():
+        return False
+    # Make sure it's executable (GitHub strips the exec bit on some files)
+    try:
+        os.chmod(AAPT2, 0o755)
+    except Exception:
+        pass
+    # Test it
+    try:
+        r = subprocess.run([str(AAPT2), "version"], capture_output=True, timeout=10)
+        return r.returncode == 0
+    except Exception:
+        return False
+
+
 def build_apk(function_name: str,
               app_name: Optional[str] = None,
               package_name: Optional[str] = None,
@@ -672,6 +689,13 @@ def build_apk(function_name: str,
             function=function_name, apk_path=Path(), apk_size=0,
             build_mode="error", success=False,
             error="android.jar framework not available",
+            duration_sec=time.time() - t0,
+        )
+    if not _ensure_aapt2():
+        return BuildResult(
+            function=function_name, apk_path=Path(), apk_size=0,
+            build_mode="error", success=False,
+            error="aapt2 not available or not executable",
             duration_sec=time.time() - t0,
         )
 
