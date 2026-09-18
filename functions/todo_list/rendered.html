@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>todo_list — Todo List</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="todo-app">
+  <header>
+    <h1>Todo List</h1>
+    <p class="meta">Function: <code>todo_list</code> · v1.0.0</p>
+  </header>
+  <main>
+    <form class="add-form" id="addForm">
+      <input type="text" id="todoInput" placeholder="Add a new task..." autocomplete="off">
+      <button type="submit">Add</button>
+    </form>
+    <div class="todo-stats" id="stats"></div>
+    <ul class="todo-list" id="todoList"></ul>
+    <div class="todo-actions">
+      <button id="btnClearDone">Clear Done</button>
+      <button id="btnClearAll" class="danger">Clear All</button>
+    </div>
+  </main>
+  <footer><small>Built by BardomPro APK Generator</small></footer>
+</div>
+<script src="js/app.js"></script>
+</body>
+</html>
