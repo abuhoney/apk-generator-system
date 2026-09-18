@@ -20,14 +20,19 @@ from engine.strings_json_processor import write_strings_json
 from engine.template_renderer import render_to_file
 from engine.function_registry import get_registry, reload_registry
 
-# Prefer v2 builder (real installable APKs)
+# Prefer v3 builder (real installable APKs built from source with unique package/icon)
 try:
-    from engine.apk_builder_v2 import build_apk
-    _BUILDER = "v2"
+    from engine.apk_builder_v3 import build_apk
+    _BUILDER = "v3"
 except Exception as e:
-    from engine.apk_builder import build_apk
-    _BUILDER = "v1"
-    print(f"⚠ v2 builder unavailable ({e}); falling back to v1 webapk", file=sys.stderr)
+    try:
+        from engine.apk_builder_v2 import build_apk
+        _BUILDER = "v2"
+        print(f"⚠ v3 builder unavailable ({e}); using v2 shell-based", file=sys.stderr)
+    except Exception as e2:
+        from engine.apk_builder import build_apk
+        _BUILDER = "v1"
+        print(f"⚠ v3/v2 unavailable; using v1 webapk", file=sys.stderr)
 
 
 def main() -> int:
