@@ -1,0 +1,16 @@
+{
+  "name": "bardompro-render-backend",
+  "version": "6.0.0",
+  "description": "Node.js Express backend for BardomPro APK build triggers",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
