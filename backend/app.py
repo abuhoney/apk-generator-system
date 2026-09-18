@@ -379,15 +379,27 @@ def build_apk_route():
     if fm.has_template:
         render_to_file(fm.path)
 
-    res = _do_build_apk(
-        name,
-        app_name=data.get("app_name"),
-        package_name=data.get("package_name"),
-        version_code=int(data.get("version_code", 1)),
-        version_name=data.get("version_name", "1.0.0"),
-        force_webapk=data.get("force_webapk", False),
-    )
-    return jsonify(res.to_dict())
+    try:
+        res = _do_build_apk(
+            name,
+            app_name=data.get("app_name"),
+            package_name=data.get("package_name"),
+            version_code=int(data.get("version_code", 1)),
+            version_name=data.get("version_name", "1.0.0"),
+            force_webapk=data.get("force_webapk", False),
+        )
+        return jsonify(res.to_dict())
+    except Exception as e:
+        import traceback
+        return jsonify({
+            "function": name,
+            "apk_path": "",
+            "apk_size": 0,
+            "build_mode": "error",
+            "success": False,
+            "error": str(e),
+            "traceback": traceback.format_exc(),
+        }), 200
 
 
 @app.route("/api/apks")
