@@ -17,6 +17,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {"__pycache__", ".git", "node_modules", ".venv", "venv",
              "_builds", "_output", ".idea", ".gradle", "build",
              "self_test_output", "sdk_config"}
+# Skip large binary tools (they're downloaded on demand by the builder)
+SKIP_LARGE_PATHS = {"android/tools", "android/shell.apk", "android/debug.keystore"}
 SKIP_FILES = {".DS_Store", "Thumbs.db"}
 
 
@@ -36,7 +38,12 @@ def build_zip(project_root: Path, out_path: Path) -> Path:
                 if fn in SKIP_FILES:
                     continue
                 full = Path(dirpath) / fn
-                arc = Path(top) / full.relative_to(project_root)
+                # Skip large binary tools (downloaded on demand)
+                rel = full.relative_to(project_root)
+                rel_posix = rel.as_posix()
+                if any(rel_posix.startswith(p) for p in SKIP_LARGE_PATHS):
+                    continue
+                arc = Path(top) / rel
                 zf.write(full, arc.as_posix())
                 count += 1
                 total_size += full.stat().st_size
