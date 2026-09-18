@@ -1,0 +1,23 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }
+.todo-app { max-width: 540px; margin: 0 auto; }
+header h1 { color: #58a6ff; font-size: 22px; }
+header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }
+header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }
+.add-form { display: flex; gap: 8px; margin: 16px 0; }
+.add-form input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }
+.add-form button { background: #238636; color: #fff; border: none; padding: 0 20px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+.todo-stats { color: #8b949e; font-size: 12px; margin-bottom: 8px; }
+.todo-list { list-style: none; }
+.todo-list li { display: flex; align-items: center; gap: 10px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; }
+.todo-list li.done { opacity: 0.5; }
+.todo-list li.done .text { text-decoration: line-through; }
+.todo-list input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
+.todo-list .text { flex: 1; color: #e6edf3; font-size: 14px; }
+.todo-list .date { color: #6e7681; font-size: 10px; }
+.todo-list .del { background: transparent; color: #f85149; border: none; cursor: pointer; padding: 4px 8px; font-size: 16px; }
+.todo-actions { display: flex; gap: 8px; margin-top: 16px; }
+.todo-actions button { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 12px; }
+.todo-actions .danger { color: #f85149; }
+footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }
+.empty { color: #6e7681; text-align: center; padding: 40px; font-size: 13px; }
