@@ -38,7 +38,7 @@ jobs:
         env:
           FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
           FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
           TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
           BOT_USERNAME: ${{ secrets.BOT_USERNAME }}
@@ -49,13 +49,34 @@ jobs:
           FIREBASE_API_KEY=${FIREBASE_API_KEY}
           FIREBASE_DATABASE_URL=${FIREBASE_DATABASE_URL}
           NEW_GITHUB_REPO=abuhoney/apk-generator-system
-          GITHUB_TOKEN=${GITHUB_TOKEN}
+          GITHUB_TOKEN=${GH_PAT}
           BOT_TOKEN=${BOT_TOKEN}
           TELEGRAM_ADMIN_CHAT_ID=${TELEGRAM_ADMIN_CHAT_ID}
           BOT_USERNAME=${BOT_USERNAME}
           BACKEND_URL=${BACKEND_URL}
           BACKEND_SECRET=${BACKEND_SECRET}
           EOF
+
+      - name: Generate debug keystore for CI signing
+        run: |
+          cd main-apk
+          if [ ! -f debug.keystore ]; then
+            keytool -genkeypair -v \
+              -keystore debug.keystore \
+              -alias bardom-debug \
+              -keypass bardom123 \
+              -storepass bardom123 \
+              -keyalg RSA -keysize 2048 \
+              -validity 10000 \
+              -dname "CN=BardomPro, OU=Mobile Apps, O=BardomPro, L=Riyadh, ST=Riyadh, C=SA"
+          fi
+          cat > keystore.properties <<EOF
+          storeFile=debug.keystore
+          storePassword=bardom123
+          keyAlias=bardom-debug
+          keyPassword=bardom123
+          EOF
+          echo "Keystore created"
 
       - name: Generate Gradle Wrapper
         run: |
