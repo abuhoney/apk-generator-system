@@ -1,0 +1,1179 @@
+{
+  "function": "qr_generator",
+  "version": "1.0.0",
+  "generated_at": "2026-09-18T01:25:17Z",
+  "summary": {
+    "files": 5,
+    "ids": 40,
+    "languages": [
+      "css",
+      "html",
+      "javascript",
+      "json",
+      "python"
+    ]
+  },
+  "files": [
+    {
+      "path": "css/style.css",
+      "language": "css",
+      "lines": 21,
+      "ids": [
+        {
+          "id": "body",
+          "kind": "css_rule",
+          "line_start": 2,
+          "line_end": 2,
+          "code": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-app",
+          "kind": "css_rule",
+          "line_start": 3,
+          "line_end": 3,
+          "code": ".qr-app { max-width: 540px; margin: 0 auto; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "header h1",
+          "kind": "css_rule",
+          "line_start": 4,
+          "line_end": 4,
+          "code": "header h1 { color: #58a6ff; font-size: 22px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "header .meta",
+          "kind": "css_rule",
+          "line_start": 5,
+          "line_end": 5,
+          "code": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "header .meta code",
+          "kind": "css_rule",
+          "line_start": 6,
+          "line_end": 6,
+          "code": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "textarea",
+          "kind": "css_rule",
+          "line_start": 7,
+          "line_end": 7,
+          "code": "textarea { width: 100%; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; font-family: inherit; resize: vertical; margin: 12px 0; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-controls",
+          "kind": "css_rule",
+          "line_start": 8,
+          "line_end": 8,
+          "code": ".qr-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; color: #8b949e; font-size: 12px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-actions",
+          "kind": "css_rule",
+          "line_start": 10,
+          "line_end": 10,
+          "code": ".qr-actions { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-actions button",
+          "kind": "css_rule",
+          "line_start": 11,
+          "line_end": 11,
+          "code": ".qr-actions button { background: #238636; color: #fff; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-actions .alt",
+          "kind": "css_rule",
+          "line_start": 12,
+          "line_end": 12,
+          "code": ".qr-actions .alt { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-preview",
+          "kind": "css_rule",
+          "line_start": 13,
+          "line_end": 13,
+          "code": ".qr-preview { background: #fff; border-radius: 8px; padding: 24px; min-height: 280px; display: flex; align-items: center; justify-content: center; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-preview img",
+          "kind": "css_rule",
+          "line_start": 14,
+          "line_end": 14,
+          "code": ".qr-preview img { max-width: 100%; height: auto; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-empty",
+          "kind": "css_rule",
+          "line_start": 15,
+          "line_end": 15,
+          "code": ".qr-empty { color: #8b949e; font-size: 13px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-history",
+          "kind": "css_rule",
+          "line_start": 16,
+          "line_end": 16,
+          "code": ".qr-history { margin-top: 16px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-history h3",
+          "kind": "css_rule",
+          "line_start": 17,
+          "line_end": 17,
+          "code": ".qr-history h3 { color: #58a6ff; font-size: 14px; margin-bottom: 8px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-history ul",
+          "kind": "css_rule",
+          "line_start": 18,
+          "line_end": 18,
+          "code": ".qr-history ul { list-style: none; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-history li",
+          "kind": "css_rule",
+          "line_start": 19,
+          "line_end": 19,
+          "code": ".qr-history li { background: #161b22; padding: 8px 12px; border-radius: 6px; border: 1px solid #30363d; margin-bottom: 4px; font-size: 12px; color: #8b949e; cursor: pointer; font-family: ui-monospace, monospace; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".qr-history li:hover",
+          "kind": "css_rule",
+          "line_start": 20,
+          "line_end": 20,
+          "code": ".qr-history li:hover { border-color: #58a6ff; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "footer",
+          "kind": "css_rule",
+          "line_start": 21,
+          "line_end": 21,
+          "code": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "function.json",
+      "language": "json",
+      "lines": 10,
+      "ids": [
+        {
+          "id": "name",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"name\": \"QR Generator\"\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "version",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"version\": \"1.0.0\"\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "description",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"description\": \"Generate QR codes from any text or URL\"\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "package",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"package\": \"com.bardom.app.qrgenerator\"\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "entry",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"entry\": \"template.html\"\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "min_sdk",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"min_sdk\": 24\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "target_sdk",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"target_sdk\": 34\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "permissions",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "handler.py",
+      "language": "python",
+      "lines": 53,
+      "ids": [
+        {
+          "id": "QRResult",
+          "kind": "class",
+          "line_start": 16,
+          "line_end": 24,
+          "code": "class QRResult:\n    text: str\n    svg: str\n    size: int\n\n    def to_dict(self) -> dict:\n        return {\"text\": self.text, \"svg\": self.svg, \"size\": self.size}\n\n",
+          "file": "handler.py",
+          "branch_of": null,
+          "children": [
+            "to_dict"
+          ]
+        },
+        {
+          "id": "to_dict",
+          "kind": "function",
+          "line_start": 21,
+          "line_end": 24,
+          "code": "    def to_dict(self) -> dict:\n        return {\"text\": self.text, \"svg\": self.svg, \"size\": self.size}\n\n",
+          "file": "handler.py",
+          "branch_of": "QRResult",
+          "children": []
+        },
+        {
+          "id": "_qr_svg_via_api",
+          "kind": "function",
+          "line_start": 25,
+          "line_end": 34,
+          "code": "def _qr_svg_via_api(text: str, size: int = 256) -> str:\n    \"\"\"Use the public QuickChart API to render a QR as SVG.\n    This works offline-bundled by the WebView; if the API is unreachable\n    the front-end falls back to its own encoder.\"\"\"\n    enc = urllib.parse.quote(text, safe=\"\")\n    return f'<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{size}\" height=\"{size}\" viewBox=\"0 0 {size} {size}\">' \\\n           f'<image href=\"https://quickchart.io/qr?text={enc}&size={size}\" width=\"{size}\" height=\"{size}\"/>' \\\n           f'</svg>'\n\n",
+          "file": "handler.py",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "generate_qr",
+          "kind": "function",
+          "line_start": 35,
+          "line_end": 41,
+          "code": "def generate_qr(text: str, size: int = 256) -> QRResult:\n    if not text:\n        text = \" \"\n    svg = _qr_svg_via_api(text, size)\n    return QRResult(text=text, svg=svg, size=size)\n\n",
+          "file": "handler.py",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "generate_qr_data_url",
+          "kind": "function",
+          "line_start": 42,
+          "line_end": 48,
+          "code": "def generate_qr_data_url(text: str, size: int = 256) -> str:\n    \"\"\"Return a data: URL the front-end can drop straight into <img src>.\"\"\"\n    res = generate_qr(text, size)\n    b64 = base64.b64encode(res.svg.encode(\"utf-8\")).decode(\"ascii\")\n    return f\"data:image/svg+xml;base64,{b64}\"\n\n",
+          "file": "handler.py",
+          "branch_of": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "js/app.js",
+      "language": "javascript",
+      "lines": 64,
+      "ids": []
+    },
+    {
+      "path": "template.html",
+      "language": "html",
+      "lines": 38,
+      "ids": [
+        {
+          "id": "qrInput",
+          "kind": "view_id",
+          "line_start": 16,
+          "line_end": 16,
+          "code": "    <textarea id=\"qrInput\" placeholder=\"Enter text or URL to encode...\" rows=\"3\"></textarea>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "qrSize",
+          "kind": "view_id",
+          "line_start": 18,
+          "line_end": 18,
+          "code": "      <label>Size: <input type=\"range\" id=\"qrSize\" min=\"128\" max=\"512\" step=\"32\" value=\"256\"></label>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "sizeLabel",
+          "kind": "view_id",
+          "line_start": 19,
+          "line_end": 19,
+          "code": "      <span id=\"sizeLabel\">256 px</span>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "btnGenerate",
+          "kind": "view_id",
+          "line_start": 22,
+          "line_end": 22,
+          "code": "      <button id=\"btnGenerate\">Generate QR</button>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "btnDownload",
+          "kind": "view_id",
+          "line_start": 23,
+          "line_end": 23,
+          "code": "      <button id=\"btnDownload\" class=\"alt\">Download PNG</button>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "btnCopy",
+          "kind": "view_id",
+          "line_start": 24,
+          "line_end": 24,
+          "code": "      <button id=\"btnCopy\" class=\"alt\">Copy Image</button>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "qrPreview",
+          "kind": "view_id",
+          "line_start": 26,
+          "line_end": 26,
+          "code": "    <div class=\"qr-preview\" id=\"qrPreview\">",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "qrHistory",
+          "kind": "view_id",
+          "line_start": 31,
+          "line_end": 31,
+          "code": "      <ul id=\"qrHistory\"></ul>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        }
+      ]
+    }
+  ],
+  "ids_index": {
+    "body": {
+      "file": "css/style.css",
+      "line_start": 2,
+      "line_end": 2,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-app": {
+      "file": "css/style.css",
+      "line_start": 3,
+      "line_end": 3,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "header h1": {
+      "file": "css/style.css",
+      "line_start": 4,
+      "line_end": 4,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "header .meta": {
+      "file": "css/style.css",
+      "line_start": 5,
+      "line_end": 5,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "header .meta code": {
+      "file": "css/style.css",
+      "line_start": 6,
+      "line_end": 6,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "textarea": {
+      "file": "css/style.css",
+      "line_start": 7,
+      "line_end": 7,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-controls": {
+      "file": "css/style.css",
+      "line_start": 8,
+      "line_end": 8,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-actions": {
+      "file": "css/style.css",
+      "line_start": 10,
+      "line_end": 10,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-actions button": {
+      "file": "css/style.css",
+      "line_start": 11,
+      "line_end": 11,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-actions .alt": {
+      "file": "css/style.css",
+      "line_start": 12,
+      "line_end": 12,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-preview": {
+      "file": "css/style.css",
+      "line_start": 13,
+      "line_end": 13,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-preview img": {
+      "file": "css/style.css",
+      "line_start": 14,
+      "line_end": 14,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-empty": {
+      "file": "css/style.css",
+      "line_start": 15,
+      "line_end": 15,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-history": {
+      "file": "css/style.css",
+      "line_start": 16,
+      "line_end": 16,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-history h3": {
+      "file": "css/style.css",
+      "line_start": 17,
+      "line_end": 17,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-history ul": {
+      "file": "css/style.css",
+      "line_start": 18,
+      "line_end": 18,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-history li": {
+      "file": "css/style.css",
+      "line_start": 19,
+      "line_end": 19,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".qr-history li:hover": {
+      "file": "css/style.css",
+      "line_start": 20,
+      "line_end": 20,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "footer": {
+      "file": "css/style.css",
+      "line_start": 21,
+      "line_end": 21,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "name": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "version": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "description": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "package": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "entry": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "min_sdk": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "target_sdk": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "permissions": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "QRResult": {
+      "file": "handler.py",
+      "line_start": 16,
+      "line_end": 24,
+      "kind": "class",
+      "branch_of": null
+    },
+    "to_dict": {
+      "file": "handler.py",
+      "line_start": 21,
+      "line_end": 24,
+      "kind": "function",
+      "branch_of": "QRResult"
+    },
+    "_qr_svg_via_api": {
+      "file": "handler.py",
+      "line_start": 25,
+      "line_end": 34,
+      "kind": "function",
+      "branch_of": null
+    },
+    "generate_qr": {
+      "file": "handler.py",
+      "line_start": 35,
+      "line_end": 41,
+      "kind": "function",
+      "branch_of": null
+    },
+    "generate_qr_data_url": {
+      "file": "handler.py",
+      "line_start": 42,
+      "line_end": 48,
+      "kind": "function",
+      "branch_of": null
+    },
+    "qrInput": {
+      "file": "template.html",
+      "line_start": 16,
+      "line_end": 16,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "qrSize": {
+      "file": "template.html",
+      "line_start": 18,
+      "line_end": 18,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "sizeLabel": {
+      "file": "template.html",
+      "line_start": 19,
+      "line_end": 19,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "btnGenerate": {
+      "file": "template.html",
+      "line_start": 22,
+      "line_end": 22,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "btnDownload": {
+      "file": "template.html",
+      "line_start": 23,
+      "line_end": 23,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "btnCopy": {
+      "file": "template.html",
+      "line_start": 24,
+      "line_end": 24,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "qrPreview": {
+      "file": "template.html",
+      "line_start": 26,
+      "line_end": 26,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "qrHistory": {
+      "file": "template.html",
+      "line_start": 31,
+      "line_end": 31,
+      "kind": "view_id",
+      "branch_of": null
+    }
+  },
+  "tree": {
+    "body": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 2,
+        "line_end": 2,
+        "branch_of": null
+      },
+      "_code": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+      "children": {}
+    },
+    ".qr-app": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 3,
+        "line_end": 3,
+        "branch_of": null
+      },
+      "_code": ".qr-app { max-width: 540px; margin: 0 auto; }",
+      "children": {}
+    },
+    "header h1": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 4,
+        "line_end": 4,
+        "branch_of": null
+      },
+      "_code": "header h1 { color: #58a6ff; font-size: 22px; }",
+      "children": {}
+    },
+    "header .meta": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 5,
+        "line_end": 5,
+        "branch_of": null
+      },
+      "_code": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+      "children": {}
+    },
+    "header .meta code": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 6,
+        "line_end": 6,
+        "branch_of": null
+      },
+      "_code": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+      "children": {}
+    },
+    "textarea": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 7,
+        "line_end": 7,
+        "branch_of": null
+      },
+      "_code": "textarea { width: 100%; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; font-family: inherit; resize: vertical; margin: 12px 0; }",
+      "children": {}
+    },
+    ".qr-controls": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 8,
+        "line_end": 8,
+        "branch_of": null
+      },
+      "_code": ".qr-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; color: #8b949e; font-size: 12px; }",
+      "children": {}
+    },
+    ".qr-actions": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 10,
+        "line_end": 10,
+        "branch_of": null
+      },
+      "_code": ".qr-actions { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }",
+      "children": {}
+    },
+    ".qr-actions button": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 11,
+        "line_end": 11,
+        "branch_of": null
+      },
+      "_code": ".qr-actions button { background: #238636; color: #fff; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+      "children": {}
+    },
+    ".qr-actions .alt": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 12,
+        "line_end": 12,
+        "branch_of": null
+      },
+      "_code": ".qr-actions .alt { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; }",
+      "children": {}
+    },
+    ".qr-preview": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 13,
+        "line_end": 13,
+        "branch_of": null
+      },
+      "_code": ".qr-preview { background: #fff; border-radius: 8px; padding: 24px; min-height: 280px; display: flex; align-items: center; justify-content: center; }",
+      "children": {}
+    },
+    ".qr-preview img": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 14,
+        "line_end": 14,
+        "branch_of": null
+      },
+      "_code": ".qr-preview img { max-width: 100%; height: auto; }",
+      "children": {}
+    },
+    ".qr-empty": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 15,
+        "line_end": 15,
+        "branch_of": null
+      },
+      "_code": ".qr-empty { color: #8b949e; font-size: 13px; }",
+      "children": {}
+    },
+    ".qr-history": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 16,
+        "line_end": 16,
+        "branch_of": null
+      },
+      "_code": ".qr-history { margin-top: 16px; }",
+      "children": {}
+    },
+    ".qr-history h3": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 17,
+        "line_end": 17,
+        "branch_of": null
+      },
+      "_code": ".qr-history h3 { color: #58a6ff; font-size: 14px; margin-bottom: 8px; }",
+      "children": {}
+    },
+    ".qr-history ul": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 18,
+        "line_end": 18,
+        "branch_of": null
+      },
+      "_code": ".qr-history ul { list-style: none; }",
+      "children": {}
+    },
+    ".qr-history li": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 19,
+        "line_end": 19,
+        "branch_of": null
+      },
+      "_code": ".qr-history li { background: #161b22; padding: 8px 12px; border-radius: 6px; border: 1px solid #30363d; margin-bottom: 4px; font-size: 12px; color: #8b949e; cursor: pointer; font-family: ui-monospace, monospace; }",
+      "children": {}
+    },
+    ".qr-history li:hover": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 20,
+        "line_end": 20,
+        "branch_of": null
+      },
+      "_code": ".qr-history li:hover { border-color: #58a6ff; }",
+      "children": {}
+    },
+    "footer": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 21,
+        "line_end": 21,
+        "branch_of": null
+      },
+      "_code": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+      "children": {}
+    },
+    "name": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"name\": \"QR Generator\"\n}",
+      "children": {}
+    },
+    "version": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"version\": \"1.0.0\"\n}",
+      "children": {}
+    },
+    "description": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"description\": \"Generate QR codes from any text or URL\"\n}",
+      "children": {}
+    },
+    "package": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"package\": \"com.bardom.app.qrgenerator\"\n}",
+      "children": {}
+    },
+    "entry": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"entry\": \"template.html\"\n}",
+      "children": {}
+    },
+    "min_sdk": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"min_sdk\": 24\n}",
+      "children": {}
+    },
+    "target_sdk": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"target_sdk\": 34\n}",
+      "children": {}
+    },
+    "permissions": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+      "children": {}
+    },
+    "QRResult": {
+      "_meta": {
+        "kind": "class",
+        "file": "handler.py",
+        "line_start": 16,
+        "line_end": 24,
+        "branch_of": null
+      },
+      "_code": "class QRResult:\n    text: str\n    svg: str\n    size: int\n\n    def to_dict(self) -> dict:\n        return {\"text\": self.text, \"svg\": self.svg, \"size\": self.size}\n\n",
+      "children": {
+        "to_dict": {
+          "_meta": {
+            "kind": "function",
+            "file": "handler.py",
+            "line_start": 21,
+            "line_end": 24,
+            "branch_of": "QRResult"
+          },
+          "_code": "    def to_dict(self) -> dict:\n        return {\"text\": self.text, \"svg\": self.svg, \"size\": self.size}\n\n",
+          "children": {}
+        }
+      }
+    },
+    "_qr_svg_via_api": {
+      "_meta": {
+        "kind": "function",
+        "file": "handler.py",
+        "line_start": 25,
+        "line_end": 34,
+        "branch_of": null
+      },
+      "_code": "def _qr_svg_via_api(text: str, size: int = 256) -> str:\n    \"\"\"Use the public QuickChart API to render a QR as SVG.\n    This works offline-bundled by the WebView; if the API is unreachable\n    the front-end falls back to its own encoder.\"\"\"\n    enc = urllib.parse.quote(text, safe=\"\")\n    return f'<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"{size}\" height=\"{size}\" viewBox=\"0 0 {size} {size}\">' \\\n           f'<image href=\"https://quickchart.io/qr?text={enc}&size={size}\" width=\"{size}\" height=\"{size}\"/>' \\\n           f'</svg>'\n\n",
+      "children": {}
+    },
+    "generate_qr": {
+      "_meta": {
+        "kind": "function",
+        "file": "handler.py",
+        "line_start": 35,
+        "line_end": 41,
+        "branch_of": null
+      },
+      "_code": "def generate_qr(text: str, size: int = 256) -> QRResult:\n    if not text:\n        text = \" \"\n    svg = _qr_svg_via_api(text, size)\n    return QRResult(text=text, svg=svg, size=size)\n\n",
+      "children": {}
+    },
+    "generate_qr_data_url": {
+      "_meta": {
+        "kind": "function",
+        "file": "handler.py",
+        "line_start": 42,
+        "line_end": 48,
+        "branch_of": null
+      },
+      "_code": "def generate_qr_data_url(text: str, size: int = 256) -> str:\n    \"\"\"Return a data: URL the front-end can drop straight into <img src>.\"\"\"\n    res = generate_qr(text, size)\n    b64 = base64.b64encode(res.svg.encode(\"utf-8\")).decode(\"ascii\")\n    return f\"data:image/svg+xml;base64,{b64}\"\n\n",
+      "children": {}
+    },
+    "qrInput": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 16,
+        "line_end": 16,
+        "branch_of": null
+      },
+      "_code": "    <textarea id=\"qrInput\" placeholder=\"Enter text or URL to encode...\" rows=\"3\"></textarea>",
+      "children": {}
+    },
+    "qrSize": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 18,
+        "line_end": 18,
+        "branch_of": null
+      },
+      "_code": "      <label>Size: <input type=\"range\" id=\"qrSize\" min=\"128\" max=\"512\" step=\"32\" value=\"256\"></label>",
+      "children": {}
+    },
+    "sizeLabel": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 19,
+        "line_end": 19,
+        "branch_of": null
+      },
+      "_code": "      <span id=\"sizeLabel\">256 px</span>",
+      "children": {}
+    },
+    "btnGenerate": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 22,
+        "line_end": 22,
+        "branch_of": null
+      },
+      "_code": "      <button id=\"btnGenerate\">Generate QR</button>",
+      "children": {}
+    },
+    "btnDownload": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 23,
+        "line_end": 23,
+        "branch_of": null
+      },
+      "_code": "      <button id=\"btnDownload\" class=\"alt\">Download PNG</button>",
+      "children": {}
+    },
+    "btnCopy": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 24,
+        "line_end": 24,
+        "branch_of": null
+      },
+      "_code": "      <button id=\"btnCopy\" class=\"alt\">Copy Image</button>",
+      "children": {}
+    },
+    "qrPreview": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 26,
+        "line_end": 26,
+        "branch_of": null
+      },
+      "_code": "    <div class=\"qr-preview\" id=\"qrPreview\">",
+      "children": {}
+    },
+    "qrHistory": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 31,
+        "line_end": 31,
+        "branch_of": null
+      },
+      "_code": "      <ul id=\"qrHistory\"></ul>",
+      "children": {}
+    }
+  }
+}
