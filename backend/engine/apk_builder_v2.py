@@ -202,27 +202,78 @@ def _ensure_keystore() -> None:
     subprocess.run(cmd, check=True, capture_output=True)
 
 
+# Cache for downloaded JRE
+_JRE_DIR: Optional[Path] = None
+
+
 def _ensure_java_available() -> bool:
-    """Check if Java is available; if not, try to install it (Linux only)."""
-    # Check if java already works
+    """Check if Java is available; if not, try to install it.
+
+    Tries in order:
+      1. System `java` (already installed)
+      2. apt-get install (works if running as root)
+      3. Download a portable OpenJDK JRE to /tmp
+    """
+    global _JRE_DIR
+
+    # 1. Already available?
     try:
         r = subprocess.run(["java", "-version"], capture_output=True, timeout=10)
         if r.returncode == 0:
             return True
     except Exception:
         pass
-    # Try installing via apt-get (works on Render free tier)
+
+    # 2. apt-get (only if we have sudo/root)
     try:
-        subprocess.run(["apt-get", "update", "-y"],
-                        capture_output=True, timeout=60)
-        subprocess.run(
-            ["apt-get", "install", "-y", "--no-install-recommends",
-             "default-jre-headless"],
-            capture_output=True, timeout=180)
-        r = subprocess.run(["java", "-version"], capture_output=True, timeout=10)
-        return r.returncode == 0
+        r = subprocess.run(["apt-get", "update", "-y"],
+                            capture_output=True, timeout=60)
+        if r.returncode == 0:
+            r = subprocess.run(
+                ["apt-get", "install", "-y", "--no-install-recommends",
+                 "default-jre-headless"],
+                capture_output=True, timeout=180)
+            if r.returncode == 0:
+                r = subprocess.run(["java", "-version"],
+                                   capture_output=True, timeout=10)
+                if r.returncode == 0:
+                    return True
     except Exception:
+        pass
+
+    # 3. Download a portable OpenJDK JRE
+    if _JRE_DIR and (_JRE_DIR / "bin" / "java").exists():
+        os.environ["PATH"] = str(_JRE_DIR / "bin") + os.pathsep + os.environ.get("PATH", "")
+        return True
+
+    import urllib.request
+    import tarfile
+    jre_base = Path("/tmp") / "bardom-jre"
+    jre_base.mkdir(parents=True, exist_ok=True)
+    # Temurin JRE 21 (linux x64) — small, no installer needed
+    jre_url = "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.5%2B11/OpenJDK21U-jre_x64_linux_hotspot_21.0.5_11.tar.gz"
+    jre_tar = jre_base / "jre.tar.gz"
+    try:
+        if not jre_tar.exists():
+            print(f"Downloading portable JRE from {jre_url}...", flush=True)
+            urllib.request.urlretrieve(jre_url, jre_tar)
+        # Extract
+        with tarfile.open(jre_tar, "r:gz") as tf:
+            tf.extractall(jre_base)
+        # Find the extracted dir
+        for d in jre_base.iterdir():
+            if d.is_dir() and (d / "bin" / "java").exists():
+                _JRE_DIR = d
+                break
+        if _JRE_DIR:
+            os.environ["PATH"] = str(_JRE_DIR / "bin") + os.pathsep + os.environ.get("PATH", "")
+            r = subprocess.run(["java", "-version"],
+                               capture_output=True, timeout=10)
+            return r.returncode == 0
+    except Exception as e:
+        print(f"JRE download failed: {e}", flush=True)
         return False
+    return False
 
 
 def _sign_apk(apk_path: Path) -> bool:
