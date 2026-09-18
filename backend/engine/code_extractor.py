@@ -558,11 +558,16 @@ def extract_file(path: Path, root: Path) -> Optional[FileExtraction]:
 SKIP_DIRS = {"__pycache__", ".git", "node_modules", ".venv", "venv",
              "build", ".gradle", ".idea", "_builds", "_output", "self_test_output"}
 
+# Generated / derived files — skip these to avoid recursive bloat
+SKIP_FILES = {"config.json", "strings.json", "rendered.html"}
+
 
 def iter_source_files(root: Path) -> Iterator[Path]:
     for dirpath, dirnames, filenames in os.walk(root):
         dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS and not d.startswith(".")]
         for fn in filenames:
+            if fn in SKIP_FILES:
+                continue
             p = Path(dirpath) / fn
             if p.suffix.lower() in _BINARY_EXT:
                 continue
