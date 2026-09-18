@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>notes — Notes</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="notes-app">
+  <header class="notes-header">
+    <h1>Notes</h1>
+    <button class="btn-new" id="btnNew">+ New Note</button>
+  </header>
+
+  <div class="notes-search">
+    <input type="text" id="searchInput" placeholder="Search notes...">
+  </div>
+
+  <main class="notes-list" id="notesList"></main>
+
+  <section class="notes-editor" id="editor" hidden>
+    <div class="editor-bar">
+      <input type="text" id="noteTitle" placeholder="Note title">
+      <button class="btn-save" id="btnSave">Save</button>
+      <button class="btn-delete" id="btnDelete">Delete</button>
+      <button class="btn-close" id="btnClose">×</button>
+    </div>
+    <textarea id="noteBody" placeholder="Write your note here..."></textarea>
+  </section>
+
+  <footer class="notes-footer">
+    <small>Built by BardomPro APK Generator · v1.0.0</small>
+  </footer>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
