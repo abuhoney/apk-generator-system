@@ -44,7 +44,7 @@ class BuildResult:
     def to_dict(self) -> dict:
         return {
             "function": self.function,
-            "apk_path": str(self.apk_path),
+            "apk_path": str(self.apk_path) if self.apk_path else "",
             "apk_size": self.apk_size,
             "build_mode": self.build_mode,
             "success": self.success,
