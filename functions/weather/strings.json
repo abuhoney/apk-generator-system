@@ -1,0 +1,8595 @@
+{
+  "function": "weather",
+  "version": "1.0.0",
+  "generated_at": "2026-09-18T01:25:17Z",
+  "summary": {
+    "files": 6,
+    "total_strings": 689,
+    "ids_with_strings": 500
+  },
+  "global_strings": [
+    {
+      "text": "Segoe UI",
+      "file": "css/style.css",
+      "line": 2
+    },
+    {
+      "text": "https://geocoding-api.open-meteo.com/v1/search",
+      "file": "handler.py",
+      "line": 15
+    },
+    {
+      "text": "https://api.open-meteo.com/v1/forecast",
+      "file": "handler.py",
+      "line": 16
+    },
+    {
+      "text": "Clear sky",
+      "file": "handler.py",
+      "line": 35
+    },
+    {
+      "text": "Mainly clear",
+      "file": "handler.py",
+      "line": 35
+    },
+    {
+      "text": "Partly cloudy",
+      "file": "handler.py",
+      "line": 35
+    },
+    {
+      "text": "Overcast",
+      "file": "handler.py",
+      "line": 35
+    },
+    {
+      "text": "Fog",
+      "file": "handler.py",
+      "line": 36
+    },
+    {
+      "text": "Depositing rime fog",
+      "file": "handler.py",
+      "line": 36
+    },
+    {
+      "text": "Light drizzle",
+      "file": "handler.py",
+      "line": 37
+    },
+    {
+      "text": "Moderate drizzle",
+      "file": "handler.py",
+      "line": 37
+    },
+    {
+      "text": "Dense drizzle",
+      "file": "handler.py",
+      "line": 37
+    },
+    {
+      "text": "Light freezing drizzle",
+      "file": "handler.py",
+      "line": 38
+    },
+    {
+      "text": "Dense freezing drizzle",
+      "file": "handler.py",
+      "line": 38
+    },
+    {
+      "text": "Slight rain",
+      "file": "handler.py",
+      "line": 39
+    },
+    {
+      "text": "Moderate rain",
+      "file": "handler.py",
+      "line": 39
+    },
+    {
+      "text": "Heavy rain",
+      "file": "handler.py",
+      "line": 39
+    },
+    {
+      "text": "Light freezing rain",
+      "file": "handler.py",
+      "line": 40
+    },
+    {
+      "text": "Heavy freezing rain",
+      "file": "handler.py",
+      "line": 40
+    },
+    {
+      "text": "Slight snow fall",
+      "file": "handler.py",
+      "line": 41
+    },
+    {
+      "text": "Moderate snow fall",
+      "file": "handler.py",
+      "line": 41
+    },
+    {
+      "text": "Heavy snow fall",
+      "file": "handler.py",
+      "line": 41
+    },
+    {
+      "text": "Snow grains",
+      "file": "handler.py",
+      "line": 42
+    },
+    {
+      "text": "Slight rain showers",
+      "file": "handler.py",
+      "line": 43
+    },
+    {
+      "text": "Moderate rain showers",
+      "file": "handler.py",
+      "line": 43
+    },
+    {
+      "text": "Violent rain showers",
+      "file": "handler.py",
+      "line": 43
+    },
+    {
+      "text": "Slight snow showers",
+      "file": "handler.py",
+      "line": 44
+    },
+    {
+      "text": "Heavy snow showers",
+      "file": "handler.py",
+      "line": 44
+    },
+    {
+      "text": "Thunderstorm",
+      "file": "handler.py",
+      "line": 45
+    },
+    {
+      "text": "Thunderstorm with slight hail",
+      "file": "handler.py",
+      "line": 45
+    },
+    {
+      "text": "Thunderstorm with heavy hail",
+      "file": "handler.py",
+      "line": 45
+    },
+    {
+      "text": "__main__",
+      "file": "handler.py",
+      "line": 96
+    },
+    {
+      "text": "Riyadh",
+      "file": "handler.py",
+      "line": 98
+    },
+    {
+      "text": "use strict",
+      "file": "js/app.js",
+      "line": 3
+    },
+    {
+      "text": "searchForm",
+      "file": "js/app.js",
+      "line": 4
+    },
+    {
+      "text": "cityInput",
+      "file": "js/app.js",
+      "line": 5
+    },
+    {
+      "text": "weatherCard",
+      "file": "js/app.js",
+      "line": 6
+    },
+    {
+      "text": "errorCard",
+      "file": "js/app.js",
+      "line": 7
+    },
+    {
+      "text": "bardom_weather_recent",
+      "file": "js/app.js",
+      "line": 8
+    },
+    {
+      "text": "[]",
+      "file": "js/app.js",
+      "line": 8
+    },
+    {
+      "text": "☀️",
+      "file": "js/app.js",
+      "line": 11
+    },
+    {
+      "text": "🌤️",
+      "file": "js/app.js",
+      "line": 11
+    },
+    {
+      "text": "☁️",
+      "file": "js/app.js",
+      "line": 11
+    },
+    {
+      "text": "🌫️",
+      "file": "js/app.js",
+      "line": 11
+    },
+    {
+      "text": "🌫️",
+      "file": "js/app.js",
+      "line": 11
+    },
+    {
+      "text": "🌦️",
+      "file": "js/app.js",
+      "line": 12
+    },
+    {
+      "text": "🌦️",
+      "file": "js/app.js",
+      "line": 12
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 12
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 12
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 12
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 13
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 13
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 13
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 13
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 13
+    },
+    {
+      "text": "🌨️",
+      "file": "js/app.js",
+      "line": 14
+    },
+    {
+      "text": "🌨️",
+      "file": "js/app.js",
+      "line": 14
+    },
+    {
+      "text": "❄️",
+      "file": "js/app.js",
+      "line": 14
+    },
+    {
+      "text": "❄️",
+      "file": "js/app.js",
+      "line": 14
+    },
+    {
+      "text": "🌦️",
+      "file": "js/app.js",
+      "line": 15
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 15
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 15
+    },
+    {
+      "text": "🌨️",
+      "file": "js/app.js",
+      "line": 15
+    },
+    {
+      "text": "❄️",
+      "file": "js/app.js",
+      "line": 15
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 16
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 16
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 16
+    },
+    {
+      "text": "bardom_weather_recent",
+      "file": "js/app.js",
+      "line": 23
+    },
+    {
+      "text": "recentList",
+      "file": "js/app.js",
+      "line": 27
+    },
+    {
+      "text": "<li>",
+      "file": "js/app.js",
+      "line": 28
+    },
+    {
+      "text": "</li>",
+      "file": "js/app.js",
+      "line": 28
+    },
+    {
+      "text": "li",
+      "file": "js/app.js",
+      "line": 29
+    },
+    {
+      "text": "click",
+      "file": "js/app.js",
+      "line": 30
+    },
+    {
+      "text": "https://geocoding-api.open-meteo.com/v1/search?name=",
+      "file": "js/app.js",
+      "line": 38
+    },
+    {
+      "text": "&count=1&language=en&format=json",
+      "file": "js/app.js",
+      "line": 38
+    },
+    {
+      "text": "City not found",
+      "file": "js/app.js",
+      "line": 41
+    },
+    {
+      "text": "https://api.open-meteo.com/v1/forecast?latitude=",
+      "file": "js/app.js",
+      "line": 43
+    },
+    {
+      "text": "&longitude=",
+      "file": "js/app.js",
+      "line": 43
+    },
+    {
+      "text": "&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto",
+      "file": "js/app.js",
+      "line": 43
+    },
+    {
+      "text": "city",
+      "file": "js/app.js",
+      "line": 50
+    },
+    {
+      "text": "country",
+      "file": "js/app.js",
+      "line": 51
+    },
+    {
+      "text": "temp",
+      "file": "js/app.js",
+      "line": 52
+    },
+    {
+      "text": "°C",
+      "file": "js/app.js",
+      "line": 52
+    },
+    {
+      "text": "desc",
+      "file": "js/app.js",
+      "line": 53
+    },
+    {
+      "text": "icon",
+      "file": "js/app.js",
+      "line": 54
+    },
+    {
+      "text": "🌡️",
+      "file": "js/app.js",
+      "line": 54
+    },
+    {
+      "text": "wind",
+      "file": "js/app.js",
+      "line": 55
+    },
+    {
+      "text": " km/h",
+      "file": "js/app.js",
+      "line": 55
+    },
+    {
+      "text": "code",
+      "file": "js/app.js",
+      "line": 56
+    },
+    {
+      "text": "Error: ",
+      "file": "js/app.js",
+      "line": 61
+    },
+    {
+      "text": "Clear sky",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Mainly clear",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Partly cloudy",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Overcast",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Fog",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Rime fog",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Light drizzle",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Moderate drizzle",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Dense drizzle",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Slight rain",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Moderate rain",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Heavy rain",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Slight snow",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Moderate snow",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Heavy snow",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Rain showers",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Moderate showers",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Violent showers",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Thunderstorm",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Thunderstorm + hail",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Thunderstorm + heavy hail",
+      "file": "js/app.js",
+      "line": 67
+    },
+    {
+      "text": "Unknown",
+      "file": "js/app.js",
+      "line": 68
+    },
+    {
+      "text": "submit",
+      "file": "js/app.js",
+      "line": 71
+    },
+    {
+      "text": "{{ config.function }} — Weather",
+      "file": "template.html",
+      "line": 6
+    },
+    {
+      "text": "Weather",
+      "file": "template.html",
+      "line": 12
+    },
+    {
+      "text": "Function:",
+      "file": "template.html",
+      "line": 13
+    },
+    {
+      "text": "{{ config.function }}",
+      "file": "template.html",
+      "line": 13
+    },
+    {
+      "text": "· v{{ config.version }}",
+      "file": "template.html",
+      "line": 13
+    },
+    {
+      "text": "Search",
+      "file": "template.html",
+      "line": 18
+    },
+    {
+      "text": "Wind",
+      "file": "template.html",
+      "line": 27
+    },
+    {
+      "text": "Code",
+      "file": "template.html",
+      "line": 28
+    },
+    {
+      "text": "Recent searches",
+      "file": "template.html",
+      "line": 33
+    },
+    {
+      "text": "Built by BardomPro APK Generator",
+      "file": "template.html",
+      "line": 37
+    }
+  ],
+  "by_id": {
+    "function": [
+      {
+        "text": "weather",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "version": [
+      {
+        "text": "1.0.0",
+        "file": "config.json",
+        "line": 1
+      },
+      {
+        "text": "1.0.0",
+        "file": "function.json",
+        "line": 1
+      }
+    ],
+    "generated_at": [
+      {
+        "text": "2026-09-18T01:25:17Z",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].path": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].language": [
+      {
+        "text": "css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[0].id": [
+      {
+        "text": "body",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[0].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[0].code": [
+      {
+        "text": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(180deg, #0d1117 0%, #161b22 100%); color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[0].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[1].id": [
+      {
+        "text": ".weather-app",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[1].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[1].code": [
+      {
+        "text": ".weather-app { max-width: 540px; margin: 0 auto; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[1].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[2].id": [
+      {
+        "text": "header h1",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[2].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[2].code": [
+      {
+        "text": "header h1 { color: #58a6ff; font-size: 22px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[2].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[3].id": [
+      {
+        "text": "header .meta",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[3].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[3].code": [
+      {
+        "text": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[3].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[4].id": [
+      {
+        "text": "header .meta code",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[4].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[4].code": [
+      {
+        "text": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[4].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[5].id": [
+      {
+        "text": "#searchForm",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[5].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[5].code": [
+      {
+        "text": "#searchForm { display: flex; gap: 8px; margin: 16px 0; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[5].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[6].id": [
+      {
+        "text": "#searchForm input",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[6].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[6].code": [
+      {
+        "text": "#searchForm input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[6].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[7].id": [
+      {
+        "text": "#searchForm button",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[7].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[7].code": [
+      {
+        "text": "#searchForm button { background: #238636; color: #fff; border: none; padding: 0 18px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[7].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[8].id": [
+      {
+        "text": ".weather-card",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[8].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[8].code": [
+      {
+        "text": ".weather-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[8].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[9].id": [
+      {
+        "text": ".weather-card .city",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[9].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[9].code": [
+      {
+        "text": ".weather-card .city { color: #e6edf3; font-size: 24px; font-weight: 600; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[9].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[10].id": [
+      {
+        "text": ".weather-card .country",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[10].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[10].code": [
+      {
+        "text": ".weather-card .country { color: #8b949e; font-size: 12px; margin-bottom: 12px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[10].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[11].id": [
+      {
+        "text": ".weather-card .temp",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[11].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[11].code": [
+      {
+        "text": ".weather-card .temp { color: #58a6ff; font-size: 48px; font-weight: 700; font-family: ui-monospace, monospace; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[11].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[12].id": [
+      {
+        "text": ".weather-card .desc",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[12].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[12].code": [
+      {
+        "text": ".weather-card .desc { color: #c9d1d9; font-size: 16px; margin-top: 4px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[12].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[13].id": [
+      {
+        "text": ".weather-card .icon",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[13].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[13].code": [
+      {
+        "text": ".weather-card .icon { font-size: 56px; margin: 12px 0; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[13].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[14].id": [
+      {
+        "text": ".weather-card .stats",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[14].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[14].code": [
+      {
+        "text": ".weather-card .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #30363d; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[14].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[15].id": [
+      {
+        "text": ".weather-card .stats div",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[15].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[15].code": [
+      {
+        "text": ".weather-card .stats div { text-align: center; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[15].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[16].id": [
+      {
+        "text": ".weather-card .stats span",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[16].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[16].code": [
+      {
+        "text": ".weather-card .stats span { display: block; color: #8b949e; font-size: 11px; margin-bottom: 4px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[16].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[17].id": [
+      {
+        "text": ".weather-card .stats b",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[17].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[17].code": [
+      {
+        "text": ".weather-card .stats b { color: #e6edf3; font-size: 14px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[17].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[18].id": [
+      {
+        "text": ".weather-error",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[18].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[18].code": [
+      {
+        "text": ".weather-error { background: rgba(248,81,73,0.1); border: 1px solid #f85149; border-radius: 8px; padding: 16px; color: #f85149; text-align: center; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[18].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[19].id": [
+      {
+        "text": ".weather-history",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[19].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[19].code": [
+      {
+        "text": ".weather-history { margin-top: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[19].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[20].id": [
+      {
+        "text": ".weather-history h3",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[20].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[20].code": [
+      {
+        "text": ".weather-history h3 { color: #58a6ff; font-size: 14px; margin-bottom: 8px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[20].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[21].id": [
+      {
+        "text": ".weather-history ul",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[21].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[21].code": [
+      {
+        "text": ".weather-history ul { list-style: none; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[21].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[22].id": [
+      {
+        "text": ".weather-history li",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[22].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[22].code": [
+      {
+        "text": ".weather-history li { background: #161b22; padding: 10px 12px; border-radius: 6px; border: 1px solid #30363d; margin-bottom: 4px; cursor: pointer; font-size: 13px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[22].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[23].id": [
+      {
+        "text": ".weather-history li:hover",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[23].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[23].code": [
+      {
+        "text": ".weather-history li:hover { border-color: #58a6ff; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[23].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[24].id": [
+      {
+        "text": "footer",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[24].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[24].code": [
+      {
+        "text": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[24].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].path": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].language": [
+      {
+        "text": "json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[0].id": [
+      {
+        "text": "name",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[0].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[0].code": [
+      {
+        "text": "{\n  \"name\": \"Weather\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[0].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[1].id": [
+      {
+        "text": "version",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[1].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[1].code": [
+      {
+        "text": "{\n  \"version\": \"1.0.0\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[1].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[2].id": [
+      {
+        "text": "description",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[2].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[2].code": [
+      {
+        "text": "{\n  \"description\": \"Current weather for any city using Open-Meteo\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[2].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[3].id": [
+      {
+        "text": "package",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[3].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[3].code": [
+      {
+        "text": "{\n  \"package\": \"com.bardom.app.weather\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[3].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[4].id": [
+      {
+        "text": "entry",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[4].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[4].code": [
+      {
+        "text": "{\n  \"entry\": \"template.html\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[4].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[5].id": [
+      {
+        "text": "min_sdk",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[5].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[5].code": [
+      {
+        "text": "{\n  \"min_sdk\": 24\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[5].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[6].id": [
+      {
+        "text": "target_sdk",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[6].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[6].code": [
+      {
+        "text": "{\n  \"target_sdk\": 34\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[6].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[7].id": [
+      {
+        "text": "permissions",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[7].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[7].code": [
+      {
+        "text": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[7].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].path": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].language": [
+      {
+        "text": "python",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[0].id": [
+      {
+        "text": "OPEN_METEO_GEO",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[0].kind": [
+      {
+        "text": "const",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[0].code": [
+      {
+        "text": "OPEN_METEO_GEO = \"https://geocoding-api.open-meteo.com/v1/search\"",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[0].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[1].id": [
+      {
+        "text": "OPEN_METEO_FORECAST",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[1].kind": [
+      {
+        "text": "const",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[1].code": [
+      {
+        "text": "OPEN_METEO_FORECAST = \"https://api.open-meteo.com/v1/forecast\"",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[1].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[2].id": [
+      {
+        "text": "WeatherResult",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[2].kind": [
+      {
+        "text": "class",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[2].code": [
+      {
+        "text": "class WeatherResult:\n    city: str\n    country: str\n    temperature: float\n    windspeed: float\n    weather_code: int\n    description: str\n    error: str = \"\"\n\n    def to_dict(self) -> dict:\n        return self.__dict__\n\n\n# WMO weather code → human description",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[2].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[3].id": [
+      {
+        "text": "to_dict",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[3].kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[3].code": [
+      {
+        "text": "    def to_dict(self) -> dict:\n        return self.__dict__\n\n\n# WMO weather code → human description",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[3].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[3].branch_of": [
+      {
+        "text": "WeatherResult",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[4].id": [
+      {
+        "text": "_WMO",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[4].kind": [
+      {
+        "text": "const",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[4].code": [
+      {
+        "text": "_WMO = {",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[4].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[5].id": [
+      {
+        "text": "_geocode",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[5].kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[5].code": [
+      {
+        "text": "def _geocode(city: str) -> dict:\n    params = urllib.parse.urlencode({\"name\": city, \"count\": 1, \"language\": \"en\", \"format\": \"json\"})\n    url = f\"{OPEN_METEO_GEO}?{params}\"\n    with urllib.request.urlopen(url, timeout=15) as r:\n        data = json.loads(r.read())\n    if not data.get(\"results\"):\n        return {}\n    first = data[\"results\"][0]\n    return {\n        \"name\": first.get(\"name\", city),\n        \"country\": first.get(\"country\", \"\"),\n        \"latitude\": first.get(\"latitude\"),\n        \"longitude\": first.get(\"longitude\"),\n    }\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[5].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[6].id": [
+      {
+        "text": "_fetch_weather",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[6].kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[6].code": [
+      {
+        "text": "def _fetch_weather(lat: float, lon: float) -> dict:\n    params = urllib.parse.urlencode({\n        \"latitude\": lat, \"longitude\": lon,\n        \"current\": \"temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m\",\n        \"timezone\": \"auto\",\n    })\n    url = f\"{OPEN_METEO_FORECAST}?{params}\"\n    with urllib.request.urlopen(url, timeout=15) as r:\n        return json.loads(r.read())\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[6].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[7].id": [
+      {
+        "text": "get_weather",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[7].kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[7].code": [
+      {
+        "text": "def get_weather(city: str) -> WeatherResult:\n    try:\n        geo = _geocode(city)\n        if not geo:\n            return WeatherResult(city, \"\", 0, 0, 0, \"\", error=f\"City not found: {city}\")\n        wx = _fetch_weather(geo[\"latitude\"], geo[\"longitude\"])\n        cur = wx.get(\"current\", {})\n        code = int(cur.get(\"weather_code\", 0))\n        return WeatherResult(\n            city=geo[\"name\"],\n            country=geo[\"country\"],\n            temperature=cur.get(\"temperature_2m\", 0),\n            windspeed=cur.get(\"wind_speed_10m\", 0),\n            weather_code=code,\n            description=_WMO.get(code, \"Unknown\"),\n        )\n    except Exception as e:\n        return WeatherResult(city, \"\", 0, 0, 0, \"\", error=str(e))\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[7].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[3].path": [
+      {
+        "text": "js/app.js",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[3].language": [
+      {
+        "text": "javascript",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].path": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].language": [
+      {
+        "text": "html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[0].id": [
+      {
+        "text": "searchForm",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[0].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[0].code": [
+      {
+        "text": "    <form id=\"searchForm\">",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[0].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[1].id": [
+      {
+        "text": "cityInput",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[1].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[1].code": [
+      {
+        "text": "      <input type=\"text\" id=\"cityInput\" placeholder=\"Enter city name...\" autocomplete=\"off\">",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[1].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[2].id": [
+      {
+        "text": "weatherCard",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[2].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[2].code": [
+      {
+        "text": "    <div class=\"weather-card\" id=\"weatherCard\" hidden>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[2].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[3].id": [
+      {
+        "text": "city",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[3].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[3].code": [
+      {
+        "text": "      <div class=\"city\" id=\"city\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[3].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[4].id": [
+      {
+        "text": "country",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[4].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[4].code": [
+      {
+        "text": "      <div class=\"country\" id=\"country\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[4].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[5].id": [
+      {
+        "text": "temp",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[5].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[5].code": [
+      {
+        "text": "      <div class=\"temp\" id=\"temp\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[5].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[6].id": [
+      {
+        "text": "desc",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[6].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[6].code": [
+      {
+        "text": "      <div class=\"desc\" id=\"desc\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[6].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[7].id": [
+      {
+        "text": "icon",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[7].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[7].code": [
+      {
+        "text": "      <div class=\"icon\" id=\"icon\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[7].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[8].id": [
+      {
+        "text": "wind",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[8].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[8].code": [
+      {
+        "text": "        <div><span>Wind</span><b id=\"wind\"></b></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[8].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[9].id": [
+      {
+        "text": "code",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[9].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[9].code": [
+      {
+        "text": "        <div><span>Code</span><b id=\"code\"></b></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[9].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[10].id": [
+      {
+        "text": "errorCard",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[10].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[10].code": [
+      {
+        "text": "    <div class=\"weather-error\" id=\"errorCard\" hidden></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[10].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[11].id": [
+      {
+        "text": "recentList",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[11].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[11].code": [
+      {
+        "text": "      <ul id=\"recentList\"></ul>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[11].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.body.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.body.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-app.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-app.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header h1.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header h1.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header .meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header .meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header .meta code.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header .meta code.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.#searchForm.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.#searchForm.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.#searchForm input.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.#searchForm input.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.#searchForm button.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.#searchForm button.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .city.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .city.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .country.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .country.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .temp.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .temp.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .desc.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .desc.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .icon.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .icon.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .stats.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .stats.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .stats div.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .stats div.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .stats span.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .stats span.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .stats b.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-card .stats b.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-error.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-error.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-history.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-history.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-history h3.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-history h3.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-history ul.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-history ul.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-history li.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-history li.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-history li:hover.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..weather-history li:hover.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.footer.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.footer.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.name.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.name.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.version.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.version.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.description.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.description.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.package.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.package.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.entry.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.entry.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.min_sdk.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.min_sdk.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.target_sdk.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.target_sdk.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.permissions.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.permissions.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.OPEN_METEO_GEO.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.OPEN_METEO_GEO.kind": [
+      {
+        "text": "const",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.OPEN_METEO_FORECAST.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.OPEN_METEO_FORECAST.kind": [
+      {
+        "text": "const",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.WeatherResult.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.WeatherResult.kind": [
+      {
+        "text": "class",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.to_dict.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.to_dict.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.to_dict.branch_of": [
+      {
+        "text": "WeatherResult",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index._WMO.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index._WMO.kind": [
+      {
+        "text": "const",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index._geocode.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index._geocode.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index._fetch_weather.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index._fetch_weather.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.get_weather.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.get_weather.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.searchForm.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.searchForm.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.cityInput.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.cityInput.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.weatherCard.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.weatherCard.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.city.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.city.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.country.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.country.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.temp.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.temp.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.desc.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.desc.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.icon.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.icon.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.wind.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.wind.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.code.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.code.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.errorCard.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.errorCard.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.recentList.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.recentList.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.body._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.body._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.body._code": [
+      {
+        "text": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(180deg, #0d1117 0%, #161b22 100%); color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-app._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-app._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-app._code": [
+      {
+        "text": ".weather-app { max-width: 540px; margin: 0 auto; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header h1._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header h1._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header h1._code": [
+      {
+        "text": "header h1 { color: #58a6ff; font-size: 22px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta._code": [
+      {
+        "text": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta code._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta code._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta code._code": [
+      {
+        "text": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.#searchForm._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.#searchForm._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.#searchForm._code": [
+      {
+        "text": "#searchForm { display: flex; gap: 8px; margin: 16px 0; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.#searchForm input._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.#searchForm input._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.#searchForm input._code": [
+      {
+        "text": "#searchForm input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.#searchForm button._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.#searchForm button._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.#searchForm button._code": [
+      {
+        "text": "#searchForm button { background: #238636; color: #fff; border: none; padding: 0 18px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card._code": [
+      {
+        "text": ".weather-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .city._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .city._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .city._code": [
+      {
+        "text": ".weather-card .city { color: #e6edf3; font-size: 24px; font-weight: 600; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .country._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .country._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .country._code": [
+      {
+        "text": ".weather-card .country { color: #8b949e; font-size: 12px; margin-bottom: 12px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .temp._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .temp._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .temp._code": [
+      {
+        "text": ".weather-card .temp { color: #58a6ff; font-size: 48px; font-weight: 700; font-family: ui-monospace, monospace; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .desc._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .desc._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .desc._code": [
+      {
+        "text": ".weather-card .desc { color: #c9d1d9; font-size: 16px; margin-top: 4px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .icon._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .icon._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .icon._code": [
+      {
+        "text": ".weather-card .icon { font-size: 56px; margin: 12px 0; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats._code": [
+      {
+        "text": ".weather-card .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #30363d; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats div._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats div._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats div._code": [
+      {
+        "text": ".weather-card .stats div { text-align: center; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats span._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats span._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats span._code": [
+      {
+        "text": ".weather-card .stats span { display: block; color: #8b949e; font-size: 11px; margin-bottom: 4px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats b._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats b._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-card .stats b._code": [
+      {
+        "text": ".weather-card .stats b { color: #e6edf3; font-size: 14px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-error._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-error._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-error._code": [
+      {
+        "text": ".weather-error { background: rgba(248,81,73,0.1); border: 1px solid #f85149; border-radius: 8px; padding: 16px; color: #f85149; text-align: center; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history._code": [
+      {
+        "text": ".weather-history { margin-top: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history h3._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history h3._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history h3._code": [
+      {
+        "text": ".weather-history h3 { color: #58a6ff; font-size: 14px; margin-bottom: 8px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history ul._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history ul._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history ul._code": [
+      {
+        "text": ".weather-history ul { list-style: none; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history li._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history li._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history li._code": [
+      {
+        "text": ".weather-history li { background: #161b22; padding: 10px 12px; border-radius: 6px; border: 1px solid #30363d; margin-bottom: 4px; cursor: pointer; font-size: 13px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history li:hover._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history li:hover._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..weather-history li:hover._code": [
+      {
+        "text": ".weather-history li:hover { border-color: #58a6ff; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.footer._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.footer._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.footer._code": [
+      {
+        "text": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.name._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.name._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.name._code": [
+      {
+        "text": "{\n  \"name\": \"Weather\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.version._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.version._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.version._code": [
+      {
+        "text": "{\n  \"version\": \"1.0.0\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.description._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.description._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.description._code": [
+      {
+        "text": "{\n  \"description\": \"Current weather for any city using Open-Meteo\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.package._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.package._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.package._code": [
+      {
+        "text": "{\n  \"package\": \"com.bardom.app.weather\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.entry._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.entry._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.entry._code": [
+      {
+        "text": "{\n  \"entry\": \"template.html\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.min_sdk._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.min_sdk._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.min_sdk._code": [
+      {
+        "text": "{\n  \"min_sdk\": 24\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.target_sdk._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.target_sdk._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.target_sdk._code": [
+      {
+        "text": "{\n  \"target_sdk\": 34\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.permissions._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.permissions._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.permissions._code": [
+      {
+        "text": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.OPEN_METEO_GEO._meta.kind": [
+      {
+        "text": "const",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.OPEN_METEO_GEO._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.OPEN_METEO_GEO._code": [
+      {
+        "text": "OPEN_METEO_GEO = \"https://geocoding-api.open-meteo.com/v1/search\"",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.OPEN_METEO_FORECAST._meta.kind": [
+      {
+        "text": "const",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.OPEN_METEO_FORECAST._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.OPEN_METEO_FORECAST._code": [
+      {
+        "text": "OPEN_METEO_FORECAST = \"https://api.open-meteo.com/v1/forecast\"",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.WeatherResult._meta.kind": [
+      {
+        "text": "class",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.WeatherResult._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.WeatherResult._code": [
+      {
+        "text": "class WeatherResult:\n    city: str\n    country: str\n    temperature: float\n    windspeed: float\n    weather_code: int\n    description: str\n    error: str = \"\"\n\n    def to_dict(self) -> dict:\n        return self.__dict__\n\n\n# WMO weather code → human description",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.WeatherResult.children.to_dict._meta.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.WeatherResult.children.to_dict._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.WeatherResult.children.to_dict._meta.branch_of": [
+      {
+        "text": "WeatherResult",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.WeatherResult.children.to_dict._code": [
+      {
+        "text": "    def to_dict(self) -> dict:\n        return self.__dict__\n\n\n# WMO weather code → human description",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree._WMO._meta.kind": [
+      {
+        "text": "const",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree._WMO._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree._WMO._code": [
+      {
+        "text": "_WMO = {",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree._geocode._meta.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree._geocode._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree._geocode._code": [
+      {
+        "text": "def _geocode(city: str) -> dict:\n    params = urllib.parse.urlencode({\"name\": city, \"count\": 1, \"language\": \"en\", \"format\": \"json\"})\n    url = f\"{OPEN_METEO_GEO}?{params}\"\n    with urllib.request.urlopen(url, timeout=15) as r:\n        data = json.loads(r.read())\n    if not data.get(\"results\"):\n        return {}\n    first = data[\"results\"][0]\n    return {\n        \"name\": first.get(\"name\", city),\n        \"country\": first.get(\"country\", \"\"),\n        \"latitude\": first.get(\"latitude\"),\n        \"longitude\": first.get(\"longitude\"),\n    }\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree._fetch_weather._meta.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree._fetch_weather._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree._fetch_weather._code": [
+      {
+        "text": "def _fetch_weather(lat: float, lon: float) -> dict:\n    params = urllib.parse.urlencode({\n        \"latitude\": lat, \"longitude\": lon,\n        \"current\": \"temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m\",\n        \"timezone\": \"auto\",\n    })\n    url = f\"{OPEN_METEO_FORECAST}?{params}\"\n    with urllib.request.urlopen(url, timeout=15) as r:\n        return json.loads(r.read())\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.get_weather._meta.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.get_weather._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.get_weather._code": [
+      {
+        "text": "def get_weather(city: str) -> WeatherResult:\n    try:\n        geo = _geocode(city)\n        if not geo:\n            return WeatherResult(city, \"\", 0, 0, 0, \"\", error=f\"City not found: {city}\")\n        wx = _fetch_weather(geo[\"latitude\"], geo[\"longitude\"])\n        cur = wx.get(\"current\", {})\n        code = int(cur.get(\"weather_code\", 0))\n        return WeatherResult(\n            city=geo[\"name\"],\n            country=geo[\"country\"],\n            temperature=cur.get(\"temperature_2m\", 0),\n            windspeed=cur.get(\"wind_speed_10m\", 0),\n            weather_code=code,\n            description=_WMO.get(code, \"Unknown\"),\n        )\n    except Exception as e:\n        return WeatherResult(city, \"\", 0, 0, 0, \"\", error=str(e))\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.searchForm._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.searchForm._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.searchForm._code": [
+      {
+        "text": "    <form id=\"searchForm\">",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.cityInput._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.cityInput._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.cityInput._code": [
+      {
+        "text": "      <input type=\"text\" id=\"cityInput\" placeholder=\"Enter city name...\" autocomplete=\"off\">",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.weatherCard._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.weatherCard._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.weatherCard._code": [
+      {
+        "text": "    <div class=\"weather-card\" id=\"weatherCard\" hidden>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.city._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.city._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.city._code": [
+      {
+        "text": "      <div class=\"city\" id=\"city\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.country._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.country._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.country._code": [
+      {
+        "text": "      <div class=\"country\" id=\"country\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.temp._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.temp._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.temp._code": [
+      {
+        "text": "      <div class=\"temp\" id=\"temp\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.desc._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.desc._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.desc._code": [
+      {
+        "text": "      <div class=\"desc\" id=\"desc\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.icon._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.icon._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.icon._code": [
+      {
+        "text": "      <div class=\"icon\" id=\"icon\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.wind._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.wind._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.wind._code": [
+      {
+        "text": "        <div><span>Wind</span><b id=\"wind\"></b></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.code._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.code._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.code._code": [
+      {
+        "text": "        <div><span>Code</span><b id=\"code\"></b></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.errorCard._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.errorCard._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.errorCard._code": [
+      {
+        "text": "    <div class=\"weather-error\" id=\"errorCard\" hidden></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.recentList._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.recentList._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.recentList._code": [
+      {
+        "text": "      <ul id=\"recentList\"></ul>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "name": [
+      {
+        "text": "Weather",
+        "file": "function.json",
+        "line": 1
+      }
+    ],
+    "description": [
+      {
+        "text": "Current weather for any city using Open-Meteo",
+        "file": "function.json",
+        "line": 1
+      }
+    ],
+    "package": [
+      {
+        "text": "com.bardom.app.weather",
+        "file": "function.json",
+        "line": 1
+      }
+    ],
+    "entry": [
+      {
+        "text": "template.html",
+        "file": "function.json",
+        "line": 1
+      }
+    ],
+    "_geocode": [
+      {
+        "text": "name",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "count",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "language",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "en",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "format",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "json",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "name",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "count",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "language",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "en",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "format",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "json",
+        "file": "handler.py",
+        "line": 50
+      },
+      {
+        "text": "{OPEN_METEO_GEO}?{params}",
+        "file": "handler.py",
+        "line": 51
+      },
+      {
+        "text": "{OPEN_METEO_GEO}?{params}",
+        "file": "handler.py",
+        "line": 51
+      },
+      {
+        "text": "results",
+        "file": "handler.py",
+        "line": 54
+      },
+      {
+        "text": "results",
+        "file": "handler.py",
+        "line": 54
+      },
+      {
+        "text": "results",
+        "file": "handler.py",
+        "line": 56
+      },
+      {
+        "text": "results",
+        "file": "handler.py",
+        "line": 56
+      },
+      {
+        "text": "name",
+        "file": "handler.py",
+        "line": 58
+      },
+      {
+        "text": "name",
+        "file": "handler.py",
+        "line": 58
+      },
+      {
+        "text": "name",
+        "file": "handler.py",
+        "line": 58
+      },
+      {
+        "text": "name",
+        "file": "handler.py",
+        "line": 58
+      },
+      {
+        "text": "country",
+        "file": "handler.py",
+        "line": 59
+      },
+      {
+        "text": "country",
+        "file": "handler.py",
+        "line": 59
+      },
+      {
+        "text": "country",
+        "file": "handler.py",
+        "line": 59
+      },
+      {
+        "text": "country",
+        "file": "handler.py",
+        "line": 59
+      },
+      {
+        "text": "latitude",
+        "file": "handler.py",
+        "line": 60
+      },
+      {
+        "text": "latitude",
+        "file": "handler.py",
+        "line": 60
+      },
+      {
+        "text": "latitude",
+        "file": "handler.py",
+        "line": 60
+      },
+      {
+        "text": "latitude",
+        "file": "handler.py",
+        "line": 60
+      },
+      {
+        "text": "longitude",
+        "file": "handler.py",
+        "line": 61
+      },
+      {
+        "text": "longitude",
+        "file": "handler.py",
+        "line": 61
+      },
+      {
+        "text": "longitude",
+        "file": "handler.py",
+        "line": 61
+      },
+      {
+        "text": "longitude",
+        "file": "handler.py",
+        "line": 61
+      }
+    ],
+    "_fetch_weather": [
+      {
+        "text": "latitude",
+        "file": "handler.py",
+        "line": 67
+      },
+      {
+        "text": "longitude",
+        "file": "handler.py",
+        "line": 67
+      },
+      {
+        "text": "latitude",
+        "file": "handler.py",
+        "line": 67
+      },
+      {
+        "text": "longitude",
+        "file": "handler.py",
+        "line": 67
+      },
+      {
+        "text": "current",
+        "file": "handler.py",
+        "line": 68
+      },
+      {
+        "text": "temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m",
+        "file": "handler.py",
+        "line": 68
+      },
+      {
+        "text": "current",
+        "file": "handler.py",
+        "line": 68
+      },
+      {
+        "text": "temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m",
+        "file": "handler.py",
+        "line": 68
+      },
+      {
+        "text": "timezone",
+        "file": "handler.py",
+        "line": 69
+      },
+      {
+        "text": "auto",
+        "file": "handler.py",
+        "line": 69
+      },
+      {
+        "text": "timezone",
+        "file": "handler.py",
+        "line": 69
+      },
+      {
+        "text": "auto",
+        "file": "handler.py",
+        "line": 69
+      },
+      {
+        "text": "{OPEN_METEO_FORECAST}?{params}",
+        "file": "handler.py",
+        "line": 71
+      },
+      {
+        "text": "{OPEN_METEO_FORECAST}?{params}",
+        "file": "handler.py",
+        "line": 71
+      }
+    ],
+    "get_weather": [
+      {
+        "text": "City not found: {city}",
+        "file": "handler.py",
+        "line": 80
+      },
+      {
+        "text": "City not found: {city}",
+        "file": "handler.py",
+        "line": 80
+      },
+      {
+        "text": "latitude",
+        "file": "handler.py",
+        "line": 81
+      },
+      {
+        "text": "longitude",
+        "file": "handler.py",
+        "line": 81
+      },
+      {
+        "text": "latitude",
+        "file": "handler.py",
+        "line": 81
+      },
+      {
+        "text": "longitude",
+        "file": "handler.py",
+        "line": 81
+      },
+      {
+        "text": "current",
+        "file": "handler.py",
+        "line": 82
+      },
+      {
+        "text": "current",
+        "file": "handler.py",
+        "line": 82
+      },
+      {
+        "text": "weather_code",
+        "file": "handler.py",
+        "line": 83
+      },
+      {
+        "text": "weather_code",
+        "file": "handler.py",
+        "line": 83
+      },
+      {
+        "text": "name",
+        "file": "handler.py",
+        "line": 85
+      },
+      {
+        "text": "name",
+        "file": "handler.py",
+        "line": 85
+      },
+      {
+        "text": "country",
+        "file": "handler.py",
+        "line": 86
+      },
+      {
+        "text": "country",
+        "file": "handler.py",
+        "line": 86
+      },
+      {
+        "text": "temperature_2m",
+        "file": "handler.py",
+        "line": 87
+      },
+      {
+        "text": "temperature_2m",
+        "file": "handler.py",
+        "line": 87
+      },
+      {
+        "text": "wind_speed_10m",
+        "file": "handler.py",
+        "line": 88
+      },
+      {
+        "text": "wind_speed_10m",
+        "file": "handler.py",
+        "line": 88
+      },
+      {
+        "text": "Unknown",
+        "file": "handler.py",
+        "line": 90
+      },
+      {
+        "text": "Unknown",
+        "file": "handler.py",
+        "line": 90
+      }
+    ]
+  },
+  "ordered": [
+    {
+      "text": "weather",
+      "file": "config.json",
+      "line": 1,
+      "id": "function"
+    },
+    {
+      "text": "1.0.0",
+      "file": "config.json",
+      "line": 1,
+      "id": "version"
+    },
+    {
+      "text": "2026-09-18T01:25:17Z",
+      "file": "config.json",
+      "line": 1,
+      "id": "generated_at"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].path"
+    },
+    {
+      "text": "css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].language"
+    },
+    {
+      "text": "body",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[0].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[0].kind"
+    },
+    {
+      "text": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(180deg, #0d1117 0%, #161b22 100%); color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[0].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[0].file"
+    },
+    {
+      "text": ".weather-app",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[1].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[1].kind"
+    },
+    {
+      "text": ".weather-app { max-width: 540px; margin: 0 auto; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[1].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[1].file"
+    },
+    {
+      "text": "header h1",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[2].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[2].kind"
+    },
+    {
+      "text": "header h1 { color: #58a6ff; font-size: 22px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[2].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[2].file"
+    },
+    {
+      "text": "header .meta",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[3].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[3].kind"
+    },
+    {
+      "text": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[3].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[3].file"
+    },
+    {
+      "text": "header .meta code",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[4].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[4].kind"
+    },
+    {
+      "text": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[4].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[4].file"
+    },
+    {
+      "text": "#searchForm",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[5].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[5].kind"
+    },
+    {
+      "text": "#searchForm { display: flex; gap: 8px; margin: 16px 0; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[5].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[5].file"
+    },
+    {
+      "text": "#searchForm input",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[6].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[6].kind"
+    },
+    {
+      "text": "#searchForm input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[6].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[6].file"
+    },
+    {
+      "text": "#searchForm button",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[7].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[7].kind"
+    },
+    {
+      "text": "#searchForm button { background: #238636; color: #fff; border: none; padding: 0 18px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[7].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[7].file"
+    },
+    {
+      "text": ".weather-card",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[8].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[8].kind"
+    },
+    {
+      "text": ".weather-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[8].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[8].file"
+    },
+    {
+      "text": ".weather-card .city",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[9].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[9].kind"
+    },
+    {
+      "text": ".weather-card .city { color: #e6edf3; font-size: 24px; font-weight: 600; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[9].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[9].file"
+    },
+    {
+      "text": ".weather-card .country",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[10].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[10].kind"
+    },
+    {
+      "text": ".weather-card .country { color: #8b949e; font-size: 12px; margin-bottom: 12px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[10].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[10].file"
+    },
+    {
+      "text": ".weather-card .temp",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[11].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[11].kind"
+    },
+    {
+      "text": ".weather-card .temp { color: #58a6ff; font-size: 48px; font-weight: 700; font-family: ui-monospace, monospace; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[11].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[11].file"
+    },
+    {
+      "text": ".weather-card .desc",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[12].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[12].kind"
+    },
+    {
+      "text": ".weather-card .desc { color: #c9d1d9; font-size: 16px; margin-top: 4px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[12].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[12].file"
+    },
+    {
+      "text": ".weather-card .icon",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[13].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[13].kind"
+    },
+    {
+      "text": ".weather-card .icon { font-size: 56px; margin: 12px 0; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[13].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[13].file"
+    },
+    {
+      "text": ".weather-card .stats",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[14].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[14].kind"
+    },
+    {
+      "text": ".weather-card .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #30363d; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[14].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[14].file"
+    },
+    {
+      "text": ".weather-card .stats div",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[15].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[15].kind"
+    },
+    {
+      "text": ".weather-card .stats div { text-align: center; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[15].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[15].file"
+    },
+    {
+      "text": ".weather-card .stats span",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[16].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[16].kind"
+    },
+    {
+      "text": ".weather-card .stats span { display: block; color: #8b949e; font-size: 11px; margin-bottom: 4px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[16].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[16].file"
+    },
+    {
+      "text": ".weather-card .stats b",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[17].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[17].kind"
+    },
+    {
+      "text": ".weather-card .stats b { color: #e6edf3; font-size: 14px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[17].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[17].file"
+    },
+    {
+      "text": ".weather-error",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[18].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[18].kind"
+    },
+    {
+      "text": ".weather-error { background: rgba(248,81,73,0.1); border: 1px solid #f85149; border-radius: 8px; padding: 16px; color: #f85149; text-align: center; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[18].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[18].file"
+    },
+    {
+      "text": ".weather-history",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[19].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[19].kind"
+    },
+    {
+      "text": ".weather-history { margin-top: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[19].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[19].file"
+    },
+    {
+      "text": ".weather-history h3",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[20].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[20].kind"
+    },
+    {
+      "text": ".weather-history h3 { color: #58a6ff; font-size: 14px; margin-bottom: 8px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[20].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[20].file"
+    },
+    {
+      "text": ".weather-history ul",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[21].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[21].kind"
+    },
+    {
+      "text": ".weather-history ul { list-style: none; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[21].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[21].file"
+    },
+    {
+      "text": ".weather-history li",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[22].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[22].kind"
+    },
+    {
+      "text": ".weather-history li { background: #161b22; padding: 10px 12px; border-radius: 6px; border: 1px solid #30363d; margin-bottom: 4px; cursor: pointer; font-size: 13px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[22].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[22].file"
+    },
+    {
+      "text": ".weather-history li:hover",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[23].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[23].kind"
+    },
+    {
+      "text": ".weather-history li:hover { border-color: #58a6ff; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[23].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[23].file"
+    },
+    {
+      "text": "footer",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[24].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[24].kind"
+    },
+    {
+      "text": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[24].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[24].file"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].path"
+    },
+    {
+      "text": "json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].language"
+    },
+    {
+      "text": "name",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[0].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[0].kind"
+    },
+    {
+      "text": "{\n  \"name\": \"Weather\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[0].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[0].file"
+    },
+    {
+      "text": "version",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[1].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[1].kind"
+    },
+    {
+      "text": "{\n  \"version\": \"1.0.0\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[1].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[1].file"
+    },
+    {
+      "text": "description",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[2].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[2].kind"
+    },
+    {
+      "text": "{\n  \"description\": \"Current weather for any city using Open-Meteo\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[2].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[2].file"
+    },
+    {
+      "text": "package",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[3].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[3].kind"
+    },
+    {
+      "text": "{\n  \"package\": \"com.bardom.app.weather\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[3].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[3].file"
+    },
+    {
+      "text": "entry",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[4].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[4].kind"
+    },
+    {
+      "text": "{\n  \"entry\": \"template.html\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[4].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[4].file"
+    },
+    {
+      "text": "min_sdk",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[5].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[5].kind"
+    },
+    {
+      "text": "{\n  \"min_sdk\": 24\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[5].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[5].file"
+    },
+    {
+      "text": "target_sdk",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[6].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[6].kind"
+    },
+    {
+      "text": "{\n  \"target_sdk\": 34\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[6].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[6].file"
+    },
+    {
+      "text": "permissions",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[7].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[7].kind"
+    },
+    {
+      "text": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[7].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[7].file"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].path"
+    },
+    {
+      "text": "python",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].language"
+    },
+    {
+      "text": "OPEN_METEO_GEO",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[0].id"
+    },
+    {
+      "text": "const",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[0].kind"
+    },
+    {
+      "text": "OPEN_METEO_GEO = \"https://geocoding-api.open-meteo.com/v1/search\"",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[0].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[0].file"
+    },
+    {
+      "text": "OPEN_METEO_FORECAST",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[1].id"
+    },
+    {
+      "text": "const",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[1].kind"
+    },
+    {
+      "text": "OPEN_METEO_FORECAST = \"https://api.open-meteo.com/v1/forecast\"",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[1].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[1].file"
+    },
+    {
+      "text": "WeatherResult",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[2].id"
+    },
+    {
+      "text": "class",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[2].kind"
+    },
+    {
+      "text": "class WeatherResult:\n    city: str\n    country: str\n    temperature: float\n    windspeed: float\n    weather_code: int\n    description: str\n    error: str = \"\"\n\n    def to_dict(self) -> dict:\n        return self.__dict__\n\n\n# WMO weather code → human description",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[2].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[2].file"
+    },
+    {
+      "text": "to_dict",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[3].id"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[3].kind"
+    },
+    {
+      "text": "    def to_dict(self) -> dict:\n        return self.__dict__\n\n\n# WMO weather code → human description",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[3].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[3].file"
+    },
+    {
+      "text": "WeatherResult",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[3].branch_of"
+    },
+    {
+      "text": "_WMO",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[4].id"
+    },
+    {
+      "text": "const",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[4].kind"
+    },
+    {
+      "text": "_WMO = {",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[4].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[4].file"
+    },
+    {
+      "text": "_geocode",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[5].id"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[5].kind"
+    },
+    {
+      "text": "def _geocode(city: str) -> dict:\n    params = urllib.parse.urlencode({\"name\": city, \"count\": 1, \"language\": \"en\", \"format\": \"json\"})\n    url = f\"{OPEN_METEO_GEO}?{params}\"\n    with urllib.request.urlopen(url, timeout=15) as r:\n        data = json.loads(r.read())\n    if not data.get(\"results\"):\n        return {}\n    first = data[\"results\"][0]\n    return {\n        \"name\": first.get(\"name\", city),\n        \"country\": first.get(\"country\", \"\"),\n        \"latitude\": first.get(\"latitude\"),\n        \"longitude\": first.get(\"longitude\"),\n    }\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[5].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[5].file"
+    },
+    {
+      "text": "_fetch_weather",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[6].id"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[6].kind"
+    },
+    {
+      "text": "def _fetch_weather(lat: float, lon: float) -> dict:\n    params = urllib.parse.urlencode({\n        \"latitude\": lat, \"longitude\": lon,\n        \"current\": \"temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m\",\n        \"timezone\": \"auto\",\n    })\n    url = f\"{OPEN_METEO_FORECAST}?{params}\"\n    with urllib.request.urlopen(url, timeout=15) as r:\n        return json.loads(r.read())\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[6].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[6].file"
+    },
+    {
+      "text": "get_weather",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[7].id"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[7].kind"
+    },
+    {
+      "text": "def get_weather(city: str) -> WeatherResult:\n    try:\n        geo = _geocode(city)\n        if not geo:\n            return WeatherResult(city, \"\", 0, 0, 0, \"\", error=f\"City not found: {city}\")\n        wx = _fetch_weather(geo[\"latitude\"], geo[\"longitude\"])\n        cur = wx.get(\"current\", {})\n        code = int(cur.get(\"weather_code\", 0))\n        return WeatherResult(\n            city=geo[\"name\"],\n            country=geo[\"country\"],\n            temperature=cur.get(\"temperature_2m\", 0),\n            windspeed=cur.get(\"wind_speed_10m\", 0),\n            weather_code=code,\n            description=_WMO.get(code, \"Unknown\"),\n        )\n    except Exception as e:\n        return WeatherResult(city, \"\", 0, 0, 0, \"\", error=str(e))\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[7].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[7].file"
+    },
+    {
+      "text": "js/app.js",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[3].path"
+    },
+    {
+      "text": "javascript",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[3].language"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].path"
+    },
+    {
+      "text": "html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].language"
+    },
+    {
+      "text": "searchForm",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[0].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[0].kind"
+    },
+    {
+      "text": "    <form id=\"searchForm\">",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[0].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[0].file"
+    },
+    {
+      "text": "cityInput",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[1].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[1].kind"
+    },
+    {
+      "text": "      <input type=\"text\" id=\"cityInput\" placeholder=\"Enter city name...\" autocomplete=\"off\">",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[1].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[1].file"
+    },
+    {
+      "text": "weatherCard",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[2].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[2].kind"
+    },
+    {
+      "text": "    <div class=\"weather-card\" id=\"weatherCard\" hidden>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[2].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[2].file"
+    },
+    {
+      "text": "city",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[3].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[3].kind"
+    },
+    {
+      "text": "      <div class=\"city\" id=\"city\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[3].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[3].file"
+    },
+    {
+      "text": "country",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[4].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[4].kind"
+    },
+    {
+      "text": "      <div class=\"country\" id=\"country\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[4].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[4].file"
+    },
+    {
+      "text": "temp",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[5].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[5].kind"
+    },
+    {
+      "text": "      <div class=\"temp\" id=\"temp\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[5].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[5].file"
+    },
+    {
+      "text": "desc",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[6].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[6].kind"
+    },
+    {
+      "text": "      <div class=\"desc\" id=\"desc\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[6].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[6].file"
+    },
+    {
+      "text": "icon",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[7].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[7].kind"
+    },
+    {
+      "text": "      <div class=\"icon\" id=\"icon\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[7].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[7].file"
+    },
+    {
+      "text": "wind",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[8].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[8].kind"
+    },
+    {
+      "text": "        <div><span>Wind</span><b id=\"wind\"></b></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[8].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[8].file"
+    },
+    {
+      "text": "code",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[9].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[9].kind"
+    },
+    {
+      "text": "        <div><span>Code</span><b id=\"code\"></b></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[9].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[9].file"
+    },
+    {
+      "text": "errorCard",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[10].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[10].kind"
+    },
+    {
+      "text": "    <div class=\"weather-error\" id=\"errorCard\" hidden></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[10].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[10].file"
+    },
+    {
+      "text": "recentList",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[11].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[11].kind"
+    },
+    {
+      "text": "      <ul id=\"recentList\"></ul>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[11].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[11].file"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.body.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.body.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-app.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-app.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header h1.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header h1.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header .meta.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header .meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header .meta code.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header .meta code.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.#searchForm.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.#searchForm.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.#searchForm input.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.#searchForm input.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.#searchForm button.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.#searchForm button.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .city.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .city.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .country.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .country.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .temp.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .temp.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .desc.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .desc.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .icon.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .icon.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .stats.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .stats.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .stats div.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .stats div.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .stats span.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .stats span.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .stats b.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-card .stats b.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-error.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-error.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-history.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-history.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-history h3.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-history h3.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-history ul.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-history ul.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-history li.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-history li.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-history li:hover.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..weather-history li:hover.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.footer.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.footer.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.name.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.name.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.version.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.version.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.description.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.description.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.package.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.package.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.entry.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.entry.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.min_sdk.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.min_sdk.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.target_sdk.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.target_sdk.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.permissions.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.permissions.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.OPEN_METEO_GEO.file"
+    },
+    {
+      "text": "const",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.OPEN_METEO_GEO.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.OPEN_METEO_FORECAST.file"
+    },
+    {
+      "text": "const",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.OPEN_METEO_FORECAST.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.WeatherResult.file"
+    },
+    {
+      "text": "class",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.WeatherResult.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.to_dict.file"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.to_dict.kind"
+    },
+    {
+      "text": "WeatherResult",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.to_dict.branch_of"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index._WMO.file"
+    },
+    {
+      "text": "const",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index._WMO.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index._geocode.file"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index._geocode.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index._fetch_weather.file"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index._fetch_weather.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.get_weather.file"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.get_weather.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.searchForm.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.searchForm.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.cityInput.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.cityInput.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.weatherCard.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.weatherCard.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.city.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.city.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.country.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.country.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.temp.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.temp.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.desc.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.desc.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.icon.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.icon.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.wind.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.wind.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.code.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.code.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.errorCard.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.errorCard.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.recentList.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.recentList.kind"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.body._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.body._meta.file"
+    },
+    {
+      "text": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: linear-gradient(180deg, #0d1117 0%, #161b22 100%); color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.body._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-app._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-app._meta.file"
+    },
+    {
+      "text": ".weather-app { max-width: 540px; margin: 0 auto; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-app._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header h1._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header h1._meta.file"
+    },
+    {
+      "text": "header h1 { color: #58a6ff; font-size: 22px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header h1._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta._meta.file"
+    },
+    {
+      "text": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta code._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta code._meta.file"
+    },
+    {
+      "text": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta code._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.#searchForm._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.#searchForm._meta.file"
+    },
+    {
+      "text": "#searchForm { display: flex; gap: 8px; margin: 16px 0; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.#searchForm._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.#searchForm input._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.#searchForm input._meta.file"
+    },
+    {
+      "text": "#searchForm input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.#searchForm input._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.#searchForm button._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.#searchForm button._meta.file"
+    },
+    {
+      "text": "#searchForm button { background: #238636; color: #fff; border: none; padding: 0 18px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.#searchForm button._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card._meta.file"
+    },
+    {
+      "text": ".weather-card { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 24px; text-align: center; margin-bottom: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .city._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .city._meta.file"
+    },
+    {
+      "text": ".weather-card .city { color: #e6edf3; font-size: 24px; font-weight: 600; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .city._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .country._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .country._meta.file"
+    },
+    {
+      "text": ".weather-card .country { color: #8b949e; font-size: 12px; margin-bottom: 12px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .country._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .temp._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .temp._meta.file"
+    },
+    {
+      "text": ".weather-card .temp { color: #58a6ff; font-size: 48px; font-weight: 700; font-family: ui-monospace, monospace; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .temp._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .desc._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .desc._meta.file"
+    },
+    {
+      "text": ".weather-card .desc { color: #c9d1d9; font-size: 16px; margin-top: 4px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .desc._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .icon._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .icon._meta.file"
+    },
+    {
+      "text": ".weather-card .icon { font-size: 56px; margin: 12px 0; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .icon._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats._meta.file"
+    },
+    {
+      "text": ".weather-card .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #30363d; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats div._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats div._meta.file"
+    },
+    {
+      "text": ".weather-card .stats div { text-align: center; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats div._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats span._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats span._meta.file"
+    },
+    {
+      "text": ".weather-card .stats span { display: block; color: #8b949e; font-size: 11px; margin-bottom: 4px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats span._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats b._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats b._meta.file"
+    },
+    {
+      "text": ".weather-card .stats b { color: #e6edf3; font-size: 14px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-card .stats b._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-error._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-error._meta.file"
+    },
+    {
+      "text": ".weather-error { background: rgba(248,81,73,0.1); border: 1px solid #f85149; border-radius: 8px; padding: 16px; color: #f85149; text-align: center; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-error._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history._meta.file"
+    },
+    {
+      "text": ".weather-history { margin-top: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history h3._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history h3._meta.file"
+    },
+    {
+      "text": ".weather-history h3 { color: #58a6ff; font-size: 14px; margin-bottom: 8px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history h3._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history ul._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history ul._meta.file"
+    },
+    {
+      "text": ".weather-history ul { list-style: none; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history ul._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history li._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history li._meta.file"
+    },
+    {
+      "text": ".weather-history li { background: #161b22; padding: 10px 12px; border-radius: 6px; border: 1px solid #30363d; margin-bottom: 4px; cursor: pointer; font-size: 13px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history li._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history li:hover._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history li:hover._meta.file"
+    },
+    {
+      "text": ".weather-history li:hover { border-color: #58a6ff; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..weather-history li:hover._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.footer._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.footer._meta.file"
+    },
+    {
+      "text": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.footer._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.name._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.name._meta.file"
+    },
+    {
+      "text": "{\n  \"name\": \"Weather\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.name._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.version._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.version._meta.file"
+    },
+    {
+      "text": "{\n  \"version\": \"1.0.0\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.version._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.description._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.description._meta.file"
+    },
+    {
+      "text": "{\n  \"description\": \"Current weather for any city using Open-Meteo\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.description._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.package._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.package._meta.file"
+    },
+    {
+      "text": "{\n  \"package\": \"com.bardom.app.weather\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.package._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.entry._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.entry._meta.file"
+    },
+    {
+      "text": "{\n  \"entry\": \"template.html\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.entry._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.min_sdk._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.min_sdk._meta.file"
+    },
+    {
+      "text": "{\n  \"min_sdk\": 24\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.min_sdk._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.target_sdk._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.target_sdk._meta.file"
+    },
+    {
+      "text": "{\n  \"target_sdk\": 34\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.target_sdk._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.permissions._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.permissions._meta.file"
+    },
+    {
+      "text": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.permissions._code"
+    },
+    {
+      "text": "const",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.OPEN_METEO_GEO._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.OPEN_METEO_GEO._meta.file"
+    },
+    {
+      "text": "OPEN_METEO_GEO = \"https://geocoding-api.open-meteo.com/v1/search\"",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.OPEN_METEO_GEO._code"
+    },
+    {
+      "text": "const",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.OPEN_METEO_FORECAST._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.OPEN_METEO_FORECAST._meta.file"
+    },
+    {
+      "text": "OPEN_METEO_FORECAST = \"https://api.open-meteo.com/v1/forecast\"",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.OPEN_METEO_FORECAST._code"
+    },
+    {
+      "text": "class",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.WeatherResult._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.WeatherResult._meta.file"
+    },
+    {
+      "text": "class WeatherResult:\n    city: str\n    country: str\n    temperature: float\n    windspeed: float\n    weather_code: int\n    description: str\n    error: str = \"\"\n\n    def to_dict(self) -> dict:\n        return self.__dict__\n\n\n# WMO weather code → human description",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.WeatherResult._code"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.WeatherResult.children.to_dict._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.WeatherResult.children.to_dict._meta.file"
+    },
+    {
+      "text": "WeatherResult",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.WeatherResult.children.to_dict._meta.branch_of"
+    },
+    {
+      "text": "    def to_dict(self) -> dict:\n        return self.__dict__\n\n\n# WMO weather code → human description",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.WeatherResult.children.to_dict._code"
+    },
+    {
+      "text": "const",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree._WMO._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree._WMO._meta.file"
+    },
+    {
+      "text": "_WMO = {",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree._WMO._code"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree._geocode._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree._geocode._meta.file"
+    },
+    {
+      "text": "def _geocode(city: str) -> dict:\n    params = urllib.parse.urlencode({\"name\": city, \"count\": 1, \"language\": \"en\", \"format\": \"json\"})\n    url = f\"{OPEN_METEO_GEO}?{params}\"\n    with urllib.request.urlopen(url, timeout=15) as r:\n        data = json.loads(r.read())\n    if not data.get(\"results\"):\n        return {}\n    first = data[\"results\"][0]\n    return {\n        \"name\": first.get(\"name\", city),\n        \"country\": first.get(\"country\", \"\"),\n        \"latitude\": first.get(\"latitude\"),\n        \"longitude\": first.get(\"longitude\"),\n    }\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree._geocode._code"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree._fetch_weather._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree._fetch_weather._meta.file"
+    },
+    {
+      "text": "def _fetch_weather(lat: float, lon: float) -> dict:\n    params = urllib.parse.urlencode({\n        \"latitude\": lat, \"longitude\": lon,\n        \"current\": \"temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m\",\n        \"timezone\": \"auto\",\n    })\n    url = f\"{OPEN_METEO_FORECAST}?{params}\"\n    with urllib.request.urlopen(url, timeout=15) as r:\n        return json.loads(r.read())\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree._fetch_weather._code"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.get_weather._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.get_weather._meta.file"
+    },
+    {
+      "text": "def get_weather(city: str) -> WeatherResult:\n    try:\n        geo = _geocode(city)\n        if not geo:\n            return WeatherResult(city, \"\", 0, 0, 0, \"\", error=f\"City not found: {city}\")\n        wx = _fetch_weather(geo[\"latitude\"], geo[\"longitude\"])\n        cur = wx.get(\"current\", {})\n        code = int(cur.get(\"weather_code\", 0))\n        return WeatherResult(\n            city=geo[\"name\"],\n            country=geo[\"country\"],\n            temperature=cur.get(\"temperature_2m\", 0),\n            windspeed=cur.get(\"wind_speed_10m\", 0),\n            weather_code=code,\n            description=_WMO.get(code, \"Unknown\"),\n        )\n    except Exception as e:\n        return WeatherResult(city, \"\", 0, 0, 0, \"\", error=str(e))\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.get_weather._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.searchForm._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.searchForm._meta.file"
+    },
+    {
+      "text": "    <form id=\"searchForm\">",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.searchForm._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.cityInput._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.cityInput._meta.file"
+    },
+    {
+      "text": "      <input type=\"text\" id=\"cityInput\" placeholder=\"Enter city name...\" autocomplete=\"off\">",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.cityInput._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.weatherCard._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.weatherCard._meta.file"
+    },
+    {
+      "text": "    <div class=\"weather-card\" id=\"weatherCard\" hidden>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.weatherCard._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.city._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.city._meta.file"
+    },
+    {
+      "text": "      <div class=\"city\" id=\"city\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.city._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.country._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.country._meta.file"
+    },
+    {
+      "text": "      <div class=\"country\" id=\"country\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.country._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.temp._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.temp._meta.file"
+    },
+    {
+      "text": "      <div class=\"temp\" id=\"temp\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.temp._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.desc._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.desc._meta.file"
+    },
+    {
+      "text": "      <div class=\"desc\" id=\"desc\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.desc._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.icon._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.icon._meta.file"
+    },
+    {
+      "text": "      <div class=\"icon\" id=\"icon\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.icon._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.wind._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.wind._meta.file"
+    },
+    {
+      "text": "        <div><span>Wind</span><b id=\"wind\"></b></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.wind._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.code._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.code._meta.file"
+    },
+    {
+      "text": "        <div><span>Code</span><b id=\"code\"></b></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.code._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.errorCard._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.errorCard._meta.file"
+    },
+    {
+      "text": "    <div class=\"weather-error\" id=\"errorCard\" hidden></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.errorCard._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.recentList._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.recentList._meta.file"
+    },
+    {
+      "text": "      <ul id=\"recentList\"></ul>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.recentList._code"
+    },
+    {
+      "text": "Segoe UI",
+      "file": "css/style.css",
+      "line": 2,
+      "id": null
+    },
+    {
+      "text": "Weather",
+      "file": "function.json",
+      "line": 1,
+      "id": "name"
+    },
+    {
+      "text": "1.0.0",
+      "file": "function.json",
+      "line": 1,
+      "id": "version"
+    },
+    {
+      "text": "Current weather for any city using Open-Meteo",
+      "file": "function.json",
+      "line": 1,
+      "id": "description"
+    },
+    {
+      "text": "com.bardom.app.weather",
+      "file": "function.json",
+      "line": 1,
+      "id": "package"
+    },
+    {
+      "text": "template.html",
+      "file": "function.json",
+      "line": 1,
+      "id": "entry"
+    },
+    {
+      "text": "https://geocoding-api.open-meteo.com/v1/search",
+      "file": "handler.py",
+      "line": 15,
+      "id": null
+    },
+    {
+      "text": "https://api.open-meteo.com/v1/forecast",
+      "file": "handler.py",
+      "line": 16,
+      "id": null
+    },
+    {
+      "text": "Clear sky",
+      "file": "handler.py",
+      "line": 35,
+      "id": null
+    },
+    {
+      "text": "Mainly clear",
+      "file": "handler.py",
+      "line": 35,
+      "id": null
+    },
+    {
+      "text": "Partly cloudy",
+      "file": "handler.py",
+      "line": 35,
+      "id": null
+    },
+    {
+      "text": "Overcast",
+      "file": "handler.py",
+      "line": 35,
+      "id": null
+    },
+    {
+      "text": "Fog",
+      "file": "handler.py",
+      "line": 36,
+      "id": null
+    },
+    {
+      "text": "Depositing rime fog",
+      "file": "handler.py",
+      "line": 36,
+      "id": null
+    },
+    {
+      "text": "Light drizzle",
+      "file": "handler.py",
+      "line": 37,
+      "id": null
+    },
+    {
+      "text": "Moderate drizzle",
+      "file": "handler.py",
+      "line": 37,
+      "id": null
+    },
+    {
+      "text": "Dense drizzle",
+      "file": "handler.py",
+      "line": 37,
+      "id": null
+    },
+    {
+      "text": "Light freezing drizzle",
+      "file": "handler.py",
+      "line": 38,
+      "id": null
+    },
+    {
+      "text": "Dense freezing drizzle",
+      "file": "handler.py",
+      "line": 38,
+      "id": null
+    },
+    {
+      "text": "Slight rain",
+      "file": "handler.py",
+      "line": 39,
+      "id": null
+    },
+    {
+      "text": "Moderate rain",
+      "file": "handler.py",
+      "line": 39,
+      "id": null
+    },
+    {
+      "text": "Heavy rain",
+      "file": "handler.py",
+      "line": 39,
+      "id": null
+    },
+    {
+      "text": "Light freezing rain",
+      "file": "handler.py",
+      "line": 40,
+      "id": null
+    },
+    {
+      "text": "Heavy freezing rain",
+      "file": "handler.py",
+      "line": 40,
+      "id": null
+    },
+    {
+      "text": "Slight snow fall",
+      "file": "handler.py",
+      "line": 41,
+      "id": null
+    },
+    {
+      "text": "Moderate snow fall",
+      "file": "handler.py",
+      "line": 41,
+      "id": null
+    },
+    {
+      "text": "Heavy snow fall",
+      "file": "handler.py",
+      "line": 41,
+      "id": null
+    },
+    {
+      "text": "Snow grains",
+      "file": "handler.py",
+      "line": 42,
+      "id": null
+    },
+    {
+      "text": "Slight rain showers",
+      "file": "handler.py",
+      "line": 43,
+      "id": null
+    },
+    {
+      "text": "Moderate rain showers",
+      "file": "handler.py",
+      "line": 43,
+      "id": null
+    },
+    {
+      "text": "Violent rain showers",
+      "file": "handler.py",
+      "line": 43,
+      "id": null
+    },
+    {
+      "text": "Slight snow showers",
+      "file": "handler.py",
+      "line": 44,
+      "id": null
+    },
+    {
+      "text": "Heavy snow showers",
+      "file": "handler.py",
+      "line": 44,
+      "id": null
+    },
+    {
+      "text": "Thunderstorm",
+      "file": "handler.py",
+      "line": 45,
+      "id": null
+    },
+    {
+      "text": "Thunderstorm with slight hail",
+      "file": "handler.py",
+      "line": 45,
+      "id": null
+    },
+    {
+      "text": "Thunderstorm with heavy hail",
+      "file": "handler.py",
+      "line": 45,
+      "id": null
+    },
+    {
+      "text": "name",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "count",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "language",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "en",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "format",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "json",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "name",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "count",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "language",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "en",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "format",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "json",
+      "file": "handler.py",
+      "line": 50,
+      "id": "_geocode"
+    },
+    {
+      "text": "{OPEN_METEO_GEO}?{params}",
+      "file": "handler.py",
+      "line": 51,
+      "id": "_geocode"
+    },
+    {
+      "text": "{OPEN_METEO_GEO}?{params}",
+      "file": "handler.py",
+      "line": 51,
+      "id": "_geocode"
+    },
+    {
+      "text": "results",
+      "file": "handler.py",
+      "line": 54,
+      "id": "_geocode"
+    },
+    {
+      "text": "results",
+      "file": "handler.py",
+      "line": 54,
+      "id": "_geocode"
+    },
+    {
+      "text": "results",
+      "file": "handler.py",
+      "line": 56,
+      "id": "_geocode"
+    },
+    {
+      "text": "results",
+      "file": "handler.py",
+      "line": 56,
+      "id": "_geocode"
+    },
+    {
+      "text": "name",
+      "file": "handler.py",
+      "line": 58,
+      "id": "_geocode"
+    },
+    {
+      "text": "name",
+      "file": "handler.py",
+      "line": 58,
+      "id": "_geocode"
+    },
+    {
+      "text": "name",
+      "file": "handler.py",
+      "line": 58,
+      "id": "_geocode"
+    },
+    {
+      "text": "name",
+      "file": "handler.py",
+      "line": 58,
+      "id": "_geocode"
+    },
+    {
+      "text": "country",
+      "file": "handler.py",
+      "line": 59,
+      "id": "_geocode"
+    },
+    {
+      "text": "country",
+      "file": "handler.py",
+      "line": 59,
+      "id": "_geocode"
+    },
+    {
+      "text": "country",
+      "file": "handler.py",
+      "line": 59,
+      "id": "_geocode"
+    },
+    {
+      "text": "country",
+      "file": "handler.py",
+      "line": 59,
+      "id": "_geocode"
+    },
+    {
+      "text": "latitude",
+      "file": "handler.py",
+      "line": 60,
+      "id": "_geocode"
+    },
+    {
+      "text": "latitude",
+      "file": "handler.py",
+      "line": 60,
+      "id": "_geocode"
+    },
+    {
+      "text": "latitude",
+      "file": "handler.py",
+      "line": 60,
+      "id": "_geocode"
+    },
+    {
+      "text": "latitude",
+      "file": "handler.py",
+      "line": 60,
+      "id": "_geocode"
+    },
+    {
+      "text": "longitude",
+      "file": "handler.py",
+      "line": 61,
+      "id": "_geocode"
+    },
+    {
+      "text": "longitude",
+      "file": "handler.py",
+      "line": 61,
+      "id": "_geocode"
+    },
+    {
+      "text": "longitude",
+      "file": "handler.py",
+      "line": 61,
+      "id": "_geocode"
+    },
+    {
+      "text": "longitude",
+      "file": "handler.py",
+      "line": 61,
+      "id": "_geocode"
+    },
+    {
+      "text": "latitude",
+      "file": "handler.py",
+      "line": 67,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "longitude",
+      "file": "handler.py",
+      "line": 67,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "latitude",
+      "file": "handler.py",
+      "line": 67,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "longitude",
+      "file": "handler.py",
+      "line": 67,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "current",
+      "file": "handler.py",
+      "line": 68,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m",
+      "file": "handler.py",
+      "line": 68,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "current",
+      "file": "handler.py",
+      "line": 68,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m",
+      "file": "handler.py",
+      "line": 68,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "timezone",
+      "file": "handler.py",
+      "line": 69,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "auto",
+      "file": "handler.py",
+      "line": 69,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "timezone",
+      "file": "handler.py",
+      "line": 69,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "auto",
+      "file": "handler.py",
+      "line": 69,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "{OPEN_METEO_FORECAST}?{params}",
+      "file": "handler.py",
+      "line": 71,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "{OPEN_METEO_FORECAST}?{params}",
+      "file": "handler.py",
+      "line": 71,
+      "id": "_fetch_weather"
+    },
+    {
+      "text": "City not found: {city}",
+      "file": "handler.py",
+      "line": 80,
+      "id": "get_weather"
+    },
+    {
+      "text": "City not found: {city}",
+      "file": "handler.py",
+      "line": 80,
+      "id": "get_weather"
+    },
+    {
+      "text": "latitude",
+      "file": "handler.py",
+      "line": 81,
+      "id": "get_weather"
+    },
+    {
+      "text": "longitude",
+      "file": "handler.py",
+      "line": 81,
+      "id": "get_weather"
+    },
+    {
+      "text": "latitude",
+      "file": "handler.py",
+      "line": 81,
+      "id": "get_weather"
+    },
+    {
+      "text": "longitude",
+      "file": "handler.py",
+      "line": 81,
+      "id": "get_weather"
+    },
+    {
+      "text": "current",
+      "file": "handler.py",
+      "line": 82,
+      "id": "get_weather"
+    },
+    {
+      "text": "current",
+      "file": "handler.py",
+      "line": 82,
+      "id": "get_weather"
+    },
+    {
+      "text": "weather_code",
+      "file": "handler.py",
+      "line": 83,
+      "id": "get_weather"
+    },
+    {
+      "text": "weather_code",
+      "file": "handler.py",
+      "line": 83,
+      "id": "get_weather"
+    },
+    {
+      "text": "name",
+      "file": "handler.py",
+      "line": 85,
+      "id": "get_weather"
+    },
+    {
+      "text": "name",
+      "file": "handler.py",
+      "line": 85,
+      "id": "get_weather"
+    },
+    {
+      "text": "country",
+      "file": "handler.py",
+      "line": 86,
+      "id": "get_weather"
+    },
+    {
+      "text": "country",
+      "file": "handler.py",
+      "line": 86,
+      "id": "get_weather"
+    },
+    {
+      "text": "temperature_2m",
+      "file": "handler.py",
+      "line": 87,
+      "id": "get_weather"
+    },
+    {
+      "text": "temperature_2m",
+      "file": "handler.py",
+      "line": 87,
+      "id": "get_weather"
+    },
+    {
+      "text": "wind_speed_10m",
+      "file": "handler.py",
+      "line": 88,
+      "id": "get_weather"
+    },
+    {
+      "text": "wind_speed_10m",
+      "file": "handler.py",
+      "line": 88,
+      "id": "get_weather"
+    },
+    {
+      "text": "Unknown",
+      "file": "handler.py",
+      "line": 90,
+      "id": "get_weather"
+    },
+    {
+      "text": "Unknown",
+      "file": "handler.py",
+      "line": 90,
+      "id": "get_weather"
+    },
+    {
+      "text": "__main__",
+      "file": "handler.py",
+      "line": 96,
+      "id": null
+    },
+    {
+      "text": "Riyadh",
+      "file": "handler.py",
+      "line": 98,
+      "id": null
+    },
+    {
+      "text": "use strict",
+      "file": "js/app.js",
+      "line": 3,
+      "id": null
+    },
+    {
+      "text": "searchForm",
+      "file": "js/app.js",
+      "line": 4,
+      "id": null
+    },
+    {
+      "text": "cityInput",
+      "file": "js/app.js",
+      "line": 5,
+      "id": null
+    },
+    {
+      "text": "weatherCard",
+      "file": "js/app.js",
+      "line": 6,
+      "id": null
+    },
+    {
+      "text": "errorCard",
+      "file": "js/app.js",
+      "line": 7,
+      "id": null
+    },
+    {
+      "text": "bardom_weather_recent",
+      "file": "js/app.js",
+      "line": 8,
+      "id": null
+    },
+    {
+      "text": "[]",
+      "file": "js/app.js",
+      "line": 8,
+      "id": null
+    },
+    {
+      "text": "☀️",
+      "file": "js/app.js",
+      "line": 11,
+      "id": null
+    },
+    {
+      "text": "🌤️",
+      "file": "js/app.js",
+      "line": 11,
+      "id": null
+    },
+    {
+      "text": "☁️",
+      "file": "js/app.js",
+      "line": 11,
+      "id": null
+    },
+    {
+      "text": "🌫️",
+      "file": "js/app.js",
+      "line": 11,
+      "id": null
+    },
+    {
+      "text": "🌫️",
+      "file": "js/app.js",
+      "line": 11,
+      "id": null
+    },
+    {
+      "text": "🌦️",
+      "file": "js/app.js",
+      "line": 12,
+      "id": null
+    },
+    {
+      "text": "🌦️",
+      "file": "js/app.js",
+      "line": 12,
+      "id": null
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 12,
+      "id": null
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 12,
+      "id": null
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 12,
+      "id": null
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "🌨️",
+      "file": "js/app.js",
+      "line": 14,
+      "id": null
+    },
+    {
+      "text": "🌨️",
+      "file": "js/app.js",
+      "line": 14,
+      "id": null
+    },
+    {
+      "text": "❄️",
+      "file": "js/app.js",
+      "line": 14,
+      "id": null
+    },
+    {
+      "text": "❄️",
+      "file": "js/app.js",
+      "line": 14,
+      "id": null
+    },
+    {
+      "text": "🌦️",
+      "file": "js/app.js",
+      "line": 15,
+      "id": null
+    },
+    {
+      "text": "🌧️",
+      "file": "js/app.js",
+      "line": 15,
+      "id": null
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 15,
+      "id": null
+    },
+    {
+      "text": "🌨️",
+      "file": "js/app.js",
+      "line": 15,
+      "id": null
+    },
+    {
+      "text": "❄️",
+      "file": "js/app.js",
+      "line": 15,
+      "id": null
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 16,
+      "id": null
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 16,
+      "id": null
+    },
+    {
+      "text": "⛈️",
+      "file": "js/app.js",
+      "line": 16,
+      "id": null
+    },
+    {
+      "text": "bardom_weather_recent",
+      "file": "js/app.js",
+      "line": 23,
+      "id": null
+    },
+    {
+      "text": "recentList",
+      "file": "js/app.js",
+      "line": 27,
+      "id": null
+    },
+    {
+      "text": "<li>",
+      "file": "js/app.js",
+      "line": 28,
+      "id": null
+    },
+    {
+      "text": "</li>",
+      "file": "js/app.js",
+      "line": 28,
+      "id": null
+    },
+    {
+      "text": "li",
+      "file": "js/app.js",
+      "line": 29,
+      "id": null
+    },
+    {
+      "text": "click",
+      "file": "js/app.js",
+      "line": 30,
+      "id": null
+    },
+    {
+      "text": "https://geocoding-api.open-meteo.com/v1/search?name=",
+      "file": "js/app.js",
+      "line": 38,
+      "id": null
+    },
+    {
+      "text": "&count=1&language=en&format=json",
+      "file": "js/app.js",
+      "line": 38,
+      "id": null
+    },
+    {
+      "text": "City not found",
+      "file": "js/app.js",
+      "line": 41,
+      "id": null
+    },
+    {
+      "text": "https://api.open-meteo.com/v1/forecast?latitude=",
+      "file": "js/app.js",
+      "line": 43,
+      "id": null
+    },
+    {
+      "text": "&longitude=",
+      "file": "js/app.js",
+      "line": 43,
+      "id": null
+    },
+    {
+      "text": "&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto",
+      "file": "js/app.js",
+      "line": 43,
+      "id": null
+    },
+    {
+      "text": "city",
+      "file": "js/app.js",
+      "line": 50,
+      "id": null
+    },
+    {
+      "text": "country",
+      "file": "js/app.js",
+      "line": 51,
+      "id": null
+    },
+    {
+      "text": "temp",
+      "file": "js/app.js",
+      "line": 52,
+      "id": null
+    },
+    {
+      "text": "°C",
+      "file": "js/app.js",
+      "line": 52,
+      "id": null
+    },
+    {
+      "text": "desc",
+      "file": "js/app.js",
+      "line": 53,
+      "id": null
+    },
+    {
+      "text": "icon",
+      "file": "js/app.js",
+      "line": 54,
+      "id": null
+    },
+    {
+      "text": "🌡️",
+      "file": "js/app.js",
+      "line": 54,
+      "id": null
+    },
+    {
+      "text": "wind",
+      "file": "js/app.js",
+      "line": 55,
+      "id": null
+    },
+    {
+      "text": " km/h",
+      "file": "js/app.js",
+      "line": 55,
+      "id": null
+    },
+    {
+      "text": "code",
+      "file": "js/app.js",
+      "line": 56,
+      "id": null
+    },
+    {
+      "text": "Error: ",
+      "file": "js/app.js",
+      "line": 61,
+      "id": null
+    },
+    {
+      "text": "Clear sky",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Mainly clear",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Partly cloudy",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Overcast",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Fog",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Rime fog",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Light drizzle",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Moderate drizzle",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Dense drizzle",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Slight rain",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Moderate rain",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Heavy rain",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Slight snow",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Moderate snow",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Heavy snow",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Rain showers",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Moderate showers",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Violent showers",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Thunderstorm",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Thunderstorm + hail",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Thunderstorm + heavy hail",
+      "file": "js/app.js",
+      "line": 67,
+      "id": null
+    },
+    {
+      "text": "Unknown",
+      "file": "js/app.js",
+      "line": 68,
+      "id": null
+    },
+    {
+      "text": "submit",
+      "file": "js/app.js",
+      "line": 71,
+      "id": null
+    },
+    {
+      "text": "{{ config.function }} — Weather",
+      "file": "template.html",
+      "line": 6,
+      "id": null
+    },
+    {
+      "text": "Weather",
+      "file": "template.html",
+      "line": 12,
+      "id": null
+    },
+    {
+      "text": "Function:",
+      "file": "template.html",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "{{ config.function }}",
+      "file": "template.html",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "· v{{ config.version }}",
+      "file": "template.html",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "Search",
+      "file": "template.html",
+      "line": 18,
+      "id": null
+    },
+    {
+      "text": "Wind",
+      "file": "template.html",
+      "line": 27,
+      "id": null
+    },
+    {
+      "text": "Code",
+      "file": "template.html",
+      "line": 28,
+      "id": null
+    },
+    {
+      "text": "Recent searches",
+      "file": "template.html",
+      "line": 33,
+      "id": null
+    },
+    {
+      "text": "Built by BardomPro APK Generator",
+      "file": "template.html",
+      "line": 37,
+      "id": null
+    }
+  ]
+}
