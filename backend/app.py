@@ -45,27 +45,35 @@ from engine.config_json_processor import build_config_json, write_config_json, b
 from engine.strings_json_processor import build_strings_json, write_strings_json, build_all as build_all_strings
 from engine.template_renderer import render_function, render_to_file
 from engine.apk_builder import build_apk as _v1_build_apk, list_built_apks
-# Prefer the v2 builder (real installable APKs) when the shell + apksigner are present
+# Prefer the v3 builder (real installable APKs built from source with unique package/icon)
 try:
-    from engine.apk_builder_v2 import build_apk as _v2_build_apk
-    _HAVE_V2 = True
+    from engine.apk_builder_v3 import build_apk as _v3_build_apk
+    _HAVE_V3 = True
 except Exception:
-    _HAVE_V2 = False
+    _HAVE_V3 = False
+    try:
+        from engine.apk_builder_v2 import build_apk as _v2_build_apk
+    except Exception:
+        _v2_build_apk = _v1_build_apk
 
 
 def _do_build_apk(function_name, **kwargs):
-    """Use v2 builder (real APK) when available; fall back to v1 webapk."""
-    if _HAVE_V2:
+    """Use v3 (from-source) when available; fall back to v2 (shell) → v1 (webapk)."""
+    if _HAVE_V3:
         try:
-            return _v2_build_apk(function_name, **kwargs)
+            return _v3_build_apk(function_name, **kwargs)
         except Exception as e:
-            # v2 failed (missing Java/apksigner/shell) — fall back to v1
-            res = _v1_build_apk(function_name, **kwargs)
-            if not res.success:
-                res.error = f"v2 failed ({e}); v1 also failed: {res.error}"
-            else:
-                res.build_mode = f"webapk (v2 unavailable: {e})"
+            # v3 failed — fall through to v2
+            pass
+    # Try v2 (shell-based)
+    try:
+        from engine.apk_builder_v2 import build_apk as _v2_build_apk
+        res = _v2_build_apk(function_name, **kwargs)
+        if res.success:
             return res
+    except Exception:
+        pass
+    # Fall back to v1 webapk
     return _v1_build_apk(function_name, **kwargs)
 
 
