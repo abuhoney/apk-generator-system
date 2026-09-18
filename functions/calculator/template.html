@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ config.function }} — Calculator</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="calc-app">
+  <header class="calc-header">
+    <h1>Calculator</h1>
+    <p class="meta">Function: <code>{{ config.function }}</code> · v{{ config.version }}</p>
+  </header>
+
+  <main class="calc-main">
+    <div class="calc-display">
+      <div class="calc-expression" id="expr">0</div>
+      <div class="calc-result" id="result">= 0</div>
+    </div>
+
+    <div class="calc-keypad">
+      <button class="key clear" data-action="clear">C</button>
+      <button class="key op" data-val="(">(</button>
+      <button class="key op" data-val=")">)</button>
+      <button class="key op accent" data-val="/">÷</button>
+
+      <button class="key num" data-val="7">7</button>
+      <button class="key num" data-val="8">8</button>
+      <button class="key num" data-val="9">9</button>
+      <button class="key op accent" data-val="*">×</button>
+
+      <button class="key num" data-val="4">4</button>
+      <button class="key num" data-val="5">5</button>
+      <button class="key num" data-val="6">6</button>
+      <button class="key op accent" data-val="-">−</button>
+
+      <button class="key num" data-val="1">1</button>
+      <button class="key num" data-val="2">2</button>
+      <button class="key num" data-val="3">3</button>
+      <button class="key op accent" data-val="+">+</button>
+
+      <button class="key num zero" data-val="0">0</button>
+      <button class="key num" data-val=".">.</button>
+      <button class="key equals" data-action="equals">=</button>
+    </div>
+
+    <details class="calc-history">
+      <summary>History</summary>
+      <ul id="historyList"></ul>
+    </details>
+  </main>
+
+  <footer class="calc-footer">
+    <small>Built by BardomPro APK Generator</small>
+  </footer>
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
