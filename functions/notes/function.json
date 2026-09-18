@@ -1,0 +1,10 @@
+{
+  "name": "Notes",
+  "version": "1.0.0",
+  "description": "A simple notes app with local storage persistence",
+  "package": "com.bardom.app.notes",
+  "entry": "template.html",
+  "min_sdk": 24,
+  "target_sdk": 34,
+  "permissions": ["INTERNET"]
+}
