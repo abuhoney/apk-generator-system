@@ -1,0 +1,78 @@
+name: Build APK from ZIP
+
+on:
+  repository_dispatch:
+    types: [bardom_build, bardom_zip_build]
+  workflow_dispatch:
+    inputs:
+      function:
+        description: 'Function name to build'
+        required: true
+        default: 'calculator'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools build-tools;34.0.0 platforms;android-34'
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install backend dependencies
+        run: |
+          pip install flask gunicorn
+
+      - name: Build APK for function
+        env:
+          FUNCTION: ${{ github.event.client_payload.function || github.event.inputs.function || 'calculator' }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          TELEGRAM_ADMIN_CHAT_ID: ${{ secrets.TELEGRAM_ADMIN_CHAT_ID }}
+          FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
+          BACKEND_URL: ${{ secrets.BACKEND_URL }}
+          NEW_GITHUB_REPO: abuhoney/apk-generator-system
+        run: |
+          echo "::group::Building APK for $FUNCTION"
+          cd backend
+          python3 -c "
+          import sys, json
+          sys.path.insert(0, '.')
+          from engine.apk_builder_v3 import build_apk
+          res = build_apk('${FUNCTION}')
+          print(json.dumps(res.to_dict(), indent=2))
+          with open('../build_result.json', 'w') as f:
+              json.dump(res.to_dict(), f, indent=2)
+          " || echo "Build failed — check logs"
+          echo "::endgroup::"
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: apk-${{ github.event.client_payload.function || github.event.inputs.function || 'calculator' }}
+          path: _output/**/*.apk
+          if-no-files-found: warn
+
+      - name: Release APK
+        if: success()
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: fn-${{ github.event.client_payload.function || github.event.inputs.function || 'calculator' }}-${{ github.run_number }}
+          files: _output/**/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
