@@ -1,0 +1,10 @@
+{
+  "name": "QR Generator",
+  "version": "1.0.0",
+  "description": "Generate QR codes from any text or URL",
+  "package": "com.bardom.app.qrgenerator",
+  "entry": "template.html",
+  "min_sdk": 24,
+  "target_sdk": 34,
+  "permissions": ["INTERNET"]
+}
