@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>BardomPro</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+     background:#0d1117;color:#c9d1d9;min-height:100vh;
+     display:flex;align-items:center;justify-content:center}
+#boot{display:flex;flex-direction:column;align-items:center;gap:16px}
+#bootLogo{width:80px;height:80px;border-radius:16px;
+           background:linear-gradient(135deg,#58a6ff,#1f6feb);
+           display:flex;align-items:center;justify-content:center;
+           font-size:36px;color:#fff;font-weight:bold}
+#bootText{color:#8b949e;font-size:14px}
+.spinner{width:32px;height:32px;border:3px solid #30363d;
+          border-top-color:#58a6ff;border-radius:50%;
+          animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#error{display:none;color:#f85149;text-align:center;padding:20px;max-width:400px}
+#retry{background:#238636;color:#fff;border:none;padding:10px 20px;
+        border-radius:8px;margin-top:12px;cursor:pointer;font-size:14px}
+</style>
+</head>
+<body>
+<div id="boot">
+    <div id="bootLogo">B</div>
+    <div class="spinner"></div>
+    <div id="bootText">Loading engine...</div>
+</div>
+<div id="error">
+    <p>Failed to load the engine.</p>
+    <p style="font-size:12px;color:#8b949e;margin-top:8px" id="errorDetail"></p>
+    <button id="retry" onclick="window.__bootstrapEngine()">Retry</button>
+</div>
+<script src="loader.js"></script>
+<script>
+// Bootstrap: called by MainActivity after page load, and by retry button
+window.__bootstrapEngine = function() {
+    document.getElementById('boot').style.display = 'flex';
+    document.getElementById('error').style.display = 'none';
+    document.getElementById('bootText').textContent = 'Decrypting payload...';
+
+    try {
+        // Call the Android JS bridge to get the decrypted payload
+        if (window.Android && Android.getDecryptedPayload) {
+            var payloadJson = Android.getDecryptedPayload();
+            var payload = JSON.parse(payloadJson);
+
+            if (payload && payload.engine_html) {
+                // Inject the engine HTML into the document
+                document.open();
+                document.write(payload.engine_html);
+                document.close();
+
+                // Store the payload globally so the engine can access it
+                window.__bardomPayload = payload;
+
+                // Call the engine's init if it exists
+                if (window.__engineInit) {
+                    window.__engineInit(payload);
+                }
+            } else if (payload && payload.functions) {
+                // No engine_html — build a simple UI from functions
+                renderSimpleUI(payload);
+            } else {
+                showError('Payload is empty or invalid');
+            }
+        } else {
+            showError('Android bridge not available');
+        }
+    } catch (e) {
+        showError(e.message);
+    }
+};
+
+function renderSimpleUI(payload) {
+    var html = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">';
+    html += '<meta name="viewport" content="width=device-width,initial-scale=1">';
+    html += '<title>BardomPro — Functions</title>';
+    html += '<style>';
+    html += '*{box-sizing:border-box;margin:0;padding:0}';
+    html += 'body{font-family:-apple-system,system-ui,sans-serif;background:#0d1117;color:#c9d1d9;padding:16px}';
+    html += 'h1{color:#58a6ff;font-size:22px;margin-bottom:16px}';
+    html += '.fn{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:14px;margin-bottom:8px;cursor:pointer}';
+    html += '.fn:hover{border-color:#58a6ff}';
+    html += '.fn .name{color:#e6edf3;font-weight:600;font-size:15px}';
+    html += '.fn .desc{color:#8b949e;font-size:12px;margin-top:4px}';
+    html += '.fn .meta{color:#6e7681;font-size:10px;margin-top:6px}';
+    html += '#view{display:none;background:#0d1117;min-height:100vh;padding:0}';
+    html += '#view iframe{width:100%;height:100vh;border:0}';
+    html += '.back{background:#21262d;color:#c9d1d9;border:1px solid #30363d;border-radius:6px;padding:8px 14px;margin-bottom:12px;cursor:pointer}';
+    html += '</style></head><body>';
+    html += '<h1>BardomPro — Functions</h1>';
+    html += '<p style="color:#8b949e;font-size:12px;margin-bottom:16px">Version: ' + (payload.version || '6.0.0') + '</p>';
+
+    var fns = payload.functions || {};
+    var keys = Object.keys(fns);
+    if (keys.length === 0) {
+        html += '<p style="color:#8b949e">No functions available.</p>';
+    } else {
+        keys.forEach(function(id) {
+            var fn = fns[id];
+            var manifest = fn.manifest || {};
+            html += '<div class="fn" data-id="' + id + '">';
+            html += '<div class="name">' + (manifest.name || id) + '</div>';
+            html += '<div class="desc">' + (manifest.description || '') + '</div>';
+            html += '<div class="meta">v' + (manifest.version || '1.0.0') + ' · ' + id + '</div>';
+            html += '</div>';
+        });
+    }
+
+    html += '<div id="view"><button class="back" onclick="showList()">← Back</button><iframe id="fnFrame"></iframe></div>';
+    html += '<script>';
+    html += 'function showList(){document.getElementById("view").style.display="none"}';
+    html += 'document.querySelectorAll(".fn").forEach(function(el){';
+    html += 'el.addEventListener("click",function(){';
+    html += 'var id=el.dataset.id;var fn=window.__bardomPayload.functions[id];';
+    html += 'if(fn&&fn.template_html){';
+    html += 'var blob=new Blob([fn.template_html],{type:"text/html"});';
+    html += 'var url=URL.createObjectURL(blob);';
+    html += 'document.getElementById("fnFrame").src=url;';
+    html += 'document.getElementById("view").style.display="block"}';
+    html += '})});';
+    html += '<\/script></body></html>';
+
+    document.open();
+    document.write(html);
+    document.close();
+}
+
+function showError(msg) {
+    document.getElementById('boot').style.display = 'none';
+    document.getElementById('error').style.display = 'block';
+    document.getElementById('errorDetail').textContent = msg;
+}
+
+// Auto-bootstrap on load
+window.__bootstrapEngine();
+</script>
+</body>
+</html>
