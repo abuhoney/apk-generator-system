@@ -40,9 +40,9 @@ services:
       - key: RENDER_API_KEY
         sync: false
       - key: RENDER_SERVICE_ID
-        value: srv-d7vr80f7f7vs73c2t130
+        value: srv-dam98ge1egvs738k8j90
       - key: BACKEND_URL
-        value: https://bardomai.onrender.com
+        value: https://bardompro-apk-gen.onrender.com
       - key: BACKEND_SECRET
         value: bardom-v17-secret
       - key: FIREBASE_API_KEY
