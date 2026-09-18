@@ -202,11 +202,36 @@ def _ensure_keystore() -> None:
     subprocess.run(cmd, check=True, capture_output=True)
 
 
+def _ensure_java_available() -> bool:
+    """Check if Java is available; if not, try to install it (Linux only)."""
+    # Check if java already works
+    try:
+        r = subprocess.run(["java", "-version"], capture_output=True, timeout=10)
+        if r.returncode == 0:
+            return True
+    except Exception:
+        pass
+    # Try installing via apt-get (works on Render free tier)
+    try:
+        subprocess.run(["apt-get", "update", "-y"],
+                        capture_output=True, timeout=60)
+        subprocess.run(
+            ["apt-get", "install", "-y", "--no-install-recommends",
+             "default-jre-headless"],
+            capture_output=True, timeout=180)
+        r = subprocess.run(["java", "-version"], capture_output=True, timeout=10)
+        return r.returncode == 0
+    except Exception:
+        return False
+
+
 def _sign_apk(apk_path: Path) -> bool:
     """Sign the APK with apksigner (v1 + v2 + v3 schemes)."""
     if not APKSIGNER_JAR.exists():
         raise FileNotFoundError(f"apksigner not found: {APKSIGNER_JAR}")
     _ensure_keystore()
+    # Make sure Java is available
+    _ensure_java_available()
     cmd = [
         "java", "-jar", str(APKSIGNER_JAR), "sign",
         "--ks", str(KEYSTORE),
