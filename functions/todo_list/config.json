@@ -1,7 +1,7 @@
 {
   "function": "todo_list",
   "version": "1.0.0",
-  "generated_at": "2026-09-18T01:25:17Z",
+  "generated_at": "2026-09-18T01:50:38Z",
   "summary": {
     "files": 5,
     "ids": 42,
@@ -776,7 +776,7 @@
         "line_end": 2,
         "branch_of": null
       },
-      "_code": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+      "_code_ref": "body",
       "children": {}
     },
     ".todo-app": {
@@ -787,7 +787,7 @@
         "line_end": 3,
         "branch_of": null
       },
-      "_code": ".todo-app { max-width: 540px; margin: 0 auto; }",
+      "_code_ref": ".todo-app",
       "children": {}
     },
     "header h1": {
@@ -798,7 +798,7 @@
         "line_end": 4,
         "branch_of": null
       },
-      "_code": "header h1 { color: #58a6ff; font-size: 22px; }",
+      "_code_ref": "header h1",
       "children": {}
     },
     "header .meta": {
@@ -809,7 +809,7 @@
         "line_end": 5,
         "branch_of": null
       },
-      "_code": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+      "_code_ref": "header .meta",
       "children": {}
     },
     "header .meta code": {
@@ -820,7 +820,7 @@
         "line_end": 6,
         "branch_of": null
       },
-      "_code": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+      "_code_ref": "header .meta code",
       "children": {}
     },
     ".add-form": {
@@ -831,7 +831,7 @@
         "line_end": 7,
         "branch_of": null
       },
-      "_code": ".add-form { display: flex; gap: 8px; margin: 16px 0; }",
+      "_code_ref": ".add-form",
       "children": {}
     },
     ".add-form input": {
@@ -842,7 +842,7 @@
         "line_end": 8,
         "branch_of": null
       },
-      "_code": ".add-form input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+      "_code_ref": ".add-form input",
       "children": {}
     },
     ".add-form button": {
@@ -853,7 +853,7 @@
         "line_end": 9,
         "branch_of": null
       },
-      "_code": ".add-form button { background: #238636; color: #fff; border: none; padding: 0 20px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+      "_code_ref": ".add-form button",
       "children": {}
     },
     ".todo-stats": {
@@ -864,7 +864,7 @@
         "line_end": 10,
         "branch_of": null
       },
-      "_code": ".todo-stats { color: #8b949e; font-size: 12px; margin-bottom: 8px; }",
+      "_code_ref": ".todo-stats",
       "children": {}
     },
     ".todo-list": {
@@ -875,7 +875,7 @@
         "line_end": 11,
         "branch_of": null
       },
-      "_code": ".todo-list { list-style: none; }",
+      "_code_ref": ".todo-list",
       "children": {}
     },
     ".todo-list li": {
@@ -886,7 +886,7 @@
         "line_end": 12,
         "branch_of": null
       },
-      "_code": ".todo-list li { display: flex; align-items: center; gap: 10px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; }",
+      "_code_ref": ".todo-list li",
       "children": {}
     },
     ".todo-list li.done": {
@@ -897,7 +897,7 @@
         "line_end": 13,
         "branch_of": null
       },
-      "_code": ".todo-list li.done { opacity: 0.5; }",
+      "_code_ref": ".todo-list li.done",
       "children": {}
     },
     ".todo-list li.done .text": {
@@ -908,7 +908,7 @@
         "line_end": 14,
         "branch_of": null
       },
-      "_code": ".todo-list li.done .text { text-decoration: line-through; }",
+      "_code_ref": ".todo-list li.done .text",
       "children": {}
     },
     ".todo-list .text": {
@@ -919,7 +919,7 @@
         "line_end": 16,
         "branch_of": null
       },
-      "_code": ".todo-list .text { flex: 1; color: #e6edf3; font-size: 14px; }",
+      "_code_ref": ".todo-list .text",
       "children": {}
     },
     ".todo-list .date": {
@@ -930,7 +930,7 @@
         "line_end": 17,
         "branch_of": null
       },
-      "_code": ".todo-list .date { color: #6e7681; font-size: 10px; }",
+      "_code_ref": ".todo-list .date",
       "children": {}
     },
     ".todo-list .del": {
@@ -941,7 +941,7 @@
         "line_end": 18,
         "branch_of": null
       },
-      "_code": ".todo-list .del { background: transparent; color: #f85149; border: none; cursor: pointer; padding: 4px 8px; font-size: 16px; }",
+      "_code_ref": ".todo-list .del",
       "children": {}
     },
     ".todo-actions": {
@@ -952,7 +952,7 @@
         "line_end": 19,
         "branch_of": null
       },
-      "_code": ".todo-actions { display: flex; gap: 8px; margin-top: 16px; }",
+      "_code_ref": ".todo-actions",
       "children": {}
     },
     ".todo-actions button": {
@@ -963,7 +963,7 @@
         "line_end": 20,
         "branch_of": null
       },
-      "_code": ".todo-actions button { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 12px; }",
+      "_code_ref": ".todo-actions button",
       "children": {}
     },
     ".todo-actions .danger": {
@@ -974,7 +974,7 @@
         "line_end": 21,
         "branch_of": null
       },
-      "_code": ".todo-actions .danger { color: #f85149; }",
+      "_code_ref": ".todo-actions .danger",
       "children": {}
     },
     "footer": {
@@ -985,7 +985,7 @@
         "line_end": 22,
         "branch_of": null
       },
-      "_code": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+      "_code_ref": "footer",
       "children": {}
     },
     ".empty": {
@@ -996,7 +996,7 @@
         "line_end": 23,
         "branch_of": null
       },
-      "_code": ".empty { color: #6e7681; text-align: center; padding: 40px; font-size: 13px; }",
+      "_code_ref": ".empty",
       "children": {}
     },
     "name": {
@@ -1007,7 +1007,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"name\": \"Todo List\"\n}",
+      "_code_ref": "name",
       "children": {}
     },
     "version": {
@@ -1018,7 +1018,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"version\": \"1.0.0\"\n}",
+      "_code_ref": "version",
       "children": {}
     },
     "description": {
@@ -1029,7 +1029,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"description\": \"A simple to-do list with checkboxes and persistence\"\n}",
+      "_code_ref": "description",
       "children": {}
     },
     "package": {
@@ -1040,7 +1040,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"package\": \"com.bardom.app.todolist\"\n}",
+      "_code_ref": "package",
       "children": {}
     },
     "entry": {
@@ -1051,7 +1051,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"entry\": \"template.html\"\n}",
+      "_code_ref": "entry",
       "children": {}
     },
     "min_sdk": {
@@ -1062,7 +1062,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"min_sdk\": 24\n}",
+      "_code_ref": "min_sdk",
       "children": {}
     },
     "target_sdk": {
@@ -1073,7 +1073,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"target_sdk\": 34\n}",
+      "_code_ref": "target_sdk",
       "children": {}
     },
     "permissions": {
@@ -1084,7 +1084,7 @@
         "line_end": 1,
         "branch_of": null
       },
-      "_code": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+      "_code_ref": "permissions",
       "children": {}
     },
     "Todo": {
@@ -1095,7 +1095,7 @@
         "line_end": 23,
         "branch_of": null
       },
-      "_code": "class Todo:\n    id: str\n    text: str\n    done: bool\n    created_at: str\n    completed_at: Optional[str]\n\n    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+      "_code_ref": "Todo",
       "children": {
         "to_dict": {
           "_meta": {
@@ -1105,7 +1105,7 @@
             "line_end": 23,
             "branch_of": "Todo"
           },
-          "_code": "    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+          "_code_ref": "to_dict",
           "children": {}
         }
       }
@@ -1118,7 +1118,7 @@
         "line_end": 34,
         "branch_of": null
       },
-      "_code": "def add_todo(text: str) -> Todo:\n    now = datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\"\n    t = Todo(id=str(uuid.uuid4()), text=text, done=False,\n             created_at=now, completed_at=None)\n    _store.append(t)\n    return t\n\n",
+      "_code_ref": "add_todo",
       "children": {}
     },
     "list_todos": {
@@ -1129,7 +1129,7 @@
         "line_end": 39,
         "branch_of": null
       },
-      "_code": "def list_todos(include_done: bool = True) -> list[dict]:\n    items = _store if include_done else [t for t in _store if not t.done]\n    return [t.to_dict() for t in items]\n\n",
+      "_code_ref": "list_todos",
       "children": {}
     },
     "toggle_todo": {
@@ -1140,7 +1140,7 @@
         "line_end": 48,
         "branch_of": null
       },
-      "_code": "def toggle_todo(todo_id: str) -> Optional[Todo]:\n    for t in _store:\n        if t.id == todo_id:\n            t.done = not t.done\n            t.completed_at = (datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\") if t.done else None\n            return t\n    return None\n\n",
+      "_code_ref": "toggle_todo",
       "children": {}
     },
     "delete_todo": {
@@ -1151,7 +1151,7 @@
         "line_end": 55,
         "branch_of": null
       },
-      "_code": "def delete_todo(todo_id: str) -> bool:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if t.id != todo_id]\n    return len(_store) < before\n\n",
+      "_code_ref": "delete_todo",
       "children": {}
     },
     "clear_done": {
@@ -1162,7 +1162,7 @@
         "line_end": 62,
         "branch_of": null
       },
-      "_code": "def clear_done() -> int:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if not t.done]\n    return before - len(_store)\n\n",
+      "_code_ref": "clear_done",
       "children": {}
     },
     "addForm": {
@@ -1173,7 +1173,7 @@
         "line_end": 16,
         "branch_of": null
       },
-      "_code": "    <form class=\"add-form\" id=\"addForm\">",
+      "_code_ref": "addForm",
       "children": {}
     },
     "todoInput": {
@@ -1184,7 +1184,7 @@
         "line_end": 17,
         "branch_of": null
       },
-      "_code": "      <input type=\"text\" id=\"todoInput\" placeholder=\"Add a new task...\" autocomplete=\"off\">",
+      "_code_ref": "todoInput",
       "children": {}
     },
     "stats": {
@@ -1195,7 +1195,7 @@
         "line_end": 20,
         "branch_of": null
       },
-      "_code": "    <div class=\"todo-stats\" id=\"stats\"></div>",
+      "_code_ref": "stats",
       "children": {}
     },
     "todoList": {
@@ -1206,7 +1206,7 @@
         "line_end": 21,
         "branch_of": null
       },
-      "_code": "    <ul class=\"todo-list\" id=\"todoList\"></ul>",
+      "_code_ref": "todoList",
       "children": {}
     },
     "btnClearDone": {
@@ -1217,7 +1217,7 @@
         "line_end": 23,
         "branch_of": null
       },
-      "_code": "      <button id=\"btnClearDone\">Clear Done</button>",
+      "_code_ref": "btnClearDone",
       "children": {}
     },
     "btnClearAll": {
@@ -1228,7 +1228,7 @@
         "line_end": 24,
         "branch_of": null
       },
-      "_code": "      <button id=\"btnClearAll\" class=\"danger\">Clear All</button>",
+      "_code_ref": "btnClearAll",
       "children": {}
     }
   }
