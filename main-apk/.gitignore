@@ -1,0 +1,16 @@
+# Build outputs
+build/
+.gradle/
+local.properties
+*.iml
+
+# Secrets
+secrets.properties
+keystore.properties
+*.keystore
+*.jks
+
+# IDE
+.idea/
+.vscode/
+.DS_Store
