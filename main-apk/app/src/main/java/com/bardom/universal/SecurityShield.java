@@ -87,9 +87,7 @@ public final class SecurityShield {
 
     /** Detect if a debugger is attached. */
     public static boolean isDebuggerAttached() {
-        return Debug.isDebuggerConnected() ||
-               Debug.waitForDebugger() ||
-               (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Debug.isDebuggerConnected());
+        return Debug.isDebuggerConnected();
     }
 
     /** Detect common emulator signatures. */
