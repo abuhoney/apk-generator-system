@@ -1,0 +1,1235 @@
+{
+  "function": "todo_list",
+  "version": "1.0.0",
+  "generated_at": "2026-09-18T01:25:17Z",
+  "summary": {
+    "files": 5,
+    "ids": 42,
+    "languages": [
+      "css",
+      "html",
+      "javascript",
+      "json",
+      "python"
+    ]
+  },
+  "files": [
+    {
+      "path": "css/style.css",
+      "language": "css",
+      "lines": 23,
+      "ids": [
+        {
+          "id": "body",
+          "kind": "css_rule",
+          "line_start": 2,
+          "line_end": 2,
+          "code": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-app",
+          "kind": "css_rule",
+          "line_start": 3,
+          "line_end": 3,
+          "code": ".todo-app { max-width: 540px; margin: 0 auto; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "header h1",
+          "kind": "css_rule",
+          "line_start": 4,
+          "line_end": 4,
+          "code": "header h1 { color: #58a6ff; font-size: 22px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "header .meta",
+          "kind": "css_rule",
+          "line_start": 5,
+          "line_end": 5,
+          "code": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "header .meta code",
+          "kind": "css_rule",
+          "line_start": 6,
+          "line_end": 6,
+          "code": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".add-form",
+          "kind": "css_rule",
+          "line_start": 7,
+          "line_end": 7,
+          "code": ".add-form { display: flex; gap: 8px; margin: 16px 0; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".add-form input",
+          "kind": "css_rule",
+          "line_start": 8,
+          "line_end": 8,
+          "code": ".add-form input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".add-form button",
+          "kind": "css_rule",
+          "line_start": 9,
+          "line_end": 9,
+          "code": ".add-form button { background: #238636; color: #fff; border: none; padding: 0 20px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-stats",
+          "kind": "css_rule",
+          "line_start": 10,
+          "line_end": 10,
+          "code": ".todo-stats { color: #8b949e; font-size: 12px; margin-bottom: 8px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-list",
+          "kind": "css_rule",
+          "line_start": 11,
+          "line_end": 11,
+          "code": ".todo-list { list-style: none; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-list li",
+          "kind": "css_rule",
+          "line_start": 12,
+          "line_end": 12,
+          "code": ".todo-list li { display: flex; align-items: center; gap: 10px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-list li.done",
+          "kind": "css_rule",
+          "line_start": 13,
+          "line_end": 13,
+          "code": ".todo-list li.done { opacity: 0.5; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-list li.done .text",
+          "kind": "css_rule",
+          "line_start": 14,
+          "line_end": 14,
+          "code": ".todo-list li.done .text { text-decoration: line-through; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-list .text",
+          "kind": "css_rule",
+          "line_start": 16,
+          "line_end": 16,
+          "code": ".todo-list .text { flex: 1; color: #e6edf3; font-size: 14px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-list .date",
+          "kind": "css_rule",
+          "line_start": 17,
+          "line_end": 17,
+          "code": ".todo-list .date { color: #6e7681; font-size: 10px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-list .del",
+          "kind": "css_rule",
+          "line_start": 18,
+          "line_end": 18,
+          "code": ".todo-list .del { background: transparent; color: #f85149; border: none; cursor: pointer; padding: 4px 8px; font-size: 16px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-actions",
+          "kind": "css_rule",
+          "line_start": 19,
+          "line_end": 19,
+          "code": ".todo-actions { display: flex; gap: 8px; margin-top: 16px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-actions button",
+          "kind": "css_rule",
+          "line_start": 20,
+          "line_end": 20,
+          "code": ".todo-actions button { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 12px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".todo-actions .danger",
+          "kind": "css_rule",
+          "line_start": 21,
+          "line_end": 21,
+          "code": ".todo-actions .danger { color: #f85149; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "footer",
+          "kind": "css_rule",
+          "line_start": 22,
+          "line_end": 22,
+          "code": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": ".empty",
+          "kind": "css_rule",
+          "line_start": 23,
+          "line_end": 23,
+          "code": ".empty { color: #6e7681; text-align: center; padding: 40px; font-size: 13px; }",
+          "file": "css/style.css",
+          "branch_of": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "function.json",
+      "language": "json",
+      "lines": 10,
+      "ids": [
+        {
+          "id": "name",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"name\": \"Todo List\"\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "version",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"version\": \"1.0.0\"\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "description",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"description\": \"A simple to-do list with checkboxes and persistence\"\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "package",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"package\": \"com.bardom.app.todolist\"\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "entry",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"entry\": \"template.html\"\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "min_sdk",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"min_sdk\": 24\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "target_sdk",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"target_sdk\": 34\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "permissions",
+          "kind": "json_key",
+          "line_start": 1,
+          "line_end": 1,
+          "code": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+          "file": "function.json",
+          "branch_of": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "handler.py",
+      "language": "python",
+      "lines": 65,
+      "ids": [
+        {
+          "id": "Todo",
+          "kind": "class",
+          "line_start": 13,
+          "line_end": 23,
+          "code": "class Todo:\n    id: str\n    text: str\n    done: bool\n    created_at: str\n    completed_at: Optional[str]\n\n    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+          "file": "handler.py",
+          "branch_of": null,
+          "children": [
+            "to_dict"
+          ]
+        },
+        {
+          "id": "to_dict",
+          "kind": "function",
+          "line_start": 20,
+          "line_end": 23,
+          "code": "    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+          "file": "handler.py",
+          "branch_of": "Todo",
+          "children": []
+        },
+        {
+          "id": "add_todo",
+          "kind": "function",
+          "line_start": 27,
+          "line_end": 34,
+          "code": "def add_todo(text: str) -> Todo:\n    now = datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\"\n    t = Todo(id=str(uuid.uuid4()), text=text, done=False,\n             created_at=now, completed_at=None)\n    _store.append(t)\n    return t\n\n",
+          "file": "handler.py",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "list_todos",
+          "kind": "function",
+          "line_start": 35,
+          "line_end": 39,
+          "code": "def list_todos(include_done: bool = True) -> list[dict]:\n    items = _store if include_done else [t for t in _store if not t.done]\n    return [t.to_dict() for t in items]\n\n",
+          "file": "handler.py",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "toggle_todo",
+          "kind": "function",
+          "line_start": 40,
+          "line_end": 48,
+          "code": "def toggle_todo(todo_id: str) -> Optional[Todo]:\n    for t in _store:\n        if t.id == todo_id:\n            t.done = not t.done\n            t.completed_at = (datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\") if t.done else None\n            return t\n    return None\n\n",
+          "file": "handler.py",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "delete_todo",
+          "kind": "function",
+          "line_start": 49,
+          "line_end": 55,
+          "code": "def delete_todo(todo_id: str) -> bool:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if t.id != todo_id]\n    return len(_store) < before\n\n",
+          "file": "handler.py",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "clear_done",
+          "kind": "function",
+          "line_start": 56,
+          "line_end": 62,
+          "code": "def clear_done() -> int:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if not t.done]\n    return before - len(_store)\n\n",
+          "file": "handler.py",
+          "branch_of": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "path": "js/app.js",
+      "language": "javascript",
+      "lines": 77,
+      "ids": []
+    },
+    {
+      "path": "template.html",
+      "language": "html",
+      "lines": 31,
+      "ids": [
+        {
+          "id": "addForm",
+          "kind": "view_id",
+          "line_start": 16,
+          "line_end": 16,
+          "code": "    <form class=\"add-form\" id=\"addForm\">",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "todoInput",
+          "kind": "view_id",
+          "line_start": 17,
+          "line_end": 17,
+          "code": "      <input type=\"text\" id=\"todoInput\" placeholder=\"Add a new task...\" autocomplete=\"off\">",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "stats",
+          "kind": "view_id",
+          "line_start": 20,
+          "line_end": 20,
+          "code": "    <div class=\"todo-stats\" id=\"stats\"></div>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "todoList",
+          "kind": "view_id",
+          "line_start": 21,
+          "line_end": 21,
+          "code": "    <ul class=\"todo-list\" id=\"todoList\"></ul>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "btnClearDone",
+          "kind": "view_id",
+          "line_start": 23,
+          "line_end": 23,
+          "code": "      <button id=\"btnClearDone\">Clear Done</button>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        },
+        {
+          "id": "btnClearAll",
+          "kind": "view_id",
+          "line_start": 24,
+          "line_end": 24,
+          "code": "      <button id=\"btnClearAll\" class=\"danger\">Clear All</button>",
+          "file": "template.html",
+          "branch_of": null,
+          "children": []
+        }
+      ]
+    }
+  ],
+  "ids_index": {
+    "body": {
+      "file": "css/style.css",
+      "line_start": 2,
+      "line_end": 2,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-app": {
+      "file": "css/style.css",
+      "line_start": 3,
+      "line_end": 3,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "header h1": {
+      "file": "css/style.css",
+      "line_start": 4,
+      "line_end": 4,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "header .meta": {
+      "file": "css/style.css",
+      "line_start": 5,
+      "line_end": 5,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "header .meta code": {
+      "file": "css/style.css",
+      "line_start": 6,
+      "line_end": 6,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".add-form": {
+      "file": "css/style.css",
+      "line_start": 7,
+      "line_end": 7,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".add-form input": {
+      "file": "css/style.css",
+      "line_start": 8,
+      "line_end": 8,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".add-form button": {
+      "file": "css/style.css",
+      "line_start": 9,
+      "line_end": 9,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-stats": {
+      "file": "css/style.css",
+      "line_start": 10,
+      "line_end": 10,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-list": {
+      "file": "css/style.css",
+      "line_start": 11,
+      "line_end": 11,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-list li": {
+      "file": "css/style.css",
+      "line_start": 12,
+      "line_end": 12,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-list li.done": {
+      "file": "css/style.css",
+      "line_start": 13,
+      "line_end": 13,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-list li.done .text": {
+      "file": "css/style.css",
+      "line_start": 14,
+      "line_end": 14,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-list .text": {
+      "file": "css/style.css",
+      "line_start": 16,
+      "line_end": 16,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-list .date": {
+      "file": "css/style.css",
+      "line_start": 17,
+      "line_end": 17,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-list .del": {
+      "file": "css/style.css",
+      "line_start": 18,
+      "line_end": 18,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-actions": {
+      "file": "css/style.css",
+      "line_start": 19,
+      "line_end": 19,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-actions button": {
+      "file": "css/style.css",
+      "line_start": 20,
+      "line_end": 20,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".todo-actions .danger": {
+      "file": "css/style.css",
+      "line_start": 21,
+      "line_end": 21,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "footer": {
+      "file": "css/style.css",
+      "line_start": 22,
+      "line_end": 22,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    ".empty": {
+      "file": "css/style.css",
+      "line_start": 23,
+      "line_end": 23,
+      "kind": "css_rule",
+      "branch_of": null
+    },
+    "name": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "version": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "description": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "package": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "entry": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "min_sdk": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "target_sdk": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "permissions": {
+      "file": "function.json",
+      "line_start": 1,
+      "line_end": 1,
+      "kind": "json_key",
+      "branch_of": null
+    },
+    "Todo": {
+      "file": "handler.py",
+      "line_start": 13,
+      "line_end": 23,
+      "kind": "class",
+      "branch_of": null
+    },
+    "to_dict": {
+      "file": "handler.py",
+      "line_start": 20,
+      "line_end": 23,
+      "kind": "function",
+      "branch_of": "Todo"
+    },
+    "add_todo": {
+      "file": "handler.py",
+      "line_start": 27,
+      "line_end": 34,
+      "kind": "function",
+      "branch_of": null
+    },
+    "list_todos": {
+      "file": "handler.py",
+      "line_start": 35,
+      "line_end": 39,
+      "kind": "function",
+      "branch_of": null
+    },
+    "toggle_todo": {
+      "file": "handler.py",
+      "line_start": 40,
+      "line_end": 48,
+      "kind": "function",
+      "branch_of": null
+    },
+    "delete_todo": {
+      "file": "handler.py",
+      "line_start": 49,
+      "line_end": 55,
+      "kind": "function",
+      "branch_of": null
+    },
+    "clear_done": {
+      "file": "handler.py",
+      "line_start": 56,
+      "line_end": 62,
+      "kind": "function",
+      "branch_of": null
+    },
+    "addForm": {
+      "file": "template.html",
+      "line_start": 16,
+      "line_end": 16,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "todoInput": {
+      "file": "template.html",
+      "line_start": 17,
+      "line_end": 17,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "stats": {
+      "file": "template.html",
+      "line_start": 20,
+      "line_end": 20,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "todoList": {
+      "file": "template.html",
+      "line_start": 21,
+      "line_end": 21,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "btnClearDone": {
+      "file": "template.html",
+      "line_start": 23,
+      "line_end": 23,
+      "kind": "view_id",
+      "branch_of": null
+    },
+    "btnClearAll": {
+      "file": "template.html",
+      "line_start": 24,
+      "line_end": 24,
+      "kind": "view_id",
+      "branch_of": null
+    }
+  },
+  "tree": {
+    "body": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 2,
+        "line_end": 2,
+        "branch_of": null
+      },
+      "_code": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+      "children": {}
+    },
+    ".todo-app": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 3,
+        "line_end": 3,
+        "branch_of": null
+      },
+      "_code": ".todo-app { max-width: 540px; margin: 0 auto; }",
+      "children": {}
+    },
+    "header h1": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 4,
+        "line_end": 4,
+        "branch_of": null
+      },
+      "_code": "header h1 { color: #58a6ff; font-size: 22px; }",
+      "children": {}
+    },
+    "header .meta": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 5,
+        "line_end": 5,
+        "branch_of": null
+      },
+      "_code": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+      "children": {}
+    },
+    "header .meta code": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 6,
+        "line_end": 6,
+        "branch_of": null
+      },
+      "_code": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+      "children": {}
+    },
+    ".add-form": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 7,
+        "line_end": 7,
+        "branch_of": null
+      },
+      "_code": ".add-form { display: flex; gap: 8px; margin: 16px 0; }",
+      "children": {}
+    },
+    ".add-form input": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 8,
+        "line_end": 8,
+        "branch_of": null
+      },
+      "_code": ".add-form input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+      "children": {}
+    },
+    ".add-form button": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 9,
+        "line_end": 9,
+        "branch_of": null
+      },
+      "_code": ".add-form button { background: #238636; color: #fff; border: none; padding: 0 20px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+      "children": {}
+    },
+    ".todo-stats": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 10,
+        "line_end": 10,
+        "branch_of": null
+      },
+      "_code": ".todo-stats { color: #8b949e; font-size: 12px; margin-bottom: 8px; }",
+      "children": {}
+    },
+    ".todo-list": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 11,
+        "line_end": 11,
+        "branch_of": null
+      },
+      "_code": ".todo-list { list-style: none; }",
+      "children": {}
+    },
+    ".todo-list li": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 12,
+        "line_end": 12,
+        "branch_of": null
+      },
+      "_code": ".todo-list li { display: flex; align-items: center; gap: 10px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; }",
+      "children": {}
+    },
+    ".todo-list li.done": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 13,
+        "line_end": 13,
+        "branch_of": null
+      },
+      "_code": ".todo-list li.done { opacity: 0.5; }",
+      "children": {}
+    },
+    ".todo-list li.done .text": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 14,
+        "line_end": 14,
+        "branch_of": null
+      },
+      "_code": ".todo-list li.done .text { text-decoration: line-through; }",
+      "children": {}
+    },
+    ".todo-list .text": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 16,
+        "line_end": 16,
+        "branch_of": null
+      },
+      "_code": ".todo-list .text { flex: 1; color: #e6edf3; font-size: 14px; }",
+      "children": {}
+    },
+    ".todo-list .date": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 17,
+        "line_end": 17,
+        "branch_of": null
+      },
+      "_code": ".todo-list .date { color: #6e7681; font-size: 10px; }",
+      "children": {}
+    },
+    ".todo-list .del": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 18,
+        "line_end": 18,
+        "branch_of": null
+      },
+      "_code": ".todo-list .del { background: transparent; color: #f85149; border: none; cursor: pointer; padding: 4px 8px; font-size: 16px; }",
+      "children": {}
+    },
+    ".todo-actions": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 19,
+        "line_end": 19,
+        "branch_of": null
+      },
+      "_code": ".todo-actions { display: flex; gap: 8px; margin-top: 16px; }",
+      "children": {}
+    },
+    ".todo-actions button": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 20,
+        "line_end": 20,
+        "branch_of": null
+      },
+      "_code": ".todo-actions button { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 12px; }",
+      "children": {}
+    },
+    ".todo-actions .danger": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 21,
+        "line_end": 21,
+        "branch_of": null
+      },
+      "_code": ".todo-actions .danger { color: #f85149; }",
+      "children": {}
+    },
+    "footer": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 22,
+        "line_end": 22,
+        "branch_of": null
+      },
+      "_code": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+      "children": {}
+    },
+    ".empty": {
+      "_meta": {
+        "kind": "css_rule",
+        "file": "css/style.css",
+        "line_start": 23,
+        "line_end": 23,
+        "branch_of": null
+      },
+      "_code": ".empty { color: #6e7681; text-align: center; padding: 40px; font-size: 13px; }",
+      "children": {}
+    },
+    "name": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"name\": \"Todo List\"\n}",
+      "children": {}
+    },
+    "version": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"version\": \"1.0.0\"\n}",
+      "children": {}
+    },
+    "description": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"description\": \"A simple to-do list with checkboxes and persistence\"\n}",
+      "children": {}
+    },
+    "package": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"package\": \"com.bardom.app.todolist\"\n}",
+      "children": {}
+    },
+    "entry": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"entry\": \"template.html\"\n}",
+      "children": {}
+    },
+    "min_sdk": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"min_sdk\": 24\n}",
+      "children": {}
+    },
+    "target_sdk": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"target_sdk\": 34\n}",
+      "children": {}
+    },
+    "permissions": {
+      "_meta": {
+        "kind": "json_key",
+        "file": "function.json",
+        "line_start": 1,
+        "line_end": 1,
+        "branch_of": null
+      },
+      "_code": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+      "children": {}
+    },
+    "Todo": {
+      "_meta": {
+        "kind": "class",
+        "file": "handler.py",
+        "line_start": 13,
+        "line_end": 23,
+        "branch_of": null
+      },
+      "_code": "class Todo:\n    id: str\n    text: str\n    done: bool\n    created_at: str\n    completed_at: Optional[str]\n\n    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+      "children": {
+        "to_dict": {
+          "_meta": {
+            "kind": "function",
+            "file": "handler.py",
+            "line_start": 20,
+            "line_end": 23,
+            "branch_of": "Todo"
+          },
+          "_code": "    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+          "children": {}
+        }
+      }
+    },
+    "add_todo": {
+      "_meta": {
+        "kind": "function",
+        "file": "handler.py",
+        "line_start": 27,
+        "line_end": 34,
+        "branch_of": null
+      },
+      "_code": "def add_todo(text: str) -> Todo:\n    now = datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\"\n    t = Todo(id=str(uuid.uuid4()), text=text, done=False,\n             created_at=now, completed_at=None)\n    _store.append(t)\n    return t\n\n",
+      "children": {}
+    },
+    "list_todos": {
+      "_meta": {
+        "kind": "function",
+        "file": "handler.py",
+        "line_start": 35,
+        "line_end": 39,
+        "branch_of": null
+      },
+      "_code": "def list_todos(include_done: bool = True) -> list[dict]:\n    items = _store if include_done else [t for t in _store if not t.done]\n    return [t.to_dict() for t in items]\n\n",
+      "children": {}
+    },
+    "toggle_todo": {
+      "_meta": {
+        "kind": "function",
+        "file": "handler.py",
+        "line_start": 40,
+        "line_end": 48,
+        "branch_of": null
+      },
+      "_code": "def toggle_todo(todo_id: str) -> Optional[Todo]:\n    for t in _store:\n        if t.id == todo_id:\n            t.done = not t.done\n            t.completed_at = (datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\") if t.done else None\n            return t\n    return None\n\n",
+      "children": {}
+    },
+    "delete_todo": {
+      "_meta": {
+        "kind": "function",
+        "file": "handler.py",
+        "line_start": 49,
+        "line_end": 55,
+        "branch_of": null
+      },
+      "_code": "def delete_todo(todo_id: str) -> bool:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if t.id != todo_id]\n    return len(_store) < before\n\n",
+      "children": {}
+    },
+    "clear_done": {
+      "_meta": {
+        "kind": "function",
+        "file": "handler.py",
+        "line_start": 56,
+        "line_end": 62,
+        "branch_of": null
+      },
+      "_code": "def clear_done() -> int:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if not t.done]\n    return before - len(_store)\n\n",
+      "children": {}
+    },
+    "addForm": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 16,
+        "line_end": 16,
+        "branch_of": null
+      },
+      "_code": "    <form class=\"add-form\" id=\"addForm\">",
+      "children": {}
+    },
+    "todoInput": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 17,
+        "line_end": 17,
+        "branch_of": null
+      },
+      "_code": "      <input type=\"text\" id=\"todoInput\" placeholder=\"Add a new task...\" autocomplete=\"off\">",
+      "children": {}
+    },
+    "stats": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 20,
+        "line_end": 20,
+        "branch_of": null
+      },
+      "_code": "    <div class=\"todo-stats\" id=\"stats\"></div>",
+      "children": {}
+    },
+    "todoList": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 21,
+        "line_end": 21,
+        "branch_of": null
+      },
+      "_code": "    <ul class=\"todo-list\" id=\"todoList\"></ul>",
+      "children": {}
+    },
+    "btnClearDone": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 23,
+        "line_end": 23,
+        "branch_of": null
+      },
+      "_code": "      <button id=\"btnClearDone\">Clear Done</button>",
+      "children": {}
+    },
+    "btnClearAll": {
+      "_meta": {
+        "kind": "view_id",
+        "file": "template.html",
+        "line_start": 24,
+        "line_end": 24,
+        "branch_of": null
+      },
+      "_code": "      <button id=\"btnClearAll\" class=\"danger\">Clear All</button>",
+      "children": {}
+    }
+  }
+}
