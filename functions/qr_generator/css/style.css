@@ -1,0 +1,21 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }
+.qr-app { max-width: 540px; margin: 0 auto; }
+header h1 { color: #58a6ff; font-size: 22px; }
+header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }
+header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }
+textarea { width: 100%; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; font-family: inherit; resize: vertical; margin: 12px 0; }
+.qr-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; color: #8b949e; font-size: 12px; }
+.qr-controls input[type="range"] { flex: 1; }
+.qr-actions { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.qr-actions button { background: #238636; color: #fff; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 13px; }
+.qr-actions .alt { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; }
+.qr-preview { background: #fff; border-radius: 8px; padding: 24px; min-height: 280px; display: flex; align-items: center; justify-content: center; }
+.qr-preview img { max-width: 100%; height: auto; }
+.qr-empty { color: #8b949e; font-size: 13px; }
+.qr-history { margin-top: 16px; }
+.qr-history h3 { color: #58a6ff; font-size: 14px; margin-bottom: 8px; }
+.qr-history ul { list-style: none; }
+.qr-history li { background: #161b22; padding: 8px 12px; border-radius: 6px; border: 1px solid #30363d; margin-bottom: 4px; font-size: 12px; color: #8b949e; cursor: pointer; font-family: ui-monospace, monospace; }
+.qr-history li:hover { border-color: #58a6ff; }
+footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }
