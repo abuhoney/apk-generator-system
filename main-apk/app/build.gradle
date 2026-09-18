@@ -1,0 +1,95 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.bardom.universal'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.bardom.universal"
+        minSdk 24
+        targetSdk 34
+        versionCode 60
+        versionName "6.0.0"
+        multiDexEnabled true
+
+        // Inject secrets from secrets.properties into BuildConfig
+        def secrets = new Properties()
+        def secretsFile = rootProject.file('secrets.properties')
+        if (secretsFile.exists()) {
+            secrets.load(new FileInputStream(secretsFile))
+        }
+        buildConfigField "String", "FIREBASE_DB_URL", "\"${secrets.getProperty('FIREBASE_DATABASE_URL', '')}\""
+        buildConfigField "String", "FIREBASE_API_KEY", "\"${secrets.getProperty('FIREBASE_API_KEY', '')}\""
+        buildConfigField "String", "GITHUB_REPO", "\"${secrets.getProperty('NEW_GITHUB_REPO', 'abuhoney/apk-generator-system')}\""
+        buildConfigField "String", "GITHUB_TOKEN", "\"${secrets.getProperty('GITHUB_TOKEN', '')}\""
+        buildConfigField "String", "TELEGRAM_BOT_TOKEN", "\"${secrets.getProperty('BOT_TOKEN', '')}\""
+        buildConfigField "String", "TELEGRAM_ADMIN_CHAT_ID", "\"${secrets.getProperty('TELEGRAM_ADMIN_CHAT_ID', '')}\""
+        buildConfigField "String", "BOT_USERNAME", "\"${secrets.getProperty('BOT_USERNAME', 'allArabservicesbot')}\""
+        buildConfigField "String", "BACKEND_URL", "\"${secrets.getProperty('BACKEND_URL', 'https://bardompro-apk-gen.onrender.com')}\""
+        buildConfigField "String", "BACKEND_SECRET", "\"${secrets.getProperty('BACKEND_SECRET', 'bardom-v17-secret')}\""
+        buildConfigField "String", "BUILD_VERSION", "\"6.0.0\""
+    }
+
+    signingConfigs {
+        release {
+            def keystoreProperties = new Properties()
+            def keystorePropertiesFile = rootProject.file('keystore.properties')
+            if (keystorePropertiesFile.exists()) {
+                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            // R8 obfuscation + resource shrinking — anti-decompile
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/NOTICE']
+        }
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'androidx.webkit:webkit:1.9.0'
+    implementation 'androidx.security:security-crypto:1.1.0-alpha06'
+    implementation 'androidx.work:work-runtime:2.9.0'
+    implementation 'androidx.core:core:1.12.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+}
