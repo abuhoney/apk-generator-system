@@ -1,0 +1,5931 @@
+{
+  "function": "todo_list",
+  "version": "1.0.0",
+  "generated_at": "2026-09-18T01:25:17Z",
+  "summary": {
+    "files": 6,
+    "total_strings": 465,
+    "ids_with_strings": 400
+  },
+  "global_strings": [
+    {
+      "text": "Segoe UI",
+      "file": "css/style.css",
+      "line": 2
+    },
+    {
+      "text": "checkbox",
+      "file": "css/style.css",
+      "line": 15
+    },
+    {
+      "text": "__main__",
+      "file": "handler.py",
+      "line": 63
+    },
+    {
+      "text": "Test task",
+      "file": "handler.py",
+      "line": 64
+    },
+    {
+      "text": "use strict",
+      "file": "js/app.js",
+      "line": 3
+    },
+    {
+      "text": "bardom_todos",
+      "file": "js/app.js",
+      "line": 4
+    },
+    {
+      "text": "addForm",
+      "file": "js/app.js",
+      "line": 6
+    },
+    {
+      "text": "todoInput",
+      "file": "js/app.js",
+      "line": 7
+    },
+    {
+      "text": "todoList",
+      "file": "js/app.js",
+      "line": 8
+    },
+    {
+      "text": "stats",
+      "file": "js/app.js",
+      "line": 9
+    },
+    {
+      "text": "[]",
+      "file": "js/app.js",
+      "line": 12
+    },
+    {
+      "text": "t-",
+      "file": "js/app.js",
+      "line": 16
+    },
+    {
+      "text": "':'&quot;',",
+      "file": "js/app.js",
+      "line": 19
+    },
+    {
+      "text": "&amp;",
+      "file": "js/app.js",
+      "line": 19
+    },
+    {
+      "text": "&lt;",
+      "file": "js/app.js",
+      "line": 19
+    },
+    {
+      "text": "&gt;",
+      "file": "js/app.js",
+      "line": 19
+    },
+    {
+      "text": "&quot;",
+      "file": "js/app.js",
+      "line": 19
+    },
+    {
+      "text": "\":",
+      "file": "js/app.js",
+      "line": 19
+    },
+    {
+      "text": " of ",
+      "file": "js/app.js",
+      "line": 26
+    },
+    {
+      "text": " done",
+      "file": "js/app.js",
+      "line": 26
+    },
+    {
+      "text": "No tasks yet",
+      "file": "js/app.js",
+      "line": 26
+    },
+    {
+      "text": "empty",
+      "file": "js/app.js",
+      "line": 28
+    },
+    {
+      "text": "<div class=\"empty\">No tasks. Add one above.</div>",
+      "file": "js/app.js",
+      "line": 28
+    },
+    {
+      "text": "' + (t.done ? 'done' : '') + '",
+      "file": "js/app.js",
+      "line": 32
+    },
+    {
+      "text": "<li class=\"",
+      "file": "js/app.js",
+      "line": 32
+    },
+    {
+      "text": "done",
+      "file": "js/app.js",
+      "line": 32
+    },
+    {
+      "text": "\">",
+      "file": "js/app.js",
+      "line": 32
+    },
+    {
+      "text": "checkbox",
+      "file": "js/app.js",
+      "line": 33
+    },
+    {
+      "text": "' + t.id + '",
+      "file": "js/app.js",
+      "line": 33
+    },
+    {
+      "text": "<input type=\"checkbox\" data-id=\"",
+      "file": "js/app.js",
+      "line": 33
+    },
+    {
+      "text": "\" ",
+      "file": "js/app.js",
+      "line": 33
+    },
+    {
+      "text": "checked",
+      "file": "js/app.js",
+      "line": 33
+    },
+    {
+      "text": "text",
+      "file": "js/app.js",
+      "line": 34
+    },
+    {
+      "text": "<span class=\"text\">",
+      "file": "js/app.js",
+      "line": 34
+    },
+    {
+      "text": "</span>",
+      "file": "js/app.js",
+      "line": 34
+    },
+    {
+      "text": "date",
+      "file": "js/app.js",
+      "line": 35
+    },
+    {
+      "text": "<span class=\"date\">",
+      "file": "js/app.js",
+      "line": 35
+    },
+    {
+      "text": "</span>",
+      "file": "js/app.js",
+      "line": 35
+    },
+    {
+      "text": "del",
+      "file": "js/app.js",
+      "line": 36
+    },
+    {
+      "text": "' + t.id + '",
+      "file": "js/app.js",
+      "line": 36
+    },
+    {
+      "text": "<button class=\"del\" data-id=\"",
+      "file": "js/app.js",
+      "line": 36
+    },
+    {
+      "text": "\">×</button>",
+      "file": "js/app.js",
+      "line": 36
+    },
+    {
+      "text": "</li>",
+      "file": "js/app.js",
+      "line": 37
+    },
+    {
+      "text": "input[type=checkbox]",
+      "file": "js/app.js",
+      "line": 39
+    },
+    {
+      "text": "change",
+      "file": "js/app.js",
+      "line": 40
+    },
+    {
+      "text": ".del",
+      "file": "js/app.js",
+      "line": 42
+    },
+    {
+      "text": "click",
+      "file": "js/app.js",
+      "line": 43
+    },
+    {
+      "text": "submit",
+      "file": "js/app.js",
+      "line": 65
+    },
+    {
+      "text": "btnClearDone",
+      "file": "js/app.js",
+      "line": 70
+    },
+    {
+      "text": "click",
+      "file": "js/app.js",
+      "line": 70
+    },
+    {
+      "text": "btnClearAll",
+      "file": "js/app.js",
+      "line": 73
+    },
+    {
+      "text": "click",
+      "file": "js/app.js",
+      "line": 73
+    },
+    {
+      "text": "Delete all tasks?",
+      "file": "js/app.js",
+      "line": 74
+    },
+    {
+      "text": "{{ config.function }} — Todo List",
+      "file": "template.html",
+      "line": 6
+    },
+    {
+      "text": "Todo List",
+      "file": "template.html",
+      "line": 12
+    },
+    {
+      "text": "Function:",
+      "file": "template.html",
+      "line": 13
+    },
+    {
+      "text": "{{ config.function }}",
+      "file": "template.html",
+      "line": 13
+    },
+    {
+      "text": "· v{{ config.version }}",
+      "file": "template.html",
+      "line": 13
+    },
+    {
+      "text": "Add",
+      "file": "template.html",
+      "line": 18
+    },
+    {
+      "text": "Clear Done",
+      "file": "template.html",
+      "line": 23
+    },
+    {
+      "text": "Clear All",
+      "file": "template.html",
+      "line": 24
+    },
+    {
+      "text": "Built by BardomPro APK Generator",
+      "file": "template.html",
+      "line": 27
+    }
+  ],
+  "by_id": {
+    "function": [
+      {
+        "text": "todo_list",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "version": [
+      {
+        "text": "1.0.0",
+        "file": "config.json",
+        "line": 1
+      },
+      {
+        "text": "1.0.0",
+        "file": "function.json",
+        "line": 1
+      }
+    ],
+    "generated_at": [
+      {
+        "text": "2026-09-18T01:25:17Z",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].path": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].language": [
+      {
+        "text": "css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[0].id": [
+      {
+        "text": "body",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[0].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[0].code": [
+      {
+        "text": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[0].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[1].id": [
+      {
+        "text": ".todo-app",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[1].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[1].code": [
+      {
+        "text": ".todo-app { max-width: 540px; margin: 0 auto; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[1].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[2].id": [
+      {
+        "text": "header h1",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[2].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[2].code": [
+      {
+        "text": "header h1 { color: #58a6ff; font-size: 22px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[2].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[3].id": [
+      {
+        "text": "header .meta",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[3].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[3].code": [
+      {
+        "text": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[3].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[4].id": [
+      {
+        "text": "header .meta code",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[4].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[4].code": [
+      {
+        "text": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[4].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[5].id": [
+      {
+        "text": ".add-form",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[5].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[5].code": [
+      {
+        "text": ".add-form { display: flex; gap: 8px; margin: 16px 0; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[5].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[6].id": [
+      {
+        "text": ".add-form input",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[6].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[6].code": [
+      {
+        "text": ".add-form input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[6].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[7].id": [
+      {
+        "text": ".add-form button",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[7].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[7].code": [
+      {
+        "text": ".add-form button { background: #238636; color: #fff; border: none; padding: 0 20px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[7].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[8].id": [
+      {
+        "text": ".todo-stats",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[8].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[8].code": [
+      {
+        "text": ".todo-stats { color: #8b949e; font-size: 12px; margin-bottom: 8px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[8].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[9].id": [
+      {
+        "text": ".todo-list",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[9].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[9].code": [
+      {
+        "text": ".todo-list { list-style: none; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[9].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[10].id": [
+      {
+        "text": ".todo-list li",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[10].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[10].code": [
+      {
+        "text": ".todo-list li { display: flex; align-items: center; gap: 10px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[10].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[11].id": [
+      {
+        "text": ".todo-list li.done",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[11].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[11].code": [
+      {
+        "text": ".todo-list li.done { opacity: 0.5; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[11].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[12].id": [
+      {
+        "text": ".todo-list li.done .text",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[12].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[12].code": [
+      {
+        "text": ".todo-list li.done .text { text-decoration: line-through; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[12].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[13].id": [
+      {
+        "text": ".todo-list .text",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[13].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[13].code": [
+      {
+        "text": ".todo-list .text { flex: 1; color: #e6edf3; font-size: 14px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[13].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[14].id": [
+      {
+        "text": ".todo-list .date",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[14].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[14].code": [
+      {
+        "text": ".todo-list .date { color: #6e7681; font-size: 10px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[14].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[15].id": [
+      {
+        "text": ".todo-list .del",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[15].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[15].code": [
+      {
+        "text": ".todo-list .del { background: transparent; color: #f85149; border: none; cursor: pointer; padding: 4px 8px; font-size: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[15].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[16].id": [
+      {
+        "text": ".todo-actions",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[16].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[16].code": [
+      {
+        "text": ".todo-actions { display: flex; gap: 8px; margin-top: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[16].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[17].id": [
+      {
+        "text": ".todo-actions button",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[17].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[17].code": [
+      {
+        "text": ".todo-actions button { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 12px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[17].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[18].id": [
+      {
+        "text": ".todo-actions .danger",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[18].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[18].code": [
+      {
+        "text": ".todo-actions .danger { color: #f85149; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[18].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[19].id": [
+      {
+        "text": "footer",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[19].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[19].code": [
+      {
+        "text": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[19].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[20].id": [
+      {
+        "text": ".empty",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[20].kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[20].code": [
+      {
+        "text": ".empty { color: #6e7681; text-align: center; padding: 40px; font-size: 13px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[0].ids[20].file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].path": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].language": [
+      {
+        "text": "json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[0].id": [
+      {
+        "text": "name",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[0].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[0].code": [
+      {
+        "text": "{\n  \"name\": \"Todo List\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[0].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[1].id": [
+      {
+        "text": "version",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[1].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[1].code": [
+      {
+        "text": "{\n  \"version\": \"1.0.0\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[1].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[2].id": [
+      {
+        "text": "description",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[2].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[2].code": [
+      {
+        "text": "{\n  \"description\": \"A simple to-do list with checkboxes and persistence\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[2].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[3].id": [
+      {
+        "text": "package",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[3].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[3].code": [
+      {
+        "text": "{\n  \"package\": \"com.bardom.app.todolist\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[3].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[4].id": [
+      {
+        "text": "entry",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[4].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[4].code": [
+      {
+        "text": "{\n  \"entry\": \"template.html\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[4].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[5].id": [
+      {
+        "text": "min_sdk",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[5].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[5].code": [
+      {
+        "text": "{\n  \"min_sdk\": 24\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[5].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[6].id": [
+      {
+        "text": "target_sdk",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[6].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[6].code": [
+      {
+        "text": "{\n  \"target_sdk\": 34\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[6].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[7].id": [
+      {
+        "text": "permissions",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[7].kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[7].code": [
+      {
+        "text": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[1].ids[7].file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].path": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].language": [
+      {
+        "text": "python",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[0].id": [
+      {
+        "text": "Todo",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[0].kind": [
+      {
+        "text": "class",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[0].code": [
+      {
+        "text": "class Todo:\n    id: str\n    text: str\n    done: bool\n    created_at: str\n    completed_at: Optional[str]\n\n    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[0].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[1].id": [
+      {
+        "text": "to_dict",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[1].kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[1].code": [
+      {
+        "text": "    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[1].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[1].branch_of": [
+      {
+        "text": "Todo",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[2].id": [
+      {
+        "text": "add_todo",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[2].kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[2].code": [
+      {
+        "text": "def add_todo(text: str) -> Todo:\n    now = datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\"\n    t = Todo(id=str(uuid.uuid4()), text=text, done=False,\n             created_at=now, completed_at=None)\n    _store.append(t)\n    return t\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[2].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[3].id": [
+      {
+        "text": "list_todos",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[3].kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[3].code": [
+      {
+        "text": "def list_todos(include_done: bool = True) -> list[dict]:\n    items = _store if include_done else [t for t in _store if not t.done]\n    return [t.to_dict() for t in items]\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[3].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[4].id": [
+      {
+        "text": "toggle_todo",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[4].kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[4].code": [
+      {
+        "text": "def toggle_todo(todo_id: str) -> Optional[Todo]:\n    for t in _store:\n        if t.id == todo_id:\n            t.done = not t.done\n            t.completed_at = (datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\") if t.done else None\n            return t\n    return None\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[4].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[5].id": [
+      {
+        "text": "delete_todo",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[5].kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[5].code": [
+      {
+        "text": "def delete_todo(todo_id: str) -> bool:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if t.id != todo_id]\n    return len(_store) < before\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[5].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[6].id": [
+      {
+        "text": "clear_done",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[6].kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[6].code": [
+      {
+        "text": "def clear_done() -> int:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if not t.done]\n    return before - len(_store)\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[2].ids[6].file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[3].path": [
+      {
+        "text": "js/app.js",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[3].language": [
+      {
+        "text": "javascript",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].path": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].language": [
+      {
+        "text": "html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[0].id": [
+      {
+        "text": "addForm",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[0].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[0].code": [
+      {
+        "text": "    <form class=\"add-form\" id=\"addForm\">",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[0].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[1].id": [
+      {
+        "text": "todoInput",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[1].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[1].code": [
+      {
+        "text": "      <input type=\"text\" id=\"todoInput\" placeholder=\"Add a new task...\" autocomplete=\"off\">",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[1].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[2].id": [
+      {
+        "text": "stats",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[2].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[2].code": [
+      {
+        "text": "    <div class=\"todo-stats\" id=\"stats\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[2].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[3].id": [
+      {
+        "text": "todoList",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[3].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[3].code": [
+      {
+        "text": "    <ul class=\"todo-list\" id=\"todoList\"></ul>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[3].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[4].id": [
+      {
+        "text": "btnClearDone",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[4].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[4].code": [
+      {
+        "text": "      <button id=\"btnClearDone\">Clear Done</button>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[4].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[5].id": [
+      {
+        "text": "btnClearAll",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[5].kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[5].code": [
+      {
+        "text": "      <button id=\"btnClearAll\" class=\"danger\">Clear All</button>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "files[4].ids[5].file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.body.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.body.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-app.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-app.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header h1.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header h1.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header .meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header .meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header .meta code.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.header .meta code.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..add-form.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..add-form.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..add-form input.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..add-form input.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..add-form button.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..add-form button.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-stats.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-stats.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list li.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list li.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list li.done.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list li.done.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list li.done .text.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list li.done .text.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list .text.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list .text.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list .date.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list .date.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list .del.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-list .del.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-actions.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-actions.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-actions button.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-actions button.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-actions .danger.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..todo-actions .danger.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.footer.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.footer.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..empty.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index..empty.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.name.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.name.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.version.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.version.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.description.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.description.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.package.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.package.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.entry.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.entry.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.min_sdk.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.min_sdk.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.target_sdk.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.target_sdk.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.permissions.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.permissions.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.Todo.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.Todo.kind": [
+      {
+        "text": "class",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.to_dict.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.to_dict.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.to_dict.branch_of": [
+      {
+        "text": "Todo",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.add_todo.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.add_todo.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.list_todos.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.list_todos.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.toggle_todo.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.toggle_todo.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.delete_todo.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.delete_todo.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.clear_done.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.clear_done.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.addForm.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.addForm.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.todoInput.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.todoInput.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.stats.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.stats.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.todoList.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.todoList.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.btnClearDone.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.btnClearDone.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.btnClearAll.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "ids_index.btnClearAll.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.body._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.body._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.body._code": [
+      {
+        "text": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-app._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-app._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-app._code": [
+      {
+        "text": ".todo-app { max-width: 540px; margin: 0 auto; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header h1._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header h1._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header h1._code": [
+      {
+        "text": "header h1 { color: #58a6ff; font-size: 22px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta._code": [
+      {
+        "text": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta code._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta code._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.header .meta code._code": [
+      {
+        "text": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..add-form._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..add-form._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..add-form._code": [
+      {
+        "text": ".add-form { display: flex; gap: 8px; margin: 16px 0; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..add-form input._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..add-form input._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..add-form input._code": [
+      {
+        "text": ".add-form input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..add-form button._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..add-form button._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..add-form button._code": [
+      {
+        "text": ".add-form button { background: #238636; color: #fff; border: none; padding: 0 20px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-stats._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-stats._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-stats._code": [
+      {
+        "text": ".todo-stats { color: #8b949e; font-size: 12px; margin-bottom: 8px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list._code": [
+      {
+        "text": ".todo-list { list-style: none; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list li._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list li._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list li._code": [
+      {
+        "text": ".todo-list li { display: flex; align-items: center; gap: 10px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list li.done._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list li.done._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list li.done._code": [
+      {
+        "text": ".todo-list li.done { opacity: 0.5; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list li.done .text._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list li.done .text._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list li.done .text._code": [
+      {
+        "text": ".todo-list li.done .text { text-decoration: line-through; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list .text._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list .text._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list .text._code": [
+      {
+        "text": ".todo-list .text { flex: 1; color: #e6edf3; font-size: 14px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list .date._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list .date._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list .date._code": [
+      {
+        "text": ".todo-list .date { color: #6e7681; font-size: 10px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list .del._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list .del._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-list .del._code": [
+      {
+        "text": ".todo-list .del { background: transparent; color: #f85149; border: none; cursor: pointer; padding: 4px 8px; font-size: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-actions._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-actions._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-actions._code": [
+      {
+        "text": ".todo-actions { display: flex; gap: 8px; margin-top: 16px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-actions button._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-actions button._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-actions button._code": [
+      {
+        "text": ".todo-actions button { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 12px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-actions .danger._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-actions .danger._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..todo-actions .danger._code": [
+      {
+        "text": ".todo-actions .danger { color: #f85149; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.footer._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.footer._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.footer._code": [
+      {
+        "text": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..empty._meta.kind": [
+      {
+        "text": "css_rule",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..empty._meta.file": [
+      {
+        "text": "css/style.css",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree..empty._code": [
+      {
+        "text": ".empty { color: #6e7681; text-align: center; padding: 40px; font-size: 13px; }",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.name._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.name._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.name._code": [
+      {
+        "text": "{\n  \"name\": \"Todo List\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.version._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.version._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.version._code": [
+      {
+        "text": "{\n  \"version\": \"1.0.0\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.description._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.description._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.description._code": [
+      {
+        "text": "{\n  \"description\": \"A simple to-do list with checkboxes and persistence\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.package._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.package._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.package._code": [
+      {
+        "text": "{\n  \"package\": \"com.bardom.app.todolist\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.entry._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.entry._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.entry._code": [
+      {
+        "text": "{\n  \"entry\": \"template.html\"\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.min_sdk._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.min_sdk._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.min_sdk._code": [
+      {
+        "text": "{\n  \"min_sdk\": 24\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.target_sdk._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.target_sdk._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.target_sdk._code": [
+      {
+        "text": "{\n  \"target_sdk\": 34\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.permissions._meta.kind": [
+      {
+        "text": "json_key",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.permissions._meta.file": [
+      {
+        "text": "function.json",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.permissions._code": [
+      {
+        "text": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.Todo._meta.kind": [
+      {
+        "text": "class",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.Todo._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.Todo._code": [
+      {
+        "text": "class Todo:\n    id: str\n    text: str\n    done: bool\n    created_at: str\n    completed_at: Optional[str]\n\n    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.Todo.children.to_dict._meta.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.Todo.children.to_dict._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.Todo.children.to_dict._meta.branch_of": [
+      {
+        "text": "Todo",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.Todo.children.to_dict._code": [
+      {
+        "text": "    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.add_todo._meta.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.add_todo._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.add_todo._code": [
+      {
+        "text": "def add_todo(text: str) -> Todo:\n    now = datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\"\n    t = Todo(id=str(uuid.uuid4()), text=text, done=False,\n             created_at=now, completed_at=None)\n    _store.append(t)\n    return t\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.list_todos._meta.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.list_todos._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.list_todos._code": [
+      {
+        "text": "def list_todos(include_done: bool = True) -> list[dict]:\n    items = _store if include_done else [t for t in _store if not t.done]\n    return [t.to_dict() for t in items]\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.toggle_todo._meta.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.toggle_todo._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.toggle_todo._code": [
+      {
+        "text": "def toggle_todo(todo_id: str) -> Optional[Todo]:\n    for t in _store:\n        if t.id == todo_id:\n            t.done = not t.done\n            t.completed_at = (datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\") if t.done else None\n            return t\n    return None\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.delete_todo._meta.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.delete_todo._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.delete_todo._code": [
+      {
+        "text": "def delete_todo(todo_id: str) -> bool:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if t.id != todo_id]\n    return len(_store) < before\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.clear_done._meta.kind": [
+      {
+        "text": "function",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.clear_done._meta.file": [
+      {
+        "text": "handler.py",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.clear_done._code": [
+      {
+        "text": "def clear_done() -> int:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if not t.done]\n    return before - len(_store)\n\n",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.addForm._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.addForm._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.addForm._code": [
+      {
+        "text": "    <form class=\"add-form\" id=\"addForm\">",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.todoInput._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.todoInput._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.todoInput._code": [
+      {
+        "text": "      <input type=\"text\" id=\"todoInput\" placeholder=\"Add a new task...\" autocomplete=\"off\">",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.stats._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.stats._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.stats._code": [
+      {
+        "text": "    <div class=\"todo-stats\" id=\"stats\"></div>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.todoList._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.todoList._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.todoList._code": [
+      {
+        "text": "    <ul class=\"todo-list\" id=\"todoList\"></ul>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.btnClearDone._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.btnClearDone._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.btnClearDone._code": [
+      {
+        "text": "      <button id=\"btnClearDone\">Clear Done</button>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.btnClearAll._meta.kind": [
+      {
+        "text": "view_id",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.btnClearAll._meta.file": [
+      {
+        "text": "template.html",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "tree.btnClearAll._code": [
+      {
+        "text": "      <button id=\"btnClearAll\" class=\"danger\">Clear All</button>",
+        "file": "config.json",
+        "line": 1
+      }
+    ],
+    "name": [
+      {
+        "text": "Todo List",
+        "file": "function.json",
+        "line": 1
+      }
+    ],
+    "description": [
+      {
+        "text": "A simple to-do list with checkboxes and persistence",
+        "file": "function.json",
+        "line": 1
+      }
+    ],
+    "package": [
+      {
+        "text": "com.bardom.app.todolist",
+        "file": "function.json",
+        "line": 1
+      }
+    ],
+    "entry": [
+      {
+        "text": "template.html",
+        "file": "function.json",
+        "line": 1
+      }
+    ],
+    "add_todo": [
+      {
+        "text": "seconds",
+        "file": "handler.py",
+        "line": 28
+      },
+      {
+        "text": "seconds",
+        "file": "handler.py",
+        "line": 28
+      }
+    ],
+    "toggle_todo": [
+      {
+        "text": "seconds",
+        "file": "handler.py",
+        "line": 44
+      },
+      {
+        "text": "seconds",
+        "file": "handler.py",
+        "line": 44
+      }
+    ]
+  },
+  "ordered": [
+    {
+      "text": "todo_list",
+      "file": "config.json",
+      "line": 1,
+      "id": "function"
+    },
+    {
+      "text": "1.0.0",
+      "file": "config.json",
+      "line": 1,
+      "id": "version"
+    },
+    {
+      "text": "2026-09-18T01:25:17Z",
+      "file": "config.json",
+      "line": 1,
+      "id": "generated_at"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].path"
+    },
+    {
+      "text": "css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].language"
+    },
+    {
+      "text": "body",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[0].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[0].kind"
+    },
+    {
+      "text": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[0].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[0].file"
+    },
+    {
+      "text": ".todo-app",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[1].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[1].kind"
+    },
+    {
+      "text": ".todo-app { max-width: 540px; margin: 0 auto; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[1].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[1].file"
+    },
+    {
+      "text": "header h1",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[2].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[2].kind"
+    },
+    {
+      "text": "header h1 { color: #58a6ff; font-size: 22px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[2].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[2].file"
+    },
+    {
+      "text": "header .meta",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[3].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[3].kind"
+    },
+    {
+      "text": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[3].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[3].file"
+    },
+    {
+      "text": "header .meta code",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[4].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[4].kind"
+    },
+    {
+      "text": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[4].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[4].file"
+    },
+    {
+      "text": ".add-form",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[5].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[5].kind"
+    },
+    {
+      "text": ".add-form { display: flex; gap: 8px; margin: 16px 0; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[5].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[5].file"
+    },
+    {
+      "text": ".add-form input",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[6].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[6].kind"
+    },
+    {
+      "text": ".add-form input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[6].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[6].file"
+    },
+    {
+      "text": ".add-form button",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[7].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[7].kind"
+    },
+    {
+      "text": ".add-form button { background: #238636; color: #fff; border: none; padding: 0 20px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[7].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[7].file"
+    },
+    {
+      "text": ".todo-stats",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[8].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[8].kind"
+    },
+    {
+      "text": ".todo-stats { color: #8b949e; font-size: 12px; margin-bottom: 8px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[8].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[8].file"
+    },
+    {
+      "text": ".todo-list",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[9].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[9].kind"
+    },
+    {
+      "text": ".todo-list { list-style: none; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[9].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[9].file"
+    },
+    {
+      "text": ".todo-list li",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[10].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[10].kind"
+    },
+    {
+      "text": ".todo-list li { display: flex; align-items: center; gap: 10px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[10].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[10].file"
+    },
+    {
+      "text": ".todo-list li.done",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[11].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[11].kind"
+    },
+    {
+      "text": ".todo-list li.done { opacity: 0.5; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[11].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[11].file"
+    },
+    {
+      "text": ".todo-list li.done .text",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[12].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[12].kind"
+    },
+    {
+      "text": ".todo-list li.done .text { text-decoration: line-through; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[12].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[12].file"
+    },
+    {
+      "text": ".todo-list .text",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[13].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[13].kind"
+    },
+    {
+      "text": ".todo-list .text { flex: 1; color: #e6edf3; font-size: 14px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[13].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[13].file"
+    },
+    {
+      "text": ".todo-list .date",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[14].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[14].kind"
+    },
+    {
+      "text": ".todo-list .date { color: #6e7681; font-size: 10px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[14].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[14].file"
+    },
+    {
+      "text": ".todo-list .del",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[15].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[15].kind"
+    },
+    {
+      "text": ".todo-list .del { background: transparent; color: #f85149; border: none; cursor: pointer; padding: 4px 8px; font-size: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[15].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[15].file"
+    },
+    {
+      "text": ".todo-actions",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[16].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[16].kind"
+    },
+    {
+      "text": ".todo-actions { display: flex; gap: 8px; margin-top: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[16].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[16].file"
+    },
+    {
+      "text": ".todo-actions button",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[17].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[17].kind"
+    },
+    {
+      "text": ".todo-actions button { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 12px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[17].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[17].file"
+    },
+    {
+      "text": ".todo-actions .danger",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[18].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[18].kind"
+    },
+    {
+      "text": ".todo-actions .danger { color: #f85149; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[18].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[18].file"
+    },
+    {
+      "text": "footer",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[19].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[19].kind"
+    },
+    {
+      "text": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[19].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[19].file"
+    },
+    {
+      "text": ".empty",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[20].id"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[20].kind"
+    },
+    {
+      "text": ".empty { color: #6e7681; text-align: center; padding: 40px; font-size: 13px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[20].code"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[0].ids[20].file"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].path"
+    },
+    {
+      "text": "json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].language"
+    },
+    {
+      "text": "name",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[0].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[0].kind"
+    },
+    {
+      "text": "{\n  \"name\": \"Todo List\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[0].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[0].file"
+    },
+    {
+      "text": "version",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[1].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[1].kind"
+    },
+    {
+      "text": "{\n  \"version\": \"1.0.0\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[1].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[1].file"
+    },
+    {
+      "text": "description",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[2].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[2].kind"
+    },
+    {
+      "text": "{\n  \"description\": \"A simple to-do list with checkboxes and persistence\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[2].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[2].file"
+    },
+    {
+      "text": "package",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[3].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[3].kind"
+    },
+    {
+      "text": "{\n  \"package\": \"com.bardom.app.todolist\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[3].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[3].file"
+    },
+    {
+      "text": "entry",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[4].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[4].kind"
+    },
+    {
+      "text": "{\n  \"entry\": \"template.html\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[4].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[4].file"
+    },
+    {
+      "text": "min_sdk",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[5].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[5].kind"
+    },
+    {
+      "text": "{\n  \"min_sdk\": 24\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[5].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[5].file"
+    },
+    {
+      "text": "target_sdk",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[6].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[6].kind"
+    },
+    {
+      "text": "{\n  \"target_sdk\": 34\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[6].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[6].file"
+    },
+    {
+      "text": "permissions",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[7].id"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[7].kind"
+    },
+    {
+      "text": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[7].code"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[1].ids[7].file"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].path"
+    },
+    {
+      "text": "python",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].language"
+    },
+    {
+      "text": "Todo",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[0].id"
+    },
+    {
+      "text": "class",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[0].kind"
+    },
+    {
+      "text": "class Todo:\n    id: str\n    text: str\n    done: bool\n    created_at: str\n    completed_at: Optional[str]\n\n    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[0].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[0].file"
+    },
+    {
+      "text": "to_dict",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[1].id"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[1].kind"
+    },
+    {
+      "text": "    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[1].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[1].file"
+    },
+    {
+      "text": "Todo",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[1].branch_of"
+    },
+    {
+      "text": "add_todo",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[2].id"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[2].kind"
+    },
+    {
+      "text": "def add_todo(text: str) -> Todo:\n    now = datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\"\n    t = Todo(id=str(uuid.uuid4()), text=text, done=False,\n             created_at=now, completed_at=None)\n    _store.append(t)\n    return t\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[2].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[2].file"
+    },
+    {
+      "text": "list_todos",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[3].id"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[3].kind"
+    },
+    {
+      "text": "def list_todos(include_done: bool = True) -> list[dict]:\n    items = _store if include_done else [t for t in _store if not t.done]\n    return [t.to_dict() for t in items]\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[3].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[3].file"
+    },
+    {
+      "text": "toggle_todo",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[4].id"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[4].kind"
+    },
+    {
+      "text": "def toggle_todo(todo_id: str) -> Optional[Todo]:\n    for t in _store:\n        if t.id == todo_id:\n            t.done = not t.done\n            t.completed_at = (datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\") if t.done else None\n            return t\n    return None\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[4].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[4].file"
+    },
+    {
+      "text": "delete_todo",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[5].id"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[5].kind"
+    },
+    {
+      "text": "def delete_todo(todo_id: str) -> bool:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if t.id != todo_id]\n    return len(_store) < before\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[5].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[5].file"
+    },
+    {
+      "text": "clear_done",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[6].id"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[6].kind"
+    },
+    {
+      "text": "def clear_done() -> int:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if not t.done]\n    return before - len(_store)\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[6].code"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[2].ids[6].file"
+    },
+    {
+      "text": "js/app.js",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[3].path"
+    },
+    {
+      "text": "javascript",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[3].language"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].path"
+    },
+    {
+      "text": "html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].language"
+    },
+    {
+      "text": "addForm",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[0].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[0].kind"
+    },
+    {
+      "text": "    <form class=\"add-form\" id=\"addForm\">",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[0].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[0].file"
+    },
+    {
+      "text": "todoInput",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[1].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[1].kind"
+    },
+    {
+      "text": "      <input type=\"text\" id=\"todoInput\" placeholder=\"Add a new task...\" autocomplete=\"off\">",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[1].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[1].file"
+    },
+    {
+      "text": "stats",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[2].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[2].kind"
+    },
+    {
+      "text": "    <div class=\"todo-stats\" id=\"stats\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[2].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[2].file"
+    },
+    {
+      "text": "todoList",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[3].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[3].kind"
+    },
+    {
+      "text": "    <ul class=\"todo-list\" id=\"todoList\"></ul>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[3].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[3].file"
+    },
+    {
+      "text": "btnClearDone",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[4].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[4].kind"
+    },
+    {
+      "text": "      <button id=\"btnClearDone\">Clear Done</button>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[4].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[4].file"
+    },
+    {
+      "text": "btnClearAll",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[5].id"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[5].kind"
+    },
+    {
+      "text": "      <button id=\"btnClearAll\" class=\"danger\">Clear All</button>",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[5].code"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "files[4].ids[5].file"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.body.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.body.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-app.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-app.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header h1.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header h1.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header .meta.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header .meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header .meta code.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.header .meta code.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..add-form.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..add-form.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..add-form input.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..add-form input.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..add-form button.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..add-form button.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-stats.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-stats.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list li.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list li.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list li.done.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list li.done.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list li.done .text.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list li.done .text.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list .text.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list .text.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list .date.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list .date.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list .del.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-list .del.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-actions.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-actions.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-actions button.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-actions button.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-actions .danger.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..todo-actions .danger.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.footer.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.footer.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..empty.file"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index..empty.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.name.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.name.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.version.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.version.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.description.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.description.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.package.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.package.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.entry.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.entry.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.min_sdk.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.min_sdk.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.target_sdk.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.target_sdk.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.permissions.file"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.permissions.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.Todo.file"
+    },
+    {
+      "text": "class",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.Todo.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.to_dict.file"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.to_dict.kind"
+    },
+    {
+      "text": "Todo",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.to_dict.branch_of"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.add_todo.file"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.add_todo.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.list_todos.file"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.list_todos.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.toggle_todo.file"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.toggle_todo.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.delete_todo.file"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.delete_todo.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.clear_done.file"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.clear_done.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.addForm.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.addForm.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.todoInput.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.todoInput.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.stats.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.stats.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.todoList.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.todoList.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.btnClearDone.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.btnClearDone.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.btnClearAll.file"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "ids_index.btnClearAll.kind"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.body._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.body._meta.file"
+    },
+    {
+      "text": "body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0d1117; color: #c9d1d9; min-height: 100vh; padding: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.body._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-app._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-app._meta.file"
+    },
+    {
+      "text": ".todo-app { max-width: 540px; margin: 0 auto; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-app._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header h1._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header h1._meta.file"
+    },
+    {
+      "text": "header h1 { color: #58a6ff; font-size: 22px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header h1._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta._meta.file"
+    },
+    {
+      "text": "header .meta { color: #8b949e; font-size: 11px; margin-top: 4px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta code._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta code._meta.file"
+    },
+    {
+      "text": "header .meta code { background: #161b22; padding: 1px 6px; border-radius: 3px; color: #58a6ff; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.header .meta code._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..add-form._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..add-form._meta.file"
+    },
+    {
+      "text": ".add-form { display: flex; gap: 8px; margin: 16px 0; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..add-form._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..add-form input._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..add-form input._meta.file"
+    },
+    {
+      "text": ".add-form input { flex: 1; background: #161b22; color: #e6edf3; border: 1px solid #30363d; border-radius: 6px; padding: 10px; font-size: 14px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..add-form input._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..add-form button._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..add-form button._meta.file"
+    },
+    {
+      "text": ".add-form button { background: #238636; color: #fff; border: none; padding: 0 20px; border-radius: 6px; cursor: pointer; font-size: 13px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..add-form button._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-stats._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-stats._meta.file"
+    },
+    {
+      "text": ".todo-stats { color: #8b949e; font-size: 12px; margin-bottom: 8px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-stats._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list._meta.file"
+    },
+    {
+      "text": ".todo-list { list-style: none; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list li._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list li._meta.file"
+    },
+    {
+      "text": ".todo-list li { display: flex; align-items: center; gap: 10px; background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 10px 12px; margin-bottom: 6px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list li._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list li.done._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list li.done._meta.file"
+    },
+    {
+      "text": ".todo-list li.done { opacity: 0.5; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list li.done._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list li.done .text._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list li.done .text._meta.file"
+    },
+    {
+      "text": ".todo-list li.done .text { text-decoration: line-through; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list li.done .text._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list .text._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list .text._meta.file"
+    },
+    {
+      "text": ".todo-list .text { flex: 1; color: #e6edf3; font-size: 14px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list .text._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list .date._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list .date._meta.file"
+    },
+    {
+      "text": ".todo-list .date { color: #6e7681; font-size: 10px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list .date._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list .del._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list .del._meta.file"
+    },
+    {
+      "text": ".todo-list .del { background: transparent; color: #f85149; border: none; cursor: pointer; padding: 4px 8px; font-size: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-list .del._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-actions._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-actions._meta.file"
+    },
+    {
+      "text": ".todo-actions { display: flex; gap: 8px; margin-top: 16px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-actions._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-actions button._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-actions button._meta.file"
+    },
+    {
+      "text": ".todo-actions button { background: #21262d; color: #c9d1d9; border: 1px solid #30363d; border-radius: 6px; padding: 8px 14px; cursor: pointer; font-size: 12px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-actions button._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-actions .danger._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-actions .danger._meta.file"
+    },
+    {
+      "text": ".todo-actions .danger { color: #f85149; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..todo-actions .danger._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.footer._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.footer._meta.file"
+    },
+    {
+      "text": "footer { text-align: center; padding: 16px; color: #6e7681; font-size: 10px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.footer._code"
+    },
+    {
+      "text": "css_rule",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..empty._meta.kind"
+    },
+    {
+      "text": "css/style.css",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..empty._meta.file"
+    },
+    {
+      "text": ".empty { color: #6e7681; text-align: center; padding: 40px; font-size: 13px; }",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree..empty._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.name._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.name._meta.file"
+    },
+    {
+      "text": "{\n  \"name\": \"Todo List\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.name._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.version._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.version._meta.file"
+    },
+    {
+      "text": "{\n  \"version\": \"1.0.0\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.version._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.description._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.description._meta.file"
+    },
+    {
+      "text": "{\n  \"description\": \"A simple to-do list with checkboxes and persistence\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.description._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.package._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.package._meta.file"
+    },
+    {
+      "text": "{\n  \"package\": \"com.bardom.app.todolist\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.package._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.entry._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.entry._meta.file"
+    },
+    {
+      "text": "{\n  \"entry\": \"template.html\"\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.entry._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.min_sdk._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.min_sdk._meta.file"
+    },
+    {
+      "text": "{\n  \"min_sdk\": 24\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.min_sdk._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.target_sdk._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.target_sdk._meta.file"
+    },
+    {
+      "text": "{\n  \"target_sdk\": 34\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.target_sdk._code"
+    },
+    {
+      "text": "json_key",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.permissions._meta.kind"
+    },
+    {
+      "text": "function.json",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.permissions._meta.file"
+    },
+    {
+      "text": "{\n  \"permissions\": [\n    \"INTERNET\"\n  ]\n}",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.permissions._code"
+    },
+    {
+      "text": "class",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.Todo._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.Todo._meta.file"
+    },
+    {
+      "text": "class Todo:\n    id: str\n    text: str\n    done: bool\n    created_at: str\n    completed_at: Optional[str]\n\n    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.Todo._code"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.Todo.children.to_dict._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.Todo.children.to_dict._meta.file"
+    },
+    {
+      "text": "Todo",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.Todo.children.to_dict._meta.branch_of"
+    },
+    {
+      "text": "    def to_dict(self) -> dict:\n        return asdict(self)\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.Todo.children.to_dict._code"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.add_todo._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.add_todo._meta.file"
+    },
+    {
+      "text": "def add_todo(text: str) -> Todo:\n    now = datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\"\n    t = Todo(id=str(uuid.uuid4()), text=text, done=False,\n             created_at=now, completed_at=None)\n    _store.append(t)\n    return t\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.add_todo._code"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.list_todos._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.list_todos._meta.file"
+    },
+    {
+      "text": "def list_todos(include_done: bool = True) -> list[dict]:\n    items = _store if include_done else [t for t in _store if not t.done]\n    return [t.to_dict() for t in items]\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.list_todos._code"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.toggle_todo._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.toggle_todo._meta.file"
+    },
+    {
+      "text": "def toggle_todo(todo_id: str) -> Optional[Todo]:\n    for t in _store:\n        if t.id == todo_id:\n            t.done = not t.done\n            t.completed_at = (datetime.datetime.utcnow().isoformat(timespec=\"seconds\") + \"Z\") if t.done else None\n            return t\n    return None\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.toggle_todo._code"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.delete_todo._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.delete_todo._meta.file"
+    },
+    {
+      "text": "def delete_todo(todo_id: str) -> bool:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if t.id != todo_id]\n    return len(_store) < before\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.delete_todo._code"
+    },
+    {
+      "text": "function",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.clear_done._meta.kind"
+    },
+    {
+      "text": "handler.py",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.clear_done._meta.file"
+    },
+    {
+      "text": "def clear_done() -> int:\n    global _store\n    before = len(_store)\n    _store = [t for t in _store if not t.done]\n    return before - len(_store)\n\n",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.clear_done._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.addForm._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.addForm._meta.file"
+    },
+    {
+      "text": "    <form class=\"add-form\" id=\"addForm\">",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.addForm._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.todoInput._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.todoInput._meta.file"
+    },
+    {
+      "text": "      <input type=\"text\" id=\"todoInput\" placeholder=\"Add a new task...\" autocomplete=\"off\">",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.todoInput._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.stats._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.stats._meta.file"
+    },
+    {
+      "text": "    <div class=\"todo-stats\" id=\"stats\"></div>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.stats._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.todoList._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.todoList._meta.file"
+    },
+    {
+      "text": "    <ul class=\"todo-list\" id=\"todoList\"></ul>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.todoList._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.btnClearDone._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.btnClearDone._meta.file"
+    },
+    {
+      "text": "      <button id=\"btnClearDone\">Clear Done</button>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.btnClearDone._code"
+    },
+    {
+      "text": "view_id",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.btnClearAll._meta.kind"
+    },
+    {
+      "text": "template.html",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.btnClearAll._meta.file"
+    },
+    {
+      "text": "      <button id=\"btnClearAll\" class=\"danger\">Clear All</button>",
+      "file": "config.json",
+      "line": 1,
+      "id": "tree.btnClearAll._code"
+    },
+    {
+      "text": "Segoe UI",
+      "file": "css/style.css",
+      "line": 2,
+      "id": null
+    },
+    {
+      "text": "checkbox",
+      "file": "css/style.css",
+      "line": 15,
+      "id": null
+    },
+    {
+      "text": "Todo List",
+      "file": "function.json",
+      "line": 1,
+      "id": "name"
+    },
+    {
+      "text": "1.0.0",
+      "file": "function.json",
+      "line": 1,
+      "id": "version"
+    },
+    {
+      "text": "A simple to-do list with checkboxes and persistence",
+      "file": "function.json",
+      "line": 1,
+      "id": "description"
+    },
+    {
+      "text": "com.bardom.app.todolist",
+      "file": "function.json",
+      "line": 1,
+      "id": "package"
+    },
+    {
+      "text": "template.html",
+      "file": "function.json",
+      "line": 1,
+      "id": "entry"
+    },
+    {
+      "text": "seconds",
+      "file": "handler.py",
+      "line": 28,
+      "id": "add_todo"
+    },
+    {
+      "text": "seconds",
+      "file": "handler.py",
+      "line": 28,
+      "id": "add_todo"
+    },
+    {
+      "text": "seconds",
+      "file": "handler.py",
+      "line": 44,
+      "id": "toggle_todo"
+    },
+    {
+      "text": "seconds",
+      "file": "handler.py",
+      "line": 44,
+      "id": "toggle_todo"
+    },
+    {
+      "text": "__main__",
+      "file": "handler.py",
+      "line": 63,
+      "id": null
+    },
+    {
+      "text": "Test task",
+      "file": "handler.py",
+      "line": 64,
+      "id": null
+    },
+    {
+      "text": "use strict",
+      "file": "js/app.js",
+      "line": 3,
+      "id": null
+    },
+    {
+      "text": "bardom_todos",
+      "file": "js/app.js",
+      "line": 4,
+      "id": null
+    },
+    {
+      "text": "addForm",
+      "file": "js/app.js",
+      "line": 6,
+      "id": null
+    },
+    {
+      "text": "todoInput",
+      "file": "js/app.js",
+      "line": 7,
+      "id": null
+    },
+    {
+      "text": "todoList",
+      "file": "js/app.js",
+      "line": 8,
+      "id": null
+    },
+    {
+      "text": "stats",
+      "file": "js/app.js",
+      "line": 9,
+      "id": null
+    },
+    {
+      "text": "[]",
+      "file": "js/app.js",
+      "line": 12,
+      "id": null
+    },
+    {
+      "text": "t-",
+      "file": "js/app.js",
+      "line": 16,
+      "id": null
+    },
+    {
+      "text": "':'&quot;',",
+      "file": "js/app.js",
+      "line": 19,
+      "id": null
+    },
+    {
+      "text": "&amp;",
+      "file": "js/app.js",
+      "line": 19,
+      "id": null
+    },
+    {
+      "text": "&lt;",
+      "file": "js/app.js",
+      "line": 19,
+      "id": null
+    },
+    {
+      "text": "&gt;",
+      "file": "js/app.js",
+      "line": 19,
+      "id": null
+    },
+    {
+      "text": "&quot;",
+      "file": "js/app.js",
+      "line": 19,
+      "id": null
+    },
+    {
+      "text": "\":",
+      "file": "js/app.js",
+      "line": 19,
+      "id": null
+    },
+    {
+      "text": " of ",
+      "file": "js/app.js",
+      "line": 26,
+      "id": null
+    },
+    {
+      "text": " done",
+      "file": "js/app.js",
+      "line": 26,
+      "id": null
+    },
+    {
+      "text": "No tasks yet",
+      "file": "js/app.js",
+      "line": 26,
+      "id": null
+    },
+    {
+      "text": "empty",
+      "file": "js/app.js",
+      "line": 28,
+      "id": null
+    },
+    {
+      "text": "<div class=\"empty\">No tasks. Add one above.</div>",
+      "file": "js/app.js",
+      "line": 28,
+      "id": null
+    },
+    {
+      "text": "' + (t.done ? 'done' : '') + '",
+      "file": "js/app.js",
+      "line": 32,
+      "id": null
+    },
+    {
+      "text": "<li class=\"",
+      "file": "js/app.js",
+      "line": 32,
+      "id": null
+    },
+    {
+      "text": "done",
+      "file": "js/app.js",
+      "line": 32,
+      "id": null
+    },
+    {
+      "text": "\">",
+      "file": "js/app.js",
+      "line": 32,
+      "id": null
+    },
+    {
+      "text": "checkbox",
+      "file": "js/app.js",
+      "line": 33,
+      "id": null
+    },
+    {
+      "text": "' + t.id + '",
+      "file": "js/app.js",
+      "line": 33,
+      "id": null
+    },
+    {
+      "text": "<input type=\"checkbox\" data-id=\"",
+      "file": "js/app.js",
+      "line": 33,
+      "id": null
+    },
+    {
+      "text": "\" ",
+      "file": "js/app.js",
+      "line": 33,
+      "id": null
+    },
+    {
+      "text": "checked",
+      "file": "js/app.js",
+      "line": 33,
+      "id": null
+    },
+    {
+      "text": "text",
+      "file": "js/app.js",
+      "line": 34,
+      "id": null
+    },
+    {
+      "text": "<span class=\"text\">",
+      "file": "js/app.js",
+      "line": 34,
+      "id": null
+    },
+    {
+      "text": "</span>",
+      "file": "js/app.js",
+      "line": 34,
+      "id": null
+    },
+    {
+      "text": "date",
+      "file": "js/app.js",
+      "line": 35,
+      "id": null
+    },
+    {
+      "text": "<span class=\"date\">",
+      "file": "js/app.js",
+      "line": 35,
+      "id": null
+    },
+    {
+      "text": "</span>",
+      "file": "js/app.js",
+      "line": 35,
+      "id": null
+    },
+    {
+      "text": "del",
+      "file": "js/app.js",
+      "line": 36,
+      "id": null
+    },
+    {
+      "text": "' + t.id + '",
+      "file": "js/app.js",
+      "line": 36,
+      "id": null
+    },
+    {
+      "text": "<button class=\"del\" data-id=\"",
+      "file": "js/app.js",
+      "line": 36,
+      "id": null
+    },
+    {
+      "text": "\">×</button>",
+      "file": "js/app.js",
+      "line": 36,
+      "id": null
+    },
+    {
+      "text": "</li>",
+      "file": "js/app.js",
+      "line": 37,
+      "id": null
+    },
+    {
+      "text": "input[type=checkbox]",
+      "file": "js/app.js",
+      "line": 39,
+      "id": null
+    },
+    {
+      "text": "change",
+      "file": "js/app.js",
+      "line": 40,
+      "id": null
+    },
+    {
+      "text": ".del",
+      "file": "js/app.js",
+      "line": 42,
+      "id": null
+    },
+    {
+      "text": "click",
+      "file": "js/app.js",
+      "line": 43,
+      "id": null
+    },
+    {
+      "text": "submit",
+      "file": "js/app.js",
+      "line": 65,
+      "id": null
+    },
+    {
+      "text": "btnClearDone",
+      "file": "js/app.js",
+      "line": 70,
+      "id": null
+    },
+    {
+      "text": "click",
+      "file": "js/app.js",
+      "line": 70,
+      "id": null
+    },
+    {
+      "text": "btnClearAll",
+      "file": "js/app.js",
+      "line": 73,
+      "id": null
+    },
+    {
+      "text": "click",
+      "file": "js/app.js",
+      "line": 73,
+      "id": null
+    },
+    {
+      "text": "Delete all tasks?",
+      "file": "js/app.js",
+      "line": 74,
+      "id": null
+    },
+    {
+      "text": "{{ config.function }} — Todo List",
+      "file": "template.html",
+      "line": 6,
+      "id": null
+    },
+    {
+      "text": "Todo List",
+      "file": "template.html",
+      "line": 12,
+      "id": null
+    },
+    {
+      "text": "Function:",
+      "file": "template.html",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "{{ config.function }}",
+      "file": "template.html",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "· v{{ config.version }}",
+      "file": "template.html",
+      "line": 13,
+      "id": null
+    },
+    {
+      "text": "Add",
+      "file": "template.html",
+      "line": 18,
+      "id": null
+    },
+    {
+      "text": "Clear Done",
+      "file": "template.html",
+      "line": 23,
+      "id": null
+    },
+    {
+      "text": "Clear All",
+      "file": "template.html",
+      "line": 24,
+      "id": null
+    },
+    {
+      "text": "Built by BardomPro APK Generator",
+      "file": "template.html",
+      "line": 27,
+      "id": null
+    }
+  ]
+}
