@@ -44,10 +44,10 @@ from engine.function_registry import get_registry, reload_registry
 from engine.config_json_processor import build_config_json, write_config_json, build_all as build_all_config
 from engine.strings_json_processor import build_strings_json, write_strings_json, build_all as build_all_strings
 from engine.template_renderer import render_function, render_to_file
-from engine.apk_builder import build_apk, list_built_apks
+from engine.apk_builder import build_apk as _v1_build_apk, list_built_apks
 # Prefer the v2 builder (real installable APKs) when the shell + apksigner are present
 try:
-    from engine.apk_builder_v2 import build_apk, list_built_apks as _v2_list
+    from engine.apk_builder_v2 import build_apk as _v2_build_apk
     _HAVE_V2 = True
 except Exception:
     _HAVE_V2 = False
@@ -56,9 +56,17 @@ except Exception:
 def _do_build_apk(function_name, **kwargs):
     """Use v2 builder (real APK) when available; fall back to v1 webapk."""
     if _HAVE_V2:
-        return build_apk(function_name, **kwargs)
-    from engine.apk_builder import build_apk as _v1_build
-    return _v1_build(function_name, **kwargs)
+        try:
+            return _v2_build_apk(function_name, **kwargs)
+        except Exception as e:
+            # v2 failed (missing Java/apksigner/shell) — fall back to v1
+            res = _v1_build_apk(function_name, **kwargs)
+            if not res.success:
+                res.error = f"v2 failed ({e}); v1 also failed: {res.error}"
+            else:
+                res.build_mode = f"webapk (v2 unavailable: {e})"
+            return res
+    return _v1_build_apk(function_name, **kwargs)
 
 
 # --------------------------------------------------------------------------- #
@@ -371,7 +379,7 @@ def build_apk_route():
     if fm.has_template:
         render_to_file(fm.path)
 
-    res = build_apk(
+    res = _do_build_apk(
         name,
         app_name=data.get("app_name"),
         package_name=data.get("package_name"),
