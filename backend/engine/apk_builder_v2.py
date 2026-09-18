@@ -242,14 +242,26 @@ def _ensure_java_available() -> bool:
         pass
 
     # 3. Download a portable OpenJDK JRE
-    if _JRE_DIR and (_JRE_DIR / "bin" / "java").exists():
-        os.environ["PATH"] = str(_JRE_DIR / "bin") + os.pathsep + os.environ.get("PATH", "")
-        return True
-
     import urllib.request
     import tarfile
     jre_base = Path("/tmp") / "bardom-jre"
     jre_base.mkdir(parents=True, exist_ok=True)
+    jre_marker = jre_base / "java_path.txt"
+
+    # Check if we already extracted it (persist across worker restarts)
+    if jre_marker.exists():
+        saved_path = jre_marker.read_text().strip()
+        if saved_path and Path(saved_path).exists():
+            os.environ["PATH"] = saved_path + os.pathsep + os.environ.get("PATH", "")
+            try:
+                r = subprocess.run(["java", "-version"],
+                                   capture_output=True, timeout=10)
+                if r.returncode == 0:
+                    _JRE_DIR = Path(saved_path).parent
+                    return True
+            except Exception:
+                pass
+
     # Temurin JRE 21 (linux x64) — small, no installer needed
     jre_url = "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.5%2B11/OpenJDK21U-jre_x64_linux_hotspot_21.0.5_11.tar.gz"
     jre_tar = jre_base / "jre.tar.gz"
@@ -264,6 +276,8 @@ def _ensure_java_available() -> bool:
         for d in jre_base.iterdir():
             if d.is_dir() and (d / "bin" / "java").exists():
                 _JRE_DIR = d
+                # Persist the path so future requests don't re-download
+                jre_marker.write_text(str(d / "bin"))
                 break
         if _JRE_DIR:
             os.environ["PATH"] = str(_JRE_DIR / "bin") + os.pathsep + os.environ.get("PATH", "")
