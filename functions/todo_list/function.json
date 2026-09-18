@@ -1,0 +1,10 @@
+{
+  "name": "Todo List",
+  "version": "1.0.0",
+  "description": "A simple to-do list with checkboxes and persistence",
+  "package": "com.bardom.app.todolist",
+  "entry": "template.html",
+  "min_sdk": 24,
+  "target_sdk": 34,
+  "permissions": ["INTERNET"]
+}
