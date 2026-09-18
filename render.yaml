@@ -1,0 +1,59 @@
+services:
+  - type: web
+    name: bardompro-apk-generator
+    runtime: python
+    region: frankfurt
+    plan: free
+    branch: main
+    rootDir: .
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --chdir backend app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: PYTHON_VERSION
+        value: 3.11.7
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_ADMIN_CHAT_ID
+        sync: false
+      - key: BOT_USERNAME
+        value: allArabservicesbot
+      - key: GITHUB_REPO
+        value: abuhoney/apk
+      - key: GITHUB_BRANCH
+        value: main
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: NEW_GITHUB_REPO
+        value: abuhoney/apk-generator-system
+      - key: HF_TOKEN
+        sync: false
+      - key: RENDER_API_KEY
+        sync: false
+      - key: RENDER_SERVICE_ID
+        value: srv-d7vr80f7f7vs73c2t130
+      - key: BACKEND_URL
+        value: https://bardomai.onrender.com
+      - key: BACKEND_SECRET
+        value: bardom-v17-secret
+      - key: FIREBASE_API_KEY
+        sync: false
+      - key: FIREBASE_APP_ID
+        sync: false
+      - key: FIREBASE_AUTH_DOMAIN
+        value: all-arab-services-750ad.firebaseapp.com
+      - key: FIREBASE_DATABASE_URL
+        value: https://all-arab-services-750ad-default-rtdb.europe-west1.firebasedatabase.app
+      - key: FIREBASE_PROJECT_ID
+        value: all-arab-services-750ad
+      - key: AUTO_PUSH_GITHUB
+        value: "true"
