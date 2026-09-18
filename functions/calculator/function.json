@@ -1,0 +1,10 @@
+{
+  "name": "Calculator",
+  "version": "1.0.0",
+  "description": "A simple calculator with basic arithmetic operations",
+  "package": "com.bardom.app.calculator",
+  "entry": "template.html",
+  "min_sdk": 24,
+  "target_sdk": 34,
+  "permissions": ["INTERNET"]
+}
