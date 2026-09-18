@@ -1,0 +1,10 @@
+{
+  "name": "Weather",
+  "version": "1.0.0",
+  "description": "Current weather for any city using Open-Meteo",
+  "package": "com.bardom.app.weather",
+  "entry": "template.html",
+  "min_sdk": 24,
+  "target_sdk": 34,
+  "permissions": ["INTERNET"]
+}
