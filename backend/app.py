@@ -45,6 +45,20 @@ from engine.config_json_processor import build_config_json, write_config_json, b
 from engine.strings_json_processor import build_strings_json, write_strings_json, build_all as build_all_strings
 from engine.template_renderer import render_function, render_to_file
 from engine.apk_builder import build_apk, list_built_apks
+# Prefer the v2 builder (real installable APKs) when the shell + apksigner are present
+try:
+    from engine.apk_builder_v2 import build_apk, list_built_apks as _v2_list
+    _HAVE_V2 = True
+except Exception:
+    _HAVE_V2 = False
+
+
+def _do_build_apk(function_name, **kwargs):
+    """Use v2 builder (real APK) when available; fall back to v1 webapk."""
+    if _HAVE_V2:
+        return build_apk(function_name, **kwargs)
+    from engine.apk_builder import build_apk as _v1_build
+    return _v1_build(function_name, **kwargs)
 
 
 # --------------------------------------------------------------------------- #
