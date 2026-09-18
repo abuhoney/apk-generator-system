@@ -67,6 +67,7 @@ from .code_extractor import extract_folder, FileExtraction, IdEntry
 
 
 def _build_ids_index(extractions: list[FileExtraction]) -> dict:
+    """Lightweight index — no code, just metadata for fast lookup."""
     idx: dict[str, dict] = {}
     for fe in extractions:
         for entry in fe.ids:
@@ -82,8 +83,9 @@ def _build_ids_index(extractions: list[FileExtraction]) -> dict:
 
 
 def _build_tree(extractions: list[FileExtraction]) -> dict:
-    """Build a parent → children tree of every ID, with full code attached."""
-    # First, collect every ID with its metadata + code
+    """Build a parent → children tree of every ID, with code referenced
+    by index instead of duplicated inline. Each node stores `_code_ref`
+    which is a key into `ids_index` (file::id) — keeps the JSON small."""
     flat: dict[str, dict] = {}
     for fe in extractions:
         for entry in fe.ids:
@@ -99,7 +101,7 @@ def _build_tree(extractions: list[FileExtraction]) -> dict:
                     "line_end": entry.line_end,
                     "branch_of": entry.branch_of,
                 },
-                "_code": entry.code,
+                "_code_ref": key,
                 "children": {},
             }
 
