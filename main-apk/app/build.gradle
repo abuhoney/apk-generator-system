@@ -52,7 +52,10 @@ android {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
+            // Use release keystore if available, otherwise fall back to debug signing
+            // (debug signing is fine for CI builds — the APK is still valid and installable)
+            signingConfig rootProject.file('keystore.properties').exists() ?
+                signingConfigs.release : signingConfigs.debug
         }
         debug {
             debuggable true
