@@ -60,23 +60,26 @@ jobs:
       - name: Generate debug keystore for CI signing
         run: |
           cd main-apk
-          # Create keystore in app/ (where build.gradle expects it)
+          # Create keystore (keytool is in the JDK bin)
           keytool -genkeypair -v \
-            -keystore app/debug.keystore \
+            -keystore debug.keystore \
             -alias bardom-debug \
             -keypass bardom123 \
             -storepass bardom123 \
             -keyalg RSA -keysize 2048 \
             -validity 10000 \
             -dname "CN=BardomPro, OU=Mobile Apps, O=BardomPro, L=Riyadh, ST=Riyadh, C=SA"
+          # keystore.properties is read by build.gradle relative to main-apk/
+          # storeFile is relative to the app module dir (main-apk/app/)
           cat > keystore.properties <<EOF
-          storeFile=app/debug.keystore
+          storeFile=../debug.keystore
           storePassword=bardom123
           keyAlias=bardom-debug
           keyPassword=bardom123
           EOF
-          echo "Keystore created at app/debug.keystore"
-          ls -la app/debug.keystore
+          echo "Keystore created:"
+          ls -la debug.keystore
+          cat keystore.properties
 
       - name: Generate Gradle Wrapper
         run: |
