@@ -6,7 +6,7 @@ services:
     plan: free
     branch: main
     rootDir: .
-    buildCommand: pip install -r requirements.txt
+    buildCommand: apt-get update -y && apt-get install -y --no-install-recommends default-jre-headless && pip install -r requirements.txt
     startCommand: gunicorn --chdir backend app:app --bind 0.0.0.0:$PORT --workers 2 --timeout 120
     healthCheckPath: /api/health
     autoDeploy: true
