@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f0f1e">
+<title>__APP_NAME__</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0f0f1e;--surface:#1a1a2e;--surface2:#16213e;--accent:#e94560;
+  --fg:#f5f5f5;--fg2:#a3a3c2;--fg3:#6b6b8a;
+  --green:#16a34a;--purple:#a855f7;--gold:#facc15;
+  --radius:14px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+html,body{height:100%;background:var(--bg);color:var(--fg);font-family:var(--font);
+  font-size:14px;line-height:1.5;overflow:hidden}
+body{display:flex;flex-direction:column;height:100vh;height:100dvh}
+
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;padding-top:max(14px,env(safe-area-inset-top));
+  background:linear-gradient(135deg,#1a1a2e,#16213e);
+  border-bottom:1px solid rgba(233,69,96,.2);
+  flex-shrink:0;
+}
+.topbar-title{
+  flex:1;text-align:center;font-size:17px;font-weight:700;
+  color:#fff;letter-spacing:.3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  padding:0 12px;
+}
+.topbar-icons{display:flex;align-items:center;gap:8px}
+.icon-btn{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .15s;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.05);
+  -webkit-user-select:none;user-select:none;
+}
+.icon-btn:active{transform:scale(.92)}
+.icon-btn svg{width:20px;height:20px;fill:currentColor}
+.icon-btn.whatsapp{color:#25D366;background:rgba(37,211,102,.12);border-color:rgba(37,211,102,.3)}
+.icon-btn.privacy{color:#58a6ff;background:rgba(88,166,255,.12);border-color:rgba(88,166,255,.3)}
+.icon-btn.rate{color:#facc15;background:rgba(250,204,21,.12);border-color:rgba(250,204,21,.3)}
+
+/* Photo Grid */
+.gallery{
+  flex:1;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  padding:4px;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:4px;
+}
+.photo-card{
+  background:var(--surface);border-radius:8px;overflow:hidden;
+  cursor:pointer;transition:all .15s;border:1px solid transparent;
+  aspect-ratio:1;position:relative;
+}
+.photo-card:active{transform:scale(.95);border-color:var(--accent)}
+.photo-card img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Photo Viewer Modal */
+.viewer{
+  position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:999;
+  display:none;flex-direction:column;
+}
+.viewer.show{display:flex;animation:fadeIn .2s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.viewer-header{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;padding-top:max(14px,env(safe-area-inset-top));
+  background:rgba(0,0,0,.8);color:#fff;
+}
+.viewer-title{flex:1;font-size:15px;font-weight:600;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.close-btn{
+  width:36px;height:36px;border-radius:50%;border:none;
+  background:rgba(255,255,255,.15);color:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.close-btn svg{width:20px;height:20px;fill:currentColor}
+.viewer-body{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative;
+}
+.viewer-body img{max-width:100%;max-height:100%;object-fit:contain}
+.viewer-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:44px;height:44px;border-radius:50%;border:none;
+  background:rgba(255,255,255,.15);color:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+}
+.viewer-nav:active{background:rgba(233,69,96,.5)}
+.viewer-nav.prev{left:12px}
+.viewer-nav.next{right:12px}
+.viewer-nav svg{width:24px;height:24px;fill:currentColor}
+.viewer-info{
+  padding:12px 16px;padding-bottom:max(12px,env(safe-area-inset-bottom));
+  background:rgba(0,0,0,.8);color:#fff;
+  display:flex;justify-content:space-between;align-items:center;font-size:12px;
+}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:30px;left:50%;transform:translateX(-50%);
+  background:rgba(0,0,0,.85);color:#fff;padding:10px 16px;
+  border-radius:8px;font-size:13px;z-index:1000;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.toast.show{opacity:1}
+
+/* Privacy Modal */
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;z-index:998;
+}
+.modal.show{display:flex;animation:fadeIn .2s}
+.modal-content{
+  background:var(--surface);border-radius:14px;
+  max-width:500px;width:100%;max-height:80vh;overflow-y:auto;
+  padding:24px;border:1px solid rgba(255,255,255,.1);
+}
+.modal-content h2{color:var(--accent);margin-bottom:12px;font-size:18px}
+.modal-content p{color:var(--fg2);font-size:13px;line-height:1.7;margin-bottom:10px}
+.modal-close{
+  display:block;margin:20px auto 0;padding:10px 24px;
+  background:var(--accent);color:#fff;border:none;border-radius:8px;
+  font-size:14px;font-weight:600;cursor:pointer;
+}
+
+/* Empty */
+.empty{
+  grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--fg3);
+}
+.empty svg{width:48px;height:48px;margin-bottom:12px;opacity:.3}
+.empty p{font-size:14px}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-icons">
+    <div class="icon-btn whatsapp" onclick="shareWhatsApp()" title="Share via WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.149-.197.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.074-.149-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </div>
+  <div class="topbar-title" id="appTitle">__APP_NAME__</div>
+  <div class="topbar-icons">
+    <div class="icon-btn rate" onclick="rateApp()" title="Rate App">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="icon-btn privacy" onclick="openPrivacy()" title="Privacy Policy">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+    </div>
+  </div>
+</div>
+
+<div class="gallery" id="gallery"></div>
+
+<div class="viewer" id="viewer">
+  <div class="viewer-header">
+    <button class="close-btn" onclick="closeViewer()">
+      <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
+    <div class="viewer-title" id="viewerTitle">—</div>
+  </div>
+  <div class="viewer-body">
+    <button class="viewer-nav prev" onclick="navPhoto(-1)">
+      <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+    </button>
+    <img id="viewerImg" src="" alt="">
+    <button class="viewer-nav next" onclick="navPhoto(1)">
+      <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+    </button>
+  </div>
+  <div class="viewer-info">
+    <span id="photoIndex">—</span>
+    <span id="photoName">—</span>
+  </div>
+</div>
+
+<div class="modal" id="privacyModal">
+  <div class="modal-content">
+    <h2>Privacy Policy</h2>
+    <p><strong>__APP_NAME__</strong> respects your privacy.</p>
+    <p>This app stores image files locally on your device for offline viewing. No personal data is collected or transmitted.</p>
+    <p><strong>Data stored locally:</strong></p>
+    <p>• Image files bundled with this app<br>
+       • Last viewed photo</p>
+    <p><strong>Permissions used:</strong></p>
+    <p>• <strong>Storage</strong> — to read bundled image files<br>
+       • <strong>Internet</strong> — for the WhatsApp share and Rate App features only</p>
+    <p><strong>Contact:</strong> If you have questions about this policy, contact the app developer.</p>
+    <p style="font-size:11px;color:var(--fg3);margin-top:16px">Last updated: __GENERATED_DATE__</p>
+    <button class="modal-close" onclick="closePrivacy()">Close</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const MEDIA_BUNDLE = __MEDIA_BUNDLE__;
+const APP_NAME = "__APP_NAME__";
+const GENERATED_DATE = "__GENERATED_DATE__";
+const PRIVACY_URL = "__PRIVACY_URL__";
+const RATE_URL = "__RATE_URL__";
+const WHATSAPP_NUMBER = "__WHATSAPP_NUMBER__";
+
+let photos = MEDIA_BUNDLE.files || [];
+let currentIdx = -1;
+
+function escapeHtml(s) {
+  return (s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+}
+
+function renderGallery() {
+  const gallery = document.getElementById('gallery');
+  if (photos.length === 0) {
+    gallery.innerHTML = '<div class="empty"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg><p>No photos available</p></div>';
+    return;
+  }
+  gallery.innerHTML = photos.map((p, i) => {
+    const url = p.url || ('file:///android_asset/webapp/media/' + p.path);
+    return '<div class="photo-card" onclick="openPhoto(' + i + ')">' +
+      '<img src="' + url + '" loading="lazy" alt="' + escapeHtml(p.title) + '">' +
+    '</div>';
+  }).join('');
+}
+
+function openPhoto(i) {
+  if (i < 0 || i >= photos.length) return;
+  currentIdx = i;
+  const p = photos[i];
+  const url = p.url || ('file:///android_asset/webapp/media/' + p.path);
+  document.getElementById('viewerImg').src = url;
+  document.getElementById('viewerTitle').textContent = p.title;
+  document.getElementById('photoIndex').textContent = (i + 1) + ' / ' + photos.length;
+  document.getElementById('photoName').textContent = p.originalName || p.title;
+  document.getElementById('viewer').classList.add('show');
+}
+
+function navPhoto(delta) {
+  if (currentIdx < 0) return;
+  let next = currentIdx + delta;
+  if (next < 0) next = photos.length - 1;
+  if (next >= photos.length) next = 0;
+  openPhoto(next);
+}
+
+function closeViewer() {
+  document.getElementById('viewer').classList.remove('show');
+  document.getElementById('viewerImg').src = '';
+  currentIdx = -1;
+}
+
+function shareWhatsApp() {
+  const text = encodeURIComponent('Check out ' + APP_NAME + ' — great photo gallery!');
+  const url = WHATSAPP_NUMBER
+    ? 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text
+    : 'https://wa.me/?text=' + text;
+  window.open(url, '_blank');
+}
+
+function rateApp() {
+  if (RATE_URL && RATE_URL !== '__RATE_URL__') {
+    window.open(RATE_URL, '_blank');
+  } else {
+    showToast('Rating coming soon!');
+  }
+}
+
+function openPrivacy() {
+  if (PRIVACY_URL && PRIVACY_URL !== '__PRIVACY_URL__') {
+    window.open(PRIVACY_URL, '_blank');
+  } else {
+    document.getElementById('privacyModal').classList.add('show');
+  }
+}
+
+function closePrivacy() {
+  document.getElementById('privacyModal').classList.remove('show');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+document.getElementById('appTitle').textContent = APP_NAME;
+
+photos.forEach(p => {
+  if (!p.url && p.path) {
+    p.url = 'file:///android_asset/webapp/media/' + p.path;
+  }
+});
+
+renderGallery();
+console.log(APP_NAME + ' loaded — ' + photos.length + ' photos');
+</script>
+</body>
+</html>
