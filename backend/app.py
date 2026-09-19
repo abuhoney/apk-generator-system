@@ -737,7 +737,7 @@ def admin_build_stats():
     if not db_url:
         return jsonify({"error": "FIREBASE_DATABASE_URL not configured"}), 500
     try:
-        url = db_url.rstrip("/") + "/builds.json?orderBy="timestamp"&limitToLast=50"
+        url = db_url.rstrip("/") + "/builds.json?orderBy=\"timestamp\"&limitToLast=50"
         req = _ur.Request(url, headers={"Accept": "application/json"})
         with _ur.urlopen(req, timeout=10) as resp:
             data = json.loads(resp.read())
