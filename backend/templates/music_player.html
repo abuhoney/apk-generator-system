@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0f0f1e">
+<title>__APP_NAME__</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0f0f1e;--surface:#1a1a2e;--surface2:#16213e;--accent:#e94560;
+  --fg:#f5f5f5;--fg2:#a3a3c2;--fg3:#6b6b8a;
+  --green:#16a34a;--purple:#a855f7;--gold:#facc15;
+  --radius:14px;
+  --font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+html,body{height:100%;background:var(--bg);color:var(--fg);font-family:var(--font);
+  font-size:14px;line-height:1.5;overflow:hidden}
+body{display:flex;flex-direction:column;height:100vh;height:100dvh}
+
+/* Top Bar with 3 action icons */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 16px;padding-top:max(14px,env(safe-area-inset-top));
+  background:linear-gradient(135deg,#1a1a2e,#16213e);
+  border-bottom:1px solid rgba(233,69,96,.2);
+  flex-shrink:0;
+}
+.topbar-title{
+  flex:1;text-align:center;font-size:17px;font-weight:700;
+  color:#fff;letter-spacing:.3px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  padding:0 12px;
+}
+.topbar-icons{display:flex;align-items:center;gap:8px}
+.icon-btn{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .15s;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.05);
+  -webkit-user-select:none;user-select:none;
+}
+.icon-btn:active{transform:scale(.92)}
+.icon-btn svg{width:20px;height:20px;fill:currentColor}
+.icon-btn.whatsapp{color:#25D366;background:rgba(37,211,102,.12);border-color:rgba(37,211,102,.3)}
+.icon-btn.whatsapp:active{background:rgba(37,211,102,.25)}
+.icon-btn.privacy{color:#58a6ff;background:rgba(88,166,255,.12);border-color:rgba(88,166,255,.3)}
+.icon-btn.privacy:active{background:rgba(88,166,255,.25)}
+.icon-btn.rate{color:#facc15;background:rgba(250,204,21,.12);border-color:rgba(250,204,21,.3)}
+.icon-btn.rate:active{background:rgba(250,204,21,.25)}
+
+/* Track List */
+.list-container{flex:1;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:8px 12px}
+.list-header{
+  padding:12px 4px 8px;font-size:11px;font-weight:600;
+  color:var(--fg2);text-transform:uppercase;letter-spacing:.5px;
+}
+.track-item{
+  display:flex;align-items:center;gap:12px;
+  padding:12px;background:var(--surface);
+  border-radius:12px;margin-bottom:8px;
+  cursor:pointer;transition:all .15s;
+  border:1px solid transparent;
+}
+.track-item:active{background:var(--surface2);border-color:rgba(233,69,96,.3)}
+.track-item.playing{background:linear-gradient(135deg,rgba(233,69,96,.15),rgba(168,85,247,.1));border-color:var(--accent)}
+.track-number{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,#e94560,#a855f7);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:#fff;flex-shrink:0;
+}
+.track-info{flex:1;min-width:0}
+.track-title{
+  font-size:14px;font-weight:600;color:var(--fg);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.track-meta{
+  font-size:11px;color:var(--fg2);margin-top:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.track-duration{font-size:11px;color:var(--fg3);font-variant-numeric:tabular-nums;flex-shrink:0}
+
+/* Bottom Mini Player */
+.mini-player{
+  flex-shrink:0;background:linear-gradient(180deg,var(--surface2),var(--surface));
+  border-top:1px solid rgba(233,69,96,.2);
+  padding:12px 16px;padding-bottom:max(12px,env(safe-area-inset-bottom));
+}
+.progress-section{margin-bottom:10px}
+.progress-bar{
+  height:6px;background:rgba(255,255,255,.1);border-radius:3px;
+  cursor:pointer;position:relative;overflow:hidden;
+}
+.progress-fill{
+  height:100%;background:linear-gradient(90deg,var(--accent),var(--purple));
+  width:0%;transition:width .15s;border-radius:3px;
+}
+.time-row{
+  display:flex;justify-content:space-between;
+  font-size:11px;color:var(--fg2);margin-top:6px;
+  font-variant-numeric:tabular-nums;
+}
+.player-info{
+  display:flex;align-items:center;gap:12px;margin-bottom:10px;
+}
+.player-thumb{
+  width:44px;height:44px;border-radius:8px;flex-shrink:0;
+  background:linear-gradient(135deg,#e94560,#a855f7);
+  display:flex;align-items:center;justify-content:center;
+}
+.player-thumb svg{width:22px;height:22px;fill:#fff}
+.player-text{flex:1;min-width:0}
+.player-title{
+  font-size:13px;font-weight:600;color:var(--fg);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.player-sub{font-size:11px;color:var(--fg2);margin-top:1px}
+.player-controls{display:flex;align-items:center;justify-content:center;gap:20px}
+.ctrl-btn{
+  width:44px;height:44px;border-radius:50%;border:none;
+  background:rgba(255,255,255,.08);color:var(--fg);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .15s;
+}
+.ctrl-btn:active{transform:scale(.9);background:rgba(233,69,96,.3)}
+.ctrl-btn svg{width:20px;height:20px;fill:currentColor}
+.ctrl-btn.play{
+  width:56px;height:56px;
+  background:linear-gradient(135deg,var(--accent),var(--purple));
+  color:#fff;
+}
+.ctrl-btn.play svg{width:24px;height:24px}
+.ctrl-btn.shuffle.active,.ctrl-btn.repeat.active{color:var(--accent);background:rgba(233,69,96,.15)}
+
+/* Empty state */
+.empty{
+  text-align:center;padding:60px 20px;color:var(--fg3);
+}
+.empty svg{width:48px;height:48px;margin-bottom:12px;opacity:.3}
+.empty p{font-size:14px}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:120px;left:50%;transform:translateX(-50%);
+  background:rgba(0,0,0,.85);color:#fff;padding:10px 16px;
+  border-radius:8px;font-size:13px;z-index:1000;
+  opacity:0;pointer-events:none;transition:opacity .2s;
+}
+.toast.show{opacity:1}
+
+/* Modal for Privacy Policy */
+.modal{
+  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;z-index:999;
+}
+.modal.show{display:flex;animation:fadeIn .2s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-content{
+  background:var(--surface);border-radius:14px;
+  max-width:500px;width:100%;max-height:80vh;overflow-y:auto;
+  padding:24px;border:1px solid rgba(255,255,255,.1);
+}
+.modal-content h2{color:var(--accent);margin-bottom:12px;font-size:18px}
+.modal-content p{color:var(--fg2);font-size:13px;line-height:1.7;margin-bottom:10px}
+.modal-close{
+  display:block;margin:20px auto 0;padding:10px 24px;
+  background:var(--accent);color:#fff;border:none;border-radius:8px;
+  font-size:14px;font-weight:600;cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- Top Bar with 3 icons -->
+<div class="topbar">
+  <div class="topbar-icons">
+    <div class="icon-btn whatsapp" onclick="shareWhatsApp()" title="Share via WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.149-.197.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.074-.149-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </div>
+  <div class="topbar-title" id="appTitle">__APP_NAME__</div>
+  <div class="topbar-icons">
+    <div class="icon-btn rate" onclick="rateApp()" title="Rate App">
+      <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <div class="icon-btn privacy" onclick="openPrivacy()" title="Privacy Policy">
+      <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- Track List -->
+<div class="list-container">
+  <div class="list-header">All Tracks (__COUNT__)</div>
+  <div id="trackList"></div>
+  <div class="empty" id="emptyState" style="display:none">
+    <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    <p>No tracks available</p>
+  </div>
+</div>
+
+<!-- Bottom Mini Player -->
+<div class="mini-player" id="miniPlayer" style="display:none">
+  <div class="player-info">
+    <div class="player-thumb">
+      <svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+    </div>
+    <div class="player-text">
+      <div class="player-title" id="nowTitle">—</div>
+      <div class="player-sub" id="nowSub">—</div>
+    </div>
+  </div>
+  <div class="progress-section">
+    <div class="progress-bar" id="progressBar" onclick="seekTo(event)">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="time-row">
+      <span id="currentTime">0:00</span>
+      <span id="totalTime">0:00</span>
+    </div>
+  </div>
+  <div class="player-controls">
+    <button class="ctrl-btn shuffle" id="shuffleBtn" onclick="toggleShuffle()" title="Shuffle">
+      <svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
+    </button>
+    <button class="ctrl-btn" onclick="prevTrack()" title="Previous">
+      <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+    </button>
+    <button class="ctrl-btn play" id="playBtn" onclick="togglePlay()" title="Play/Pause">
+      <svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <button class="ctrl-btn" onclick="nextTrack()" title="Next">
+      <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+    </button>
+    <button class="ctrl-btn repeat" id="repeatBtn" onclick="toggleRepeat()" title="Repeat">
+      <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- Hidden audio element -->
+<audio id="audioPlayer" preload="metadata"></audio>
+
+<!-- Privacy Policy Modal -->
+<div class="modal" id="privacyModal">
+  <div class="modal-content">
+    <h2>Privacy Policy</h2>
+    <p><strong>__APP_NAME__</strong> respects your privacy.</p>
+    <p>This app stores media files locally on your device for offline playback. No personal data is collected or transmitted.</p>
+    <p><strong>Data stored locally:</strong></p>
+    <p>• Media files (audio/video/images) bundled with this app<br>
+       • Playback preferences (shuffle, repeat)<br>
+       • Last played position</p>
+    <p><strong>Permissions used:</strong></p>
+    <p>• <strong>Storage</strong> — to read bundled media files<br>
+       • <strong>Internet</strong> — for the WhatsApp share and Rate App features only</p>
+    <p><strong>Contact:</strong> If you have questions about this policy, contact the app developer.</p>
+    <p style="font-size:11px;color:var(--fg3);margin-top:16px">Last updated: __GENERATED_DATE__</p>
+    <button class="modal-close" onclick="closePrivacy()">Close</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// Media data injected by the backend at build time
+const MEDIA_BUNDLE = __MEDIA_BUNDLE__;
+const APP_NAME = "__APP_NAME__";
+const GENERATED_DATE = "__GENERATED_DATE__";
+const PRIVACY_URL = "__PRIVACY_URL__";
+const RATE_URL = "__RATE_URL__";
+const WHATSAPP_NUMBER = "__WHATSAPP_NUMBER__";
+
+let tracks = MEDIA_BUNDLE.files || [];
+let currentIndex = -1;
+let isPlaying = false;
+let isShuffle = false;
+let isRepeat = false;
+let shuffleOrder = [];
+
+const audio = document.getElementById('audioPlayer');
+const trackList = document.getElementById('trackList');
+const emptyState = document.getElementById('emptyState');
+const miniPlayer = document.getElementById('miniPlayer');
+const playIcon = document.getElementById('playIcon');
+const progressBar = document.getElementById('progressBar');
+const progressFill = document.getElementById('progressFill');
+const currentTimeEl = document.getElementById('currentTime');
+const totalTimeEl = document.getElementById('totalTime');
+const nowTitle = document.getElementById('nowTitle');
+const nowSub = document.getElementById('nowSub');
+
+function fmtTime(s) {
+  if (!s || isNaN(s)) return "0:00";
+  const m = Math.floor(s / 60);
+  const sec = Math.floor(s % 60);
+  return m + ":" + (sec < 10 ? "0" : "") + sec;
+}
+
+function renderTracks() {
+  document.querySelector('.list-header').textContent = 'All Tracks (' + tracks.length + ')';
+  if (tracks.length === 0) {
+    emptyState.style.display = 'block';
+    return;
+  }
+  emptyState.style.display = 'none';
+  trackList.innerHTML = tracks.map((t, i) => {
+    const num = i === currentIndex ? '♪' : (i + 1);
+    const cls = i === currentIndex ? 'track-item playing' : 'track-item';
+    return '<div class="' + cls + '" onclick="playTrack(' + i + ')">' +
+      '<div class="track-number">' + num + '</div>' +
+      '<div class="track-info">' +
+        '<div class="track-title">' + escapeHtml(t.title) + '</div>' +
+        '<div class="track-meta">' + (t.artist || 'Unknown artist') + '</div>' +
+      '</div>' +
+      '<div class="track-duration">' + fmtTime(t.duration) + '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function escapeHtml(s) {
+  return (s || "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+}
+
+function playTrack(i) {
+  if (i < 0 || i >= tracks.length) return;
+  currentIndex = i;
+  const t = tracks[i];
+  audio.src = t.url;
+  audio.play().then(() => {
+    isPlaying = true;
+    updatePlayIcon();
+  }).catch(err => {
+    showToast('Cannot play: ' + err.message);
+  });
+  nowTitle.textContent = t.title;
+  nowSub.textContent = (t.artist || 'Unknown') + ' · ' + fmtTime(t.duration);
+  miniPlayer.style.display = 'block';
+  renderTracks();
+}
+
+function togglePlay() {
+  if (currentIndex === -1) {
+    if (tracks.length > 0) playTrack(0);
+    return;
+  }
+  if (isPlaying) {
+    audio.pause();
+    isPlaying = false;
+  } else {
+    audio.play();
+    isPlaying = true;
+  }
+  updatePlayIcon();
+}
+
+function updatePlayIcon() {
+  if (isPlaying) {
+    playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+  } else {
+    playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+  }
+}
+
+function prevTrack() {
+  if (currentIndex <= 0) {
+    if (tracks.length > 0) playTrack(tracks.length - 1);
+  } else {
+    playTrack(currentIndex - 1);
+  }
+}
+
+function nextTrack() {
+  if (isShuffle && shuffleOrder.length > 0) {
+    const idx = shuffleOrder.indexOf(currentIndex);
+    const nextIdx = (idx + 1) % shuffleOrder.length;
+    playTrack(shuffleOrder[nextIdx]);
+  } else {
+    if (currentIndex >= tracks.length - 1) {
+      if (isRepeat) playTrack(0);
+    } else {
+      playTrack(currentIndex + 1);
+    }
+  }
+}
+
+function toggleShuffle() {
+  isShuffle = !isShuffle;
+  document.getElementById('shuffleBtn').classList.toggle('active', isShuffle);
+  if (isShuffle) {
+    shuffleOrder = tracks.map((_, i) => i).sort(() => Math.random() - 0.5);
+    showToast('Shuffle on');
+  } else {
+    shuffleOrder = [];
+    showToast('Shuffle off');
+  }
+}
+
+function toggleRepeat() {
+  isRepeat = !isRepeat;
+  document.getElementById('repeatBtn').classList.toggle('active', isRepeat);
+  showToast(isRepeat ? 'Repeat on' : 'Repeat off');
+}
+
+function seekTo(e) {
+  if (!audio.duration) return;
+  const rect = progressBar.getBoundingClientRect();
+  const pct = (e.clientX - rect.left) / rect.width;
+  audio.currentTime = audio.duration * pct;
+}
+
+audio.addEventListener('timeupdate', () => {
+  if (audio.duration) {
+    const pct = (audio.currentTime / audio.duration) * 100;
+    progressFill.style.width = pct + '%';
+    currentTimeEl.textContent = fmtTime(audio.currentTime);
+  }
+});
+
+audio.addEventListener('loadedmetadata', () => {
+  totalTimeEl.textContent = fmtTime(audio.duration);
+  if (currentIndex >= 0) {
+    tracks[currentIndex].duration = audio.duration;
+    renderTracks();
+  }
+});
+
+audio.addEventListener('ended', () => {
+  if (isRepeat) {
+    audio.currentTime = 0;
+    audio.play();
+  } else {
+    nextTrack();
+  }
+});
+
+function shareWhatsApp() {
+  const text = encodeURIComponent('Check out ' + APP_NAME + ' — great music app!');
+  const url = WHATSAPP_NUMBER
+    ? 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text
+    : 'https://wa.me/?text=' + text;
+  window.open(url, '_blank');
+}
+
+function rateApp() {
+  if (RATE_URL && RATE_URL !== '__RATE_URL__') {
+    window.open(RATE_URL, '_blank');
+  } else {
+    showToast('Rating coming soon!');
+  }
+}
+
+function openPrivacy() {
+  if (PRIVACY_URL && PRIVACY_URL !== '__PRIVACY_URL__') {
+    window.open(PRIVACY_URL, '_blank');
+  } else {
+    document.getElementById('privacyModal').classList.add('show');
+  }
+}
+
+function closePrivacy() {
+  document.getElementById('privacyModal').classList.remove('show');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+document.getElementById('appTitle').textContent = APP_NAME;
+
+// Preload track URLs (media files are bundled in assets/)
+tracks.forEach(t => {
+  if (!t.url && t.path) {
+    t.url = 'file:///android_asset/webapp/media/' + t.path;
+  }
+});
+
+renderTracks();
+
+// Auto-play first track if exists
+if (tracks.length > 0) {
+  // Don't auto-play — wait for user tap (mobile-friendly)
+}
+
+console.log(APP_NAME + ' loaded — ' + tracks.length + ' tracks');
+</script>
+</body>
+</html>
