@@ -558,3 +558,199 @@ def payload_info():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", cfg.port))
     app.run(host="0.0.0.0", port=port, debug=(cfg.node_env != "production"))
+
+
+
+# --------------------------------------------------------------------------- #
+# HTML to APK — Media App Builder
+# --------------------------------------------------------------------------- #
+@app.route("/api/build-media-apk", methods=["POST"])
+def build_media_apk():
+    """Build a media app APK from a JSON bundle of base64-encoded files."""
+    import traceback
+    try:
+        bundle_file = request.files.get("bundle_file")
+        if not bundle_file:
+            return jsonify({"success": False, "error": "bundle_file required"}), 400
+
+        app_name = (request.form.get("app_name") or "").strip() or "Media App"
+        media_type = (request.form.get("media_type") or "music").strip().lower()
+        if media_type not in ("music", "video", "photo"):
+            return jsonify({"success": False, "error": "media_type must be music, video, or photo"}), 400
+        package_name = request.form.get("package_name") or None
+        version_name = request.form.get("version_name") or "1.0.0"
+        privacy_url = request.form.get("privacy_url") or ""
+        rate_url = request.form.get("rate_url") or ""
+        whatsapp_number = request.form.get("whatsapp_number") or ""
+
+        try:
+            bundle_data = json.loads(bundle_file.read().decode("utf-8"))
+        except Exception as e:
+            return jsonify({"success": False, "error": f"Invalid bundle JSON: {e}"}), 400
+
+        files_list = bundle_data.get("files", [])
+        if not files_list:
+            return jsonify({"success": False, "error": "bundle contains no files"}), 400
+
+        import re
+        safe_app_name = re.sub(r"[^A-Za-z0-9 _-]", "", app_name)[:30] or "MediaApp"
+        if not package_name:
+            slug = re.sub(r"[^a-z0-9]", "", safe_app_name.lower()) or "mediaapp"
+            package_name = f"com.htmltoapk.media.{slug}"
+
+        template_name = {"music": "music_player.html", "video": "video_player.html", "photo": "photo_gallery.html"}[media_type]
+        template_path = Path(__file__).parent / "templates" / template_name
+        if not template_path.exists():
+            return jsonify({"success": False, "error": f"Template not found: {template_name}"}), 500
+        template_html = template_path.read_text(encoding="utf-8")
+
+        functions_dir = PROJECT_ROOT / "functions"
+        functions_dir.mkdir(parents=True, exist_ok=True)
+        temp_fn_name = "media_" + hashlib.md5((safe_app_name + str(time.time())).encode()).hexdigest()[:8]
+        temp_fn_dir = functions_dir / temp_fn_name
+        temp_fn_dir.mkdir(parents=True, exist_ok=True)
+
+        # Render template with placeholders
+        media_bundle = json.dumps({"files": [
+            {
+                "path": f.get("path", f.get("original_name", f"file_{i}")),
+                "title": f.get("title") or Path(f.get("original_name", f"file_{i}")).stem,
+                "originalName": f.get("original_name", f"file_{i}"),
+                "mime": f.get("mime", "application/octet-stream"),
+                "size": f.get("size", 0),
+                "duration": f.get("duration", 0),
+                "artist": f.get("artist", ""),
+            }
+            for i, f in enumerate(files_list)
+        ]})
+        rendered = (template_html
+            .replace("__APP_NAME__", safe_app_name)
+            .replace("__GENERATED_DATE__", time.strftime("%Y-%m-%d"))
+            .replace("__PRIVACY_URL__", privacy_url)
+            .replace("__RATE_URL__", rate_url)
+            .replace("__WHATSAPP_NUMBER__", whatsapp_number)
+            .replace("__MEDIA_BUNDLE__", media_bundle)
+        )
+        (temp_fn_dir / "template.html").write_text(rendered, encoding="utf-8")
+
+        (temp_fn_dir / "function.json").write_text(json.dumps({
+            "name": safe_app_name,
+            "version": version_name,
+            "package": package_name,
+            "entry": "template.html",
+            "min_sdk": 24,
+            "target_sdk": 34,
+            "permissions": ["INTERNET", "READ_EXTERNAL_STORAGE"],
+            "description": f"Media app: {media_type} ({len(files_list)} files)",
+        }, indent=2), encoding="utf-8")
+
+        # Write media files to a 'media' subfolder — the v3 builder will pick it up
+        # via the assets_dir copy in _prepare_project (it copies css/, js/, images/, data/)
+        # We patch the v3 builder to also copy 'media/' if present.
+        media_dir = temp_fn_dir / "media"
+        media_dir.mkdir(parents=True, exist_ok=True)
+        for i, f in enumerate(files_list):
+            try:
+                file_data_b64 = f.get("data", "")
+                if not file_data_b64:
+                    continue
+                if file_data_b64.startswith("data:"):
+                    file_data_b64 = file_data_b64.split(",", 1)[-1]
+                file_bytes = base64.b64decode(file_data_b64)
+                file_path = media_dir / f.get("path", f.get("original_name", f"file_{i}"))
+                file_path.parent.mkdir(parents=True, exist_ok=True)
+                file_path.write_bytes(file_bytes)
+            except Exception as e:
+                print(f"[media] Failed to write file {i}: {e}", flush=True)
+
+        reload_registry()
+
+        try:
+            from engine.apk_builder_v3 import build_apk as _v3_build_apk
+            res = _v3_build_apk(
+                temp_fn_name,
+                app_name=safe_app_name,
+                package_name=package_name,
+                version_code=1,
+                version_name=version_name,
+            )
+            result = res.to_dict() if hasattr(res, "to_dict") else res
+        except Exception as e:
+            tb = traceback.format_exc()
+            return jsonify({
+                "success": False,
+                "error": f"v3 build failed: {e}",
+                "traceback": tb,
+                "function": temp_fn_name,
+            }), 500
+
+        if result.get("success") and result.get("apk_path"):
+            from pathlib import Path as _P
+            apk_filename = _P(result["apk_path"]).name
+            result["apk_url"] = f"/download/{temp_fn_name}/{apk_filename}"
+            result["apk_name"] = apk_filename
+            result["function"] = temp_fn_name
+
+        # Record build stats to Firebase (counts/types only — no media files)
+        try:
+            _record_build_stats({
+                "app_name": safe_app_name,
+                "package_name": package_name,
+                "media_type": media_type,
+                "file_count": len(files_list),
+                "total_size_bytes": sum(f.get("size", 0) for f in files_list),
+                "version_name": version_name,
+                "build_mode": result.get("build_mode", ""),
+                "success": result.get("success", False),
+                "timestamp": time.time(),
+            })
+        except Exception as e:
+            print(f"[firebase] stats record failed: {e}", flush=True)
+
+        return jsonify(result), (200 if result.get("success") else 500)
+
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e),
+            "traceback": traceback.format_exc(),
+        }), 500
+
+
+def _record_build_stats(stats: dict):
+    """Record build stats to Firebase RTDB (counts/types only — no media files)."""
+    import urllib.request as _ur
+    db_url = os.environ.get("FIREBASE_DATABASE_URL")
+    if not db_url:
+        return
+    url = db_url.rstrip("/") + "/builds.json"
+    body = json.dumps(stats).encode("utf-8")
+    req = _ur.Request(url, data=body, method="POST", headers={"Content-Type": "application/json"})
+    _ur.urlopen(req, timeout=10)
+
+
+@app.route("/api/admin/build-stats")
+def admin_build_stats():
+    """Return aggregate build statistics from Firebase."""
+    import urllib.request as _ur
+    db_url = os.environ.get("FIREBASE_DATABASE_URL")
+    if not db_url:
+        return jsonify({"error": "FIREBASE_DATABASE_URL not configured"}), 500
+    try:
+        url = db_url.rstrip("/") + "/builds.json?orderBy="timestamp"&limitToLast=50"
+        req = _ur.Request(url, headers={"Accept": "application/json"})
+        with _ur.urlopen(req, timeout=10) as resp:
+            data = json.loads(resp.read())
+        if not data:
+            return jsonify({"total_builds": 0, "by_type": {}, "recent": []})
+        builds = list(data.values()) if isinstance(data, dict) else data
+        by_type = {}
+        for b in builds:
+            t = b.get("media_type", "unknown")
+            by_type[t] = by_type.get(t, 0) + 1
+        recent = sorted(builds, key=lambda x: x.get("timestamp", 0), reverse=True)[:10]
+        return jsonify({"total_builds": len(builds), "by_type": by_type, "recent": recent})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
