@@ -458,7 +458,7 @@ def _prepare_project(function_name: str, app_name: str, package: str,
         src = function_dir / fname
         if src.exists():
             shutil.copy2(src, assets_dir / fname)
-    for sub in ("css", "js", "images", "data"):
+    for sub in ("css", "js", "images", "data", "media"):
         src_dir = function_dir / sub
         if src_dir.is_dir():
             shutil.copytree(src_dir, assets_dir / sub, dirs_exist_ok=True)
