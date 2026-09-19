@@ -169,7 +169,7 @@ def build_apk_from_html():
         # Create a temp function folder
         functions_dir = PROJECT_ROOT / "functions"
         functions_dir.mkdir(parents=True, exist_ok=True)
-        temp_fn_name = "_custom_" + _hashlib.md5(
+        temp_fn_name = "custom_" + _hashlib.md5(
             (app_name + str(_time.time())).encode()).hexdigest()[:8]
         temp_fn_dir = functions_dir / temp_fn_name
         temp_fn_dir.mkdir(parents=True, exist_ok=True)
