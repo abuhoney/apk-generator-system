@@ -119,66 +119,63 @@ def build_apk_from_html():
 
     Accepts JSON: {html, app_name, package_name?, version_name?}
     OR multipart: html_file (file), app_name, package_name?, version_name?
-
-    This endpoint creates a temporary function folder on disk, drops the
-    HTML in as `template.html`, then calls the regular APK build pipeline.
     """
-    import tempfile, shutil
-    from pathlib import Path as P
-
-    html_content = None
-    app_name = None
-    package_name = None
-    version_name = "1.0.0"
-    version_code = 1
-
-    if request.files:
-        f = request.files.get("html_file") or request.files.get("file")
-        if not f:
-            return jsonify({"success": False, "error": "html_file required"}), 400
-        html_content = f.read().decode("utf-8", errors="replace")
-        app_name = request.form.get("app_name", "").strip()
-        package_name = request.form.get("package_name") or None
-        version_name = request.form.get("version_name", "1.0.0") or "1.0.0"
-        try:
-            version_code = int(request.form.get("version_code", 1) or 1)
-        except Exception:
-            version_code = 1
-    else:
-        data = request.get_json(force=True, silent=True) or {}
-        html_content = data.get("html", "")
-        if not html_content:
-            return jsonify({"success": False, "error": "html required"}), 400
-        app_name = (data.get("app_name") or "").strip()
-        package_name = data.get("package_name")
-        version_name = data.get("version_name", "1.0.0") or "1.0.0"
-        try:
-            version_code = int(data.get("version_code", 1) or 1)
-        except Exception:
-            version_code = 1
-
-    if not app_name:
-        # Try to extract <title> from the HTML
-        import re
-        m = re.search(r"<title[^>]*>([^<]+)</title>", html_content, re.I)
-        app_name = (m.group(1).strip() if m else "My App")
-    # Sanitize
-    app_name = re.sub(r"[^A-Za-z0-9 _-]", "", app_name)[:30] or "MyApp"
-    if not package_name:
-        slug = re.sub(r"[^a-z0-9]", "", app_name.lower()) or "myapp"
-        package_name = f"com.htmltoapk.{slug}"
-
-    # Create a temp function folder
-    functions_dir = PROJECT_ROOT / "functions"
-    functions_dir.mkdir(parents=True, exist_ok=True)
-    temp_fn_name = "_custom_" + hashlib.md5((app_name + str(time.time())).encode()).hexdigest()[:8]
-    temp_fn_dir = functions_dir / temp_fn_name
-    temp_fn_dir.mkdir(parents=True, exist_ok=True)
-
+    import traceback
     try:
+        import re as _re
+        import hashlib as _hashlib
+        import time as _time
+
+        html_content = None
+        app_name = None
+        package_name = None
+        version_name = "1.0.0"
+        version_code = 1
+
+        if request.files:
+            f = request.files.get("html_file") or request.files.get("file")
+            if not f:
+                return jsonify({"success": False, "error": "html_file required"}), 400
+            html_content = f.read().decode("utf-8", errors="replace")
+            app_name = request.form.get("app_name", "").strip()
+            package_name = request.form.get("package_name") or None
+            version_name = request.form.get("version_name", "1.0.0") or "1.0.0"
+            try:
+                version_code = int(request.form.get("version_code", 1) or 1)
+            except Exception:
+                version_code = 1
+        else:
+            data = request.get_json(force=True, silent=True) or {}
+            html_content = data.get("html", "")
+            if not html_content:
+                return jsonify({"success": False, "error": "html required"}), 400
+            app_name = (data.get("app_name") or "").strip()
+            package_name = data.get("package_name")
+            version_name = data.get("version_name", "1.0.0") or "1.0.0"
+            try:
+                version_code = int(data.get("version_code", 1) or 1)
+            except Exception:
+                version_code = 1
+
+        if not app_name:
+            m = _re.search(r"<title[^>]*>([^<]+)</title>", html_content, _re.I)
+            app_name = (m.group(1).strip() if m else "My App")
+        # Sanitize
+        app_name = _re.sub(r"[^A-Za-z0-9 _-]", "", app_name)[:30] or "MyApp"
+        if not package_name:
+            slug = _re.sub(r"[^a-z0-9]", "", app_name.lower()) or "myapp"
+            package_name = f"com.htmltoapk.{slug}"
+
+        # Create a temp function folder
+        functions_dir = PROJECT_ROOT / "functions"
+        functions_dir.mkdir(parents=True, exist_ok=True)
+        temp_fn_name = "_custom_" + _hashlib.md5(
+            (app_name + str(_time.time())).encode()).hexdigest()[:8]
+        temp_fn_dir = functions_dir / temp_fn_name
+        temp_fn_dir.mkdir(parents=True, exist_ok=True)
+
         # Write the HTML as template.html
         (temp_fn_dir / "template.html").write_text(html_content, encoding="utf-8")
-        # Write a function.json manifest so the registry picks it up
         (temp_fn_dir / "function.json").write_text(json.dumps({
             "name": app_name,
             "version": version_name,
@@ -187,7 +184,7 @@ def build_apk_from_html():
             "min_sdk": 24,
             "target_sdk": 34,
             "permissions": ["INTERNET"],
-            "description": f"Custom APK built from HTML",
+            "description": "Custom APK built from HTML",
         }, indent=2), encoding="utf-8")
 
         # Force the registry to rescan
@@ -203,205 +200,49 @@ def build_apk_from_html():
                 version_code=version_code,
                 version_name=version_name,
             )
+            result = res.to_dict() if hasattr(res, "to_dict") else res
         except Exception as e:
+            tb = traceback.format_exc()
             # Fall back to v1 webapk mode
-            res = _v1_build_apk(
-                temp_fn_name,
-                app_name=app_name,
-                package_name=package_name,
-                version_code=version_code,
-                version_name=version_name,
-            )
+            try:
+                res = _v1_build_apk(
+                    temp_fn_name,
+                    app_name=app_name,
+                    package_name=package_name,
+                    version_code=version_code,
+                    version_name=version_name,
+                )
+                result = res.to_dict() if hasattr(res, "to_dict") else res
+            except Exception as e2:
+                return jsonify({
+                    "success": False,
+                    "error": f"v3 build failed: {e}; v1 fallback also failed: {e2}",
+                    "traceback": tb,
+                    "function": temp_fn_name,
+                }), 500
 
-        result = res.to_dict() if hasattr(res, "to_dict") else res
         # Inject download URL
         if result.get("success") and result.get("apk_path"):
-            apk_filename = P(result["apk_path"]).name
+            from pathlib import Path as _P
+            apk_filename = _P(result["apk_path"]).name
             result["apk_url"] = f"/download/{temp_fn_name}/{apk_filename}"
             result["apk_name"] = apk_filename
             result["function"] = temp_fn_name
+
+        # NOTE: we do NOT delete temp_fn_dir because the APK is written to
+        # _output/<function>/ but Render persists only files in the repo's
+        # directory. Keeping the function folder also lets the registry
+        # list it for download again later.
         return jsonify(result), (200 if result.get("success") else 500)
 
-    finally:
-        # Best-effort cleanup of the temp function folder
-        try:
-            shutil.rmtree(temp_fn_dir)
-            reload_registry()
-        except Exception:
-            pass
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e),
+            "traceback": traceback.format_exc(),
+        }), 500
 
 
-
-# --------------------------------------------------------------------------- #
-# Dashboard HTML (served inline — full dashboard in dashboard/index.html)
-# --------------------------------------------------------------------------- #
-DASHBOARD_HTML = """<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BardomPro APK Generator</title>
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-     background:#0d1117;color:#c9d1d9;padding:20px;line-height:1.5}
-.container{max-width:1200px;margin:0 auto}
-h1{color:#58a6ff;font-size:22px;margin-bottom:4px}
-.sub{color:#8b949e;font-size:13px;margin-bottom:20px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:800px){.grid{grid-template-columns:1fr}}
-.card{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:16px;margin-bottom:16px}
-.card h3{color:#58a6ff;font-size:14px;margin-bottom:12px}
-.btn{background:#238636;color:#fff;border:none;padding:8px 16px;border-radius:6px;
-     cursor:pointer;font-size:13px;margin:4px 0}
-.btn:hover{background:#2ea043}
-.btn.alt{background:#21262d;color:#c9d1d9;border:1px solid #30363d}
-.btn.alt:hover{background:#30363d}
-pre{background:#0d1117;padding:10px;border-radius:6px;overflow:auto;
-    color:#8b949e;font-size:12px;max-height:240px}
-input,select,textarea{width:100%;background:#0d1117;color:#c9d1d9;
-     border:1px solid #30363d;border-radius:6px;padding:8px;font-size:13px;
-     font-family:inherit;margin-bottom:8px}
-label{display:block;margin:8px 0 4px;font-size:12px;color:#8b949e}
-.stat{display:inline-block;background:#21262d;padding:4px 12px;border-radius:12px;
-      font-size:11px;color:#8b949e;margin-right:8px}
-.stat b{color:#58a6ff}
-</style>
-</head>
-<body>
-<div class="container">
-<h1>BardomPro APK Generator</h1>
-<div class="sub">Universal function-based APK generation system · v5.0.0</div>
-
-<div class="card">
-  <h3>System Status</h3>
-  <div>
-    <span class="stat">Functions: <b id="fnCount">—</b></span>
-    <span class="stat">Built APKs: <b id="apkCount">—</b></span>
-    <span class="stat">Backend: <b id="backend">{{backend}}</b></span>
-    <span class="stat">Render: <b id="renderStatus">checking…</b></span>
-  </div>
-</div>
-
-<div class="card">
-  <h3>Available Functions</h3>
-  <div id="functions">Loading…</div>
-</div>
-
-<div class="card">
-  <h3>Build Pipeline</h3>
-  <label>Function name</label>
-  <input id="fnName" placeholder="calculator">
-  <label>App name (optional)</label>
-  <input id="appName" placeholder="Calculator">
-  <label>Package name (optional)</label>
-  <input id="pkgName" placeholder="com.bardom.app.calculator">
-  <label>Version</label>
-  <input id="version" value="1.0.0">
-  <div style="margin-top:8px">
-    <button class="btn" onclick="buildApk()">Build APK</button>
-    <button class="btn alt" onclick="buildMetadata()">Build config+strings+template</button>
-    <button class="btn alt" onclick="buildAllMetadata()">Build ALL metadata</button>
-  </div>
-  <pre id="buildResult">Click a button to start.</pre>
-</div>
-
-<div class="card">
-  <h3>Built APKs</h3>
-  <div id="apks">Loading…</div>
-</div>
-
-<div class="card">
-  <h3>Deploy</h3>
-  <button class="btn" onclick="githubPush()">Push to GitHub (new repo)</button>
-  <button class="btn alt" onclick="renderDeploy()">Deploy to Render</button>
-  <button class="btn alt" onclick="packageZip()">Package as ZIP</button>
-  <button class="btn alt" onclick="telegramNotify()">Send Telegram message</button>
-  <pre id="deployResult"></pre>
-</div>
-
-</div>
-<script>
-async function api(path, opts={}) {
-  const r = await fetch(path, {headers:{'Content-Type':'application/json'}, ...opts});
-  return r.json();
-}
-async function refresh() {
-  const fns = await api('/api/functions');
-  document.getElementById('fnCount').textContent = fns.functions.length;
-  document.getElementById('functions').innerHTML = fns.functions.map(f =>
-    `<div style="padding:6px 0;border-bottom:1px solid #30363d">
-       <b style="color:#58a6ff">${f.name}</b>
-       <span style="color:#8b949e;font-size:11px;margin-left:8px">${f.languages.join(', ')}</span>
-       <span style="color:#8b949e;font-size:11px;margin-left:8px">${f.has_template?'HTML':''} ${f.has_handler?'PY':''} ${f.has_config_json?'CFG':''} ${f.has_strings_json?'STR':''}</span>
-     </div>`).join('');
-  const apks = await api('/api/apks');
-  document.getElementById('apkCount').textContent = apks.apks.length;
-  document.getElementById('apks').innerHTML = apks.apks.length ?
-    apks.apks.map(a => `<div style="padding:6px 0;border-bottom:1px solid #30363d">
-       <a href="/download/${a.function}/${a.name}" style="color:#58a6ff">${a.name}</a>
-       <span style="color:#8b949e;font-size:11px;margin-left:8px">${(a.size/1024).toFixed(1)} KB</span>
-     </div>`).join('') : '<i style="color:#8b949e">No APKs yet</i>';
-}
-async function buildApk() {
-  const body = JSON.stringify({
-    function: document.getElementById('fnName').value,
-    app_name: document.getElementById('appName').value || undefined,
-    package_name: document.getElementById('pkgName').value || undefined,
-    version_name: document.getElementById('version').value,
-  });
-  document.getElementById('buildResult').textContent = 'Building…';
-  const r = await api('/api/build-apk', {method:'POST', body});
-  document.getElementById('buildResult').textContent = JSON.stringify(r, null, 2);
-  refresh();
-}
-async function buildMetadata() {
-  const body = JSON.stringify({function: document.getElementById('fnName').value});
-  document.getElementById('buildResult').textContent = 'Building metadata…';
-  const r = await api('/api/build-all-metadata', {method:'POST', body});
-  document.getElementById('buildResult').textContent = JSON.stringify(r, null, 2);
-  refresh();
-}
-async function buildAllMetadata() {
-  document.getElementById('buildResult').textContent = 'Building ALL metadata…';
-  const r = await api('/api/build-all-metadata', {method:'POST', body:'{}'});
-  document.getElementById('buildResult').textContent = JSON.stringify(r, null, 2);
-  refresh();
-}
-async function githubPush() {
-  document.getElementById('deployResult').textContent = 'Pushing to GitHub…';
-  const r = await api('/api/github/push', {method:'POST', body:'{}'});
-  document.getElementById('deployResult').textContent = JSON.stringify(r, null, 2);
-}
-async function renderDeploy() {
-  document.getElementById('deployResult').textContent = 'Deploying to Render…';
-  const r = await api('/api/render/deploy', {method:'POST', body:'{}'});
-  document.getElementById('deployResult').textContent = JSON.stringify(r, null, 2);
-}
-async function packageZip() {
-  document.getElementById('deployResult').textContent = 'Packaging ZIP…';
-  const r = await api('/api/package-zip', {method:'POST', body:'{}'});
-  document.getElementById('deployResult').textContent = JSON.stringify(r, null, 2);
-}
-async function telegramNotify() {
-  document.getElementById('deployResult').textContent = 'Sending…';
-  const r = await api('/api/telegram/notify', {method:'POST',
-    body: JSON.stringify({message:'Test from BardomPro APK Generator'})});
-  document.getElementById('deployResult').textContent = JSON.stringify(r, null, 2);
-}
-refresh();
-fetch('/api/render/health').then(r=>r.json()).then(d=>{
-  document.getElementById('renderStatus').textContent = d.status || 'unknown';
-}).catch(()=>{document.getElementById('renderStatus').textContent='offline'});
-</script>
-</body>
-</html>
-"""
-
-
-# --------------------------------------------------------------------------- #
-# Routes
-# --------------------------------------------------------------------------- #
 @app.route("/")
 def dashboard():
     return render_template_string(DASHBOARD_HTML, backend=cfg.backend_url or "local")
