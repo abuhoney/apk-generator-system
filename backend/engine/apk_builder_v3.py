@@ -575,20 +575,23 @@ def _inject_dex(apk_path: Path, dex_path: Path) -> None:
 
 
 def _zipalign(apk_path: Path) -> None:
-    """Simple zipalign — align STORED entries to 4-byte boundaries."""
+    """Binary-level zipalign — use our pure-Python implementation.
+
+    Python's zipfile module doesn't expose enough control over local-header
+    offsets to achieve proper 4-byte alignment, so we use the binary-level
+    implementation from ../zipalign.py which walks the ZIP format manually.
+
+    This is MANDATORY before signing — Android 11+ silently rejects
+    unaligned APKs with "App not installed".
+    """
+    import sys as _sys
+    import importlib.util as _ilu
+    _here = Path(__file__).resolve().parent
+    _spec = _ilu.spec_from_file_location("zipalign", _here.parent / "zipalign.py")
+    _mod = _ilu.module_from_spec(_spec)
+    _spec.loader.exec_module(_mod)
     tmp = apk_path.parent / "tmp_aligned.apk"
-    with zipfile.ZipFile(apk_path, "r") as src, \
-         zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as dst:
-        for item in src.infolist():
-            data = src.read(item.filename)
-            zi = zipfile.ZipInfo(filename=item.filename, date_time=item.date_time)
-            # Small files STORED + aligned; large DEFLATE
-            if len(data) < 100 and item.filename.endswith((".arsc",)):
-                zi.compress_type = zipfile.ZIP_STORED
-            else:
-                zi.compress_type = zipfile.ZIP_DEFLATED
-            zi.external_attr = item.external_attr
-            dst.writestr(zi, data)
+    _mod.zipalign(apk_path, tmp, alignment=4)
     tmp.replace(apk_path)
 
 
@@ -759,6 +762,12 @@ def build_apk(function_name: str,
         final_apk = out_dir / f"{app_name}.apk"
         shutil.copy2(linked_apk, final_apk)
         _inject_dex(final_apk, dex_path)
+
+        # 6.5 zipalign — MANDATORY for Android 11+
+        try:
+            _zipalign(final_apk)
+        except Exception as _e:
+            print(f"zipalign warning: {_e}", flush=True)
 
         # 7. Sign
         if not _sign_apk(final_apk):
