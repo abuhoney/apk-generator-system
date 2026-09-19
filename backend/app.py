@@ -24,6 +24,8 @@ Endpoints:
     GET  /api/package-zip          — Package the entire system as a zip
 """
 from __future__ import annotations
+import time
+import hashlib
 
 import io
 import os
@@ -83,6 +85,151 @@ def _do_build_apk(function_name, **kwargs):
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 200 * 1024 * 1024   # 200 MB uploads
 cfg = get_config()
+
+
+# --------------------------------------------------------------------------- #
+# CORS — allow WebView apps (HTML to APK) to call this API cross-origin
+# --------------------------------------------------------------------------- #
+@app.after_request
+def _add_cors_headers(response):
+    origin = request.headers.get("Origin", "*")
+    response.headers["Access-Control-Allow-Origin"] = origin
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, X-Requested-With"
+    response.headers["Access-Control-Max-Age"] = "86400"
+    vary = response.headers.get("Vary", "")
+    if "Origin" not in vary.split(", "):
+        response.headers["Vary"] = (vary + ", Origin") if vary else "Origin"
+    return response
+
+
+@app.before_request
+def _handle_preflight():
+    if request.method == "OPTIONS":
+        return ("", 204)
+
+
+# --------------------------------------------------------------------------- #
+# HTML to APK — custom HTML upload endpoint
+# Accepts raw HTML in JSON or multipart, builds an APK from it on-the-fly.
+# --------------------------------------------------------------------------- #
+@app.route("/api/build-apk-from-html", methods=["POST"])
+def build_apk_from_html():
+    """Build an APK from arbitrary HTML.
+
+    Accepts JSON: {html, app_name, package_name?, version_name?}
+    OR multipart: html_file (file), app_name, package_name?, version_name?
+
+    This endpoint creates a temporary function folder on disk, drops the
+    HTML in as `template.html`, then calls the regular APK build pipeline.
+    """
+    import tempfile, shutil
+    from pathlib import Path as P
+
+    html_content = None
+    app_name = None
+    package_name = None
+    version_name = "1.0.0"
+    version_code = 1
+
+    if request.files:
+        f = request.files.get("html_file") or request.files.get("file")
+        if not f:
+            return jsonify({"success": False, "error": "html_file required"}), 400
+        html_content = f.read().decode("utf-8", errors="replace")
+        app_name = request.form.get("app_name", "").strip()
+        package_name = request.form.get("package_name") or None
+        version_name = request.form.get("version_name", "1.0.0") or "1.0.0"
+        try:
+            version_code = int(request.form.get("version_code", 1) or 1)
+        except Exception:
+            version_code = 1
+    else:
+        data = request.get_json(force=True, silent=True) or {}
+        html_content = data.get("html", "")
+        if not html_content:
+            return jsonify({"success": False, "error": "html required"}), 400
+        app_name = (data.get("app_name") or "").strip()
+        package_name = data.get("package_name")
+        version_name = data.get("version_name", "1.0.0") or "1.0.0"
+        try:
+            version_code = int(data.get("version_code", 1) or 1)
+        except Exception:
+            version_code = 1
+
+    if not app_name:
+        # Try to extract <title> from the HTML
+        import re
+        m = re.search(r"<title[^>]*>([^<]+)</title>", html_content, re.I)
+        app_name = (m.group(1).strip() if m else "My App")
+    # Sanitize
+    app_name = re.sub(r"[^A-Za-z0-9 _-]", "", app_name)[:30] or "MyApp"
+    if not package_name:
+        slug = re.sub(r"[^a-z0-9]", "", app_name.lower()) or "myapp"
+        package_name = f"com.htmltoapk.{slug}"
+
+    # Create a temp function folder
+    functions_dir = PROJECT_ROOT / "functions"
+    functions_dir.mkdir(parents=True, exist_ok=True)
+    temp_fn_name = "_custom_" + hashlib.md5((app_name + str(time.time())).encode()).hexdigest()[:8]
+    temp_fn_dir = functions_dir / temp_fn_name
+    temp_fn_dir.mkdir(parents=True, exist_ok=True)
+
+    try:
+        # Write the HTML as template.html
+        (temp_fn_dir / "template.html").write_text(html_content, encoding="utf-8")
+        # Write a function.json manifest so the registry picks it up
+        (temp_fn_dir / "function.json").write_text(json.dumps({
+            "name": app_name,
+            "version": version_name,
+            "package": package_name,
+            "entry": "template.html",
+            "min_sdk": 24,
+            "target_sdk": 34,
+            "permissions": ["INTERNET"],
+            "description": f"Custom APK built from HTML",
+        }, indent=2), encoding="utf-8")
+
+        # Force the registry to rescan
+        reload_registry()
+
+        # Build the APK
+        try:
+            from engine.apk_builder_v3 import build_apk as _v3_build_apk
+            res = _v3_build_apk(
+                temp_fn_name,
+                app_name=app_name,
+                package_name=package_name,
+                version_code=version_code,
+                version_name=version_name,
+            )
+        except Exception as e:
+            # Fall back to v1 webapk mode
+            res = _v1_build_apk(
+                temp_fn_name,
+                app_name=app_name,
+                package_name=package_name,
+                version_code=version_code,
+                version_name=version_name,
+            )
+
+        result = res.to_dict() if hasattr(res, "to_dict") else res
+        # Inject download URL
+        if result.get("success") and result.get("apk_path"):
+            apk_filename = P(result["apk_path"]).name
+            result["apk_url"] = f"/download/{temp_fn_name}/{apk_filename}"
+            result["apk_name"] = apk_filename
+            result["function"] = temp_fn_name
+        return jsonify(result), (200 if result.get("success") else 500)
+
+    finally:
+        # Best-effort cleanup of the temp function folder
+        try:
+            shutil.rmtree(temp_fn_dir)
+            reload_registry()
+        except Exception:
+            pass
+
 
 
 # --------------------------------------------------------------------------- #
