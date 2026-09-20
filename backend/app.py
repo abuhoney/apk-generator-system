@@ -712,12 +712,40 @@ def build_media_apk():
                 print(f"[media-check]   {p.relative_to(temp_fn_dir)} ({p.stat().st_size})", flush=True)
 
         # Handle custom icon if provided
+        # Convert to PNG using Pillow (handles JPEG, WebP, BMP, GIF, etc.)
         icon_file = request.files.get("icon_file")
         if icon_file and icon_file.filename:
             try:
                 icon_bytes = icon_file.read()
-                (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
-                print(f"[icon] custom icon saved ({len(icon_bytes)} bytes)", flush=True)
+                # Check if it's already PNG (magic bytes)
+                if icon_bytes[:4] == b'\x89PNG':
+                    (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
+                    print(f"[icon] custom PNG icon saved ({len(icon_bytes)} bytes)", flush=True)
+                else:
+                    # Convert to PNG using Pillow
+                    try:
+                        from PIL import Image
+                        from io import BytesIO
+                        img = Image.open(BytesIO(icon_bytes))
+                        # Convert to RGBA if not already (for transparency support)
+                        if img.mode not in ('RGBA', 'RGB'):
+                            img = img.convert('RGBA')
+                        # Resize to 192x192 if larger (saves space, aapt2 will scale anyway)
+                        if img.width > 192 or img.height > 192:
+                            img = img.resize((192, 192), Image.LANCZOS)
+                        # Save as PNG
+                        png_buf = BytesIO()
+                        img.save(png_buf, format='PNG')
+                        png_bytes = png_buf.getvalue()
+                        (temp_fn_dir / "app_icon.png").write_bytes(png_bytes)
+                        print(f"[icon] converted to PNG ({len(icon_bytes)} -> {len(png_bytes)} bytes)", flush=True)
+                    except ImportError:
+                        # Pillow not installed — save raw bytes and hope for the best
+                        (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
+                        print(f"[icon] Pillow not available, saved raw ({len(icon_bytes)} bytes)", flush=True)
+                    except Exception as conv_err:
+                        print(f"[icon] conversion failed: {conv_err}, saving raw", flush=True)
+                        (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
             except Exception as e:
                 print(f"[icon] failed to save: {e}", flush=True)
 
