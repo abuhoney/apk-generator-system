@@ -652,7 +652,9 @@ def build_media_apk():
         for i, f in enumerate(files_list):
             try:
                 file_data_b64 = f.get("data", "")
+                print(f"[media-write] file {i}: path={f.get('path')} data_len={len(file_data_b64)}", flush=True)
                 if not file_data_b64:
+                    print(f"[media-write]   SKIP: empty data", flush=True)
                     continue
                 if file_data_b64.startswith("data:"):
                     file_data_b64 = file_data_b64.split(",", 1)[-1]
@@ -660,6 +662,7 @@ def build_media_apk():
                 file_path = media_dir / f.get("path", f.get("original_name", f"file_{i}"))
                 file_path.parent.mkdir(parents=True, exist_ok=True)
                 file_path.write_bytes(file_bytes)
+                print(f"[media-write]   WROTE {file_path} ({len(file_bytes)} bytes, exists={file_path.exists()})", flush=True)
                 print(f"[media] wrote {file_path} ({len(file_bytes)} bytes)", flush=True)
             except Exception as e:
                 print(f"[media] Failed to write file {i}: {e}", flush=True)
