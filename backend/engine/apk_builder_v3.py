@@ -460,8 +460,12 @@ def _prepare_project(function_name: str, app_name: str, package: str,
             shutil.copy2(src, assets_dir / fname)
     for sub in ("css", "js", "images", "data", "media"):
         src_dir = function_dir / sub
+        print(f"[v3-debug] checking {src_dir} exists={src_dir.is_dir()}", flush=True)
         if src_dir.is_dir():
+            print(f"[v3-debug] copying {src_dir} -> {assets_dir / sub}", flush=True)
             shutil.copytree(src_dir, assets_dir / sub, dirs_exist_ok=True)
+        else:
+            print(f"[v3-debug] {src_dir} does not exist", flush=True)
 
     return build_dir
 
