@@ -664,6 +664,17 @@ def build_media_apk():
             except Exception as e:
                 print(f"[media] Failed to write file {i}: {e}", flush=True)
 
+        # Verify media files exist
+        media_files_check = list(media_dir.rglob("*")) if media_dir.exists() else []
+        media_files_count = len([p for p in media_files_check if p.is_file()])
+        print(f"[media-check] BEFORE build: media_dir={media_dir} exists={media_dir.exists()} file_count={media_files_count}", flush=True)
+        # List all files in function_dir
+        all_fn_files = list(temp_fn_dir.rglob("*"))
+        print(f"[media-check] function_dir={temp_fn_dir} total_entries={len(all_fn_files)}", flush=True)
+        for p in all_fn_files:
+            if p.is_file():
+                print(f"[media-check]   {p.relative_to(temp_fn_dir)} ({p.stat().st_size})", flush=True)
+
         reload_registry()
 
         try:
