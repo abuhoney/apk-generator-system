@@ -26,6 +26,7 @@ Endpoints:
 from __future__ import annotations
 import time
 import hashlib
+import base64
 
 import io
 import os
