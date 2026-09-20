@@ -660,6 +660,7 @@ def build_media_apk():
                 file_path = media_dir / f.get("path", f.get("original_name", f"file_{i}"))
                 file_path.parent.mkdir(parents=True, exist_ok=True)
                 file_path.write_bytes(file_bytes)
+                print(f"[media] wrote {file_path} ({len(file_bytes)} bytes)", flush=True)
             except Exception as e:
                 print(f"[media] Failed to write file {i}: {e}", flush=True)
 
