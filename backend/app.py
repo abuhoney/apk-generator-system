@@ -678,15 +678,19 @@ def build_media_apk():
         reload_registry()
 
         try:
-            from engine.apk_builder_v3 import build_apk as _v3_build_apk
-            res = _v3_build_apk(
-                temp_fn_name,
-                app_name=safe_app_name,
-                package_name=package_name,
-                version_code=1,
-                version_name=version_name,
-            )
-            result = res.to_dict() if hasattr(res, "to_dict") else res
+            import io as _io, contextlib as _ctx
+            _stdout_capture = _io.StringIO()
+            with _ctx.redirect_stdout(_stdout_capture), _ctx.redirect_stderr(_stdout_capture):
+                from engine.apk_builder_v3 import build_apk as _v3_build_apk
+                res = _v3_build_apk(
+                    temp_fn_name,
+                    app_name=safe_app_name,
+                    package_name=package_name,
+                    version_code=1,
+                    version_name=version_name,
+                )
+                result = res.to_dict() if hasattr(res, "to_dict") else res
+            result["_debug_stdout"] = _stdout_capture.getvalue()
         except Exception as e:
             tb = traceback.format_exc()
             return jsonify({
