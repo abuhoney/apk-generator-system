@@ -463,7 +463,18 @@ def _prepare_project(function_name: str, app_name: str, package: str,
         print(f"[v3-debug] checking {src_dir} exists={src_dir.is_dir()}", flush=True)
         if src_dir.is_dir():
             print(f"[v3-debug] copying {src_dir} -> {assets_dir / sub}", flush=True)
-            shutil.copytree(src_dir, assets_dir / sub, dirs_exist_ok=True)
+            try:
+                shutil.copytree(src_dir, assets_dir / sub, dirs_exist_ok=True)
+                # Verify
+                copied = list((assets_dir / sub).rglob("*"))
+                print(f"[v3-debug]   copied {len([p for p in copied if p.is_file()])} files to {assets_dir / sub}", flush=True)
+                for p in copied:
+                    if p.is_file():
+                        print(f"[v3-debug]     {p.relative_to(assets_dir)} ({p.stat().st_size})", flush=True)
+            except Exception as copy_err:
+                print(f"[v3-debug]   COPY FAILED: {copy_err}", flush=True)
+                import traceback
+                print(traceback.format_exc(), flush=True)
         else:
             print(f"[v3-debug] {src_dir} does not exist", flush=True)
 
