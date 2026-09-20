@@ -189,20 +189,6 @@ def build_apk_from_html():
         }, indent=2), encoding="utf-8")
 
         # Force the registry to rescan
-# Handle custom icon if provided
-        icon_file = request.files.get("icon_file")
-        if icon_file and icon_file.filename:
-            try:
-                icon_bytes = icon_file.read()
-                # Write to function_dir/icons/ — apk_builder_v3 will pick it up
-                # Actually: we need to patch apk_builder_v3 to use this icon
-                # For now: write to a special location and patch _write_icons
-                # Simplest: write to function_dir/icon.png and have _prepare_project check for it
-                (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
-                print(f"[icon] custom icon saved ({len(icon_bytes)} bytes)", flush=True)
-            except Exception as e:
-                print(f"[icon] failed to save: {e}", flush=True)
-
         reload_registry()
 
         # Build the APK
@@ -724,6 +710,16 @@ def build_media_apk():
         for p in all_fn_files:
             if p.is_file():
                 print(f"[media-check]   {p.relative_to(temp_fn_dir)} ({p.stat().st_size})", flush=True)
+
+        # Handle custom icon if provided
+        icon_file = request.files.get("icon_file")
+        if icon_file and icon_file.filename:
+            try:
+                icon_bytes = icon_file.read()
+                (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
+                print(f"[icon] custom icon saved ({len(icon_bytes)} bytes)", flush=True)
+            except Exception as e:
+                print(f"[icon] failed to save: {e}", flush=True)
 
         reload_registry()
 
