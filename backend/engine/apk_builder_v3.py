@@ -509,6 +509,11 @@ def _compile_resources(project_dir: Path, compiled_zip: Path) -> bool:
         return False
     cmd = [str(AAPT2), "compile", "-o", str(compiled_zip)] + res_files
     rc, out, err = _run(cmd, timeout=60)
+    if rc != 0:
+        print(f"[aapt2 compile] FAILED", flush=True)
+        print(f"  stdout: {out[:500]}", flush=True)
+        print(f"  stderr: {err[:500]}", flush=True)
+        print(f"  files: {res_files}", flush=True)
     return rc == 0
 
 
