@@ -644,6 +644,12 @@ def build_media_apk():
             "description": f"Media app: {media_type} ({len(files_list)} files)",
         }, indent=2), encoding="utf-8")
 
+        # Start capturing stdout for debug
+        import io as _io, contextlib as _ctx
+        _stdout_capture = _io.StringIO()
+        _ctx.redirect_stdout(_stdout_capture).__enter__()
+        _ctx.redirect_stderr(_stdout_capture).__enter__()
+
         # Write media files to a 'media' subfolder — the v3 builder will pick it up
         # via the assets_dir copy in _prepare_project (it copies css/, js/, images/, data/)
         # We patch the v3 builder to also copy 'media/' if present.
