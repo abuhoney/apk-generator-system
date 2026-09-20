@@ -165,8 +165,20 @@ def _generate_icon_png(function_name: str, app_name: str, size: int = 72) -> byt
     return sig + ihdr + idat + iend
 
 
-def _write_icons(res_dir: Path, function_name: str, app_name: str) -> None:
-    """Write launcher icons at multiple densities."""
+def _write_icons(res_dir: Path, function_name: str, app_name: str, function_dir: Path = None) -> None:
+    """Write launcher icons at multiple densities.
+    If function_dir/app_icon.png exists, use it as the custom icon.
+    Otherwise, generate a colored icon from the function name hash.
+    """
+    # Check for custom icon
+    custom_icon_path = function_dir / "app_icon.png" if function_dir else None
+    custom_icon_bytes = None
+    if custom_icon_path and custom_icon_path.exists():
+        try:
+            custom_icon_bytes = custom_icon_path.read_bytes()
+            print(f"[icons] using custom icon ({len(custom_icon_bytes)} bytes)", flush=True)
+        except Exception as e:
+            print(f"[icons] failed to read custom icon: {e}", flush=True)
     densities = {
         "mipmap-mdpi": 48,
         "mipmap-hdpi": 72,
@@ -177,8 +189,12 @@ def _write_icons(res_dir: Path, function_name: str, app_name: str) -> None:
     for folder, size in densities.items():
         d = res_dir / folder
         d.mkdir(parents=True, exist_ok=True)
-        icon = _generate_icon_png(function_name, app_name, size)
-        (d / "ic_launcher.png").write_bytes(icon)
+        if custom_icon_bytes:
+            # Use the custom icon (Android will scale it)
+            (d / "ic_launcher.png").write_bytes(custom_icon_bytes)
+        else:
+            icon = _generate_icon_png(function_name, app_name, size)
+            (d / "ic_launcher.png").write_bytes(icon)
 
 
 # --------------------------------------------------------------------------- #
@@ -440,7 +456,7 @@ def _prepare_project(function_name: str, app_name: str, package: str,
     _write_strings(res_dir, app_name)
     _write_colors(res_dir)
     _write_layout(res_dir)
-    _write_icons(res_dir, function_name, app_name)
+    _write_icons(res_dir, function_name, app_name, function_dir)
 
     # 3. Java source
     java_src = JAVA_SOURCE.format(package_name=package)
