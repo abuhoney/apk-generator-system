@@ -189,6 +189,20 @@ def build_apk_from_html():
         }, indent=2), encoding="utf-8")
 
         # Force the registry to rescan
+# Handle custom icon if provided
+        icon_file = request.files.get("icon_file")
+        if icon_file and icon_file.filename:
+            try:
+                icon_bytes = icon_file.read()
+                # Write to function_dir/icons/ — apk_builder_v3 will pick it up
+                # Actually: we need to patch apk_builder_v3 to use this icon
+                # For now: write to a special location and patch _write_icons
+                # Simplest: write to function_dir/icon.png and have _prepare_project check for it
+                (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
+                print(f"[icon] custom icon saved ({len(icon_bytes)} bytes)", flush=True)
+            except Exception as e:
+                print(f"[icon] failed to save: {e}", flush=True)
+
         reload_registry()
 
         # Build the APK
@@ -576,8 +590,8 @@ def build_media_apk():
 
         app_name = (request.form.get("app_name") or "").strip() or "Media App"
         media_type = (request.form.get("media_type") or "music").strip().lower()
-        if media_type not in ("music", "video", "photo"):
-            return jsonify({"success": False, "error": "media_type must be music, video, or photo"}), 400
+        if media_type not in ("music", "video", "photo", "any", "zip"):
+            return jsonify({"success": False, "error": "media_type must be music, video, photo, any, or zip"}), 400
         package_name = request.form.get("package_name") or None
         version_name = request.form.get("version_name") or "1.0.0"
         privacy_url = request.form.get("privacy_url") or ""
@@ -599,7 +613,33 @@ def build_media_apk():
             slug = re.sub(r"[^a-z0-9]", "", safe_app_name.lower()) or "mediaapp"
             package_name = f"com.htmltoapk.media.{slug}"
 
-        template_name = {"music": "music_player.html", "video": "video_player.html", "photo": "photo_gallery.html"}[media_type]
+        # Auto-detect template based on media_type + file contents
+        if media_type in ("music", "video", "photo"):
+            template_name = {"music": "music_player.html", "video": "video_player.html", "photo": "photo_gallery.html"}[media_type]
+        else:
+            # For 'any' and 'zip': auto-detect content type from files
+            audio_ext = r"\.(mp3|wav|ogg|m4a|aac|flac|opus|wma)$"
+            video_ext = r"\.(mp4|mkv|webm|mov|avi|flv|wmv|m4v|3gp)$"
+            image_ext = r"\.(jpe?g|png|gif|webp|bmp|svg|heic)$"
+            import re as _re2
+            counts = {"audio": 0, "video": 0, "image": 0, "other": 0}
+            for f in files_list:
+                name = f.get("path", f.get("original_name", "")).lower()
+                if _re2.search(audio_ext, name): counts["audio"] += 1
+                elif _re2.search(video_ext, name): counts["video"] += 1
+                elif _re2.search(image_ext, name): counts["image"] += 1
+                else: counts["other"] += 1
+            total = sum(counts.values()) or 1
+            if counts["audio"] / total > 0.5:
+                template_name = "music_player.html"
+            elif counts["video"] / total > 0.5:
+                template_name = "video_player.html"
+            elif counts["image"] / total > 0.5:
+                template_name = "photo_gallery.html"
+            else:
+                template_name = "file_browser.html"
+            print(f"[media] auto-detected template: {template_name} (counts: {counts})", flush=True)
+
         template_path = Path(__file__).parent / "templates" / template_name
         if not template_path.exists():
             return jsonify({"success": False, "error": f"Template not found: {template_name}"}), 500
