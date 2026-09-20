@@ -2,4 +2,3 @@
 flask==3.0.0
 gunicorn==21.2.0
 # No other third-party deps — the system uses only stdlib for the heavy lifting
-Pillow==10.2.0
