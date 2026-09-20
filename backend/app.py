@@ -755,3 +755,19 @@ def admin_build_stats():
         return jsonify({"error": str(e)}), 500
 
 
+
+
+@app.route("/api/debug/function/<fn_name>")
+def debug_function_dir(fn_name):
+    """Return listing of files in a function dir for debugging."""
+    from pathlib import Path as _P
+    fn_dir = PROJECT_ROOT / "functions" / fn_name
+    if not fn_dir.exists():
+        return jsonify({"error": f"function dir not found: {fn_dir}"})
+    files = []
+    for p in sorted(fn_dir.rglob("*")):
+        if p.is_file():
+            files.append({"path": str(p.relative_to(fn_dir)), "size": p.stat().st_size})
+    return jsonify({"function": fn_name, "dir": str(fn_dir), "files": files})
+
+
