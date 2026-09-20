@@ -759,15 +759,30 @@ def admin_build_stats():
 
 @app.route("/api/debug/function/<fn_name>")
 def debug_function_dir(fn_name):
-    """Return listing of files in a function dir for debugging."""
+    """Return listing of files in a function dir + build dir for debugging."""
     from pathlib import Path as _P
+    from engine.config import get_config as _gc
     fn_dir = PROJECT_ROOT / "functions" / fn_name
-    if not fn_dir.exists():
-        return jsonify({"error": f"function dir not found: {fn_dir}"})
-    files = []
-    for p in sorted(fn_dir.rglob("*")):
-        if p.is_file():
-            files.append({"path": str(p.relative_to(fn_dir)), "size": p.stat().st_size})
-    return jsonify({"function": fn_name, "dir": str(fn_dir), "files": files})
+    result = {"function": fn_name, "function_dir": str(fn_dir)}
+    
+    # List function dir
+    fn_files = []
+    if fn_dir.exists():
+        for p in sorted(fn_dir.rglob("*")):
+            if p.is_file():
+                fn_files.append({"path": str(p.relative_to(fn_dir)), "size": p.stat().st_size})
+    result["function_files"] = fn_files
+    
+    # List build dir (v3)
+    build_dir = _gc().build_dir / fn_name / "v3"
+    result["build_dir"] = str(build_dir)
+    build_files = []
+    if build_dir.exists():
+        for p in sorted(build_dir.rglob("*")):
+            if p.is_file():
+                build_files.append({"path": str(p.relative_to(build_dir)), "size": p.stat().st_size})
+    result["build_files"] = build_files
+    
+    return jsonify(result)
 
 
