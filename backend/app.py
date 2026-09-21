@@ -188,6 +188,18 @@ def build_apk_from_html():
             "description": "Custom APK built from HTML",
         }, indent=2), encoding="utf-8")
 
+        # Handle custom icon if provided (same logic as build_media_apk)
+        icon_file = request.files.get("icon_file")
+        if icon_file and icon_file.filename:
+            try:
+                icon_bytes = icon_file.read()
+                if icon_bytes[:4] != b'\x89PNG':
+                    print(f"[icon] WARNING: not a PNG, may cause aapt2 failure", flush=True)
+                (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
+                print(f"[icon] custom icon saved for HTML build ({len(icon_bytes)} bytes)", flush=True)
+            except Exception as e:
+                print(f"[icon] failed to save: {e}", flush=True)
+
         # Force the registry to rescan
         reload_registry()
 
