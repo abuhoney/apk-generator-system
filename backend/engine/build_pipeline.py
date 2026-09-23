@@ -28,27 +28,35 @@ def run_pipeline(function_dir: Path, media_type: str = "hospital") -> dict:
     """
     results = {"success": True, "errors": []}
     
-    # 1. Parse Excel files (if any .xlsx/.xls in media/)
-    excel_datasets = []
+    # 1. Parse ALL file types (Excel, PDF, Word, JSON, CSV, TXT, HTML) using universal parser
+    parsed_datasets = []
     media_dir = function_dir / "media"
     if media_dir.exists():
         for f in sorted(media_dir.iterdir()):
-            if f.is_file() and f.suffix.lower() in (".xlsx", ".xls"):
-                try:
-                    from engine.excel_parser import parse_excel_file
-                    ds = parse_excel_file(f)
-                    excel_datasets.extend(ds)
-                    print(f"[pipeline] Excel parsed: {f.name} → {len(ds)} sheets", flush=True)
-                except Exception as e:
-                    print(f"[pipeline] Excel parse failed for {f.name}: {e}", flush=True)
-                    results["errors"].append(f"Excel parse: {e}")
+            if not f.is_file():
+                continue
+            ext = f.suffix.lower()
+            # Skip already-merged files
+            if f.name.startswith("_"):
+                continue
+            try:
+                from engine.excel_parser import parse_any_file
+                ds = parse_any_file(f)
+                if ds:
+                    parsed_datasets.extend(ds)
+                    print(f"[pipeline] Parsed {f.name} ({ext}) → {len(ds)} datasets", flush=True)
+            except Exception as e:
+                print(f"[pipeline] Parse failed for {f.name}: {e}", flush=True)
+                results["errors"].append(f"Parse {f.name}: {e}")
     
-    # If Excel datasets found, merge them into a JSON file for data_analyzer
-    if excel_datasets:
+    # Merge all parsed datasets into a single JSON for data_analyzer
+    if parsed_datasets:
         merged = {"data": {}}
-        for ds in excel_datasets:
-            merged["data"][ds["name"]] = ds["items"]
-        (media_dir / "_excel_merged.json").write_text(
+        for ds in parsed_datasets:
+            # Clean dataset name for JSON key
+            clean_name = ds["name"].replace(" ", "_").replace("-", "_").lower()
+            merged["data"][clean_name] = ds["items"]
+        (media_dir / "_parsed_merged.json").write_text(
             json.dumps(merged, ensure_ascii=False, indent=2), encoding="utf-8")
     
     # 2. Run data_analyzer
