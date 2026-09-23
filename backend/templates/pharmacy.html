@@ -19,10 +19,15 @@ body{display:flex;flex-direction:column;height:100vh;height:100dvh}
 .icon-btn.whatsapp{color:#25D366;background:rgba(37,211,102,.12);border-color:rgba(37,211,102,.3)}
 .icon-btn.privacy{color:#58a6ff;background:rgba(88,166,255,.12);border-color:rgba(88,166,255,.3)}
 .icon-btn.rate{color:#facc15;background:rgba(250,204,21,.12);border-color:rgba(250,204,21,.3)}
+/* Tab bar for switching between datasets */
+.tab-bar{display:flex;gap:4px;padding:8px 12px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.tab-btn{flex-shrink:0;padding:8px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface2);color:var(--fg2);font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .15s;-webkit-user-select:none;user-select:none}
+.tab-btn:active{transform:scale(.95)}
+.tab-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 .search-bar{padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0}
 .search-bar input{width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:13px;font-family:inherit}
 .search-bar input:focus{outline:none;border-color:var(--accent)}
-.stats-bar{display:flex;gap:8px;padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto}
+.stats-bar{display:flex;gap:8px;padding:8px 16px;background:var(--surface);border-bottom:1px solid var(--border);flex-shrink:0;overflow-x:auto}
 .stat-pill{background:var(--surface2);padding:4px 12px;border-radius:12px;font-size:11px;color:var(--fg2);white-space:nowrap;display:flex;align-items:center;gap:4px}
 .stat-pill b{color:var(--accent)}
 .list-container{flex:1;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:8px 12px}
@@ -35,6 +40,10 @@ body{display:flex;flex-direction:column;height:100vh;height:100dvh}
 .item-meta{font-size:11px;color:var(--fg2);margin-top:3px;display:flex;gap:8px;flex-wrap:wrap}
 .item-meta .price{color:var(--green);font-weight:600;font-family:monospace}
 .item-meta .tag{color:var(--accent);font-size:10px}
+.item-meta .status{padding:1px 6px;border-radius:4px;font-size:10px;font-weight:600}
+.item-meta .status.ok{background:rgba(22,163,74,.2);color:var(--green)}
+.item-meta .status.warn{background:rgba(250,204,21,.2);color:var(--gold)}
+.item-meta .status.crit{background:rgba(248,81,73,.2);color:#f85149}
 .empty{text-align:center;padding:60px 20px;color:var(--fg3)}
 .empty p{font-size:14px}
 .viewer{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:999;display:none;flex-direction:column}
@@ -44,7 +53,13 @@ body{display:flex;flex-direction:column;height:100vh;height:100dvh}
 .close-btn{width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .close-btn svg{width:20px;height:20px;fill:currentColor}
 .viewer-body{flex:1;overflow:auto;padding:16px;background:#000}
-.viewer-body pre{width:100%;background:#1a1a2e;color:#e6edf3;padding:16px;font-family:monospace;font-size:12px;white-space:pre-wrap;word-break:break-all;border-radius:8px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.detail-field{background:var(--surface);padding:10px 12px;border-radius:8px;border:1px solid var(--border)}
+.detail-field .label{font-size:10px;color:var(--fg3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.detail-field .value{font-size:13px;color:var(--fg);font-weight:500;word-break:break-word}
+.detail-field .value.accent{color:var(--accent)}
+.detail-field .value.green{color:var(--green)}
+.detail-field .value.full{grid-column:1/-1}
 .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.85);color:#fff;padding:10px 16px;border-radius:8px;font-size:13px;z-index:1000;opacity:0;transition:opacity .2s}
 .toast.show{opacity:1}
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:20px;z-index:998}
@@ -66,13 +81,13 @@ body{display:flex;flex-direction:column;height:100vh;height:100dvh}
     <div class="icon-btn privacy" onclick="openPrivacy()" title="Privacy"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
   </div>
 </div>
-<div class="stats-bar">
-  <div class="stat-pill">Medicines: <b id="statTotal">0</b></div>
-  <div class="stat-pill">Categories: <b id="statCats">0</b></div>
-</div>
-<div class="search-bar"><input type="text" id="searchInput" placeholder="Search medicines..." oninput="filterItems()"></div>
+<div class="tab-bar" id="tabBar"></div>
+<div class="stats-bar" id="statsBar"><div class="stat-pill">Total: <b id="statTotal">0</b></div></div>
+<div class="search-bar"><input type="text" id="searchInput" placeholder="Search..." oninput="renderItems()"></div>
 <div class="list-container" id="itemList"></div>
 <div class="viewer" id="viewer"><div class="viewer-header"><button class="close-btn" onclick="closeViewer()"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button><div class="viewer-title" id="viewerTitle">-</div></div><div class="viewer-body" id="viewerBody"></div></div>
+<div class="modal" id="privacyModal"><div class="modal-content"><h2>Privacy Policy</h2><p><strong>__APP_NAME__</strong> respects your privacy.</p><p>This app stores data locally for offline access. No personal data is collected.</p><p style="font-size:11px;color:var(--fg3);margin-top:16px">Last updated: __GENERATED_DATE__</p><button class="modal-close" onclick="closePrivacy()">Close</button></div></div>
+<div class="toast" id="toast"></div>
 <script>
 const APP_CONFIG = __APP_CONFIG__;
 const APP_NAME = "__APP_NAME__";
@@ -81,20 +96,77 @@ const PRIVACY_URL = "__PRIVACY_URL__";
 const RATE_URL = "__RATE_URL__";
 const WHATSAPP_NUMBER = "__WHATSAPP_NUMBER__";
 const MEDIA_BUNDLE = __MEDIA_BUNDLE__;
-let items = [];
-function escapeHtml(s){return(s||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c])}
-function parseDataFile(name, content) {
+
+// Datasets extracted from loaded files
+// Each dataset = { name: "patients", icon: "👥", items: [...] }
+let datasets = [];
+let activeDataset = 0;
+
+function escapeHtml(s){return(s==null?"":String(s)).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c])}
+
+// Smart JSON parser — handles multiple structures:
+// 1. Flat array: [{...}, {...}] → one dataset "Records"
+// 2. Nested {data: {patients: [...], doctors: [...]}} → multiple datasets
+// 3. {project: "...", data: {...}} → uses project name as app title
+// 4. CSV text → parsed into array
+// 5. Plain text lines → array of {name: line}
+function parseFileContent(name, content) {
   const ext = (name.match(/\.([a-z0-9]+)$/i)||[,''])[1].toLowerCase();
-  if (ext === 'json') { try { return JSON.parse(content); } catch(e) { return []; } }
-  if (ext === 'csv') { return parseCSV(content); }
-  if (ext === 'txt') { return content.split('\n').filter(l=>l.trim()).map(l=>({name:l.trim()})); }
-  if (ext === 'html'||ext==='htm') { return [{name:name, content:content, type:'html'}]; }
+  if (ext === 'json') {
+    try {
+      const data = JSON.parse(content);
+      return extractDatasets(data, name);
+    } catch(e) { return []; }
+  }
+  if (ext === 'csv') { return [{name:'Data', icon:'📊', items: parseCSV(content)}]; }
+  if (ext === 'txt') { return [{name:'Contacts', icon:'📝', items: content.split('\n').filter(l=>l.trim()).map(l=>{const p=l.match(/^(.+?):\s*(.+)$/);return p?{name:p[1].trim(),phone:p[2].trim()}:{name:l.trim()}})}]; }
+  if (ext === 'html' || ext === 'htm') { return [{name:'Page', icon:'📄', items:[{name:name, content:content, type:'html'}]}]; }
   return [];
 }
+
+function extractDatasets(data, fileName) {
+  const result = [];
+  const icons = {patients:'👥', doctors:'🩺', nurses:'💉', appointments:'📅', rooms:'🛏️', medicines:'💊', invoices:'💰', emergency:'🚨', beds:'🛏️', revenue:'📊', operations:'📊', products:'📦', items:'📦', records:'📋', contacts:'📞', services:'🔧', staff:'👨‍⚕️'};
+
+  // Case 1: Flat array
+  if (Array.isArray(data)) {
+    return [{name: fileName.replace(/\.[^.]+$/, ''), icon: '📋', items: data}];
+  }
+
+  // Case 2: Has "data" key with sub-arrays
+  if (data.data && typeof data.data === 'object') {
+    for (const [key, val] of Object.entries(data.data)) {
+      if (Array.isArray(val) && val.length > 0) {
+        result.push({
+          name: key.charAt(0).toUpperCase() + key.slice(1),
+          icon: icons[key] || '📋',
+          items: val
+        });
+      }
+    }
+    if (result.length > 0) return result;
+  }
+
+  // Case 3: Object with array values (no "data" wrapper)
+  for (const [key, val] of Object.entries(data)) {
+    if (Array.isArray(val) && val.length > 0 && typeof val[0] === 'object') {
+      result.push({
+        name: key.charAt(0).toUpperCase() + key.slice(1),
+        icon: icons[key] || '📋',
+        items: val
+      });
+    }
+  }
+  if (result.length > 0) return result;
+
+  // Case 4: Single object (not an array) → wrap as one item
+  return [{name: fileName.replace(/\.[^.]+$/, ''), icon: '📋', items: [data]}];
+}
+
 function parseCSV(text) {
   const lines = text.trim().split('\n');
   if (lines.length < 2) return [];
-  const headers = lines[0].split(',').map(h => h.trim().toLowerCase());
+  const headers = lines[0].split(',').map(h => h.trim());
   return lines.slice(1).map(line => {
     const vals = line.split(',');
     const obj = {};
@@ -102,7 +174,8 @@ function parseCSV(text) {
     return obj;
   });
 }
-function loadItems() {
+
+function loadAllData() {
   const files = MEDIA_BUNDLE.files || [];
   for (const f of files) {
     const name = f.originalName || f.path || '';
@@ -114,58 +187,167 @@ function loadItems() {
         xhr.open('GET', url, false);
         xhr.send();
         if (xhr.status === 200 || xhr.status === 0) {
-          const parsed = parseDataFile(name, xhr.responseText);
-          if (Array.isArray(parsed)) {
-            parsed.forEach(p => { if (typeof p === 'object') items.push(p); else items.push({name:String(p)}); });
-          }
+          const parsed = parseFileContent(name, xhr.responseText);
+          for (const ds of parsed) { datasets.push(ds); }
         }
-      } catch(e) {}
+      } catch(e) { console.warn('Cannot load ' + name + ': ' + e); }
     }
   }
+  // If no datasets loaded, create an empty one
+  if (datasets.length === 0) {
+    datasets.push({name: 'No Data', icon: '📭', items: []});
+  }
 }
+
+function renderTabs() {
+  const bar = document.getElementById('tabBar');
+  bar.innerHTML = datasets.map((ds, i) => {
+    return '<button class="tab-btn ' + (i === activeDataset ? 'active' : '') + '" onclick="switchTab(' + i + ')">' +
+      ds.icon + ' ' + escapeHtml(ds.name) + ' (' + ds.items.length + ')</button>';
+  }).join('');
+}
+
+function switchTab(i) {
+  activeDataset = i;
+  renderTabs();
+  renderItems();
+}
+
+function getGroupField(items) {
+  if (items.length === 0) return null;
+  const sample = items[0];
+  // Priority fields for grouping
+  const priorities = ['department', 'dept', 'specialty', 'category', 'type', 'status', 'gender', 'floor', 'severity', 'brand'];
+  for (const p of priorities) {
+    if (sample[p] !== undefined) return p;
+  }
+  return null;
+}
+
+function getNameField(item) {
+  const nameFields = ['name', 'patient', 'doctor', 'title', 'product', 'medicine_name', 'item'];
+  for (const f of nameFields) { if (item[f] !== undefined) return f; }
+  // Fallback: first string field
+  for (const [k, v] of Object.entries(item)) { if (typeof v === 'string') return k; }
+  return Object.keys(item)[0] || 'name';
+}
+
+function getStatusClass(val) {
+  const v = String(val).toLowerCase();
+  if (/مستقر|ok|paid|available|مدفوعة|متاح|مؤكد/.test(v)) return 'ok';
+  if (/متابعة|warn|pending|قيد|يحتاج|متوسط/.test(v)) return 'warn';
+  if (/حرج|crit|urgent|عاجل/.test(v)) return 'crit';
+  return '';
+}
+
+function renderItems() {
+  const ds = datasets[activeDataset];
+  if (!ds) return;
+  const filter = (document.getElementById('searchInput').value || '').toLowerCase();
+  let items = ds.items;
+  if (filter) {
+    items = items.filter(i => JSON.stringify(i).toLowerCase().includes(filter));
+  }
+  document.getElementById('statTotal').textContent = items.length;
+
+  // Update stats bar
+  const statsBar = document.getElementById('statsBar');
+  const groupField = getGroupField(items);
+  if (groupField) {
+    const groups = new Set(items.map(i => i[groupField]).filter(v => v != null));
+    statsBar.innerHTML = '<div class="stat-pill">Total: <b>' + items.length + '</b></div>' +
+      '<div class="stat-pill">Groups: <b>' + groups.size + '</b></div>';
+  } else {
+    statsBar.innerHTML = '<div class="stat-pill">Total: <b>' + items.length + '</b></div>';
+  }
+
+  const list = document.getElementById('itemList');
+  if (items.length === 0) {
+    list.innerHTML = '<div class="empty"><p>No items found</p></div>';
+    return;
+  }
+
+  // Group items
+  const groups = {};
+  if (groupField) {
+    items.forEach(i => {
+      const g = i[groupField] || 'Other';
+      if (!groups[g]) groups[g] = [];
+      groups[g].push(i);
+    });
+  } else {
+    groups['All'] = items;
+  }
+
+  let html = '';
+  for (const [groupName, groupItems] of Object.entries(groups)) {
+    html += '<div class="section-header">' + escapeHtml(groupName) + ' (' + groupItems.length + ')</div>';
+    for (const item of groupItems) {
+      const nameField = getNameField(item);
+      const name = item[nameField] || 'Unknown';
+      // Show up to 3 metadata fields
+      const metaFields = Object.keys(item).filter(k => k !== nameField).slice(0, 3);
+      let metaHtml = '';
+      for (const mf of metaFields) {
+        const val = item[mf];
+        if (val == null || val === '') continue;
+        if (mf === 'price' || mf === 'fee' || mf === 'cost' || mf === 'service_cost') {
+          metaHtml += '<span class="price">' + escapeHtml(String(val)) + '</span>';
+        } else if (mf === 'status' || mf === 'severity') {
+          metaHtml += '<span class="status ' + getStatusClass(val) + '">' + escapeHtml(String(val)) + '</span>';
+        } else {
+          metaHtml += '<span class="tag">' + escapeHtml(String(val)) + '</span>';
+        }
+      }
+      // Store item index for click handler
+      const itemIdx = ds.items.indexOf(item);
+      html += '<div class="item-card" onclick="viewItem(' + activeDataset + ',' + itemIdx + ')">' +
+        '<div class="item-icon">' + ds.icon + '</div>' +
+        '<div class="item-info">' +
+          '<div class="item-name">' + escapeHtml(String(name)) + '</div>' +
+          '<div class="item-meta">' + metaHtml + '</div>' +
+        '</div>' +
+      '</div>';
+    }
+  }
+  list.innerHTML = html;
+}
+
+function viewItem(dsIdx, itemIdx) {
+  const ds = datasets[dsIdx];
+  if (!ds) return;
+  const item = ds.items[itemIdx];
+  if (!item) return;
+  const nameField = getNameField(item);
+  document.getElementById('viewerTitle').textContent = item[nameField] || 'Detail';
+
+  let html = '<div class="detail-grid">';
+  for (const [k, v] of Object.entries(item)) {
+    let valClass = '';
+    if (k === 'price' || k === 'fee' || k === 'cost' || k === 'service_cost') valClass = 'green';
+    else if (k === 'phone' || k === 'id' || k === 'patient_id') valClass = 'accent';
+    html += '<div class="detail-field"><div class="label">' + escapeHtml(k) + '</div>' +
+      '<div class="value ' + valClass + '">' + escapeHtml(String(v)) + '</div></div>';
+  }
+  html += '</div>';
+  document.getElementById('viewerBody').innerHTML = html;
+  document.getElementById('viewer').classList.add('show');
+}
+
+function closeViewer() { document.getElementById('viewer').classList.remove('show'); document.getElementById('viewerBody').innerHTML = ''; }
 function shareWhatsApp(){const t=encodeURIComponent('Check out '+APP_NAME+'!');const u=WHATSAPP_NUMBER&&WHATSAPP_NUMBER!=='__WHATSAPP_NUMBER__'?'https://wa.me/'+WHATSAPP_NUMBER+'?text='+t:'https://wa.me/?text='+t;window.open(u,'_blank');}
 function rateApp(){if(RATE_URL&&RATE_URL!=='__RATE_URL__')window.open(RATE_URL,'_blank');else showToast('Rating coming soon!');}
 function openPrivacy(){if(PRIVACY_URL&&PRIVACY_URL!=='__PRIVACY_URL__')window.open(PRIVACY_URL,'_blank');else document.getElementById('privacyModal').classList.add('show');}
 function closePrivacy(){document.getElementById('privacyModal').classList.remove('show');}
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
-function closeViewer(){document.getElementById('viewer').classList.remove('show');document.getElementById('viewerBody').innerHTML='';}
-
-function renderItems(filter) {
-  filter = (filter||'').toLowerCase();
-  let filtered = filter ? items.filter(i => JSON.stringify(i).toLowerCase().includes(filter)) : items;
-  document.getElementById('statTotal').textContent = filtered.length;
-  const cats = new Set(filtered.map(i => i.department || i.category || i.type || 'General'));
-  document.getElementById('statCats').textContent = cats.size;
-  const list = document.getElementById('itemList');
-  if (filtered.length === 0) { list.innerHTML = '<div class="empty"><p>No medicines found</p></div>'; return; }
-  const groups = {};
-  filtered.forEach(i => { const c = i.department || i.category || i.type || 'General'; if (!groups[c]) groups[c] = []; groups[c].push(i); });
-  let html = '';
-  for (const [cat, recs] of Object.entries(groups)) {
-    html += '<div class="section-header">' + escapeHtml(cat) + ' (' + recs.length + ')</div>';
-    for (const r of recs) {
-      const name = r.name || r.patient || r.doctor || r.title || 'Record';
-      const dept = r.department || r.category || '';
-      html += '<div class="item-card" onclick="viewItem(\'' + escapeHtml(JSON.stringify(r)).replace(/'/g,"\\'") + '\')"><div class="item-icon">💊</div><div class="item-info"><div class="item-name">' + escapeHtml(name) + '</div><div class="item-meta">' + (dept?'<span class="tag">'+escapeHtml(dept)+'</span>':'') + '</div></div></div>';
-    }
-  }
-  list.innerHTML = html;
-}
-function viewItem(jsonStr) {
-  try { const p = JSON.parse(jsonStr); document.getElementById('viewerTitle').textContent = p.name || p.patient || 'Record';
-    let html = '<pre>'; for (const [k,v] of Object.entries(p)) { html += escapeHtml(k) + ': ' + escapeHtml(String(v)) + '\n'; } html += '</pre>';
-    document.getElementById('viewerBody').innerHTML = html; document.getElementById('viewer').classList.add('show');
-  } catch(e) { showToast('Cannot view'); }
-}
-function filterItems() { renderItems(document.getElementById('searchInput').value); }
 
 document.getElementById('appTitle').textContent = APP_NAME;
 const files = MEDIA_BUNDLE.files || [];
 files.forEach(f => { if (!f.url && (f.path || f.originalName)) f.url = 'file:///android_asset/webapp/media/' + (f.path || f.originalName); });
-loadItems(); renderItems();
-console.log(APP_NAME + ' loaded - ' + items.length + ' medicines');
+loadAllData();
+renderTabs();
+renderItems();
+console.log(APP_NAME + ' loaded - ' + datasets.length + ' datasets, ' + datasets.reduce((s,d)=>s+d.items.length,0) + ' total items');
 </script>
-<div class="modal" id="privacyModal"><div class="modal-content"><h2>Privacy Policy</h2><p><strong>__APP_NAME__</strong> respects your privacy.</p><p>This app stores data locally for offline access. No personal data is collected.</p><p style="font-size:11px;color:var(--fg3);margin-top:16px">Last updated: __GENERATED_DATE__</p><button class="modal-close" onclick="closePrivacy()">Close</button></div></div>
-<div class="toast" id="toast"></div>
 </body>
 </html>
