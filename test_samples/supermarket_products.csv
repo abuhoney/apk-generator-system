@@ -1,0 +1,26 @@
+product_id,name,category,brand,price,cost,stock,min_stock,unit,expiry_date,supplier
+SKU0001,Product Item 1,Personal Care,Mondelez,119.73,148.47,198,28,box,2025-09-10,Saudi Distributors
+SKU0002,Product Item 2,Cleaning,Heinz,25.87,11.63,275,12,pack,2025-10-21,Gulf Supplies
+SKU0003,Product Item 3,Snacks,PepsiCo,281.24,45.74,479,39,pack,2025-08-26,Saudi Distributors
+SKU0004,Product Item 4,Fresh Produce,Kellogg's,27.03,82.41,36,23,pack,2025-06-18,Gulf Supplies
+SKU0005,Product Item 5,Beverages,Nestle,77.18,39.92,151,39,liter,2025-12-01,National Trading
+SKU0006,Product Item 6,Meat,P&G,171.43,56.8,226,18,pack,2025-07-21,Gulf Supplies
+SKU0007,Product Item 7,Dairy,Heinz,103.49,184.71,350,12,liter,2025-06-23,National Trading
+SKU0008,Product Item 8,Fresh Produce,Coca-Cola,44.84,186.29,421,50,liter,2025-08-13,Gulf Supplies
+SKU0009,Product Item 9,Personal Care,General Mills,42.74,189.09,197,25,kg,2025-09-23,Gulf Supplies
+SKU0010,Product Item 10,Cleaning,Mondelez,77.87,25.38,26,47,pack,2025-08-25,Gulf Supplies
+SKU0011,Product Item 11,Meat,PepsiCo,215.66,132.89,8,19,kg,2025-06-11,Saudi Distributors
+SKU0012,Product Item 12,Frozen Foods,P&G,100.04,162.53,478,24,kg,2025-08-16,Gulf Supplies
+SKU0013,Product Item 13,Beverages,Nestle,97.87,166.14,153,49,pcs,2025-07-17,National Trading
+SKU0014,Product Item 14,Dairy,Mondelez,50.95,33.61,263,45,kg,2025-11-28,National Trading
+SKU0015,Product Item 15,Frozen Foods,Mondelez,55.19,88.83,176,42,kg,2025-11-27,Gulf Supplies
+SKU0016,Product Item 16,Fresh Produce,Nestle,208.76,96.45,107,12,pcs,2025-09-05,National Trading
+SKU0017,Product Item 17,Personal Care,Coca-Cola,189.69,35.5,300,14,pcs,2025-07-04,Gulf Supplies
+SKU0018,Product Item 18,Frozen Foods,Nestle,37.27,104.83,183,13,liter,2025-10-14,National Trading
+SKU0019,Product Item 19,Snacks,Kellogg's,59.74,174.65,332,32,liter,2025-11-26,Gulf Supplies
+SKU0020,Product Item 20,Cleaning,P&G,268.15,64.64,237,42,pack,2025-07-13,Saudi Distributors
+SKU0021,Product Item 21,Beverages,Mondelez,127.81,114.43,437,13,liter,2025-08-04,Saudi Distributors
+SKU0022,Product Item 22,Snacks,General Mills,45.44,43.66,48,24,box,2025-10-28,Gulf Supplies
+SKU0023,Product Item 23,Dairy,Unilever,256.64,34.62,58,18,liter,2025-07-01,National Trading
+SKU0024,Product Item 24,Frozen Foods,Nestle,115.45,52.23,277,19,pcs,2025-07-01,Gulf Supplies
+SKU0025,Product Item 25,Snacks,Mondelez,155.94,138.11,351,13,pcs,2025-09-08,Saudi Distributors
