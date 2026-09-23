@@ -1,0 +1,730 @@
+{
+  "project": "Al-Othaim Supermarket Chain Management",
+  "icon": "🛒",
+  "variables": {
+    "currency": "SAR",
+    "vat_rate": 0.15,
+    "company_name": "Al-Othaim Markets",
+    "branch_count": 5
+  },
+  "formulas": {
+    "profit_margin": "(price - cost) / price * 100",
+    "stock_value": "stock * cost",
+    "reorder_needed": "stock < min_stock ? 'YES' : 'NO'",
+    "daily_profit": "total_sales - (total_sales * 0.7)"
+  },
+  "data": {
+    "products": [
+      {
+        "product_id": "SKU0001",
+        "name": "Almarai Frozen Foods Item 1",
+        "category": "Frozen Foods",
+        "brand": "Mondelez",
+        "barcode": "6286689511728",
+        "price": 241.86,
+        "cost": 149.67,
+        "stock": 409,
+        "min_stock": 29,
+        "unit": "pcs",
+        "expiry": "2025-07-08",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0002",
+        "name": "Al-Othaim Seafood Item 2",
+        "category": "Seafood",
+        "brand": "Heinz",
+        "barcode": "6287504765555",
+        "price": 143.67,
+        "cost": 63.34,
+        "stock": 93,
+        "min_stock": 29,
+        "unit": "kg",
+        "expiry": "2025-10-06",
+        "supplier": "Gulf Food Supplies",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0003",
+        "name": "Saudia Beverages Item 3",
+        "category": "Beverages",
+        "brand": "Unilever",
+        "barcode": "6289714962292",
+        "price": 175.1,
+        "cost": 14.8,
+        "stock": 22,
+        "min_stock": 24,
+        "unit": "pcs",
+        "expiry": "2025-07-10",
+        "supplier": "Modern Retail Group",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0004",
+        "name": "Lulu Beverages Item 4",
+        "category": "Beverages",
+        "brand": "Kellogg's",
+        "barcode": "6284519163959",
+        "price": 273.56,
+        "cost": 92.65,
+        "stock": 180,
+        "min_stock": 29,
+        "unit": "liter",
+        "expiry": "2025-11-28",
+        "supplier": "Modern Retail Group",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0005",
+        "name": "Almarai Bakery Item 5",
+        "category": "Bakery",
+        "brand": "Mondelez",
+        "barcode": "6284757836679",
+        "price": 52.41,
+        "cost": 68.95,
+        "stock": 286,
+        "min_stock": 19,
+        "unit": "kg",
+        "expiry": "2025-08-23",
+        "supplier": "Gulf Food Supplies",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0006",
+        "name": "Lulu Fresh Produce Item 6",
+        "category": "Fresh Produce",
+        "brand": "Nestle",
+        "barcode": "6287222811956",
+        "price": 67.0,
+        "cost": 76.08,
+        "stock": 168,
+        "min_stock": 46,
+        "unit": "liter",
+        "expiry": "2025-11-02",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0007",
+        "name": "Almarai Beverages Item 7",
+        "category": "Beverages",
+        "brand": "Mars",
+        "barcode": "6286253362792",
+        "price": 159.17,
+        "cost": 67.87,
+        "stock": 295,
+        "min_stock": 11,
+        "unit": "box",
+        "expiry": "2025-07-06",
+        "supplier": "National Trading",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0008",
+        "name": "Nadec Beverages Item 8",
+        "category": "Beverages",
+        "brand": "General Mills",
+        "barcode": "6285510472054",
+        "price": 284.54,
+        "cost": 41.83,
+        "stock": 78,
+        "min_stock": 42,
+        "unit": "liter",
+        "expiry": "2025-08-06",
+        "supplier": "Modern Retail Group",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0009",
+        "name": "Nadec Dairy Item 9",
+        "category": "Dairy",
+        "brand": "PepsiCo",
+        "barcode": "6283255775765",
+        "price": 283.57,
+        "cost": 33.48,
+        "stock": 190,
+        "min_stock": 17,
+        "unit": "pcs",
+        "expiry": "2025-11-04",
+        "supplier": "Modern Retail Group",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0010",
+        "name": "Saudia Meat Item 10",
+        "category": "Meat",
+        "brand": "P&G",
+        "barcode": "6284774303048",
+        "price": 224.87,
+        "cost": 111.58,
+        "stock": 486,
+        "min_stock": 30,
+        "unit": "box",
+        "expiry": "2025-09-18",
+        "supplier": "Gulf Food Supplies",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0011",
+        "name": "Al-Othaim Seafood Item 11",
+        "category": "Seafood",
+        "brand": "Unilever",
+        "barcode": "6288332538390",
+        "price": 230.67,
+        "cost": 176.75,
+        "stock": 186,
+        "min_stock": 10,
+        "unit": "kg",
+        "expiry": "2025-10-16",
+        "supplier": "National Trading",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0012",
+        "name": "Almarai Fresh Produce Item 12",
+        "category": "Fresh Produce",
+        "brand": "Kellogg's",
+        "barcode": "6283310627007",
+        "price": 24.79,
+        "cost": 173.13,
+        "stock": 57,
+        "min_stock": 35,
+        "unit": "kg",
+        "expiry": "2025-08-17",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0013",
+        "name": "Nadec Frozen Foods Item 13",
+        "category": "Frozen Foods",
+        "brand": "Kellogg's",
+        "barcode": "6282635689706",
+        "price": 70.14,
+        "cost": 22.54,
+        "stock": 120,
+        "min_stock": 32,
+        "unit": "liter",
+        "expiry": "2025-10-15",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0014",
+        "name": "Lulu Cleaning Item 14",
+        "category": "Cleaning",
+        "brand": "Mars",
+        "barcode": "6285735543533",
+        "price": 143.66,
+        "cost": 25.71,
+        "stock": 209,
+        "min_stock": 22,
+        "unit": "kg",
+        "expiry": "2025-08-23",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0015",
+        "name": "Nadec Cleaning Item 15",
+        "category": "Cleaning",
+        "brand": "Unilever",
+        "barcode": "6285626720179",
+        "price": 115.72,
+        "cost": 43.89,
+        "stock": 63,
+        "min_stock": 37,
+        "unit": "pack",
+        "expiry": "2025-06-01",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0016",
+        "name": "Lulu Fresh Produce Item 16",
+        "category": "Fresh Produce",
+        "brand": "Nestle",
+        "barcode": "6283202189986",
+        "price": 274.55,
+        "cost": 10.72,
+        "stock": 65,
+        "min_stock": 44,
+        "unit": "liter",
+        "expiry": "2025-09-15",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0017",
+        "name": "Lulu Snacks Item 17",
+        "category": "Snacks",
+        "brand": "Mars",
+        "barcode": "6281038622883",
+        "price": 9.64,
+        "cost": 14.35,
+        "stock": 30,
+        "min_stock": 45,
+        "unit": "kg",
+        "expiry": "2025-09-27",
+        "supplier": "National Trading",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0018",
+        "name": "Al-Othaim Cleaning Item 18",
+        "category": "Cleaning",
+        "brand": "Kellogg's",
+        "barcode": "6286794597925",
+        "price": 91.05,
+        "cost": 21.04,
+        "stock": 254,
+        "min_stock": 26,
+        "unit": "kg",
+        "expiry": "2025-12-05",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0019",
+        "name": "Nadec Personal Care Item 19",
+        "category": "Personal Care",
+        "brand": "General Mills",
+        "barcode": "6289181858960",
+        "price": 292.86,
+        "cost": 40.86,
+        "stock": 154,
+        "min_stock": 13,
+        "unit": "box",
+        "expiry": "2025-06-05",
+        "supplier": "National Trading",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0020",
+        "name": "Almarai Bakery Item 20",
+        "category": "Bakery",
+        "brand": "P&G",
+        "barcode": "6287636919545",
+        "price": 283.25,
+        "cost": 13.22,
+        "stock": 66,
+        "min_stock": 37,
+        "unit": "box",
+        "expiry": "2025-09-11",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0021",
+        "name": "Saudia Dairy Item 21",
+        "category": "Dairy",
+        "brand": "P&G",
+        "barcode": "6289800983712",
+        "price": 271.08,
+        "cost": 109.78,
+        "stock": 171,
+        "min_stock": 45,
+        "unit": "pack",
+        "expiry": "2025-07-11",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0022",
+        "name": "Al-Othaim Fresh Produce Item 22",
+        "category": "Fresh Produce",
+        "brand": "PepsiCo",
+        "barcode": "6281540323447",
+        "price": 160.32,
+        "cost": 162.25,
+        "stock": 75,
+        "min_stock": 50,
+        "unit": "pcs",
+        "expiry": "2025-10-28",
+        "supplier": "Gulf Food Supplies",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0023",
+        "name": "Almarai Cleaning Item 23",
+        "category": "Cleaning",
+        "brand": "P&G",
+        "barcode": "6288315465062",
+        "price": 38.42,
+        "cost": 195.71,
+        "stock": 270,
+        "min_stock": 49,
+        "unit": "liter",
+        "expiry": "2025-11-03",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0024",
+        "name": "Al-Othaim Beverages Item 24",
+        "category": "Beverages",
+        "brand": "Kellogg's",
+        "barcode": "6283498108361",
+        "price": 197.34,
+        "cost": 149.84,
+        "stock": 142,
+        "min_stock": 10,
+        "unit": "pack",
+        "expiry": "2025-07-13",
+        "supplier": "Gulf Food Supplies",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "product_id": "SKU0025",
+        "name": "Al-Othaim Seafood Item 25",
+        "category": "Seafood",
+        "brand": "Unilever",
+        "barcode": "6289838120525",
+        "price": 84.51,
+        "cost": 50.89,
+        "stock": 162,
+        "min_stock": 13,
+        "unit": "pcs",
+        "expiry": "2025-10-25",
+        "supplier": "Saudi Distributors Co",
+        "image": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg=="
+      }
+    ],
+    "staff": [
+      {
+        "staff_id": "EMP001",
+        "name": "Employee 1 Ahmed",
+        "role": "Supervisor",
+        "phone": "+966569308857",
+        "shift": "Evening",
+        "salary": 6788.82,
+        "hire_date": "2023-10-05"
+      },
+      {
+        "staff_id": "EMP002",
+        "name": "Employee 2 Ali",
+        "role": "Floor Worker",
+        "phone": "+966532625935",
+        "shift": "Night",
+        "salary": 7164.4,
+        "hire_date": "2022-08-24"
+      },
+      {
+        "staff_id": "EMP003",
+        "name": "Employee 3 Mohammed",
+        "role": "Cleaner",
+        "phone": "+966554843240",
+        "shift": "Night",
+        "salary": 10623.14,
+        "hire_date": "2022-05-07"
+      },
+      {
+        "staff_id": "EMP004",
+        "name": "Employee 4 Mohammed",
+        "role": "Floor Worker",
+        "phone": "+966511481911",
+        "shift": "Evening",
+        "salary": 6771.71,
+        "hire_date": "2023-09-08"
+      },
+      {
+        "staff_id": "EMP005",
+        "name": "Employee 5 Nasser",
+        "role": "Floor Worker",
+        "phone": "+966541753523",
+        "shift": "Morning",
+        "salary": 6288.73,
+        "hire_date": "2024-07-17"
+      },
+      {
+        "staff_id": "EMP006",
+        "name": "Employee 6 Ahmed",
+        "role": "Cashier",
+        "phone": "+966543386574",
+        "shift": "Morning",
+        "salary": 3944.69,
+        "hire_date": "2022-04-07"
+      },
+      {
+        "staff_id": "EMP007",
+        "name": "Employee 7 Ahmed",
+        "role": "Floor Worker",
+        "phone": "+966531365068",
+        "shift": "Evening",
+        "salary": 8614.66,
+        "hire_date": "2023-01-17"
+      },
+      {
+        "staff_id": "EMP008",
+        "name": "Employee 8 Ali",
+        "role": "Supervisor",
+        "phone": "+966534936826",
+        "shift": "Morning",
+        "salary": 6974.62,
+        "hire_date": "2022-04-01"
+      },
+      {
+        "staff_id": "EMP009",
+        "name": "Employee 9 Mohammed",
+        "role": "Cleaner",
+        "phone": "+966523117494",
+        "shift": "Evening",
+        "salary": 8801.99,
+        "hire_date": "2024-02-11"
+      },
+      {
+        "staff_id": "EMP010",
+        "name": "Employee 10 Ahmed",
+        "role": "Stock Manager",
+        "phone": "+966513196504",
+        "shift": "Night",
+        "salary": 7296.61,
+        "hire_date": "2024-05-19"
+      }
+    ],
+    "branches": [
+      {
+        "branch_id": "BR01",
+        "name": "Branch Jeddah Central #1",
+        "address": "King Fahd Road, District 1, Saudi Arabia",
+        "phone": "+96611844883",
+        "manager": "Employee 5 Nasser",
+        "area_sqm": 364,
+        "daily_sales": 20983.98
+      },
+      {
+        "branch_id": "BR02",
+        "name": "Branch Mecca Gate #2",
+        "address": "King Fahd Road, District 2, Saudi Arabia",
+        "phone": "+96611844104",
+        "manager": "Employee 4 Mohammed",
+        "area_sqm": 1815,
+        "daily_sales": 8098.15
+      },
+      {
+        "branch_id": "BR03",
+        "name": "Branch Riyadh North #3",
+        "address": "King Fahd Road, District 3, Saudi Arabia",
+        "phone": "+96611986506",
+        "manager": "Employee 10 Ahmed",
+        "area_sqm": 1587,
+        "daily_sales": 33343.03
+      },
+      {
+        "branch_id": "BR04",
+        "name": "Branch Riyadh North #4",
+        "address": "King Fahd Road, District 4, Saudi Arabia",
+        "phone": "+96611549404",
+        "manager": "Employee 2 Ali",
+        "area_sqm": 1761,
+        "daily_sales": 38920.66
+      },
+      {
+        "branch_id": "BR05",
+        "name": "Branch Medina Mall #5",
+        "address": "King Fahd Road, District 5, Saudi Arabia",
+        "phone": "+96611441472",
+        "manager": "Employee 5 Nasser",
+        "area_sqm": 1610,
+        "daily_sales": 25134.71
+      }
+    ],
+    "suppliers": [
+      {
+        "supplier_id": "SUP001",
+        "name": "Premium Imports",
+        "contact": "+966532462832",
+        "email": "supplier1@supply.com",
+        "category": "Seafood",
+        "rating": 2.6,
+        "payment_terms": "Prepaid"
+      },
+      {
+        "supplier_id": "SUP002",
+        "name": "International Goods",
+        "contact": "+966555699927",
+        "email": "supplier2@supply.com",
+        "category": "Personal Care",
+        "rating": 3.2,
+        "payment_terms": "Prepaid"
+      },
+      {
+        "supplier_id": "SUP003",
+        "name": "Local Farms Co",
+        "contact": "+966593169497",
+        "email": "supplier3@supply.com",
+        "category": "Seafood",
+        "rating": 5.0,
+        "payment_terms": "COD"
+      },
+      {
+        "supplier_id": "SUP004",
+        "name": "Local Farms Co",
+        "contact": "+966531742609",
+        "email": "supplier4@supply.com",
+        "category": "Bakery",
+        "rating": 2.6,
+        "payment_terms": "Net 30"
+      },
+      {
+        "supplier_id": "SUP005",
+        "name": "Gulf Trading",
+        "contact": "+966596392059",
+        "email": "supplier5@supply.com",
+        "category": "Cleaning",
+        "rating": 2.5,
+        "payment_terms": "Net 30"
+      },
+      {
+        "supplier_id": "SUP006",
+        "name": "Saudi Food Co",
+        "contact": "+966585238028",
+        "email": "supplier6@supply.com",
+        "category": "Seafood",
+        "rating": 3.1,
+        "payment_terms": "Prepaid"
+      },
+      {
+        "supplier_id": "SUP007",
+        "name": "Saudi Food Co",
+        "contact": "+966582779688",
+        "email": "supplier7@supply.com",
+        "category": "Seafood",
+        "rating": 3.4,
+        "payment_terms": "Net 60"
+      },
+      {
+        "supplier_id": "SUP008",
+        "name": "Premium Imports",
+        "contact": "+966557520716",
+        "email": "supplier8@supply.com",
+        "category": "Dairy",
+        "rating": 2.5,
+        "payment_terms": "Net 30"
+      }
+    ],
+    "daily_sales": [
+      {
+        "date": "2025-01-01",
+        "branch": "BR02",
+        "total_sales": 18374.53,
+        "transactions": 428,
+        "avg_basket": 149.01,
+        "peak_hour": "16:00"
+      },
+      {
+        "date": "2025-01-02",
+        "branch": "BR02",
+        "total_sales": 37925.19,
+        "transactions": 153,
+        "avg_basket": 129.72,
+        "peak_hour": "17:00"
+      },
+      {
+        "date": "2025-01-03",
+        "branch": "BR04",
+        "total_sales": 32259.98,
+        "transactions": 353,
+        "avg_basket": 137.48,
+        "peak_hour": "12:00"
+      },
+      {
+        "date": "2025-01-04",
+        "branch": "BR03",
+        "total_sales": 27771.08,
+        "transactions": 163,
+        "avg_basket": 112.41,
+        "peak_hour": "12:00"
+      },
+      {
+        "date": "2025-01-05",
+        "branch": "BR04",
+        "total_sales": 7209.44,
+        "transactions": 167,
+        "avg_basket": 56.25,
+        "peak_hour": "15:00"
+      },
+      {
+        "date": "2025-01-06",
+        "branch": "BR01",
+        "total_sales": 31009.63,
+        "transactions": 411,
+        "avg_basket": 135.97,
+        "peak_hour": "17:00"
+      },
+      {
+        "date": "2025-01-07",
+        "branch": "BR02",
+        "total_sales": 26202.5,
+        "transactions": 187,
+        "avg_basket": 59.63,
+        "peak_hour": "19:00"
+      },
+      {
+        "date": "2025-01-08",
+        "branch": "BR04",
+        "total_sales": 9862.16,
+        "transactions": 106,
+        "avg_basket": 104.77,
+        "peak_hour": "20:00"
+      },
+      {
+        "date": "2025-01-09",
+        "branch": "BR02",
+        "total_sales": 25580.54,
+        "transactions": 370,
+        "avg_basket": 51.58,
+        "peak_hour": "20:00"
+      },
+      {
+        "date": "2025-01-10",
+        "branch": "BR05",
+        "total_sales": 5897.38,
+        "transactions": 126,
+        "avg_basket": 84.69,
+        "peak_hour": "20:00"
+      },
+      {
+        "date": "2025-01-11",
+        "branch": "BR05",
+        "total_sales": 23840.41,
+        "transactions": 110,
+        "avg_basket": 116.46,
+        "peak_hour": "19:00"
+      },
+      {
+        "date": "2025-01-12",
+        "branch": "BR01",
+        "total_sales": 46222.09,
+        "transactions": 491,
+        "avg_basket": 133.78,
+        "peak_hour": "17:00"
+      },
+      {
+        "date": "2025-01-13",
+        "branch": "BR01",
+        "total_sales": 21925.15,
+        "transactions": 232,
+        "avg_basket": 101.77,
+        "peak_hour": "14:00"
+      },
+      {
+        "date": "2025-01-14",
+        "branch": "BR02",
+        "total_sales": 9221.88,
+        "transactions": 315,
+        "avg_basket": 55.22,
+        "peak_hour": "12:00"
+      },
+      {
+        "date": "2025-01-15",
+        "branch": "BR01",
+        "total_sales": 42282.89,
+        "transactions": 143,
+        "avg_basket": 82.25,
+        "peak_hour": "15:00"
+      }
+    ]
+  }
+}
