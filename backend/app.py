@@ -705,6 +705,13 @@ def build_media_apk():
         )
         (temp_fn_dir / "template.html").write_text(rendered, encoding="utf-8")
 
+        # Run data_analyzer to auto-generate config.json + strings.json from uploaded files
+        try:
+            from engine.data_analyzer import analyze_data_files
+            analyze_data_files(temp_fn_dir)
+        except Exception as e:
+            print(f"[data_analyzer] failed: {e}", flush=True)
+
         # Write app_config.json into the function dir (gets bundled into assets/webapp/)
         app_config = {
             "app_name": safe_app_name,
