@@ -61,7 +61,7 @@
       "emoji": "\ud83c\udfe5",
       "label": "Hospital",
       "template": "hospital.html",
-      "accepts": ".json,.csv,.html,.htm,.txt,.pdf",
+      "accepts": ".xlsx,.xls,.json,.csv,.html,.htm,.txt,.pdf",
       "multiple": true,
       "category": "business"
     },
@@ -70,7 +70,7 @@
       "emoji": "\ud83d\udc8a",
       "label": "Pharmacy",
       "template": "pharmacy.html",
-      "accepts": ".json,.csv,.xlsx,.txt",
+      "accepts": ".xlsx,.xls,.json,.csv,.txt",
       "multiple": true,
       "category": "business"
     },
@@ -79,7 +79,7 @@
       "emoji": "\ud83d\udcf1",
       "label": "Phones Catalog",
       "template": "catalog.html",
-      "accepts": ".json,.csv,.html,.xlsx,.txt",
+      "accepts": ".xlsx,.xls,.json,.csv,.html,.txt",
       "multiple": true,
       "category": "business"
     },
@@ -88,7 +88,7 @@
       "emoji": "\ud83d\udc55",
       "label": "Clothing Store",
       "template": "store.html",
-      "accepts": ".json,.csv,.xlsx,.txt,.jpg,.jpeg,.png,.webp",
+      "accepts": ".xlsx,.xls,.json,.csv,.txt,.jpg,.jpeg,.png,.webp",
       "multiple": true,
       "category": "business"
     },
@@ -97,7 +97,7 @@
       "emoji": "\u2708\ufe0f",
       "label": "Travel & Tourism",
       "template": "travel.html",
-      "accepts": ".json,.csv,.html,.txt,.jpg,.jpeg,.png",
+      "accepts": ".xlsx,.xls,.json,.csv,.html,.txt,.jpg,.jpeg,.png",
       "multiple": true,
       "category": "business"
     },
@@ -106,7 +106,7 @@
       "emoji": "\ud83d\ude8c",
       "label": "Transport",
       "template": "transport.html",
-      "accepts": ".json,.csv,.html,.txt",
+      "accepts": ".xlsx,.xls,.json,.csv,.html,.txt",
       "multiple": true,
       "category": "business"
     }
