@@ -1,0 +1,21 @@
+patient_id,name,age,gender,phone,blood_type,weight,height,diagnosis,department,doctor,status,room,admission_date,discharge_date,fee
+1001,Patient Name 1,65,Female,+966566555628,A+,19,149,Diabetes,ICU,Dr. Mohammed Ali,Needs Follow-up,B-101,2025-01-07,2025-01-17,21490.72
+1002,Patient Name 2,53,Female,+966525750250,B-,87,110,Migraine,Oncology,Dr. Layla Saleh,Needs Follow-up,C-102,2025-01-13,2025-01-23,6964.09
+1003,Patient Name 3,36,Male,+966521436893,B-,116,123,Hypertension,ICU,Dr. Ahmed Hassan,Needs Follow-up,D-103,2025-01-07,2025-01-28,8031.83
+1004,Patient Name 4,39,Female,+966570773011,B-,25,185,Pneumonia,Oncology,Dr. Ahmed Hassan,Recovering,A-104,2025-01-04,2025-01-26,2932.37
+1005,Patient Name 5,54,Male,+966598722333,A+,112,178,Pneumonia,Pediatrics,Dr. Fatima Al-Saidi,Under Treatment,B-105,2025-01-01,2025-01-26,18426.46
+1006,Patient Name 6,49,Male,+966598588721,AB+,68,137,Asthma,Dermatology,Dr. Ahmed Hassan,Needs Follow-up,C-106,2025-01-11,2025-01-19,12194.52
+1007,Patient Name 7,83,Male,+966577783788,A-,113,139,Migraine,Emergency,Dr. Huda Mansour,Critical,D-107,2025-01-13,2025-01-25,7839.95
+1008,Patient Name 8,61,Male,+966565806155,A+,88,158,Diabetes,Neurology,Dr. Omar Yahya,Stable,A-108,2025-01-06,2025-01-27,2573.54
+1009,Patient Name 9,61,Male,+966538353303,O+,17,123,Pneumonia,Cardiology,Dr. Sara Abdullah,Critical,B-109,2025-01-10,2025-01-27,23403.47
+1010,Patient Name 10,37,Female,+966573349707,B+,24,142,Diabetes,ICU,Dr. Mohammed Ali,Under Treatment,C-110,2025-01-10,2025-01-26,1145.05
+1011,Patient Name 11,70,Female,+966587811310,A-,17,123,Migraine,Neurology,Dr. Omar Yahya,Needs Follow-up,D-111,2025-01-11,2025-01-16,15534.34
+1012,Patient Name 12,72,Female,+966560955411,A-,27,146,Diabetes,Orthopedics,Dr. Khalid Nasser,Critical,A-112,2025-01-10,2025-01-24,13592.06
+1013,Patient Name 13,61,Male,+966522290410,AB+,87,149,Hypertension,Emergency,Dr. Fatima Al-Saidi,Recovering,B-113,2025-01-13,2025-01-22,4451.6
+1014,Patient Name 14,31,Female,+966588335336,A+,33,119,Diabetes,Cardiology,Dr. Mohammed Ali,Critical,C-114,2025-01-11,2025-01-28,18865.13
+1015,Patient Name 15,66,Male,+966518814247,A+,75,174,Fracture,Neurology,Dr. Omar Yahya,Under Treatment,D-115,2025-01-07,2025-01-18,13906.52
+1016,Patient Name 16,69,Female,+966533361484,A-,76,138,Diabetes,Neurology,Dr. Mohammed Ali,Stable,A-116,2025-01-07,2025-01-27,3451.12
+1017,Patient Name 17,20,Female,+966552922482,B-,37,122,Migraine,Cardiology,Dr. Omar Yahya,Critical,B-117,2025-01-09,2025-01-21,24165.82
+1018,Patient Name 18,14,Male,+966514954274,O+,26,195,Asthma,Neurology,Dr. Ahmed Hassan,Stable,C-118,2025-01-11,2025-01-16,7289.44
+1019,Patient Name 19,81,Male,+966539813458,A+,89,144,Asthma,Emergency,Dr. Layla Saleh,Stable,D-119,2025-01-14,2025-01-19,3974.99
+1020,Patient Name 20,12,Male,+966517388847,B-,54,187,Diabetes,Oncology,Dr. Huda Mansour,Stable,A-120,2025-01-13,2025-01-17,7095.17
