@@ -609,7 +609,6 @@ def build_media_apk():
         media_type = (request.form.get("media_type") or "music").strip().lower()
         # Accept any media_type — validated against app_types.json registry
         # (if not in registry, auto-detect template from file contents)
-            return jsonify({"success": False, "error": "media_type must be music, video, photo, any, or zip"}), 400
         package_name = request.form.get("package_name") or None
         version_name = request.form.get("version_name") or "1.0.0"
         privacy_url = request.form.get("privacy_url") or ""
