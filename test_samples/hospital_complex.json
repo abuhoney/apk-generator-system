@@ -1,0 +1,1414 @@
+{
+  "project": "Al-Noor Specialist Hospital Management System",
+  "icon": "🏥",
+  "variables": {
+    "currency": "SAR",
+    "vat_rate": 0.15,
+    "hospital_name": "Al-Noor Specialist Hospital",
+    "emergency_phone": "997",
+    "bed_capacity": 130
+  },
+  "formulas": {
+    "total_bill": "service_cost * (1 + vat_rate)",
+    "bmi": "weight / pow(height/100, 2)",
+    "discount_amount": "total_bill * discount_pct / 100",
+    "net_payable": "total_bill - discount_amount",
+    "stay_days": "DATEDIFF(discharge, admission)",
+    "age_category": "age >= 60 ? 'Elderly' : (age >= 18 ? 'Adult' : 'Child')",
+    "stock_status": "stock < min_stock ? 'LOW STOCK' : 'OK'"
+  },
+  "users": [
+    {
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "username": "doctor",
+      "password": "doc123",
+      "role": "doctor"
+    },
+    {
+      "username": "nurse",
+      "password": "nurse123",
+      "role": "nurse"
+    }
+  ],
+  "data": {
+    "patients": [
+      {
+        "patient_id": 1001,
+        "name": "Ahmed Ali 1",
+        "age": 79,
+        "gender": "Male",
+        "phone": "+966578307581",
+        "blood": "O-",
+        "weight": 50,
+        "height": 139,
+        "diagnosis": "Fracture",
+        "department": "Emergency",
+        "doctor": "Dr. Sara Abdullah",
+        "status": "Recovering",
+        "room": "B-101",
+        "admission": "2025-01-12",
+        "discharge": "2025-01-11",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1002,
+        "name": "Khaled Said 2",
+        "age": 78,
+        "gender": "Male",
+        "phone": "+966589352295",
+        "blood": "B+",
+        "weight": 53,
+        "height": 102,
+        "diagnosis": "Migraine",
+        "department": "ICU",
+        "doctor": "Dr. Huda Mansour",
+        "status": "Critical",
+        "room": "C-102",
+        "admission": "2025-01-13",
+        "discharge": "2025-01-20",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1003,
+        "name": "Maryam Ali 3",
+        "age": 64,
+        "gender": "Female",
+        "phone": "+966521443719",
+        "blood": "AB-",
+        "weight": 105,
+        "height": 118,
+        "diagnosis": "Fracture",
+        "department": "Orthopedics",
+        "doctor": "Dr. Fatima Al-Saidi",
+        "status": "Stable",
+        "room": "D-103",
+        "admission": "2025-01-05",
+        "discharge": "2025-01-25",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4fyeFJMQwqmFUw/DVAABJrz8fU82dnQAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1004,
+        "name": "Yusuf Said 4",
+        "age": 64,
+        "gender": "Female",
+        "phone": "+966573473177",
+        "blood": "B-",
+        "weight": 73,
+        "height": 160,
+        "diagnosis": "Asthma",
+        "department": "Emergency",
+        "doctor": "Dr. Fatima Al-Saidi",
+        "status": "Under Treatment",
+        "room": "A-104",
+        "admission": "2025-01-25",
+        "discharge": "2025-01-08",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1005,
+        "name": "Sara Mohamed 5",
+        "age": 7,
+        "gender": "Male",
+        "phone": "+966558890095",
+        "blood": "B-",
+        "weight": 90,
+        "height": 180,
+        "diagnosis": "Pneumonia",
+        "department": "Dermatology",
+        "doctor": "Dr. Khalid Nasser",
+        "status": "Under Treatment",
+        "room": "B-105",
+        "admission": "2025-01-20",
+        "discharge": "2025-01-16",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1006,
+        "name": "Noura Khalid 6",
+        "age": 20,
+        "gender": "Male",
+        "phone": "+966592490919",
+        "blood": "AB-",
+        "weight": 66,
+        "height": 139,
+        "diagnosis": "Hypertension",
+        "department": "Pediatrics",
+        "doctor": "Dr. Fatima Al-Saidi",
+        "status": "Under Treatment",
+        "room": "C-106",
+        "admission": "2025-01-10",
+        "discharge": "2025-01-14",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4fyeFJMQwqmFUw/DVAABJrz8fU82dnQAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1007,
+        "name": "Abdullah Nasser 7",
+        "age": 44,
+        "gender": "Female",
+        "phone": "+966596870764",
+        "blood": "O+",
+        "weight": 50,
+        "height": 101,
+        "diagnosis": "Hypertension",
+        "department": "Cardiology",
+        "doctor": "Dr. Huda Mansour",
+        "status": "Needs Follow-up",
+        "room": "D-107",
+        "admission": "2025-01-08",
+        "discharge": "2025-01-22",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1008,
+        "name": "Yusuf Said 8",
+        "age": 82,
+        "gender": "Female",
+        "phone": "+966596583083",
+        "blood": "A-",
+        "weight": 49,
+        "height": 138,
+        "diagnosis": "Asthma",
+        "department": "ICU",
+        "doctor": "Dr. Sara Abdullah",
+        "status": "Under Treatment",
+        "room": "A-108",
+        "admission": "2025-01-11",
+        "discharge": "2025-01-14",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1009,
+        "name": "Yusuf Said 9",
+        "age": 25,
+        "gender": "Male",
+        "phone": "+966555665868",
+        "blood": "A-",
+        "weight": 24,
+        "height": 189,
+        "diagnosis": "Hypertension",
+        "department": "Dermatology",
+        "doctor": "Dr. Khalid Nasser",
+        "status": "Recovering",
+        "room": "B-109",
+        "admission": "2025-01-22",
+        "discharge": "2025-01-05",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4fyeFJMQwqmFUw/DVAABJrz8fU82dnQAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1010,
+        "name": "Yusuf Said 10",
+        "age": 67,
+        "gender": "Male",
+        "phone": "+966585304762",
+        "blood": "AB+",
+        "weight": 70,
+        "height": 136,
+        "diagnosis": "Diabetes Type 2",
+        "department": "Orthopedics",
+        "doctor": "Dr. Mohammed Ali",
+        "status": "Recovering",
+        "room": "C-110",
+        "admission": "2025-01-03",
+        "discharge": "2025-01-25",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1011,
+        "name": "Omar Hassan 11",
+        "age": 21,
+        "gender": "Male",
+        "phone": "+966579100716",
+        "blood": "A+",
+        "weight": 111,
+        "height": 164,
+        "diagnosis": "Appendicitis",
+        "department": "Pediatrics",
+        "doctor": "Dr. Ahmed Hassan",
+        "status": "Under Treatment",
+        "room": "D-111",
+        "admission": "2025-01-26",
+        "discharge": "2025-01-19",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1012,
+        "name": "Noura Khalid 12",
+        "age": 10,
+        "gender": "Female",
+        "phone": "+966557896074",
+        "blood": "AB-",
+        "weight": 64,
+        "height": 161,
+        "diagnosis": "Hypertension",
+        "department": "Pediatrics",
+        "doctor": "Dr. Fatima Al-Saidi",
+        "status": "Stable",
+        "room": "A-112",
+        "admission": "2025-01-14",
+        "discharge": "2025-01-19",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4fyeFJMQwqmFUw/DVAABJrz8fU82dnQAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1013,
+        "name": "Maryam Ali 13",
+        "age": 76,
+        "gender": "Male",
+        "phone": "+966597620253",
+        "blood": "B+",
+        "weight": 29,
+        "height": 141,
+        "diagnosis": "Asthma",
+        "department": "ICU",
+        "doctor": "Dr. Khalid Nasser",
+        "status": "Stable",
+        "room": "B-113",
+        "admission": "2025-01-02",
+        "discharge": "2025-01-04",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1014,
+        "name": "Fatima Noor 14",
+        "age": 79,
+        "gender": "Male",
+        "phone": "+966598646014",
+        "blood": "AB+",
+        "weight": 27,
+        "height": 144,
+        "diagnosis": "Fracture",
+        "department": "ICU",
+        "doctor": "Dr. Mohammed Ali",
+        "status": "Recovering",
+        "room": "C-114",
+        "admission": "2025-01-17",
+        "discharge": "2025-01-15",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1015,
+        "name": "Yusuf Said 15",
+        "age": 27,
+        "gender": "Female",
+        "phone": "+966523689144",
+        "blood": "B+",
+        "weight": 57,
+        "height": 107,
+        "diagnosis": "Heart Failure",
+        "department": "Pediatrics",
+        "doctor": "Dr. Huda Mansour",
+        "status": "Under Treatment",
+        "room": "D-115",
+        "admission": "2025-01-12",
+        "discharge": "2025-01-02",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4fyeFJMQwqmFUw/DVAABJrz8fU82dnQAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1016,
+        "name": "Fatima Noor 16",
+        "age": 34,
+        "gender": "Male",
+        "phone": "+966525808628",
+        "blood": "B+",
+        "weight": 111,
+        "height": 179,
+        "diagnosis": "Heart Failure",
+        "department": "Oncology",
+        "doctor": "Dr. Mohammed Ali",
+        "status": "Needs Follow-up",
+        "room": "A-116",
+        "admission": "2025-01-13",
+        "discharge": "2025-01-06",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1017,
+        "name": "Fatima Noor 17",
+        "age": 17,
+        "gender": "Male",
+        "phone": "+966580938618",
+        "blood": "O-",
+        "weight": 35,
+        "height": 124,
+        "diagnosis": "Fracture",
+        "department": "Pediatrics",
+        "doctor": "Dr. Omar Yahya",
+        "status": "Needs Follow-up",
+        "room": "B-117",
+        "admission": "2025-01-12",
+        "discharge": "2025-01-09",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1018,
+        "name": "Khaled Said 18",
+        "age": 56,
+        "gender": "Female",
+        "phone": "+966519284492",
+        "blood": "O+",
+        "weight": 37,
+        "height": 181,
+        "diagnosis": "Fracture",
+        "department": "Cardiology",
+        "doctor": "Dr. Ahmed Hassan",
+        "status": "Critical",
+        "room": "C-118",
+        "admission": "2025-01-15",
+        "discharge": "2025-01-07",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4fyeFJMQwqmFUw/DVAABJrz8fU82dnQAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1019,
+        "name": "Maryam Ali 19",
+        "age": 35,
+        "gender": "Female",
+        "phone": "+966542157288",
+        "blood": "A+",
+        "weight": 57,
+        "height": 165,
+        "diagnosis": "Diabetes Type 2",
+        "department": "Oncology",
+        "doctor": "Dr. Fatima Al-Saidi",
+        "status": "Recovering",
+        "room": "D-119",
+        "admission": "2025-01-17",
+        "discharge": "2025-01-03",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      },
+      {
+        "patient_id": 1020,
+        "name": "Yusuf Said 20",
+        "age": 57,
+        "gender": "Male",
+        "phone": "+966592633190",
+        "blood": "O+",
+        "weight": 42,
+        "height": 122,
+        "diagnosis": "Hypertension",
+        "department": "Dermatology",
+        "doctor": "Dr. Huda Mansour",
+        "status": "Critical",
+        "room": "A-120",
+        "admission": "2025-01-22",
+        "discharge": "2025-01-09",
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5ErkJggg=="
+      }
+    ],
+    "doctors": [
+      {
+        "id": "D01",
+        "name": "Dr. Ahmed Hassan",
+        "specialty": "Cardiology",
+        "phone": "+966555055461",
+        "email": "doctor1@hospital.com",
+        "department": "Cardiology",
+        "patients_count": 34,
+        "shift": "Evening",
+        "rating": 3.8,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNImfafJMQwqmFUw/DVAADdTPkQSvaXRAAAAABJRU5ErkJggg=="
+      },
+      {
+        "id": "D02",
+        "name": "Dr. Fatima Al-Saidi",
+        "specialty": "Neurology",
+        "phone": "+966558561887",
+        "email": "doctor2@hospital.com",
+        "department": "Neurology",
+        "patients_count": 41,
+        "shift": "Morning",
+        "rating": 4.5,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4P+0ESYhhVMOohuGrAQDYUl0ffbptxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "id": "D03",
+        "name": "Dr. Mohammed Ali",
+        "specialty": "Orthopedics",
+        "phone": "+966555176503",
+        "email": "doctor3@hospital.com",
+        "department": "Orthopedics",
+        "patients_count": 24,
+        "shift": "Morning",
+        "rating": 3.9,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNImfafJMQwqmFUw/DVAADdTPkQSvaXRAAAAABJRU5ErkJggg=="
+      },
+      {
+        "id": "D04",
+        "name": "Dr. Sara Abdullah",
+        "specialty": "Pediatrics",
+        "phone": "+966555010351",
+        "email": "doctor4@hospital.com",
+        "department": "Pediatrics",
+        "patients_count": 65,
+        "shift": "Evening",
+        "rating": 4.0,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4P+0ESYhhVMOohuGrAQDYUl0ffbptxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "id": "D05",
+        "name": "Dr. Khalid Nasser",
+        "specialty": "Emergency Medicine",
+        "phone": "+966554516435",
+        "email": "doctor5@hospital.com",
+        "department": "ICU",
+        "patients_count": 43,
+        "shift": "Evening",
+        "rating": 4.7,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNImfafJMQwqmFUw/DVAADdTPkQSvaXRAAAAABJRU5ErkJggg=="
+      },
+      {
+        "id": "D06",
+        "name": "Dr. Layla Saleh",
+        "specialty": "Gynecology",
+        "phone": "+966557496462",
+        "email": "doctor6@hospital.com",
+        "department": "Emergency",
+        "patients_count": 59,
+        "shift": "Morning",
+        "rating": 4.6,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4P+0ESYhhVMOohuGrAQDYUl0ffbptxwAAAABJRU5ErkJggg=="
+      },
+      {
+        "id": "D07",
+        "name": "Dr. Omar Yahya",
+        "specialty": "Ophthalmology",
+        "phone": "+966553606384",
+        "email": "doctor7@hospital.com",
+        "department": "Dermatology",
+        "patients_count": 48,
+        "shift": "Morning",
+        "rating": 4.1,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNImfafJMQwqmFUw/DVAADdTPkQSvaXRAAAAABJRU5ErkJggg=="
+      },
+      {
+        "id": "D08",
+        "name": "Dr. Huda Mansour",
+        "specialty": "Psychiatry",
+        "phone": "+966551023237",
+        "email": "doctor8@hospital.com",
+        "department": "Oncology",
+        "patients_count": 33,
+        "shift": "Evening",
+        "rating": 4.1,
+        "photo": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4P+0ESYhhVMOohuGrAQDYUl0ffbptxwAAAABJRU5ErkJggg=="
+      }
+    ],
+    "nurses": [
+      {
+        "id": "N01",
+        "name": "Nurse Abeer 1",
+        "department": "Pediatrics",
+        "shift": "Evening",
+        "phone": "+966564713949",
+        "rating": 4.3,
+        "years_experience": 4
+      },
+      {
+        "id": "N02",
+        "name": "Nurse Rana 2",
+        "department": "Neurology",
+        "shift": "Evening",
+        "phone": "+966568084490",
+        "rating": 3.8,
+        "years_experience": 16
+      },
+      {
+        "id": "N03",
+        "name": "Nurse Mona 3",
+        "department": "Orthopedics",
+        "shift": "Night",
+        "phone": "+966563317698",
+        "rating": 4.4,
+        "years_experience": 11
+      },
+      {
+        "id": "N04",
+        "name": "Nurse Rana 4",
+        "department": "ICU",
+        "shift": "Evening",
+        "phone": "+966566381961",
+        "rating": 3.3,
+        "years_experience": 19
+      },
+      {
+        "id": "N05",
+        "name": "Nurse Nasser 5",
+        "department": "Neurology",
+        "shift": "Morning",
+        "phone": "+966568884970",
+        "rating": 4.5,
+        "years_experience": 9
+      },
+      {
+        "id": "N06",
+        "name": "Nurse Salem 6",
+        "department": "Orthopedics",
+        "shift": "Evening",
+        "phone": "+966561534929",
+        "rating": 3.3,
+        "years_experience": 19
+      },
+      {
+        "id": "N07",
+        "name": "Nurse Nasser 7",
+        "department": "Neurology",
+        "shift": "Morning",
+        "phone": "+966565345035",
+        "rating": 4.2,
+        "years_experience": 4
+      },
+      {
+        "id": "N08",
+        "name": "Nurse Mona 8",
+        "department": "Emergency",
+        "shift": "Evening",
+        "phone": "+966562884491",
+        "rating": 5.0,
+        "years_experience": 10
+      },
+      {
+        "id": "N09",
+        "name": "Nurse Abeer 9",
+        "department": "Oncology",
+        "shift": "Evening",
+        "phone": "+966564303800",
+        "rating": 3.8,
+        "years_experience": 19
+      },
+      {
+        "id": "N10",
+        "name": "Nurse Salem 10",
+        "department": "Emergency",
+        "shift": "Morning",
+        "phone": "+966562396449",
+        "rating": 4.6,
+        "years_experience": 9
+      },
+      {
+        "id": "N11",
+        "name": "Nurse Mona 11",
+        "department": "Pediatrics",
+        "shift": "Night",
+        "phone": "+966562401481",
+        "rating": 3.9,
+        "years_experience": 4
+      },
+      {
+        "id": "N12",
+        "name": "Nurse Rana 12",
+        "department": "Neurology",
+        "shift": "Morning",
+        "phone": "+966568256880",
+        "rating": 4.4,
+        "years_experience": 16
+      }
+    ],
+    "appointments": [
+      {
+        "appt_id": "APT-301",
+        "patient": "Yusuf Said 9",
+        "doctor": "Dr. Omar Yahya",
+        "date": "2025-01-19",
+        "time": "15:30",
+        "type": "MRI",
+        "status": "Pending",
+        "department": "Cardiology"
+      },
+      {
+        "appt_id": "APT-302",
+        "patient": "Yusuf Said 4",
+        "doctor": "Dr. Fatima Al-Saidi",
+        "date": "2025-01-31",
+        "time": "16:00",
+        "type": "MRI",
+        "status": "Cancelled",
+        "department": "Neurology"
+      },
+      {
+        "appt_id": "APT-303",
+        "patient": "Noura Khalid 6",
+        "doctor": "Dr. Ahmed Hassan",
+        "date": "2025-01-29",
+        "time": "08:00",
+        "type": "Consultation",
+        "status": "Cancelled",
+        "department": "Emergency"
+      },
+      {
+        "appt_id": "APT-304",
+        "patient": "Fatima Noor 16",
+        "doctor": "Dr. Sara Abdullah",
+        "date": "2025-01-29",
+        "time": "13:00",
+        "type": "Follow-up",
+        "status": "Confirmed",
+        "department": "Pediatrics"
+      },
+      {
+        "appt_id": "APT-305",
+        "patient": "Fatima Noor 14",
+        "doctor": "Dr. Huda Mansour",
+        "date": "2025-01-18",
+        "time": "17:00",
+        "type": "X-Ray",
+        "status": "Confirmed",
+        "department": "ICU"
+      },
+      {
+        "appt_id": "APT-306",
+        "patient": "Noura Khalid 12",
+        "doctor": "Dr. Khalid Nasser",
+        "date": "2025-01-24",
+        "time": "10:00",
+        "type": "Lab Test",
+        "status": "Pending",
+        "department": "Emergency"
+      },
+      {
+        "appt_id": "APT-307",
+        "patient": "Ahmed Ali 1",
+        "doctor": "Dr. Omar Yahya",
+        "date": "2025-01-27",
+        "time": "15:30",
+        "type": "Follow-up",
+        "status": "Cancelled",
+        "department": "Pediatrics"
+      },
+      {
+        "appt_id": "APT-308",
+        "patient": "Ahmed Ali 1",
+        "doctor": "Dr. Sara Abdullah",
+        "date": "2025-01-19",
+        "time": "17:30",
+        "type": "Follow-up",
+        "status": "Cancelled",
+        "department": "Orthopedics"
+      },
+      {
+        "appt_id": "APT-309",
+        "patient": "Yusuf Said 10",
+        "doctor": "Dr. Mohammed Ali",
+        "date": "2025-01-17",
+        "time": "16:30",
+        "type": "Consultation",
+        "status": "Pending",
+        "department": "Pediatrics"
+      },
+      {
+        "appt_id": "APT-310",
+        "patient": "Yusuf Said 4",
+        "doctor": "Dr. Ahmed Hassan",
+        "date": "2025-01-20",
+        "time": "12:00",
+        "type": "MRI",
+        "status": "Cancelled",
+        "department": "Neurology"
+      },
+      {
+        "appt_id": "APT-311",
+        "patient": "Maryam Ali 3",
+        "doctor": "Dr. Huda Mansour",
+        "date": "2025-01-26",
+        "time": "09:00",
+        "type": "Consultation",
+        "status": "Confirmed",
+        "department": "Dermatology"
+      },
+      {
+        "appt_id": "APT-312",
+        "patient": "Maryam Ali 19",
+        "doctor": "Dr. Sara Abdullah",
+        "date": "2025-01-22",
+        "time": "16:00",
+        "type": "Follow-up",
+        "status": "Cancelled",
+        "department": "Cardiology"
+      },
+      {
+        "appt_id": "APT-313",
+        "patient": "Yusuf Said 15",
+        "doctor": "Dr. Mohammed Ali",
+        "date": "2025-01-28",
+        "time": "14:00",
+        "type": "Lab Test",
+        "status": "Pending",
+        "department": "Emergency"
+      },
+      {
+        "appt_id": "APT-314",
+        "patient": "Khaled Said 18",
+        "doctor": "Dr. Fatima Al-Saidi",
+        "date": "2025-01-28",
+        "time": "11:00",
+        "type": "MRI",
+        "status": "Confirmed",
+        "department": "Oncology"
+      },
+      {
+        "appt_id": "APT-315",
+        "patient": "Yusuf Said 15",
+        "doctor": "Dr. Fatima Al-Saidi",
+        "date": "2025-01-24",
+        "time": "17:30",
+        "type": "MRI",
+        "status": "Cancelled",
+        "department": "Cardiology"
+      }
+    ],
+    "rooms": [
+      {
+        "room": "B-101",
+        "type": "ICU",
+        "capacity": 2,
+        "occupied": 3,
+        "floor": 2,
+        "status": "Occupied",
+        "daily_rate": 4483.98,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4HxBAEmIY1TCqYfhqAABPVJ8QmOo5ZgAAAABJRU5ErkJggg=="
+      },
+      {
+        "room": "C-102",
+        "type": "VIP",
+        "capacity": 3,
+        "occupied": 2,
+        "floor": 5,
+        "status": "Occupied",
+        "daily_rate": 401.09,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "D-103",
+        "type": "Standard",
+        "capacity": 1,
+        "occupied": 0,
+        "floor": 1,
+        "status": "Occupied",
+        "daily_rate": 806.02,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "A-104",
+        "type": "Pediatric",
+        "capacity": 1,
+        "occupied": 4,
+        "floor": 5,
+        "status": "Available",
+        "daily_rate": 1617.87,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "B-105",
+        "type": "Pediatric",
+        "capacity": 1,
+        "occupied": 1,
+        "floor": 2,
+        "status": "Occupied",
+        "daily_rate": 599.64,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "C-106",
+        "type": "Isolation",
+        "capacity": 1,
+        "occupied": 0,
+        "floor": 6,
+        "status": "Available",
+        "daily_rate": 985.72,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "D-107",
+        "type": "ICU",
+        "capacity": 3,
+        "occupied": 3,
+        "floor": 3,
+        "status": "Occupied",
+        "daily_rate": 3311.8,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4HxBAEmIY1TCqYfhqAABPVJ8QmOo5ZgAAAABJRU5ErkJggg=="
+      },
+      {
+        "room": "A-108",
+        "type": "Isolation",
+        "capacity": 3,
+        "occupied": 4,
+        "floor": 3,
+        "status": "Occupied",
+        "daily_rate": 1133.42,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "B-109",
+        "type": "VIP",
+        "capacity": 1,
+        "occupied": 1,
+        "floor": 6,
+        "status": "Cleaning",
+        "daily_rate": 794.07,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "C-110",
+        "type": "VIP",
+        "capacity": 2,
+        "occupied": 0,
+        "floor": 1,
+        "status": "Cleaning",
+        "daily_rate": 1184.18,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "D-111",
+        "type": "VIP",
+        "capacity": 3,
+        "occupied": 2,
+        "floor": 5,
+        "status": "Maintenance",
+        "daily_rate": 1218.98,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "A-112",
+        "type": "Isolation",
+        "capacity": 3,
+        "occupied": 0,
+        "floor": 2,
+        "status": "Cleaning",
+        "daily_rate": 454.68,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "B-113",
+        "type": "VIP",
+        "capacity": 4,
+        "occupied": 4,
+        "floor": 3,
+        "status": "Available",
+        "daily_rate": 1662.85,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "C-114",
+        "type": "VIP",
+        "capacity": 2,
+        "occupied": 0,
+        "floor": 2,
+        "status": "Maintenance",
+        "daily_rate": 392.19,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "D-115",
+        "type": "ICU",
+        "capacity": 1,
+        "occupied": 3,
+        "floor": 5,
+        "status": "Maintenance",
+        "daily_rate": 4397.88,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4HxBAEmIY1TCqYfhqAABPVJ8QmOo5ZgAAAABJRU5ErkJggg=="
+      },
+      {
+        "room": "A-116",
+        "type": "VIP",
+        "capacity": 4,
+        "occupied": 4,
+        "floor": 5,
+        "status": "Available",
+        "daily_rate": 647.87,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "B-117",
+        "type": "VIP",
+        "capacity": 1,
+        "occupied": 4,
+        "floor": 1,
+        "status": "Available",
+        "daily_rate": 1535.46,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFElEQVR42mPYQiJgGNUwqmH4agAAE4UcH2ye9L4AAAAASUVORK5CYII="
+      },
+      {
+        "room": "C-118",
+        "type": "ICU",
+        "capacity": 2,
+        "occupied": 3,
+        "floor": 4,
+        "status": "Cleaning",
+        "daily_rate": 3189.26,
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4HxBAEmIY1TCqYfhqAABPVJ8QmOo5ZgAAAABJRU5ErkJggg=="
+      }
+    ],
+    "medicines": [
+      {
+        "code": "MED001",
+        "name": "Aspirin 75mg",
+        "category": "Diabetes",
+        "stock": 449,
+        "min_stock": 40,
+        "price": 100.44,
+        "expiry": "2025-10-10",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg==",
+        "supplier": "Gulf Medical Supplies"
+      },
+      {
+        "code": "MED002",
+        "name": "Atorvastatin 20mg",
+        "category": "Analgesic",
+        "stock": 1,
+        "min_stock": 31,
+        "price": 126.41,
+        "expiry": "2025-11-16",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNIOXGCJMQwqmFUw/DVAABr4/QQkzt3xwAAAABJRU5ErkJggg==",
+        "supplier": "Global Healthcare"
+      },
+      {
+        "code": "MED003",
+        "name": "Salbutamol Inhaler",
+        "category": "Antibiotic",
+        "stock": 141,
+        "min_stock": 70,
+        "price": 129.57,
+        "expiry": "2025-10-09",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg==",
+        "supplier": "Gulf Medical Supplies"
+      },
+      {
+        "code": "MED004",
+        "name": "Aspirin 75mg",
+        "category": "Antiviral",
+        "stock": 365,
+        "min_stock": 35,
+        "price": 193.01,
+        "expiry": "2025-08-21",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg==",
+        "supplier": "Global Healthcare"
+      },
+      {
+        "code": "MED005",
+        "name": "Ibuprofen 400mg",
+        "category": "Diabetes",
+        "stock": 100,
+        "min_stock": 22,
+        "price": 182.63,
+        "expiry": "2025-11-03",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg==",
+        "supplier": "Global Healthcare"
+      },
+      {
+        "code": "MED006",
+        "name": "Atorvastatin 20mg",
+        "category": "Psychiatric",
+        "stock": 482,
+        "min_stock": 86,
+        "price": 73.16,
+        "expiry": "2025-11-20",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg==",
+        "supplier": "Gulf Medical Supplies"
+      },
+      {
+        "code": "MED007",
+        "name": "Salbutamol Inhaler",
+        "category": "Analgesic",
+        "stock": 31,
+        "min_stock": 56,
+        "price": 22.54,
+        "expiry": "2025-08-15",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNIOXGCJMQwqmFUw/DVAABr4/QQkzt3xwAAAABJRU5ErkJggg==",
+        "supplier": "Saudi Pharma Co"
+      },
+      {
+        "code": "MED008",
+        "name": "Salbutamol Inhaler",
+        "category": "Diabetes",
+        "stock": 463,
+        "min_stock": 82,
+        "price": 215.68,
+        "expiry": "2025-08-22",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNIOXGCJMQwqmFUw/DVAABr4/QQkzt3xwAAAABJRU5ErkJggg==",
+        "supplier": "Saudi Pharma Co"
+      },
+      {
+        "code": "MED009",
+        "name": "Aspirin 75mg",
+        "category": "Cardiac",
+        "stock": 2,
+        "min_stock": 66,
+        "price": 25.25,
+        "expiry": "2025-08-27",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNIOXGCJMQwqmFUw/DVAABr4/QQkzt3xwAAAABJRU5ErkJggg==",
+        "supplier": "Saudi Pharma Co"
+      },
+      {
+        "code": "MED010",
+        "name": "Amoxicillin 500mg",
+        "category": "Psychiatric",
+        "stock": 171,
+        "min_stock": 79,
+        "price": 72.85,
+        "expiry": "2025-11-01",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg==",
+        "supplier": "Al-Nahdi Pharma"
+      },
+      {
+        "code": "MED011",
+        "name": "Salbutamol Inhaler",
+        "category": "Cardiac",
+        "stock": 382,
+        "min_stock": 97,
+        "price": 123.83,
+        "expiry": "2025-09-11",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNIOXGCJMQwqmFUw/DVAABr4/QQkzt3xwAAAABJRU5ErkJggg==",
+        "supplier": "Global Healthcare"
+      },
+      {
+        "code": "MED012",
+        "name": "Insulin Glargine",
+        "category": "Vitamin",
+        "stock": 259,
+        "min_stock": 27,
+        "price": 122.49,
+        "expiry": "2025-11-22",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg==",
+        "supplier": "Al-Nahdi Pharma"
+      },
+      {
+        "code": "MED013",
+        "name": "Metformin 850mg",
+        "category": "Analgesic",
+        "stock": 304,
+        "min_stock": 56,
+        "price": 87.71,
+        "expiry": "2025-08-12",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNIOXGCJMQwqmFUw/DVAABr4/QQkzt3xwAAAABJRU5ErkJggg==",
+        "supplier": "Al-Nahdi Pharma"
+      },
+      {
+        "code": "MED014",
+        "name": "Salbutamol Inhaler",
+        "category": "Analgesic",
+        "stock": 337,
+        "min_stock": 27,
+        "price": 13.1,
+        "expiry": "2025-09-11",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNIOXGCJMQwqmFUw/DVAABr4/QQkzt3xwAAAABJRU5ErkJggg==",
+        "supplier": "Gulf Medical Supplies"
+      },
+      {
+        "code": "MED015",
+        "name": "Salbutamol Inhaler",
+        "category": "Vitamin",
+        "stock": 143,
+        "min_stock": 98,
+        "price": 102.49,
+        "expiry": "2025-11-12",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5ErkJggg==",
+        "supplier": "Gulf Medical Supplies"
+      }
+    ],
+    "invoices": [
+      {
+        "invoice_id": "INV-5001",
+        "patient_id": 1016,
+        "service_cost": 43622.39,
+        "discount_pct": 18,
+        "total_bill": 50165.75,
+        "discount_amount": 7852.03,
+        "net_payable": 42313.72,
+        "date": "2025-01-28",
+        "status": "Partial",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4v4WBJMQwqmFUw/DVAABBJbMQ/ZZSQQAAAABJRU5ErkJggg=="
+      },
+      {
+        "invoice_id": "INV-5002",
+        "patient_id": 1004,
+        "service_cost": 33403.45,
+        "discount_pct": 23,
+        "total_bill": 38413.97,
+        "discount_amount": 7682.79,
+        "net_payable": 30731.17,
+        "date": "2025-01-10",
+        "status": "Partial",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4v4WBJMQwqmFUw/DVAABBJbMQ/ZZSQQAAAABJRU5ErkJggg=="
+      },
+      {
+        "invoice_id": "INV-5003",
+        "patient_id": 1002,
+        "service_cost": 26015.64,
+        "discount_pct": 6,
+        "total_bill": 29917.99,
+        "discount_amount": 1560.94,
+        "net_payable": 28357.05,
+        "date": "2025-01-19",
+        "status": "Pending",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4v4WBJMQwqmFUw/DVAABBJbMQ/ZZSQQAAAABJRU5ErkJggg=="
+      },
+      {
+        "invoice_id": "INV-5004",
+        "patient_id": 1018,
+        "service_cost": 32121.16,
+        "discount_pct": 24,
+        "total_bill": 36939.33,
+        "discount_amount": 7709.08,
+        "net_payable": 29230.26,
+        "date": "2025-01-01",
+        "status": "Partial",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4v4WBJMQwqmFUw/DVAABBJbMQ/ZZSQQAAAABJRU5ErkJggg=="
+      },
+      {
+        "invoice_id": "INV-5005",
+        "patient_id": 1020,
+        "service_cost": 3171.54,
+        "discount_pct": 16,
+        "total_bill": 3647.27,
+        "discount_amount": 507.45,
+        "net_payable": 3139.82,
+        "date": "2025-01-09",
+        "status": "Partial",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4v4WBJMQwqmFUw/DVAABBJbMQ/ZZSQQAAAABJRU5ErkJggg=="
+      },
+      {
+        "invoice_id": "INV-5006",
+        "patient_id": 1017,
+        "service_cost": 42054.48,
+        "discount_pct": 12,
+        "total_bill": 48362.65,
+        "discount_amount": 5046.54,
+        "net_payable": 43316.11,
+        "date": "2025-01-06",
+        "status": "Partial",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4v4WBJMQwqmFUw/DVAABBJbMQ/ZZSQQAAAABJRU5ErkJggg=="
+      },
+      {
+        "invoice_id": "INV-5007",
+        "patient_id": 1011,
+        "service_cost": 47897.58,
+        "discount_pct": 1,
+        "total_bill": 55082.22,
+        "discount_amount": 478.98,
+        "net_payable": 54603.24,
+        "date": "2025-01-12",
+        "status": "Paid",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mMIOBFAEmIY1TCqYfhqAABjWWgQ+DrNuAAAAABJRU5ErkJggg=="
+      },
+      {
+        "invoice_id": "INV-5008",
+        "patient_id": 1020,
+        "service_cost": 43032.26,
+        "discount_pct": 6,
+        "total_bill": 49487.1,
+        "discount_amount": 2581.94,
+        "net_payable": 46905.16,
+        "date": "2025-01-07",
+        "status": "Pending",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4v4WBJMQwqmFUw/DVAABBJbMQ/ZZSQQAAAABJRU5ErkJggg=="
+      },
+      {
+        "invoice_id": "INV-5009",
+        "patient_id": 1007,
+        "service_cost": 17054.66,
+        "discount_pct": 16,
+        "total_bill": 19612.86,
+        "discount_amount": 2728.75,
+        "net_payable": 16884.11,
+        "date": "2025-01-26",
+        "status": "Partial",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4v4WBJMQwqmFUw/DVAABBJbMQ/ZZSQQAAAABJRU5ErkJggg=="
+      },
+      {
+        "invoice_id": "INV-5010",
+        "patient_id": 1020,
+        "service_cost": 4674.31,
+        "discount_pct": 11,
+        "total_bill": 5375.46,
+        "discount_amount": 514.17,
+        "net_payable": 4861.28,
+        "date": "2025-01-19",
+        "status": "Pending",
+        "icon": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4v4WBJMQwqmFUw/DVAABBJbMQ/ZZSQQAAAABJRU5ErkJggg=="
+      }
+    ],
+    "emergency": [
+      {
+        "case_id": "ER-001",
+        "patient": "Maryam Ali 3",
+        "severity": "Minor",
+        "arrival": "2025-01-15 06:46",
+        "status": "Discharged",
+        "doctor": "Dr. Huda Mansour",
+        "triage_score": 3
+      },
+      {
+        "case_id": "ER-002",
+        "patient": "Unknown",
+        "severity": "Critical",
+        "arrival": "2025-01-16 23:17",
+        "status": "Discharged",
+        "doctor": "Dr. Ahmed Hassan",
+        "triage_score": 5
+      },
+      {
+        "case_id": "ER-003",
+        "patient": "Sara Mohamed 5",
+        "severity": "Critical",
+        "arrival": "2025-01-14 20:35",
+        "status": "Discharged",
+        "doctor": "Dr. Omar Yahya",
+        "triage_score": 3
+      },
+      {
+        "case_id": "ER-004",
+        "patient": "Maryam Ali 3",
+        "severity": "Minor",
+        "arrival": "2025-01-15 05:43",
+        "status": "Discharged",
+        "doctor": "Dr. Ahmed Hassan",
+        "triage_score": 5
+      },
+      {
+        "case_id": "ER-005",
+        "patient": "Khaled Said 2",
+        "severity": "Moderate",
+        "arrival": "2025-01-12 23:11",
+        "status": "Discharged",
+        "doctor": "Dr. Layla Saleh",
+        "triage_score": 1
+      },
+      {
+        "case_id": "ER-006",
+        "patient": "Sara Mohamed 5",
+        "severity": "Critical",
+        "arrival": "2025-01-15 07:36",
+        "status": "Transferred",
+        "doctor": "Dr. Layla Saleh",
+        "triage_score": 5
+      },
+      {
+        "case_id": "ER-007",
+        "patient": "Yusuf Said 4",
+        "severity": "Critical",
+        "arrival": "2025-01-14 23:04",
+        "status": "Transferred",
+        "doctor": "Dr. Khalid Nasser",
+        "triage_score": 1
+      },
+      {
+        "case_id": "ER-008",
+        "patient": "Maryam Ali 3",
+        "severity": "Minor",
+        "arrival": "2025-01-10 16:08",
+        "status": "Admitted",
+        "doctor": "Dr. Huda Mansour",
+        "triage_score": 3
+      }
+    ],
+    "beds_stats": [
+      {
+        "type": "Standard",
+        "total": 80,
+        "occupied": 70,
+        "available": 10
+      },
+      {
+        "type": "ICU",
+        "total": 20,
+        "occupied": 11,
+        "available": 9
+      },
+      {
+        "type": "Pediatric",
+        "total": 15,
+        "occupied": 7,
+        "available": 8
+      },
+      {
+        "type": "VIP",
+        "total": 5,
+        "occupied": 0,
+        "available": 5
+      },
+      {
+        "type": "Isolation",
+        "total": 10,
+        "occupied": 6,
+        "available": 4
+      }
+    ],
+    "revenue_monthly": [
+      {
+        "month": "2025-01",
+        "revenue": 1514865,
+        "expenses": 1235292,
+        "profit": 279573
+      },
+      {
+        "month": "2025-02",
+        "revenue": 1412572,
+        "expenses": 309340,
+        "profit": 1103232
+      },
+      {
+        "month": "2025-03",
+        "revenue": 1614544,
+        "expenses": 399328,
+        "profit": 1215216
+      },
+      {
+        "month": "2025-04",
+        "revenue": 664125,
+        "expenses": 1170203,
+        "profit": -506078
+      },
+      {
+        "month": "2025-05",
+        "revenue": 1029800,
+        "expenses": 536517,
+        "profit": 493283
+      },
+      {
+        "month": "2025-06",
+        "revenue": 1743039,
+        "expenses": 866097,
+        "profit": 876942
+      }
+    ],
+    "operations_stats": [
+      {
+        "month": "2025-01",
+        "operations": 199,
+        "emergency": 27,
+        "consultations": 494
+      },
+      {
+        "month": "2025-02",
+        "operations": 138,
+        "emergency": 74,
+        "consultations": 334
+      },
+      {
+        "month": "2025-03",
+        "operations": 107,
+        "emergency": 22,
+        "consultations": 234
+      },
+      {
+        "month": "2025-04",
+        "operations": 80,
+        "emergency": 20,
+        "consultations": 318
+      },
+      {
+        "month": "2025-05",
+        "operations": 96,
+        "emergency": 22,
+        "consultations": 333
+      },
+      {
+        "month": "2025-06",
+        "operations": 176,
+        "emergency": 42,
+        "consultations": 226
+      }
+    ]
+  }
+}
