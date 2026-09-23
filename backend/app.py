@@ -705,12 +705,15 @@ def build_media_apk():
         )
         (temp_fn_dir / "template.html").write_text(rendered, encoding="utf-8")
 
-        # Run data_analyzer to auto-generate config.json + strings.json from uploaded files
+        # Run full build pipeline: data_analyzer + 10 builders
         try:
-            from engine.data_analyzer import analyze_data_files
-            analyze_data_files(temp_fn_dir)
+            from engine.build_pipeline import run_pipeline
+            pipeline_results = run_pipeline(temp_fn_dir, media_type)
+            print(f"[pipeline] completed with {len(pipeline_results.get('errors',[]))} errors", flush=True)
         except Exception as e:
-            print(f"[data_analyzer] failed: {e}", flush=True)
+            print(f"[pipeline] failed: {e}", flush=True)
+            import traceback
+            print(traceback.format_exc(), flush=True)
 
         # Write app_config.json into the function dir (gets bundled into assets/webapp/)
         app_config = {
