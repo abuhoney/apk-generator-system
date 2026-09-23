@@ -1,0 +1,15 @@
+Bread Loaf: Stock=91 Price=32.36SAR
+Milk 1L: Stock=50 Price=13.84SAR
+Coffee 200g: Stock=70 Price=17.23SAR
+Water 24pk: Stock=34 Price=15.69SAR
+Milk 1L: Stock=105 Price=9.59SAR
+Juice 1L: Stock=76 Price=43.13SAR
+Water 24pk: Stock=141 Price=20.82SAR
+Coffee 200g: Stock=32 Price=10.68SAR
+Water 24pk: Stock=24 Price=19.66SAR
+Cooking Oil 2L: Stock=17 Price=45.8SAR
+Cooking Oil 2L: Stock=196 Price=22.92SAR
+Rice 5kg: Stock=70 Price=26.73SAR
+Cooking Oil 2L: Stock=85 Price=49.85SAR
+Sugar 1kg: Stock=110 Price=6.02SAR
+Bread Loaf: Stock=200 Price=44.87SAR
