@@ -575,6 +575,25 @@ if __name__ == "__main__":
 
 
 # --------------------------------------------------------------------------- #
+
+
+# --------------------------------------------------------------------------- #
+# App Types Registry — dynamic app type management
+# --------------------------------------------------------------------------- #
+@app.route("/api/app-types")
+def get_app_types():
+    """Return the app_types.json registry so the frontend can render buttons dynamically."""
+    import json as _json
+    types_path = Path(__file__).parent / "app_types.json"
+    if not types_path.exists():
+        return jsonify({"error": "app_types.json not found"}), 500
+    try:
+        data = _json.loads(types_path.read_text(encoding="utf-8"))
+        return jsonify(data)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
 # HTML to APK — Media App Builder
 # --------------------------------------------------------------------------- #
 @app.route("/api/build-media-apk", methods=["POST"])
@@ -588,7 +607,8 @@ def build_media_apk():
 
         app_name = (request.form.get("app_name") or "").strip() or "Media App"
         media_type = (request.form.get("media_type") or "music").strip().lower()
-        if media_type not in ("music", "video", "photo", "any", "zip"):
+        # Accept any media_type — validated against app_types.json registry
+        # (if not in registry, auto-detect template from file contents)
             return jsonify({"success": False, "error": "media_type must be music, video, photo, any, or zip"}), 400
         package_name = request.form.get("package_name") or None
         version_name = request.form.get("version_name") or "1.0.0"
@@ -611,11 +631,25 @@ def build_media_apk():
             slug = re.sub(r"[^a-z0-9]", "", safe_app_name.lower()) or "mediaapp"
             package_name = f"com.htmltoapk.media.{slug}"
 
-        # Auto-detect template based on media_type + file contents
-        if media_type in ("music", "video", "photo"):
+        # Dynamic template selection from app_types.json registry
+        import json as _json_types
+        types_path = Path(__file__).parent / "app_types.json"
+        type_config = None
+        try:
+            types_data = _json_types.loads(types_path.read_text(encoding="utf-8"))
+            type_config = types_data.get("types", {}).get(media_type)
+        except Exception as e:
+            print(f"[media] failed to read app_types.json: {e}", flush=True)
+
+        if type_config and type_config.get("template") and type_config["template"] != "auto":
+            # Use the template specified in app_types.json
+            template_name = type_config["template"]
+            print(f"[media] using template from registry: {template_name} for type '{media_type}'", flush=True)
+        elif media_type in ("music", "video", "photo"):
+            # Fallback hardcoded mapping for media types
             template_name = {"music": "music_player.html", "video": "video_player.html", "photo": "photo_gallery.html"}[media_type]
         else:
-            # For 'any' and 'zip': auto-detect content type from files
+            # Auto-detect content type from files (for 'any', 'zip', and unknown types)
             audio_ext = r"\.(mp3|wav|ogg|m4a|aac|flac|opus|wma)$"
             video_ext = r"\.(mp4|mkv|webm|mov|avi|flv|wmv|m4v|3gp)$"
             image_ext = r"\.(jpe?g|png|gif|webp|bmp|svg|heic)$"
@@ -671,6 +705,19 @@ def build_media_apk():
             .replace("__MEDIA_BUNDLE__", media_bundle)
         )
         (temp_fn_dir / "template.html").write_text(rendered, encoding="utf-8")
+
+        # Write app_config.json into the function dir (gets bundled into assets/webapp/)
+        app_config = {
+            "app_name": safe_app_name,
+            "package_name": package_name,
+            "version_name": version_name,
+            "media_type": media_type,
+            "total_files": len(files_list),
+            "total_size_bytes": sum(f.get("size", 0) for f in files_list),
+            "generated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        }
+        (temp_fn_dir / "app_config.json").write_text(json.dumps(app_config, indent=2), encoding="utf-8")
+        print(f"[config] app_config.json written ({len(app_config)} keys)", flush=True)
 
         (temp_fn_dir / "function.json").write_text(json.dumps({
             "name": safe_app_name,
