@@ -1,0 +1,114 @@
+{
+  "version": "1.0.0",
+  "updated_at": "2026-09-21",
+  "types": {
+    "music": {
+      "icon": "music",
+      "emoji": "\ud83c\udfb5",
+      "label": "Music",
+      "template": "music_player.html",
+      "accepts": "audio/*,.mp3,.wav,.ogg,.m4a,.aac,.flac,.opus,.wma",
+      "multiple": true,
+      "category": "media"
+    },
+    "video": {
+      "icon": "video",
+      "emoji": "\ud83c\udfac",
+      "label": "Video",
+      "template": "video_player.html",
+      "accepts": "video/*,.mp4,.mkv,.webm,.mov,.avi,.flv,.wmv,.m4v,.3gp",
+      "multiple": true,
+      "category": "media"
+    },
+    "photo": {
+      "icon": "photo",
+      "emoji": "\ud83d\udcf7",
+      "label": "Photo",
+      "template": "photo_gallery.html",
+      "accepts": "image/*,.jpg,.jpeg,.png,.gif,.webp,.bmp,.svg,.heic",
+      "multiple": true,
+      "category": "media"
+    },
+    "zip": {
+      "icon": "zip",
+      "emoji": "\ud83d\udce6",
+      "label": "ZIP to APK",
+      "template": "auto",
+      "accepts": ".zip,application/zip,application/x-zip-compressed",
+      "multiple": false,
+      "category": "archive"
+    },
+    "any": {
+      "icon": "any",
+      "emoji": "\ud83d\udcc1",
+      "label": "Any Files",
+      "template": "auto",
+      "accepts": "*/*",
+      "multiple": true,
+      "category": "generic"
+    },
+    "supermarket": {
+      "icon": "supermarket",
+      "emoji": "\ud83d\uded2",
+      "label": "Super Market",
+      "template": "supermarket.html",
+      "accepts": ".xlsx,.xls,.csv,.json,.txt",
+      "multiple": true,
+      "category": "business"
+    },
+    "hospital": {
+      "icon": "hospital",
+      "emoji": "\ud83c\udfe5",
+      "label": "Hospital",
+      "template": "hospital.html",
+      "accepts": ".json,.csv,.html,.htm,.txt,.pdf",
+      "multiple": true,
+      "category": "business"
+    },
+    "pharmacy": {
+      "icon": "pharmacy",
+      "emoji": "\ud83d\udc8a",
+      "label": "Pharmacy",
+      "template": "pharmacy.html",
+      "accepts": ".json,.csv,.xlsx,.txt",
+      "multiple": true,
+      "category": "business"
+    },
+    "phones": {
+      "icon": "phones",
+      "emoji": "\ud83d\udcf1",
+      "label": "Phones Catalog",
+      "template": "catalog.html",
+      "accepts": ".json,.csv,.html,.xlsx,.txt",
+      "multiple": true,
+      "category": "business"
+    },
+    "clothing": {
+      "icon": "clothing",
+      "emoji": "\ud83d\udc55",
+      "label": "Clothing Store",
+      "template": "store.html",
+      "accepts": ".json,.csv,.xlsx,.txt,.jpg,.jpeg,.png,.webp",
+      "multiple": true,
+      "category": "business"
+    },
+    "travel": {
+      "icon": "travel",
+      "emoji": "\u2708\ufe0f",
+      "label": "Travel & Tourism",
+      "template": "travel.html",
+      "accepts": ".json,.csv,.html,.txt,.jpg,.jpeg,.png",
+      "multiple": true,
+      "category": "business"
+    },
+    "transport": {
+      "icon": "transport",
+      "emoji": "\ud83d\ude8c",
+      "label": "Transport",
+      "template": "transport.html",
+      "accepts": ".json,.csv,.html,.txt",
+      "multiple": true,
+      "category": "business"
+    }
+  }
+}
