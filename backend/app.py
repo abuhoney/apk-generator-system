@@ -977,7 +977,7 @@ def build_v2_apk():
         rbac_size = 0
         offline_size = 0
         try:
-            from engine.native_bridge import generate_all as _gen_native
+            from engine.native_bridge import generate_native_files as _gen_native
             nb_results = _gen_native(config, strings, temp_fn_dir)
             native_bridge_size = nb_results.get("native_bridge", 0)
             rbac_size = nb_results.get("rbac_engine", 0)
