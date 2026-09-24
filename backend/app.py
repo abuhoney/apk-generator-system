@@ -1057,6 +1057,14 @@ def build_v2_apk():
 
         # Add v2 metadata to the response
         if isinstance(result, dict) and result.get("success"):
+            # Derive apk_name and apk_url (the BuildResult.to_dict() doesn't include these)
+            apk_filename = result.get("apk_path", "").split("/")[-1] if result.get("apk_path") else f"{app_name}.apk"
+            if not apk_filename.endswith(".apk"):
+                apk_filename = f"{app_name.replace(' ', '_')}.apk"
+            result["apk_name"] = apk_filename
+            result["apk_url"] = f"/download/{temp_fn_name}/{apk_filename}"
+            result["package_name"] = package_name
+            result["app_name"] = app_name
             result["v2_engine"] = {
                 "ids_count": config.get("total_ids", 0),
                 "datasets_count": config.get("total_datasets", 0),
