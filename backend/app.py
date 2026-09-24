@@ -849,6 +849,252 @@ def build_media_apk():
         }), 500
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# /api/build-v2-apk — Full v2 engine pipeline (5-char IDs + RBAC + Offline)
+# ─────────────────────────────────────────────────────────────────────────────
+@app.route("/api/build-v2-apk", methods=["POST"])
+def build_v2_apk():
+    """Build an APK using the full v2 engine pipeline.
+
+    Pipeline:
+      1. Save uploaded files to functions/<id>/media/
+      2. data_analyzer_v2.analyze_data_files() → config.json + strings.json
+         (generates 5-char IDs, type detection, dataset structure)
+      3. BuilderFactory.run_all() → runs all 10 builders
+         (variables, list, control, operator, file, view, math, component, xml_strings, moreblock)
+      4. template_renderer.render_template_file() → dynamic template.html
+         (embeds config + strings, renders tabs/cards/detail viewer)
+      5. native_bridge.generate_all() → native_bridge.js + rbac_engine.js + offline_sync.js
+         (Capacitor bridge, 5-role RBAC, IndexedDB sync queue)
+      6. Inject native_bridge.js into template.html
+      7. apk_builder_v3.build_apk() → aapt2 → javac → d8 → zipalign → apksigner
+         (uses pre-generated template.html — does NOT fall back to error HTML)
+
+    Accepts multipart form-data:
+      - bundle_file: JSON bundle of base64-encoded files (same format as /api/build-media-apk)
+      - app_name: App display name
+      - media_type: App type (hospital, supermarket, etc.)
+      - package_name: Optional Android package name
+      - version_name: Optional version (default 1.0.0)
+
+    Returns the same JSON shape as /api/build-media-apk.
+    """
+    import traceback as _tb
+    import hashlib as _hashlib
+    import time as _time
+    import base64 as _b64
+    try:
+        bundle_file = request.files.get("bundle_file")
+        if not bundle_file:
+            return jsonify({"success": False, "error": "bundle_file required"}), 400
+
+        app_name = (request.form.get("app_name") or "").strip() or "V2 App"
+        media_type = (request.form.get("media_type") or "any").strip().lower()
+        package_name = request.form.get("package_name") or None
+        version_name = request.form.get("version_name") or "1.0.0"
+
+        try:
+            bundle_data = json.loads(bundle_file.read().decode("utf-8"))
+        except Exception as e:
+            return jsonify({"success": False, "error": f"Invalid bundle JSON: {e}"}), 400
+
+        files_list = bundle_data.get("files", [])
+        if not files_list:
+            return jsonify({"success": False, "error": "bundle contains no files"}), 400
+
+        import re as _re
+        safe_app_name = _re.sub(r"[^A-Za-z0-9 _-]", "", app_name)[:30] or "V2App"
+        if not package_name:
+            slug = _re.sub(r"[^a-z0-9]", "", safe_app_name.lower()) or "v2app"
+            package_name = f"com.htmltoapk.v2.{slug}"
+
+        # Create a temp function folder
+        functions_dir = PROJECT_ROOT / "functions"
+        functions_dir.mkdir(parents=True, exist_ok=True)
+        temp_fn_name = "v2_" + _hashlib.md5(
+            (app_name + str(_time.time())).encode()).hexdigest()[:8]
+        temp_fn_dir = functions_dir / temp_fn_name
+        temp_fn_dir.mkdir(parents=True, exist_ok=True)
+
+        # 1. Save uploaded files to media/
+        media_dir = temp_fn_dir / "media"
+        media_dir.mkdir(parents=True, exist_ok=True)
+        saved_count = 0
+        for f in files_list:
+            fname = f.get("path", f.get("original_name", f"file_{saved_count}"))
+            fname = _re.sub(r"[^A-Za-z0-9._-]", "_", fname)
+            b64 = f.get("content_base64") or f.get("data") or ""
+            if not b64:
+                # Some bundles send raw text
+                raw_text = f.get("content", "")
+                if raw_text:
+                    (media_dir / fname).write_text(raw_text, encoding="utf-8")
+                    saved_count += 1
+                continue
+            try:
+                content_bytes = _b64.b64decode(b64)
+                (media_dir / fname).write_bytes(content_bytes)
+                saved_count += 1
+            except Exception as e:
+                print(f"[v2-build] failed to save {fname}: {e}", flush=True)
+        print(f"[v2-build] saved {saved_count} files to {media_dir}", flush=True)
+
+        if saved_count == 0:
+            return jsonify({"success": False, "error": "No files could be saved"}), 400
+
+        # 2. Run data_analyzer_v2 → config.json + strings.json (5-char IDs)
+        try:
+            from engine.data_analyzer_v2 import analyze_data_files as _analyze_v2
+            config, strings = _analyze_v2(temp_fn_dir, app_name)
+            print(f"[v2-build] analyzer: {config['total_ids']} IDs, "
+                  f"{config['total_datasets']} datasets, {config['total_items']} items", flush=True)
+        except Exception as e:
+            return jsonify({"success": False, "error": f"data_analyzer_v2 failed: {e}",
+                            "traceback": _tb.format_exc()}), 500
+
+        # 3. Run all 10 builders (Factory + Registry pattern)
+        try:
+            from engine.builder_factory_v2 import BuilderFactory as _BFactory
+            factory = _BFactory()
+            factory.register_all()
+            results = factory.run_all(config, strings, temp_fn_dir)
+            ok = sum(1 for r in results.values() if r and "error" not in r)
+            print(f"[v2-build] builders: {ok}/{len(results)} succeeded", flush=True)
+        except Exception as e:
+            print(f"[v2-build] WARNING: builders failed (continuing): {e}", flush=True)
+
+        # 4. Generate template.html from config + strings (v2 dynamic rendering)
+        try:
+            from engine.template_renderer import render_template_file as _render_v2
+            template_html = _render_v2(temp_fn_dir, app_name, media_type)
+            print(f"[v2-build] template.html: {len(template_html):,} chars", flush=True)
+        except Exception as e:
+            return jsonify({"success": False, "error": f"template_renderer failed: {e}",
+                            "traceback": _tb.format_exc()}), 500
+
+        # 5. Generate native_bridge.js + rbac_engine.js + offline_sync.js
+        native_bridge_size = 0
+        rbac_size = 0
+        offline_size = 0
+        try:
+            from engine.native_bridge import generate_all as _gen_native
+            nb_results = _gen_native(config, strings, temp_fn_dir)
+            native_bridge_size = nb_results.get("native_bridge", 0)
+            rbac_size = nb_results.get("rbac_engine", 0)
+            offline_size = nb_results.get("offline_sync", 0)
+            print(f"[v2-build] native_bridge: {native_bridge_size:,} bytes, "
+                  f"rbac: {rbac_size:,} bytes, offline: {offline_size:,} bytes", flush=True)
+        except Exception as e:
+            print(f"[v2-build] WARNING: native_bridge failed (continuing): {e}", flush=True)
+
+        # 6. Inject native_bridge.js + rbac_engine.js into template.html
+        try:
+            nb_path = temp_fn_dir / "native_bridge.js"
+            rbac_path = temp_fn_dir / "rbac_engine.js"
+            offline_path = temp_fn_dir / "offline_sync.js"
+            injected_scripts = ""
+            for script_path in [nb_path, rbac_path, offline_path]:
+                if script_path.exists():
+                    script_content = script_path.read_text(encoding="utf-8")
+                    injected_scripts += f"\n<script>\n{script_content}\n</script>\n"
+            if injected_scripts:
+                # Inject before </body>
+                if "</body>" in template_html.lower():
+                    idx = template_html.lower().rfind("</body>")
+                    template_html = template_html[:idx] + injected_scripts + template_html[idx:]
+                else:
+                    template_html += injected_scripts
+                # Re-write the updated template.html
+                (temp_fn_dir / "template.html").write_text(template_html, encoding="utf-8")
+                print(f"[v2-build] injected native bridge scripts into template.html "
+                      f"(+{len(injected_scripts):,} chars)", flush=True)
+        except Exception as e:
+            print(f"[v2-build] WARNING: injection failed (continuing): {e}", flush=True)
+
+        # 7. Write function.json (manifest for apk_builder_v3)
+        (temp_fn_dir / "function.json").write_text(json.dumps({
+            "name": app_name,
+            "version": version_name,
+            "package": package_name,
+            "entry": "template.html",
+            "min_sdk": 24,
+            "target_sdk": 34,
+            "permissions": ["INTERNET", "ACCESS_NETWORK_STATE",
+                            "READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE",
+                            "REQUEST_INSTALL_PACKAGES"],
+            "description": f"V2 engine APK with {config['total_ids']} IDs, RBAC, Offline Sync",
+        }, indent=2), encoding="utf-8")
+
+        # Handle custom icon
+        icon_file = request.files.get("icon_file")
+        if icon_file and icon_file.filename:
+            try:
+                icon_bytes = icon_file.read()
+                if icon_bytes[:4] != b'\x89PNG':
+                    print(f"[v2-build] WARNING: icon not PNG, may fail aapt2", flush=True)
+                (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
+            except Exception as e:
+                print(f"[v2-build] icon save failed: {e}", flush=True)
+
+        # Force the registry to rescan
+        reload_registry()
+
+        # 8. Build the APK (aapt2 → javac → d8 → zipalign → apksigner)
+        #    The fixed _render_function_html will read our pre-generated template.html
+        try:
+            from engine.apk_builder_v3 import build_apk as _v3_build_apk
+            res = _v3_build_apk(
+                temp_fn_name,
+                app_name=app_name,
+                package_name=package_name,
+                version_code=1,
+                version_name=version_name,
+            )
+            result = res.to_dict() if hasattr(res, "to_dict") else res
+        except Exception as e:
+            return jsonify({"success": False, "error": f"apk_builder_v3 failed: {e}",
+                            "traceback": _tb.format_exc()}), 500
+
+        # Add v2 metadata to the response
+        if isinstance(result, dict) and result.get("success"):
+            result["v2_engine"] = {
+                "ids_count": config.get("total_ids", 0),
+                "datasets_count": config.get("total_datasets", 0),
+                "items_count": config.get("total_items", 0),
+                "builders_run": len(results) if 'results' in dir() else 0,
+                "native_bridge_bytes": native_bridge_size,
+                "rbac_engine_bytes": rbac_size,
+                "offline_sync_bytes": offline_size,
+                "template_size_bytes": len(template_html),
+                "engine_version": "v2.1",
+            }
+            result["build_mode"] = "apk-v2-engine-signed"
+
+        # Record stats
+        try:
+            _record_build_stats({
+                "function": temp_fn_name,
+                "app_name": app_name,
+                "media_type": media_type,
+                "build_mode": "v2-engine",
+                "apk_size": result.get("apk_size", 0) if isinstance(result, dict) else 0,
+                "duration_sec": result.get("duration_sec", 0) if isinstance(result, dict) else 0,
+                "success": result.get("success", False) if isinstance(result, dict) else False,
+                "timestamp": _time.strftime("%Y-%m-%dT%H:%M:%SZ", _time.gmtime()),
+            })
+        except Exception as e:
+            print(f"[firebase] stats record failed: {e}", flush=True)
+
+        return jsonify(result), (200 if result.get("success") else 500)
+
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e),
+            "traceback": _tb.format_exc(),
+        }), 500
+
+
 def _record_build_stats(stats: dict):
     """Record build stats to Firebase RTDB (counts/types only — no media files)."""
     import urllib.request as _ur

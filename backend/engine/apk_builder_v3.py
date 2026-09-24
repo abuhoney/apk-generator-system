@@ -32,7 +32,47 @@ from typing import Optional
 
 from .config import get_config
 from .function_registry import get_registry
-from .template_renderer import render_function
+
+# v2 engine imports (graceful — these may fail if config/strings don't exist)
+try:
+    from .template_renderer import render_template_file as _render_template_file_v2
+except Exception:
+    _render_template_file_v2 = None
+
+
+def _render_function_html(function_dir: Path, app_name: str = "App") -> str:
+    """Render the index.html for a function directory.
+
+    Priority:
+      1. If function_dir/template.html exists → read it directly
+         (this is the case when /api/build-v2-apk pre-generates the template)
+      2. Elif function_dir/config.json + strings.json exist → use v2 render_template_file
+         (this generates the dynamic template from 5-char IDs)
+      3. Else → simple fallback HTML
+    """
+    # Priority 1: pre-generated template.html (from v2 engine or static template)
+    template_path = function_dir / "template.html"
+    if template_path.exists():
+        html = template_path.read_text(encoding="utf-8")
+        if html and len(html) > 100:
+            return html
+
+    # Priority 2: generate from config.json + strings.json via v2 engine
+    if _render_template_file_v2 is not None:
+        config_path = function_dir / "config.json"
+        strings_path = function_dir / "strings.json"
+        if config_path.exists() and strings_path.exists():
+            try:
+                return _render_template_file_v2(function_dir, app_name, "any")
+            except Exception as e:
+                print(f"[apk_builder_v3] v2 render failed: {e}", flush=True)
+
+    # Priority 3: fallback
+    return f"""<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{app_name}</title></head>
+<body><h1>{app_name}</h1></body></html>"""
 
 
 # --------------------------------------------------------------------------- #
@@ -465,11 +505,8 @@ def _prepare_project(function_name: str, app_name: str, package: str,
     java_src = JAVA_SOURCE.format(package_name=package)
     (java_dir / "MainActivity.java").write_text(java_src, encoding="utf-8")
 
-    # 4. Assets — rendered webapp
-    try:
-        index_html = render_function(function_dir)
-    except Exception as e:
-        index_html = f"<!DOCTYPE html><html><body><h1>{app_name}</h1><p>Error: {e}</p></body></html>"
+    # 4. Assets — rendered webapp (uses v2 engine if template.html exists)
+    index_html = _render_function_html(function_dir, app_name)
     (assets_dir / "index.html").write_text(index_html, encoding="utf-8")
 
     # Copy config.json + strings.json + css/js
