@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1fhng",
+    "field": "price",
+    "formula": "1fhng * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "0c4ms",
+    "field": "service_cost",
+    "formula": "0c4ms * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "3aes7",
+    "field": "fee",
+    "formula": "3aes7 * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "jvqxh",
+    "field": "price",
+    "formula": "jvqxh * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "e826n",
+    "field": "cost",
+    "formula": "e826n * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "9qlly",
+    "field": "price",
+    "formula": "9qlly * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "850le",
+    "field": "cost",
+    "formula": "850le * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "8n86a",
+    "field": "Fee",
+    "formula": "8n86a * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "xxv65",
+    "field": "Price",
+    "formula": "xxv65 * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "2ti11",
+    "field": "Service Cost",
+    "formula": "2ti11 * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "de08b",
+    "field": "Price",
+    "formula": "de08b * 1.15",
+    "description": "Calculate with VAT"
+  },
+  {
+    "id": "da5cr",
+    "field": "Cost",
+    "formula": "da5cr * 1.15",
+    "description": "Calculate with VAT"
+  }
+]

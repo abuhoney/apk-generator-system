@@ -1,0 +1,3128 @@
+{
+  "project_id": "TESTHOSPITALAPP",
+  "generated_at": "2026-09-24T21:24:47Z",
+  "total_ids": 156,
+  "total_datasets": 20,
+  "total_items": 231,
+  "ids": {
+    "5t07c": {
+      "original": "project",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "_meta",
+      "sample_value": "Al-Noor Specialist Hospital Management System"
+    },
+    "1ouae": {
+      "original": "icon",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "_meta",
+      "sample_value": "🏥"
+    },
+    "6e2w9": {
+      "original": "patient_id",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "patients",
+      "sample_value": "1001"
+    },
+    "uws4h": {
+      "original": "name",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "patients",
+      "sample_value": "Ahmed Ali 1"
+    },
+    "f5guq": {
+      "original": "age",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "patients",
+      "sample_value": "79"
+    },
+    "ntdpo": {
+      "original": "gender",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "patients",
+      "sample_value": "Male"
+    },
+    "srev3": {
+      "original": "phone",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "patients",
+      "sample_value": "+966578307581"
+    },
+    "43fhy": {
+      "original": "blood",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "patients",
+      "sample_value": "O-"
+    },
+    "chwx7": {
+      "original": "weight",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "patients",
+      "sample_value": "50"
+    },
+    "f99ry": {
+      "original": "height",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "patients",
+      "sample_value": "139"
+    },
+    "7lte5": {
+      "original": "diagnosis",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "patients",
+      "sample_value": "Fracture"
+    },
+    "xlhu8": {
+      "original": "department",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "patients",
+      "sample_value": "Emergency"
+    },
+    "l2l12": {
+      "original": "doctor",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "patients",
+      "sample_value": "Dr. Sara Abdullah"
+    },
+    "pgpq8": {
+      "original": "status",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "patients",
+      "sample_value": "Recovering"
+    },
+    "xscd8": {
+      "original": "room",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "patients",
+      "sample_value": "B-101"
+    },
+    "nrbqy": {
+      "original": "admission",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "patients",
+      "sample_value": "2025-01-12"
+    },
+    "lt4lp": {
+      "original": "discharge",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "patients",
+      "sample_value": "2025-01-11"
+    },
+    "829c4": {
+      "original": "photo",
+      "type": "Canvas",
+      "widget": "ImageView",
+      "input_type": "image",
+      "builders": [
+        "View",
+        "Math",
+        "File",
+        "Component"
+      ],
+      "dataset": "patients",
+      "sample_value": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mOYdiKFJMQwqmFUw/DVAABtb8IQu77fiAAAAABJRU5E..."
+    },
+    "s0ko8": {
+      "original": "id",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "doctors",
+      "sample_value": "D01"
+    },
+    "drzhs": {
+      "original": "name",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "doctors",
+      "sample_value": "Dr. Ahmed Hassan"
+    },
+    "70yoa": {
+      "original": "specialty",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "doctors",
+      "sample_value": "Cardiology"
+    },
+    "ptuyz": {
+      "original": "phone",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "doctors",
+      "sample_value": "+966555055461"
+    },
+    "ajhun": {
+      "original": "email",
+      "type": "Email",
+      "widget": "EditText",
+      "input_type": "email",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "doctors",
+      "sample_value": "doctor1@hospital.com"
+    },
+    "8tsu9": {
+      "original": "department",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "doctors",
+      "sample_value": "Cardiology"
+    },
+    "bjovl": {
+      "original": "patients_count",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "doctors",
+      "sample_value": "34"
+    },
+    "w8otj": {
+      "original": "shift",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "doctors",
+      "sample_value": "Evening"
+    },
+    "mwmsu": {
+      "original": "rating",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "doctors",
+      "sample_value": "3.8"
+    },
+    "uzm69": {
+      "original": "photo",
+      "type": "Canvas",
+      "widget": "ImageView",
+      "input_type": "image",
+      "builders": [
+        "View",
+        "Math",
+        "File",
+        "Component"
+      ],
+      "dataset": "doctors",
+      "sample_value": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mNImfafJMQwqmFUw/DVAADdTPkQSvaXRAAAAABJRU5E..."
+    },
+    "q6q7x": {
+      "original": "id",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "nurses",
+      "sample_value": "N01"
+    },
+    "ebx6u": {
+      "original": "name",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "nurses",
+      "sample_value": "Nurse Abeer 1"
+    },
+    "mwi2b": {
+      "original": "department",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "nurses",
+      "sample_value": "Pediatrics"
+    },
+    "n98po": {
+      "original": "shift",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "nurses",
+      "sample_value": "Evening"
+    },
+    "daagq": {
+      "original": "phone",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "nurses",
+      "sample_value": "+966564713949"
+    },
+    "tmuv4": {
+      "original": "rating",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "nurses",
+      "sample_value": "4.3"
+    },
+    "tubxx": {
+      "original": "years_experience",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "nurses",
+      "sample_value": "4"
+    },
+    "ge0mx": {
+      "original": "appt_id",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "appointments",
+      "sample_value": "APT-301"
+    },
+    "pyjlg": {
+      "original": "patient",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "appointments",
+      "sample_value": "Yusuf Said 9"
+    },
+    "4rbrx": {
+      "original": "doctor",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "appointments",
+      "sample_value": "Dr. Omar Yahya"
+    },
+    "pdrni": {
+      "original": "date",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "appointments",
+      "sample_value": "2025-01-19"
+    },
+    "v7l3r": {
+      "original": "time",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "appointments",
+      "sample_value": "15:30"
+    },
+    "pnwwv": {
+      "original": "type",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "appointments",
+      "sample_value": "MRI"
+    },
+    "f58sc": {
+      "original": "status",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "appointments",
+      "sample_value": "Pending"
+    },
+    "08re4": {
+      "original": "department",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "appointments",
+      "sample_value": "Cardiology"
+    },
+    "f43ee": {
+      "original": "room",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "rooms",
+      "sample_value": "B-101"
+    },
+    "skm52": {
+      "original": "type",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "rooms",
+      "sample_value": "ICU"
+    },
+    "f07z2": {
+      "original": "capacity",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "rooms",
+      "sample_value": "2"
+    },
+    "uo6nm": {
+      "original": "occupied",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "rooms",
+      "sample_value": "3"
+    },
+    "377ru": {
+      "original": "floor",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "rooms",
+      "sample_value": "2"
+    },
+    "ipurw": {
+      "original": "status",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "rooms",
+      "sample_value": "Occupied"
+    },
+    "160hb": {
+      "original": "daily_rate",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "rooms",
+      "sample_value": "4483.98"
+    },
+    "t6dcf": {
+      "original": "icon",
+      "type": "Canvas",
+      "widget": "ImageView",
+      "input_type": "image",
+      "builders": [
+        "View",
+        "Math",
+        "File",
+        "Component"
+      ],
+      "dataset": "rooms",
+      "sample_value": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4HxBAEmIY1TCqYfhqAABPVJ8QmOo5ZgAAAABJRU5E..."
+    },
+    "boral": {
+      "original": "code",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "medicines",
+      "sample_value": "MED001"
+    },
+    "nreed": {
+      "original": "name",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "medicines",
+      "sample_value": "Aspirin 75mg"
+    },
+    "9oydk": {
+      "original": "category",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "medicines",
+      "sample_value": "Diabetes"
+    },
+    "klm89": {
+      "original": "stock",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "medicines",
+      "sample_value": "449"
+    },
+    "jcxbt": {
+      "original": "min_stock",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "medicines",
+      "sample_value": "40"
+    },
+    "1fhng": {
+      "original": "price",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "medicines",
+      "sample_value": "100.44"
+    },
+    "kcut2": {
+      "original": "expiry",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "medicines",
+      "sample_value": "2025-10-10"
+    },
+    "sf1ch": {
+      "original": "icon",
+      "type": "Canvas",
+      "widget": "ImageView",
+      "input_type": "image",
+      "builders": [
+        "View",
+        "Math",
+        "File",
+        "Component"
+      ],
+      "dataset": "medicines",
+      "sample_value": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mM4kZJCEmIY1TCqYfhqAAAK+5AQ6NMpxwAAAABJRU5E..."
+    },
+    "x9u2j": {
+      "original": "supplier",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "medicines",
+      "sample_value": "Gulf Medical Supplies"
+    },
+    "122lx": {
+      "original": "invoice_id",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "invoices",
+      "sample_value": "INV-5001"
+    },
+    "hj6eg": {
+      "original": "patient_id",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "invoices",
+      "sample_value": "1016"
+    },
+    "0c4ms": {
+      "original": "service_cost",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "invoices",
+      "sample_value": "43622.39"
+    },
+    "jzgz4": {
+      "original": "discount_pct",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "invoices",
+      "sample_value": "18"
+    },
+    "30g05": {
+      "original": "total_bill",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "invoices",
+      "sample_value": "50165.75"
+    },
+    "yrwsg": {
+      "original": "discount_amount",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "invoices",
+      "sample_value": "7852.03"
+    },
+    "mwche": {
+      "original": "net_payable",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "invoices",
+      "sample_value": "42313.72"
+    },
+    "fl8ha": {
+      "original": "date",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "invoices",
+      "sample_value": "2025-01-28"
+    },
+    "gwsl0": {
+      "original": "status",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "invoices",
+      "sample_value": "Partial"
+    },
+    "gtadg": {
+      "original": "icon",
+      "type": "Canvas",
+      "widget": "ImageView",
+      "input_type": "image",
+      "builders": [
+        "View",
+        "Math",
+        "File",
+        "Component"
+      ],
+      "dataset": "invoices",
+      "sample_value": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAFklEQVR42mP4v4WBJMQwqmFUw/DVAABBJbMQ/ZZSQQAAAABJRU5E..."
+    },
+    "xac27": {
+      "original": "case_id",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "emergency",
+      "sample_value": "ER-001"
+    },
+    "ycbwe": {
+      "original": "patient",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "emergency",
+      "sample_value": "Maryam Ali 3"
+    },
+    "jaa9v": {
+      "original": "severity",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "emergency",
+      "sample_value": "Minor"
+    },
+    "oh4uo": {
+      "original": "arrival",
+      "type": "Date",
+      "widget": "DatePicker",
+      "input_type": "date",
+      "builders": [
+        "Variables",
+        "View",
+        "Math"
+      ],
+      "dataset": "emergency",
+      "sample_value": "2025-01-15 06:46"
+    },
+    "rcrmk": {
+      "original": "status",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "emergency",
+      "sample_value": "Discharged"
+    },
+    "4yyba": {
+      "original": "doctor",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "emergency",
+      "sample_value": "Dr. Huda Mansour"
+    },
+    "55wr1": {
+      "original": "triage_score",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "emergency",
+      "sample_value": "3"
+    },
+    "h4s3f": {
+      "original": "type",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "beds_stats",
+      "sample_value": "Standard"
+    },
+    "olxfb": {
+      "original": "total",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "beds_stats",
+      "sample_value": "80"
+    },
+    "2efnv": {
+      "original": "occupied",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "beds_stats",
+      "sample_value": "70"
+    },
+    "3s5nx": {
+      "original": "available",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "beds_stats",
+      "sample_value": "10"
+    },
+    "pjiba": {
+      "original": "month",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "revenue_monthly",
+      "sample_value": "2025-01"
+    },
+    "43prs": {
+      "original": "revenue",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "revenue_monthly",
+      "sample_value": "1514865"
+    },
+    "avm05": {
+      "original": "expenses",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "revenue_monthly",
+      "sample_value": "1235292"
+    },
+    "quz34": {
+      "original": "profit",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "revenue_monthly",
+      "sample_value": "279573"
+    },
+    "3og0m": {
+      "original": "month",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "operations_stats",
+      "sample_value": "2025-01"
+    },
+    "mn9x9": {
+      "original": "operations",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "operations_stats",
+      "sample_value": "199"
+    },
+    "ir876": {
+      "original": "emergency",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "operations_stats",
+      "sample_value": "27"
+    },
+    "x2qo0": {
+      "original": "consultations",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "operations_stats",
+      "sample_value": "494"
+    },
+    "g5qdf": {
+      "original": "name",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Hospital Contacts",
+      "sample_value": "Emergency"
+    },
+    "vldmz": {
+      "original": "value",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Hospital Contacts",
+      "sample_value": "+966997 (24/7 - Ground Floor)"
+    },
+    "34vhx": {
+      "original": "patient_id",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "1001"
+    },
+    "bc9sa": {
+      "original": "name",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "Patient Name 1"
+    },
+    "j8h6o": {
+      "original": "age",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "65"
+    },
+    "6relu": {
+      "original": "gender",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "Female"
+    },
+    "pdnff": {
+      "original": "phone",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "966566555628"
+    },
+    "wuej5": {
+      "original": "blood_type",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "A+"
+    },
+    "bqwi6": {
+      "original": "weight",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "19"
+    },
+    "65y7j": {
+      "original": "height",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "149"
+    },
+    "gx7n3": {
+      "original": "diagnosis",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "Diabetes"
+    },
+    "dx5p7": {
+      "original": "department",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "ICU"
+    },
+    "kt8cy": {
+      "original": "doctor",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "Dr. Mohammed Ali"
+    },
+    "ioyak": {
+      "original": "status",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "Needs Follow-up"
+    },
+    "q4p7e": {
+      "original": "room",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "B-101"
+    },
+    "ttpqb": {
+      "original": "admission_date",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "2025-01-07"
+    },
+    "q14py": {
+      "original": "discharge_date",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "2025-01-17"
+    },
+    "3aes7": {
+      "original": "fee",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Hospital Data",
+      "sample_value": "21490.72"
+    },
+    "nr5q9": {
+      "original": "content",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Hospital Info",
+      "sample_value": "<!DOCTYPE html>\n<html><head><title>Al-Noor Hospital - About</title></head>\n<body>\n<h1>🏥 Al-Noor Spec..."
+    },
+    "01jmp": {
+      "original": "type",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "Hospital Info",
+      "sample_value": "RAW_HTML"
+    },
+    "oin9h": {
+      "original": "Patient ID",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Patients",
+      "sample_value": "1001"
+    },
+    "6054k": {
+      "original": "Name",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Patients",
+      "sample_value": "Patient 1"
+    },
+    "6gwkq": {
+      "original": "Age",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Patients",
+      "sample_value": "83"
+    },
+    "5oljm": {
+      "original": "Gender",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "Patients",
+      "sample_value": "Female"
+    },
+    "dnyyf": {
+      "original": "Phone",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "Patients",
+      "sample_value": "+966552144107"
+    },
+    "r8cpa": {
+      "original": "Blood Type",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Patients",
+      "sample_value": "AB-"
+    },
+    "odgko": {
+      "original": "Weight",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Patients",
+      "sample_value": "99"
+    },
+    "56dab": {
+      "original": "Height",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Patients",
+      "sample_value": "148"
+    },
+    "cq7cj": {
+      "original": "Diagnosis",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Patients",
+      "sample_value": "Asthma"
+    },
+    "x2fk6": {
+      "original": "Department",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Patients",
+      "sample_value": "ICU"
+    },
+    "k8c3w": {
+      "original": "Doctor",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Patients",
+      "sample_value": "Dr. Ahmed Hassan"
+    },
+    "cb5bf": {
+      "original": "Status",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "Patients",
+      "sample_value": "Needs Follow-up"
+    },
+    "wuudg": {
+      "original": "Room",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Patients",
+      "sample_value": "B-101"
+    },
+    "73joo": {
+      "original": "Admission",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "Patients",
+      "sample_value": "2025-01-05"
+    },
+    "1bw3o": {
+      "original": "Discharge",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "Patients",
+      "sample_value": "2025-01-16"
+    },
+    "8n86a": {
+      "original": "Fee",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Patients",
+      "sample_value": "15733.33"
+    },
+    "t2cb2": {
+      "original": "ID",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Doctors",
+      "sample_value": "D01"
+    },
+    "kbfpx": {
+      "original": "Name",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Doctors",
+      "sample_value": "Dr. Ahmed Hassan"
+    },
+    "18e87": {
+      "original": "Specialty",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Doctors",
+      "sample_value": "Cardiology"
+    },
+    "6jzvl": {
+      "original": "Phone",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "Doctors",
+      "sample_value": "+966557434955"
+    },
+    "ue3bm": {
+      "original": "Email",
+      "type": "Email",
+      "widget": "EditText",
+      "input_type": "email",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "Doctors",
+      "sample_value": "doctor1@hospital.com"
+    },
+    "ikazr": {
+      "original": "Department",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Doctors",
+      "sample_value": "Cardiology"
+    },
+    "1uiy1": {
+      "original": "Patients Count",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Doctors",
+      "sample_value": "40"
+    },
+    "k9xgs": {
+      "original": "Shift",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "Doctors",
+      "sample_value": "Evening"
+    },
+    "tl6oa": {
+      "original": "Rating",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Doctors",
+      "sample_value": "3.7"
+    },
+    "x177q": {
+      "original": "Code",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Medicines",
+      "sample_value": "MED001"
+    },
+    "6d5nz": {
+      "original": "Name",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Medicines",
+      "sample_value": "Paracetamol 500mg"
+    },
+    "wljem": {
+      "original": "Category",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "Medicines",
+      "sample_value": "Psychiatric"
+    },
+    "gac8q": {
+      "original": "Stock",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Medicines",
+      "sample_value": "117"
+    },
+    "4u1mb": {
+      "original": "Min Stock",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Medicines",
+      "sample_value": "52"
+    },
+    "xxv65": {
+      "original": "Price",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Medicines",
+      "sample_value": "140.76"
+    },
+    "7sxjq": {
+      "original": "Expiry",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "Medicines",
+      "sample_value": "2025-10-04"
+    },
+    "r0ue7": {
+      "original": "Supplier",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Medicines",
+      "sample_value": "Global Healthcare"
+    },
+    "4gura": {
+      "original": "Room",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Rooms",
+      "sample_value": "B-101"
+    },
+    "cdjt2": {
+      "original": "Type",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "Rooms",
+      "sample_value": "Isolation"
+    },
+    "otiv2": {
+      "original": "Capacity",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Rooms",
+      "sample_value": "3"
+    },
+    "9i23y": {
+      "original": "Occupied",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Rooms",
+      "sample_value": "3"
+    },
+    "8g683": {
+      "original": "Floor",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Rooms",
+      "sample_value": "2"
+    },
+    "1bh1l": {
+      "original": "Status",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "Rooms",
+      "sample_value": "Cleaning"
+    },
+    "xil2r": {
+      "original": "Daily Rate",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Rooms",
+      "sample_value": "4494.12"
+    },
+    "5dcjp": {
+      "original": "Invoice ID",
+      "type": "String",
+      "widget": "EditText",
+      "input_type": "text",
+      "builders": [
+        "Variables",
+        "View"
+      ],
+      "dataset": "Invoices",
+      "sample_value": "INV-5001"
+    },
+    "khjy0": {
+      "original": "Patient ID",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Invoices",
+      "sample_value": "1007"
+    },
+    "2ti11": {
+      "original": "Service Cost",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Invoices",
+      "sample_value": "49842.84"
+    },
+    "2da67": {
+      "original": "Discount Pct",
+      "type": "Int",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Invoices",
+      "sample_value": "7"
+    },
+    "19kuf": {
+      "original": "Total Bill",
+      "type": "Float",
+      "widget": "EditText",
+      "input_type": "number",
+      "builders": [
+        "Variables",
+        "View",
+        "Math",
+        "Operator"
+      ],
+      "dataset": "Invoices",
+      "sample_value": "57319.27"
+    },
+    "7hsww": {
+      "original": "Date",
+      "type": "Phone",
+      "widget": "EditText",
+      "input_type": "tel",
+      "builders": [
+        "Variables",
+        "View",
+        "Operator"
+      ],
+      "dataset": "Invoices",
+      "sample_value": "2025-01-13"
+    },
+    "lbw4i": {
+      "original": "Status",
+      "type": "Enum",
+      "widget": "Spinner",
+      "input_type": "select",
+      "builders": [
+        "Variables",
+        "View",
+        "Control",
+        "List"
+      ],
+      "dataset": "Invoices",
+      "sample_value": "Pending"
+    }
+  },
+  "datasets": [
+    {
+      "name": "_meta",
+      "item_count": 1,
+      "fields": [
+        {
+          "field": "project",
+          "code": "5t07c",
+          "type": "String"
+        },
+        {
+          "field": "icon",
+          "code": "1ouae",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "patients",
+      "item_count": 20,
+      "fields": [
+        {
+          "field": "patient_id",
+          "code": "6e2w9",
+          "type": "Int"
+        },
+        {
+          "field": "name",
+          "code": "uws4h",
+          "type": "String"
+        },
+        {
+          "field": "age",
+          "code": "f5guq",
+          "type": "Int"
+        },
+        {
+          "field": "gender",
+          "code": "ntdpo",
+          "type": "Enum"
+        },
+        {
+          "field": "phone",
+          "code": "srev3",
+          "type": "Phone"
+        },
+        {
+          "field": "blood",
+          "code": "43fhy",
+          "type": "String"
+        },
+        {
+          "field": "weight",
+          "code": "chwx7",
+          "type": "Int"
+        },
+        {
+          "field": "height",
+          "code": "f99ry",
+          "type": "Int"
+        },
+        {
+          "field": "diagnosis",
+          "code": "7lte5",
+          "type": "String"
+        },
+        {
+          "field": "department",
+          "code": "xlhu8",
+          "type": "String"
+        },
+        {
+          "field": "doctor",
+          "code": "l2l12",
+          "type": "String"
+        },
+        {
+          "field": "status",
+          "code": "pgpq8",
+          "type": "Enum"
+        },
+        {
+          "field": "room",
+          "code": "xscd8",
+          "type": "String"
+        },
+        {
+          "field": "admission",
+          "code": "nrbqy",
+          "type": "Phone"
+        },
+        {
+          "field": "discharge",
+          "code": "lt4lp",
+          "type": "Phone"
+        },
+        {
+          "field": "photo",
+          "code": "829c4",
+          "type": "Canvas"
+        }
+      ]
+    },
+    {
+      "name": "doctors",
+      "item_count": 8,
+      "fields": [
+        {
+          "field": "id",
+          "code": "s0ko8",
+          "type": "String"
+        },
+        {
+          "field": "name",
+          "code": "drzhs",
+          "type": "String"
+        },
+        {
+          "field": "specialty",
+          "code": "70yoa",
+          "type": "String"
+        },
+        {
+          "field": "phone",
+          "code": "ptuyz",
+          "type": "Phone"
+        },
+        {
+          "field": "email",
+          "code": "ajhun",
+          "type": "Email"
+        },
+        {
+          "field": "department",
+          "code": "8tsu9",
+          "type": "String"
+        },
+        {
+          "field": "patients_count",
+          "code": "bjovl",
+          "type": "Int"
+        },
+        {
+          "field": "shift",
+          "code": "w8otj",
+          "type": "Enum"
+        },
+        {
+          "field": "rating",
+          "code": "mwmsu",
+          "type": "Float"
+        },
+        {
+          "field": "photo",
+          "code": "uzm69",
+          "type": "Canvas"
+        }
+      ]
+    },
+    {
+      "name": "nurses",
+      "item_count": 12,
+      "fields": [
+        {
+          "field": "id",
+          "code": "q6q7x",
+          "type": "String"
+        },
+        {
+          "field": "name",
+          "code": "ebx6u",
+          "type": "String"
+        },
+        {
+          "field": "department",
+          "code": "mwi2b",
+          "type": "String"
+        },
+        {
+          "field": "shift",
+          "code": "n98po",
+          "type": "Enum"
+        },
+        {
+          "field": "phone",
+          "code": "daagq",
+          "type": "Phone"
+        },
+        {
+          "field": "rating",
+          "code": "tmuv4",
+          "type": "Float"
+        },
+        {
+          "field": "years_experience",
+          "code": "tubxx",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "appointments",
+      "item_count": 15,
+      "fields": [
+        {
+          "field": "appt_id",
+          "code": "ge0mx",
+          "type": "String"
+        },
+        {
+          "field": "patient",
+          "code": "pyjlg",
+          "type": "String"
+        },
+        {
+          "field": "doctor",
+          "code": "4rbrx",
+          "type": "String"
+        },
+        {
+          "field": "date",
+          "code": "pdrni",
+          "type": "Phone"
+        },
+        {
+          "field": "time",
+          "code": "v7l3r",
+          "type": "String"
+        },
+        {
+          "field": "type",
+          "code": "pnwwv",
+          "type": "Enum"
+        },
+        {
+          "field": "status",
+          "code": "f58sc",
+          "type": "Enum"
+        },
+        {
+          "field": "department",
+          "code": "08re4",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "rooms",
+      "item_count": 18,
+      "fields": [
+        {
+          "field": "room",
+          "code": "f43ee",
+          "type": "String"
+        },
+        {
+          "field": "type",
+          "code": "skm52",
+          "type": "Enum"
+        },
+        {
+          "field": "capacity",
+          "code": "f07z2",
+          "type": "Int"
+        },
+        {
+          "field": "occupied",
+          "code": "uo6nm",
+          "type": "Int"
+        },
+        {
+          "field": "floor",
+          "code": "377ru",
+          "type": "Int"
+        },
+        {
+          "field": "status",
+          "code": "ipurw",
+          "type": "Enum"
+        },
+        {
+          "field": "daily_rate",
+          "code": "160hb",
+          "type": "Float"
+        },
+        {
+          "field": "icon",
+          "code": "t6dcf",
+          "type": "Canvas"
+        }
+      ]
+    },
+    {
+      "name": "medicines",
+      "item_count": 15,
+      "fields": [
+        {
+          "field": "code",
+          "code": "boral",
+          "type": "String"
+        },
+        {
+          "field": "name",
+          "code": "nreed",
+          "type": "String"
+        },
+        {
+          "field": "category",
+          "code": "9oydk",
+          "type": "Enum"
+        },
+        {
+          "field": "stock",
+          "code": "klm89",
+          "type": "Int"
+        },
+        {
+          "field": "min_stock",
+          "code": "jcxbt",
+          "type": "Int"
+        },
+        {
+          "field": "price",
+          "code": "1fhng",
+          "type": "Float"
+        },
+        {
+          "field": "expiry",
+          "code": "kcut2",
+          "type": "Phone"
+        },
+        {
+          "field": "icon",
+          "code": "sf1ch",
+          "type": "Canvas"
+        },
+        {
+          "field": "supplier",
+          "code": "x9u2j",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "invoices",
+      "item_count": 10,
+      "fields": [
+        {
+          "field": "invoice_id",
+          "code": "122lx",
+          "type": "String"
+        },
+        {
+          "field": "patient_id",
+          "code": "hj6eg",
+          "type": "Int"
+        },
+        {
+          "field": "service_cost",
+          "code": "0c4ms",
+          "type": "Float"
+        },
+        {
+          "field": "discount_pct",
+          "code": "jzgz4",
+          "type": "Int"
+        },
+        {
+          "field": "total_bill",
+          "code": "30g05",
+          "type": "Float"
+        },
+        {
+          "field": "discount_amount",
+          "code": "yrwsg",
+          "type": "Float"
+        },
+        {
+          "field": "net_payable",
+          "code": "mwche",
+          "type": "Float"
+        },
+        {
+          "field": "date",
+          "code": "fl8ha",
+          "type": "Phone"
+        },
+        {
+          "field": "status",
+          "code": "gwsl0",
+          "type": "Enum"
+        },
+        {
+          "field": "icon",
+          "code": "gtadg",
+          "type": "Canvas"
+        }
+      ]
+    },
+    {
+      "name": "emergency",
+      "item_count": 8,
+      "fields": [
+        {
+          "field": "case_id",
+          "code": "xac27",
+          "type": "String"
+        },
+        {
+          "field": "patient",
+          "code": "ycbwe",
+          "type": "String"
+        },
+        {
+          "field": "severity",
+          "code": "jaa9v",
+          "type": "Enum"
+        },
+        {
+          "field": "arrival",
+          "code": "oh4uo",
+          "type": "Date"
+        },
+        {
+          "field": "status",
+          "code": "rcrmk",
+          "type": "Enum"
+        },
+        {
+          "field": "doctor",
+          "code": "4yyba",
+          "type": "String"
+        },
+        {
+          "field": "triage_score",
+          "code": "55wr1",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "beds_stats",
+      "item_count": 5,
+      "fields": [
+        {
+          "field": "type",
+          "code": "h4s3f",
+          "type": "Enum"
+        },
+        {
+          "field": "total",
+          "code": "olxfb",
+          "type": "Int"
+        },
+        {
+          "field": "occupied",
+          "code": "2efnv",
+          "type": "Int"
+        },
+        {
+          "field": "available",
+          "code": "3s5nx",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "revenue_monthly",
+      "item_count": 6,
+      "fields": [
+        {
+          "field": "month",
+          "code": "pjiba",
+          "type": "Phone"
+        },
+        {
+          "field": "revenue",
+          "code": "43prs",
+          "type": "Int"
+        },
+        {
+          "field": "expenses",
+          "code": "avm05",
+          "type": "Int"
+        },
+        {
+          "field": "profit",
+          "code": "quz34",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "operations_stats",
+      "item_count": 6,
+      "fields": [
+        {
+          "field": "month",
+          "code": "3og0m",
+          "type": "Phone"
+        },
+        {
+          "field": "operations",
+          "code": "mn9x9",
+          "type": "Int"
+        },
+        {
+          "field": "emergency",
+          "code": "ir876",
+          "type": "Int"
+        },
+        {
+          "field": "consultations",
+          "code": "x2qo0",
+          "type": "Int"
+        }
+      ]
+    },
+    {
+      "name": "Hospital Contacts",
+      "item_count": 15,
+      "fields": [
+        {
+          "field": "name",
+          "code": "g5qdf",
+          "type": "String"
+        },
+        {
+          "field": "value",
+          "code": "vldmz",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "Hospital Data",
+      "item_count": 20,
+      "fields": [
+        {
+          "field": "patient_id",
+          "code": "34vhx",
+          "type": "Int"
+        },
+        {
+          "field": "name",
+          "code": "bc9sa",
+          "type": "String"
+        },
+        {
+          "field": "age",
+          "code": "j8h6o",
+          "type": "Int"
+        },
+        {
+          "field": "gender",
+          "code": "6relu",
+          "type": "Enum"
+        },
+        {
+          "field": "phone",
+          "code": "pdnff",
+          "type": "Int"
+        },
+        {
+          "field": "blood_type",
+          "code": "wuej5",
+          "type": "String"
+        },
+        {
+          "field": "weight",
+          "code": "bqwi6",
+          "type": "Int"
+        },
+        {
+          "field": "height",
+          "code": "65y7j",
+          "type": "Int"
+        },
+        {
+          "field": "diagnosis",
+          "code": "gx7n3",
+          "type": "String"
+        },
+        {
+          "field": "department",
+          "code": "dx5p7",
+          "type": "String"
+        },
+        {
+          "field": "doctor",
+          "code": "kt8cy",
+          "type": "String"
+        },
+        {
+          "field": "status",
+          "code": "ioyak",
+          "type": "Enum"
+        },
+        {
+          "field": "room",
+          "code": "q4p7e",
+          "type": "String"
+        },
+        {
+          "field": "admission_date",
+          "code": "ttpqb",
+          "type": "Phone"
+        },
+        {
+          "field": "discharge_date",
+          "code": "q14py",
+          "type": "Phone"
+        },
+        {
+          "field": "fee",
+          "code": "3aes7",
+          "type": "Float"
+        }
+      ]
+    },
+    {
+      "name": "Hospital Info",
+      "item_count": 1,
+      "fields": [
+        {
+          "field": "content",
+          "code": "nr5q9",
+          "type": "String"
+        },
+        {
+          "field": "type",
+          "code": "01jmp",
+          "type": "Enum"
+        }
+      ]
+    },
+    {
+      "name": "Patients",
+      "item_count": 20,
+      "fields": [
+        {
+          "field": "Patient ID",
+          "code": "oin9h",
+          "type": "Int"
+        },
+        {
+          "field": "Name",
+          "code": "6054k",
+          "type": "String"
+        },
+        {
+          "field": "Age",
+          "code": "6gwkq",
+          "type": "Int"
+        },
+        {
+          "field": "Gender",
+          "code": "5oljm",
+          "type": "Enum"
+        },
+        {
+          "field": "Phone",
+          "code": "dnyyf",
+          "type": "Phone"
+        },
+        {
+          "field": "Blood Type",
+          "code": "r8cpa",
+          "type": "String"
+        },
+        {
+          "field": "Weight",
+          "code": "odgko",
+          "type": "Int"
+        },
+        {
+          "field": "Height",
+          "code": "56dab",
+          "type": "Int"
+        },
+        {
+          "field": "Diagnosis",
+          "code": "cq7cj",
+          "type": "String"
+        },
+        {
+          "field": "Department",
+          "code": "x2fk6",
+          "type": "String"
+        },
+        {
+          "field": "Doctor",
+          "code": "k8c3w",
+          "type": "String"
+        },
+        {
+          "field": "Status",
+          "code": "cb5bf",
+          "type": "Enum"
+        },
+        {
+          "field": "Room",
+          "code": "wuudg",
+          "type": "String"
+        },
+        {
+          "field": "Admission",
+          "code": "73joo",
+          "type": "Phone"
+        },
+        {
+          "field": "Discharge",
+          "code": "1bw3o",
+          "type": "Phone"
+        },
+        {
+          "field": "Fee",
+          "code": "8n86a",
+          "type": "Float"
+        }
+      ]
+    },
+    {
+      "name": "Doctors",
+      "item_count": 8,
+      "fields": [
+        {
+          "field": "ID",
+          "code": "t2cb2",
+          "type": "String"
+        },
+        {
+          "field": "Name",
+          "code": "kbfpx",
+          "type": "String"
+        },
+        {
+          "field": "Specialty",
+          "code": "18e87",
+          "type": "String"
+        },
+        {
+          "field": "Phone",
+          "code": "6jzvl",
+          "type": "Phone"
+        },
+        {
+          "field": "Email",
+          "code": "ue3bm",
+          "type": "Email"
+        },
+        {
+          "field": "Department",
+          "code": "ikazr",
+          "type": "String"
+        },
+        {
+          "field": "Patients Count",
+          "code": "1uiy1",
+          "type": "Int"
+        },
+        {
+          "field": "Shift",
+          "code": "k9xgs",
+          "type": "Enum"
+        },
+        {
+          "field": "Rating",
+          "code": "tl6oa",
+          "type": "Float"
+        }
+      ]
+    },
+    {
+      "name": "Medicines",
+      "item_count": 15,
+      "fields": [
+        {
+          "field": "Code",
+          "code": "x177q",
+          "type": "String"
+        },
+        {
+          "field": "Name",
+          "code": "6d5nz",
+          "type": "String"
+        },
+        {
+          "field": "Category",
+          "code": "wljem",
+          "type": "Enum"
+        },
+        {
+          "field": "Stock",
+          "code": "gac8q",
+          "type": "Int"
+        },
+        {
+          "field": "Min Stock",
+          "code": "4u1mb",
+          "type": "Int"
+        },
+        {
+          "field": "Price",
+          "code": "xxv65",
+          "type": "Float"
+        },
+        {
+          "field": "Expiry",
+          "code": "7sxjq",
+          "type": "Phone"
+        },
+        {
+          "field": "Supplier",
+          "code": "r0ue7",
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "Rooms",
+      "item_count": 18,
+      "fields": [
+        {
+          "field": "Room",
+          "code": "4gura",
+          "type": "String"
+        },
+        {
+          "field": "Type",
+          "code": "cdjt2",
+          "type": "Enum"
+        },
+        {
+          "field": "Capacity",
+          "code": "otiv2",
+          "type": "Int"
+        },
+        {
+          "field": "Occupied",
+          "code": "9i23y",
+          "type": "Int"
+        },
+        {
+          "field": "Floor",
+          "code": "8g683",
+          "type": "Int"
+        },
+        {
+          "field": "Status",
+          "code": "1bh1l",
+          "type": "Enum"
+        },
+        {
+          "field": "Daily Rate",
+          "code": "xil2r",
+          "type": "Float"
+        }
+      ]
+    },
+    {
+      "name": "Invoices",
+      "item_count": 10,
+      "fields": [
+        {
+          "field": "Invoice ID",
+          "code": "5dcjp",
+          "type": "String"
+        },
+        {
+          "field": "Patient ID",
+          "code": "khjy0",
+          "type": "Int"
+        },
+        {
+          "field": "Service Cost",
+          "code": "2ti11",
+          "type": "Float"
+        },
+        {
+          "field": "Discount Pct",
+          "code": "2da67",
+          "type": "Int"
+        },
+        {
+          "field": "Total Bill",
+          "code": "19kuf",
+          "type": "Float"
+        },
+        {
+          "field": "Date",
+          "code": "7hsww",
+          "type": "Phone"
+        },
+        {
+          "field": "Status",
+          "code": "lbw4i",
+          "type": "Enum"
+        }
+      ]
+    }
+  ],
+  "codes_index": {
+    "5t07c": "project",
+    "1ouae": "icon",
+    "6e2w9": "patient_id",
+    "uws4h": "name",
+    "f5guq": "age",
+    "ntdpo": "gender",
+    "srev3": "phone",
+    "43fhy": "blood",
+    "chwx7": "weight",
+    "f99ry": "height",
+    "7lte5": "diagnosis",
+    "xlhu8": "department",
+    "l2l12": "doctor",
+    "pgpq8": "status",
+    "xscd8": "room",
+    "nrbqy": "admission",
+    "lt4lp": "discharge",
+    "829c4": "photo",
+    "s0ko8": "id",
+    "drzhs": "name",
+    "70yoa": "specialty",
+    "ptuyz": "phone",
+    "ajhun": "email",
+    "8tsu9": "department",
+    "bjovl": "patients_count",
+    "w8otj": "shift",
+    "mwmsu": "rating",
+    "uzm69": "photo",
+    "q6q7x": "id",
+    "ebx6u": "name",
+    "mwi2b": "department",
+    "n98po": "shift",
+    "daagq": "phone",
+    "tmuv4": "rating",
+    "tubxx": "years_experience",
+    "ge0mx": "appt_id",
+    "pyjlg": "patient",
+    "4rbrx": "doctor",
+    "pdrni": "date",
+    "v7l3r": "time",
+    "pnwwv": "type",
+    "f58sc": "status",
+    "08re4": "department",
+    "f43ee": "room",
+    "skm52": "type",
+    "f07z2": "capacity",
+    "uo6nm": "occupied",
+    "377ru": "floor",
+    "ipurw": "status",
+    "160hb": "daily_rate",
+    "t6dcf": "icon",
+    "boral": "code",
+    "nreed": "name",
+    "9oydk": "category",
+    "klm89": "stock",
+    "jcxbt": "min_stock",
+    "1fhng": "price",
+    "kcut2": "expiry",
+    "sf1ch": "icon",
+    "x9u2j": "supplier",
+    "122lx": "invoice_id",
+    "hj6eg": "patient_id",
+    "0c4ms": "service_cost",
+    "jzgz4": "discount_pct",
+    "30g05": "total_bill",
+    "yrwsg": "discount_amount",
+    "mwche": "net_payable",
+    "fl8ha": "date",
+    "gwsl0": "status",
+    "gtadg": "icon",
+    "xac27": "case_id",
+    "ycbwe": "patient",
+    "jaa9v": "severity",
+    "oh4uo": "arrival",
+    "rcrmk": "status",
+    "4yyba": "doctor",
+    "55wr1": "triage_score",
+    "h4s3f": "type",
+    "olxfb": "total",
+    "2efnv": "occupied",
+    "3s5nx": "available",
+    "pjiba": "month",
+    "43prs": "revenue",
+    "avm05": "expenses",
+    "quz34": "profit",
+    "3og0m": "month",
+    "mn9x9": "operations",
+    "ir876": "emergency",
+    "x2qo0": "consultations",
+    "g5qdf": "name",
+    "vldmz": "value",
+    "34vhx": "patient_id",
+    "bc9sa": "name",
+    "j8h6o": "age",
+    "6relu": "gender",
+    "pdnff": "phone",
+    "wuej5": "blood_type",
+    "bqwi6": "weight",
+    "65y7j": "height",
+    "gx7n3": "diagnosis",
+    "dx5p7": "department",
+    "kt8cy": "doctor",
+    "ioyak": "status",
+    "q4p7e": "room",
+    "ttpqb": "admission_date",
+    "q14py": "discharge_date",
+    "3aes7": "fee",
+    "nr5q9": "content",
+    "01jmp": "type",
+    "oin9h": "Patient ID",
+    "6054k": "Name",
+    "6gwkq": "Age",
+    "5oljm": "Gender",
+    "dnyyf": "Phone",
+    "r8cpa": "Blood Type",
+    "odgko": "Weight",
+    "56dab": "Height",
+    "cq7cj": "Diagnosis",
+    "x2fk6": "Department",
+    "k8c3w": "Doctor",
+    "cb5bf": "Status",
+    "wuudg": "Room",
+    "73joo": "Admission",
+    "1bw3o": "Discharge",
+    "8n86a": "Fee",
+    "t2cb2": "ID",
+    "kbfpx": "Name",
+    "18e87": "Specialty",
+    "6jzvl": "Phone",
+    "ue3bm": "Email",
+    "ikazr": "Department",
+    "1uiy1": "Patients Count",
+    "k9xgs": "Shift",
+    "tl6oa": "Rating",
+    "x177q": "Code",
+    "6d5nz": "Name",
+    "wljem": "Category",
+    "gac8q": "Stock",
+    "4u1mb": "Min Stock",
+    "xxv65": "Price",
+    "7sxjq": "Expiry",
+    "r0ue7": "Supplier",
+    "4gura": "Room",
+    "cdjt2": "Type",
+    "otiv2": "Capacity",
+    "9i23y": "Occupied",
+    "8g683": "Floor",
+    "1bh1l": "Status",
+    "xil2r": "Daily Rate",
+    "5dcjp": "Invoice ID",
+    "khjy0": "Patient ID",
+    "2ti11": "Service Cost",
+    "2da67": "Discount Pct",
+    "19kuf": "Total Bill",
+    "7hsww": "Date",
+    "lbw4i": "Status"
+  }
+}

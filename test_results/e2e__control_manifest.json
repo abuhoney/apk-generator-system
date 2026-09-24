@@ -1,0 +1,2717 @@
+[
+  {
+    "id": "5t07c",
+    "field": "project",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "5t07c.length < 3",
+        "action": "showError('Invalid project')"
+      }
+    ]
+  },
+  {
+    "id": "1ouae",
+    "field": "icon",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "1ouae.length < 3",
+        "action": "showError('Invalid icon')"
+      }
+    ]
+  },
+  {
+    "id": "6e2w9",
+    "field": "patient_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "6e2w9 < 0",
+        "action": "showError('patient_id must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "uws4h",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "uws4h.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "f5guq",
+    "field": "age",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "f5guq < 0",
+        "action": "showError('age must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "ntdpo",
+    "field": "gender",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "ntdpo",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "srev3",
+    "field": "phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "srev3.length < 3",
+        "action": "showError('Invalid phone')"
+      }
+    ]
+  },
+  {
+    "id": "43fhy",
+    "field": "blood",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "43fhy.length < 3",
+        "action": "showError('Invalid blood')"
+      }
+    ]
+  },
+  {
+    "id": "chwx7",
+    "field": "weight",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "chwx7 < 0",
+        "action": "showError('weight must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "f99ry",
+    "field": "height",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "f99ry < 0",
+        "action": "showError('height must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "7lte5",
+    "field": "diagnosis",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "7lte5.length < 3",
+        "action": "showError('Invalid diagnosis')"
+      }
+    ]
+  },
+  {
+    "id": "xlhu8",
+    "field": "department",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "xlhu8.length < 3",
+        "action": "showError('Invalid department')"
+      }
+    ]
+  },
+  {
+    "id": "l2l12",
+    "field": "doctor",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "l2l12.length < 3",
+        "action": "showError('Invalid doctor')"
+      }
+    ]
+  },
+  {
+    "id": "pgpq8",
+    "field": "status",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "pgpq8",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "xscd8",
+    "field": "room",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "xscd8.length < 3",
+        "action": "showError('Invalid room')"
+      }
+    ]
+  },
+  {
+    "id": "nrbqy",
+    "field": "admission",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "nrbqy.length < 3",
+        "action": "showError('Invalid admission')"
+      }
+    ]
+  },
+  {
+    "id": "lt4lp",
+    "field": "discharge",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "lt4lp.length < 3",
+        "action": "showError('Invalid discharge')"
+      }
+    ]
+  },
+  {
+    "id": "829c4",
+    "field": "photo",
+    "logic": []
+  },
+  {
+    "id": "s0ko8",
+    "field": "id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "s0ko8.length < 3",
+        "action": "showError('Invalid id')"
+      }
+    ]
+  },
+  {
+    "id": "drzhs",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "drzhs.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "70yoa",
+    "field": "specialty",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "70yoa.length < 3",
+        "action": "showError('Invalid specialty')"
+      }
+    ]
+  },
+  {
+    "id": "ptuyz",
+    "field": "phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ptuyz.length < 3",
+        "action": "showError('Invalid phone')"
+      }
+    ]
+  },
+  {
+    "id": "ajhun",
+    "field": "email",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ajhun.length < 3",
+        "action": "showError('Invalid email')"
+      }
+    ]
+  },
+  {
+    "id": "8tsu9",
+    "field": "department",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "8tsu9.length < 3",
+        "action": "showError('Invalid department')"
+      }
+    ]
+  },
+  {
+    "id": "bjovl",
+    "field": "patients_count",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "bjovl < 0",
+        "action": "showError('patients_count must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "w8otj",
+    "field": "shift",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "w8otj",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "mwmsu",
+    "field": "rating",
+    "logic": []
+  },
+  {
+    "id": "uzm69",
+    "field": "photo",
+    "logic": []
+  },
+  {
+    "id": "q6q7x",
+    "field": "id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "q6q7x.length < 3",
+        "action": "showError('Invalid id')"
+      }
+    ]
+  },
+  {
+    "id": "ebx6u",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ebx6u.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "mwi2b",
+    "field": "department",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "mwi2b.length < 3",
+        "action": "showError('Invalid department')"
+      }
+    ]
+  },
+  {
+    "id": "n98po",
+    "field": "shift",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "n98po",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "daagq",
+    "field": "phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "daagq.length < 3",
+        "action": "showError('Invalid phone')"
+      }
+    ]
+  },
+  {
+    "id": "tmuv4",
+    "field": "rating",
+    "logic": []
+  },
+  {
+    "id": "tubxx",
+    "field": "years_experience",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "tubxx < 0",
+        "action": "showError('years_experience must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "ge0mx",
+    "field": "appt_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ge0mx.length < 3",
+        "action": "showError('Invalid appt_id')"
+      }
+    ]
+  },
+  {
+    "id": "pyjlg",
+    "field": "patient",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "pyjlg.length < 3",
+        "action": "showError('Invalid patient')"
+      }
+    ]
+  },
+  {
+    "id": "4rbrx",
+    "field": "doctor",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "4rbrx.length < 3",
+        "action": "showError('Invalid doctor')"
+      }
+    ]
+  },
+  {
+    "id": "pdrni",
+    "field": "date",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "pdrni.length < 3",
+        "action": "showError('Invalid date')"
+      }
+    ]
+  },
+  {
+    "id": "v7l3r",
+    "field": "time",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "v7l3r.length < 3",
+        "action": "showError('Invalid time')"
+      }
+    ]
+  },
+  {
+    "id": "pnwwv",
+    "field": "type",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "pnwwv",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "f58sc",
+    "field": "status",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "f58sc",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "08re4",
+    "field": "department",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "08re4.length < 3",
+        "action": "showError('Invalid department')"
+      }
+    ]
+  },
+  {
+    "id": "f43ee",
+    "field": "room",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "f43ee.length < 3",
+        "action": "showError('Invalid room')"
+      }
+    ]
+  },
+  {
+    "id": "skm52",
+    "field": "type",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "skm52",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "f07z2",
+    "field": "capacity",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "f07z2 < 0",
+        "action": "showError('capacity must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "uo6nm",
+    "field": "occupied",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "uo6nm < 0",
+        "action": "showError('occupied must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "377ru",
+    "field": "floor",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "377ru < 0",
+        "action": "showError('floor must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "ipurw",
+    "field": "status",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "ipurw",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "160hb",
+    "field": "daily_rate",
+    "logic": []
+  },
+  {
+    "id": "t6dcf",
+    "field": "icon",
+    "logic": []
+  },
+  {
+    "id": "boral",
+    "field": "code",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "boral.length < 3",
+        "action": "showError('Invalid code')"
+      }
+    ]
+  },
+  {
+    "id": "nreed",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "nreed.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "9oydk",
+    "field": "category",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "9oydk",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "klm89",
+    "field": "stock",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "klm89 < 0",
+        "action": "showError('stock must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "jcxbt",
+    "field": "min_stock",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "jcxbt < 0",
+        "action": "showError('min_stock must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "1fhng",
+    "field": "price",
+    "logic": []
+  },
+  {
+    "id": "kcut2",
+    "field": "expiry",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "kcut2.length < 3",
+        "action": "showError('Invalid expiry')"
+      }
+    ]
+  },
+  {
+    "id": "sf1ch",
+    "field": "icon",
+    "logic": []
+  },
+  {
+    "id": "x9u2j",
+    "field": "supplier",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "x9u2j.length < 3",
+        "action": "showError('Invalid supplier')"
+      }
+    ]
+  },
+  {
+    "id": "122lx",
+    "field": "invoice_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "122lx.length < 3",
+        "action": "showError('Invalid invoice_id')"
+      }
+    ]
+  },
+  {
+    "id": "hj6eg",
+    "field": "patient_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "hj6eg < 0",
+        "action": "showError('patient_id must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "0c4ms",
+    "field": "service_cost",
+    "logic": []
+  },
+  {
+    "id": "jzgz4",
+    "field": "discount_pct",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "jzgz4 < 0",
+        "action": "showError('discount_pct must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "30g05",
+    "field": "total_bill",
+    "logic": []
+  },
+  {
+    "id": "yrwsg",
+    "field": "discount_amount",
+    "logic": []
+  },
+  {
+    "id": "mwche",
+    "field": "net_payable",
+    "logic": []
+  },
+  {
+    "id": "fl8ha",
+    "field": "date",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "fl8ha.length < 3",
+        "action": "showError('Invalid date')"
+      }
+    ]
+  },
+  {
+    "id": "gwsl0",
+    "field": "status",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "gwsl0",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "gtadg",
+    "field": "icon",
+    "logic": []
+  },
+  {
+    "id": "xac27",
+    "field": "case_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "xac27.length < 3",
+        "action": "showError('Invalid case_id')"
+      }
+    ]
+  },
+  {
+    "id": "ycbwe",
+    "field": "patient",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ycbwe.length < 3",
+        "action": "showError('Invalid patient')"
+      }
+    ]
+  },
+  {
+    "id": "jaa9v",
+    "field": "severity",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "jaa9v",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "oh4uo",
+    "field": "arrival",
+    "logic": []
+  },
+  {
+    "id": "rcrmk",
+    "field": "status",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "rcrmk",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "4yyba",
+    "field": "doctor",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "4yyba.length < 3",
+        "action": "showError('Invalid doctor')"
+      }
+    ]
+  },
+  {
+    "id": "55wr1",
+    "field": "triage_score",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "55wr1 < 0",
+        "action": "showError('triage_score must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "h4s3f",
+    "field": "type",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "h4s3f",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "olxfb",
+    "field": "total",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "olxfb < 0",
+        "action": "showError('total must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "2efnv",
+    "field": "occupied",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "2efnv < 0",
+        "action": "showError('occupied must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "3s5nx",
+    "field": "available",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "3s5nx < 0",
+        "action": "showError('available must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "pjiba",
+    "field": "month",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "pjiba.length < 3",
+        "action": "showError('Invalid month')"
+      }
+    ]
+  },
+  {
+    "id": "43prs",
+    "field": "revenue",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "43prs < 0",
+        "action": "showError('revenue must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "avm05",
+    "field": "expenses",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "avm05 < 0",
+        "action": "showError('expenses must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "quz34",
+    "field": "profit",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "quz34 < 0",
+        "action": "showError('profit must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "3og0m",
+    "field": "month",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "3og0m.length < 3",
+        "action": "showError('Invalid month')"
+      }
+    ]
+  },
+  {
+    "id": "mn9x9",
+    "field": "operations",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "mn9x9 < 0",
+        "action": "showError('operations must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "ir876",
+    "field": "emergency",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ir876 < 0",
+        "action": "showError('emergency must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "x2qo0",
+    "field": "consultations",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "x2qo0 < 0",
+        "action": "showError('consultations must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "g5qdf",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "g5qdf.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "vldmz",
+    "field": "value",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "vldmz.length < 3",
+        "action": "showError('Invalid value')"
+      }
+    ]
+  },
+  {
+    "id": "34vhx",
+    "field": "patient_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "34vhx < 0",
+        "action": "showError('patient_id must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "bc9sa",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "bc9sa.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "j8h6o",
+    "field": "age",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "j8h6o < 0",
+        "action": "showError('age must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "6relu",
+    "field": "gender",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "6relu",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "pdnff",
+    "field": "phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "pdnff < 0",
+        "action": "showError('phone must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "wuej5",
+    "field": "blood_type",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "wuej5.length < 3",
+        "action": "showError('Invalid blood_type')"
+      }
+    ]
+  },
+  {
+    "id": "bqwi6",
+    "field": "weight",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "bqwi6 < 0",
+        "action": "showError('weight must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "65y7j",
+    "field": "height",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "65y7j < 0",
+        "action": "showError('height must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "gx7n3",
+    "field": "diagnosis",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "gx7n3.length < 3",
+        "action": "showError('Invalid diagnosis')"
+      }
+    ]
+  },
+  {
+    "id": "dx5p7",
+    "field": "department",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "dx5p7.length < 3",
+        "action": "showError('Invalid department')"
+      }
+    ]
+  },
+  {
+    "id": "kt8cy",
+    "field": "doctor",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "kt8cy.length < 3",
+        "action": "showError('Invalid doctor')"
+      }
+    ]
+  },
+  {
+    "id": "ioyak",
+    "field": "status",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "ioyak",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "q4p7e",
+    "field": "room",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "q4p7e.length < 3",
+        "action": "showError('Invalid room')"
+      }
+    ]
+  },
+  {
+    "id": "ttpqb",
+    "field": "admission_date",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ttpqb.length < 3",
+        "action": "showError('Invalid admission_date')"
+      }
+    ]
+  },
+  {
+    "id": "q14py",
+    "field": "discharge_date",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "q14py.length < 3",
+        "action": "showError('Invalid discharge_date')"
+      }
+    ]
+  },
+  {
+    "id": "3aes7",
+    "field": "fee",
+    "logic": []
+  },
+  {
+    "id": "nr5q9",
+    "field": "content",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "nr5q9.length < 3",
+        "action": "showError('Invalid content')"
+      }
+    ]
+  },
+  {
+    "id": "01jmp",
+    "field": "type",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "01jmp",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "pf3cw",
+    "field": "project",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "pf3cw.length < 3",
+        "action": "showError('Invalid project')"
+      }
+    ]
+  },
+  {
+    "id": "t76n7",
+    "field": "icon",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "t76n7.length < 3",
+        "action": "showError('Invalid icon')"
+      }
+    ]
+  },
+  {
+    "id": "2pt4u",
+    "field": "product_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "2pt4u.length < 3",
+        "action": "showError('Invalid product_id')"
+      }
+    ]
+  },
+  {
+    "id": "2qniz",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "2qniz.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "ympn2",
+    "field": "category",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "ympn2",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "mx63l",
+    "field": "brand",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "mx63l.length < 3",
+        "action": "showError('Invalid brand')"
+      }
+    ]
+  },
+  {
+    "id": "9cnba",
+    "field": "barcode",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "9cnba.length < 3",
+        "action": "showError('Invalid barcode')"
+      }
+    ]
+  },
+  {
+    "id": "jvqxh",
+    "field": "price",
+    "logic": []
+  },
+  {
+    "id": "e826n",
+    "field": "cost",
+    "logic": []
+  },
+  {
+    "id": "oqtus",
+    "field": "stock",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "oqtus < 0",
+        "action": "showError('stock must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "mazoh",
+    "field": "min_stock",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "mazoh < 0",
+        "action": "showError('min_stock must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "c5mf6",
+    "field": "unit",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "c5mf6.length < 3",
+        "action": "showError('Invalid unit')"
+      }
+    ]
+  },
+  {
+    "id": "yepxf",
+    "field": "expiry",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "yepxf.length < 3",
+        "action": "showError('Invalid expiry')"
+      }
+    ]
+  },
+  {
+    "id": "t9wg9",
+    "field": "supplier",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "t9wg9.length < 3",
+        "action": "showError('Invalid supplier')"
+      }
+    ]
+  },
+  {
+    "id": "zt9u3",
+    "field": "image",
+    "logic": []
+  },
+  {
+    "id": "7o9l5",
+    "field": "staff_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "7o9l5.length < 3",
+        "action": "showError('Invalid staff_id')"
+      }
+    ]
+  },
+  {
+    "id": "vmbkl",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "vmbkl.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "qyocn",
+    "field": "role",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "qyocn",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "iv5v6",
+    "field": "phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "iv5v6.length < 3",
+        "action": "showError('Invalid phone')"
+      }
+    ]
+  },
+  {
+    "id": "3lmjy",
+    "field": "shift",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "3lmjy",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "ad61f",
+    "field": "salary",
+    "logic": []
+  },
+  {
+    "id": "c7i0x",
+    "field": "hire_date",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "c7i0x.length < 3",
+        "action": "showError('Invalid hire_date')"
+      }
+    ]
+  },
+  {
+    "id": "sqsqg",
+    "field": "branch_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "sqsqg.length < 3",
+        "action": "showError('Invalid branch_id')"
+      }
+    ]
+  },
+  {
+    "id": "u4l5o",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "u4l5o.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "eoag5",
+    "field": "address",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "eoag5.length < 3",
+        "action": "showError('Invalid address')"
+      }
+    ]
+  },
+  {
+    "id": "jav7z",
+    "field": "phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "jav7z.length < 3",
+        "action": "showError('Invalid phone')"
+      }
+    ]
+  },
+  {
+    "id": "v4thq",
+    "field": "manager",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "v4thq.length < 3",
+        "action": "showError('Invalid manager')"
+      }
+    ]
+  },
+  {
+    "id": "61jdf",
+    "field": "area_sqm",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "61jdf < 0",
+        "action": "showError('area_sqm must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "pso4a",
+    "field": "daily_sales",
+    "logic": []
+  },
+  {
+    "id": "25fup",
+    "field": "supplier_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "25fup.length < 3",
+        "action": "showError('Invalid supplier_id')"
+      }
+    ]
+  },
+  {
+    "id": "dr0lx",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "dr0lx.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "6kdkj",
+    "field": "contact",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "6kdkj.length < 3",
+        "action": "showError('Invalid contact')"
+      }
+    ]
+  },
+  {
+    "id": "as0i1",
+    "field": "email",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "as0i1.length < 3",
+        "action": "showError('Invalid email')"
+      }
+    ]
+  },
+  {
+    "id": "vt8dc",
+    "field": "category",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "vt8dc",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "brhgn",
+    "field": "rating",
+    "logic": []
+  },
+  {
+    "id": "cwyir",
+    "field": "payment_terms",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "cwyir.length < 3",
+        "action": "showError('Invalid payment_terms')"
+      }
+    ]
+  },
+  {
+    "id": "yslbb",
+    "field": "date",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "yslbb.length < 3",
+        "action": "showError('Invalid date')"
+      }
+    ]
+  },
+  {
+    "id": "w42a9",
+    "field": "branch",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "w42a9.length < 3",
+        "action": "showError('Invalid branch')"
+      }
+    ]
+  },
+  {
+    "id": "wi5x3",
+    "field": "total_sales",
+    "logic": []
+  },
+  {
+    "id": "c8w2k",
+    "field": "transactions",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "c8w2k < 0",
+        "action": "showError('transactions must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "nzo7q",
+    "field": "avg_basket",
+    "logic": []
+  },
+  {
+    "id": "968rd",
+    "field": "peak_hour",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "968rd.length < 3",
+        "action": "showError('Invalid peak_hour')"
+      }
+    ]
+  },
+  {
+    "id": "4s4u2",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "4s4u2.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "2u2en",
+    "field": "value",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "2u2en.length < 3",
+        "action": "showError('Invalid value')"
+      }
+    ]
+  },
+  {
+    "id": "fa363",
+    "field": "content",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "fa363.length < 3",
+        "action": "showError('Invalid content')"
+      }
+    ]
+  },
+  {
+    "id": "bsc3n",
+    "field": "type",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "bsc3n",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "ctucn",
+    "field": "product_id",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ctucn.length < 3",
+        "action": "showError('Invalid product_id')"
+      }
+    ]
+  },
+  {
+    "id": "vxwh5",
+    "field": "name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "vxwh5.length < 3",
+        "action": "showError('Invalid name')"
+      }
+    ]
+  },
+  {
+    "id": "xkw80",
+    "field": "category",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "xkw80",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "7ev00",
+    "field": "brand",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "7ev00.length < 3",
+        "action": "showError('Invalid brand')"
+      }
+    ]
+  },
+  {
+    "id": "9qlly",
+    "field": "price",
+    "logic": []
+  },
+  {
+    "id": "850le",
+    "field": "cost",
+    "logic": []
+  },
+  {
+    "id": "xbyxz",
+    "field": "stock",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "xbyxz < 0",
+        "action": "showError('stock must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "klkz4",
+    "field": "min_stock",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "klkz4 < 0",
+        "action": "showError('min_stock must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "qwpo0",
+    "field": "unit",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "qwpo0.length < 3",
+        "action": "showError('Invalid unit')"
+      }
+    ]
+  },
+  {
+    "id": "1wf0r",
+    "field": "expiry_date",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "1wf0r.length < 3",
+        "action": "showError('Invalid expiry_date')"
+      }
+    ]
+  },
+  {
+    "id": "ig042",
+    "field": "supplier",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ig042.length < 3",
+        "action": "showError('Invalid supplier')"
+      }
+    ]
+  },
+  {
+    "id": "oin9h",
+    "field": "Patient ID",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "oin9h < 0",
+        "action": "showError('Patient ID must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "6054k",
+    "field": "Name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "6054k.length < 3",
+        "action": "showError('Invalid Name')"
+      }
+    ]
+  },
+  {
+    "id": "6gwkq",
+    "field": "Age",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "6gwkq < 0",
+        "action": "showError('Age must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "5oljm",
+    "field": "Gender",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "5oljm",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "dnyyf",
+    "field": "Phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "dnyyf.length < 3",
+        "action": "showError('Invalid Phone')"
+      }
+    ]
+  },
+  {
+    "id": "r8cpa",
+    "field": "Blood Type",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "r8cpa.length < 3",
+        "action": "showError('Invalid Blood Type')"
+      }
+    ]
+  },
+  {
+    "id": "odgko",
+    "field": "Weight",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "odgko < 0",
+        "action": "showError('Weight must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "56dab",
+    "field": "Height",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "56dab < 0",
+        "action": "showError('Height must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "cq7cj",
+    "field": "Diagnosis",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "cq7cj.length < 3",
+        "action": "showError('Invalid Diagnosis')"
+      }
+    ]
+  },
+  {
+    "id": "x2fk6",
+    "field": "Department",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "x2fk6.length < 3",
+        "action": "showError('Invalid Department')"
+      }
+    ]
+  },
+  {
+    "id": "k8c3w",
+    "field": "Doctor",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "k8c3w.length < 3",
+        "action": "showError('Invalid Doctor')"
+      }
+    ]
+  },
+  {
+    "id": "cb5bf",
+    "field": "Status",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "cb5bf",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "wuudg",
+    "field": "Room",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "wuudg.length < 3",
+        "action": "showError('Invalid Room')"
+      }
+    ]
+  },
+  {
+    "id": "73joo",
+    "field": "Admission",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "73joo.length < 3",
+        "action": "showError('Invalid Admission')"
+      }
+    ]
+  },
+  {
+    "id": "1bw3o",
+    "field": "Discharge",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "1bw3o.length < 3",
+        "action": "showError('Invalid Discharge')"
+      }
+    ]
+  },
+  {
+    "id": "8n86a",
+    "field": "Fee",
+    "logic": []
+  },
+  {
+    "id": "t2cb2",
+    "field": "ID",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "t2cb2.length < 3",
+        "action": "showError('Invalid ID')"
+      }
+    ]
+  },
+  {
+    "id": "kbfpx",
+    "field": "Name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "kbfpx.length < 3",
+        "action": "showError('Invalid Name')"
+      }
+    ]
+  },
+  {
+    "id": "18e87",
+    "field": "Specialty",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "18e87.length < 3",
+        "action": "showError('Invalid Specialty')"
+      }
+    ]
+  },
+  {
+    "id": "6jzvl",
+    "field": "Phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "6jzvl.length < 3",
+        "action": "showError('Invalid Phone')"
+      }
+    ]
+  },
+  {
+    "id": "ue3bm",
+    "field": "Email",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ue3bm.length < 3",
+        "action": "showError('Invalid Email')"
+      }
+    ]
+  },
+  {
+    "id": "ikazr",
+    "field": "Department",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ikazr.length < 3",
+        "action": "showError('Invalid Department')"
+      }
+    ]
+  },
+  {
+    "id": "1uiy1",
+    "field": "Patients Count",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "1uiy1 < 0",
+        "action": "showError('Patients Count must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "k9xgs",
+    "field": "Shift",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "k9xgs",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "tl6oa",
+    "field": "Rating",
+    "logic": []
+  },
+  {
+    "id": "x177q",
+    "field": "Code",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "x177q.length < 3",
+        "action": "showError('Invalid Code')"
+      }
+    ]
+  },
+  {
+    "id": "6d5nz",
+    "field": "Name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "6d5nz.length < 3",
+        "action": "showError('Invalid Name')"
+      }
+    ]
+  },
+  {
+    "id": "wljem",
+    "field": "Category",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "wljem",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "gac8q",
+    "field": "Stock",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "gac8q < 0",
+        "action": "showError('Stock must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "4u1mb",
+    "field": "Min Stock",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "4u1mb < 0",
+        "action": "showError('Min Stock must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "xxv65",
+    "field": "Price",
+    "logic": []
+  },
+  {
+    "id": "7sxjq",
+    "field": "Expiry",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "7sxjq.length < 3",
+        "action": "showError('Invalid Expiry')"
+      }
+    ]
+  },
+  {
+    "id": "r0ue7",
+    "field": "Supplier",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "r0ue7.length < 3",
+        "action": "showError('Invalid Supplier')"
+      }
+    ]
+  },
+  {
+    "id": "4gura",
+    "field": "Room",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "4gura.length < 3",
+        "action": "showError('Invalid Room')"
+      }
+    ]
+  },
+  {
+    "id": "cdjt2",
+    "field": "Type",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "cdjt2",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "otiv2",
+    "field": "Capacity",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "otiv2 < 0",
+        "action": "showError('Capacity must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "9i23y",
+    "field": "Occupied",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "9i23y < 0",
+        "action": "showError('Occupied must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "8g683",
+    "field": "Floor",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "8g683 < 0",
+        "action": "showError('Floor must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "1bh1l",
+    "field": "Status",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "1bh1l",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "xil2r",
+    "field": "Daily Rate",
+    "logic": []
+  },
+  {
+    "id": "5dcjp",
+    "field": "Invoice ID",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "5dcjp.length < 3",
+        "action": "showError('Invalid Invoice ID')"
+      }
+    ]
+  },
+  {
+    "id": "khjy0",
+    "field": "Patient ID",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "khjy0 < 0",
+        "action": "showError('Patient ID must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "2ti11",
+    "field": "Service Cost",
+    "logic": []
+  },
+  {
+    "id": "2da67",
+    "field": "Discount Pct",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "2da67 < 0",
+        "action": "showError('Discount Pct must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "19kuf",
+    "field": "Total Bill",
+    "logic": []
+  },
+  {
+    "id": "7hsww",
+    "field": "Date",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "7hsww.length < 3",
+        "action": "showError('Invalid Date')"
+      }
+    ]
+  },
+  {
+    "id": "lbw4i",
+    "field": "Status",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "lbw4i",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "btka3",
+    "field": "Department",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "btka3.length < 3",
+        "action": "showError('Invalid Department')"
+      }
+    ]
+  },
+  {
+    "id": "76ys8",
+    "field": "Head",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "76ys8.length < 3",
+        "action": "showError('Invalid Head')"
+      }
+    ]
+  },
+  {
+    "id": "itntg",
+    "field": "Phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "itntg.length < 3",
+        "action": "showError('Invalid Phone')"
+      }
+    ]
+  },
+  {
+    "id": "eqaoe",
+    "field": "Location",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "eqaoe.length < 3",
+        "action": "showError('Invalid Location')"
+      }
+    ]
+  },
+  {
+    "id": "ppk4e",
+    "field": "ID",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ppk4e.length < 3",
+        "action": "showError('Invalid ID')"
+      }
+    ]
+  },
+  {
+    "id": "9wo7x",
+    "field": "Name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "9wo7x.length < 3",
+        "action": "showError('Invalid Name')"
+      }
+    ]
+  },
+  {
+    "id": "a7py3",
+    "field": "Specialty",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "a7py3.length < 3",
+        "action": "showError('Invalid Specialty')"
+      }
+    ]
+  },
+  {
+    "id": "j770d",
+    "field": "Shift",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "j770d",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "1ucop",
+    "field": "Rating",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "1ucop.length < 3",
+        "action": "showError('Invalid Rating')"
+      }
+    ]
+  },
+  {
+    "id": "nxstg",
+    "field": "paragraph",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "nxstg.length < 3",
+        "action": "showError('Invalid paragraph')"
+      }
+    ]
+  },
+  {
+    "id": "lq6p5",
+    "field": "heading",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "lq6p5.length < 3",
+        "action": "showError('Invalid heading')"
+      }
+    ]
+  },
+  {
+    "id": "dk4eh",
+    "field": "level",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "dk4eh.length < 3",
+        "action": "showError('Invalid level')"
+      }
+    ]
+  },
+  {
+    "id": "z5bfe",
+    "field": "Department",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "z5bfe.length < 3",
+        "action": "showError('Invalid Department')"
+      }
+    ]
+  },
+  {
+    "id": "iuw0i",
+    "field": "Patients",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "iuw0i.length < 3",
+        "action": "showError('Invalid Patients')"
+      }
+    ]
+  },
+  {
+    "id": "vk8p9",
+    "field": "Doctors",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "vk8p9.length < 3",
+        "action": "showError('Invalid Doctors')"
+      }
+    ]
+  },
+  {
+    "id": "3952q",
+    "field": "Revenue (SAR)",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "3952q.length < 3",
+        "action": "showError('Invalid Revenue (SAR)')"
+      }
+    ]
+  },
+  {
+    "id": "hqu0t",
+    "field": "Satisfaction",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "hqu0t.length < 3",
+        "action": "showError('Invalid Satisfaction')"
+      }
+    ]
+  },
+  {
+    "id": "oe7fx",
+    "field": "Quarter",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "oe7fx.length < 3",
+        "action": "showError('Invalid Quarter')"
+      }
+    ]
+  },
+  {
+    "id": "677gs",
+    "field": "Revenue",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "677gs.length < 3",
+        "action": "showError('Invalid Revenue')"
+      }
+    ]
+  },
+  {
+    "id": "aolia",
+    "field": "Expenses",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "aolia.length < 3",
+        "action": "showError('Invalid Expenses')"
+      }
+    ]
+  },
+  {
+    "id": "11mfb",
+    "field": "Net Profit",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "11mfb.length < 3",
+        "action": "showError('Invalid Net Profit')"
+      }
+    ]
+  },
+  {
+    "id": "1o8dl",
+    "field": "paragraph",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "1o8dl.length < 3",
+        "action": "showError('Invalid paragraph')"
+      }
+    ]
+  },
+  {
+    "id": "marbc",
+    "field": "page",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "marbc < 0",
+        "action": "showError('page must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "oq2cq",
+    "field": "Product ID",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "oq2cq.length < 3",
+        "action": "showError('Invalid Product ID')"
+      }
+    ]
+  },
+  {
+    "id": "muogq",
+    "field": "Name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "muogq.length < 3",
+        "action": "showError('Invalid Name')"
+      }
+    ]
+  },
+  {
+    "id": "043tl",
+    "field": "Category",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "043tl",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "91esn",
+    "field": "Brand",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "91esn.length < 3",
+        "action": "showError('Invalid Brand')"
+      }
+    ]
+  },
+  {
+    "id": "de08b",
+    "field": "Price",
+    "logic": []
+  },
+  {
+    "id": "da5cr",
+    "field": "Cost",
+    "logic": []
+  },
+  {
+    "id": "6dggb",
+    "field": "Stock",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "6dggb < 0",
+        "action": "showError('Stock must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "qgrvd",
+    "field": "Min Stock",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "qgrvd < 0",
+        "action": "showError('Min Stock must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "8lh2r",
+    "field": "Unit",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "8lh2r.length < 3",
+        "action": "showError('Invalid Unit')"
+      }
+    ]
+  },
+  {
+    "id": "mwvxf",
+    "field": "Expiry",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "mwvxf.length < 3",
+        "action": "showError('Invalid Expiry')"
+      }
+    ]
+  },
+  {
+    "id": "ut626",
+    "field": "Supplier",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "ut626.length < 3",
+        "action": "showError('Invalid Supplier')"
+      }
+    ]
+  },
+  {
+    "id": "yqg3r",
+    "field": "Staff ID",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "yqg3r.length < 3",
+        "action": "showError('Invalid Staff ID')"
+      }
+    ]
+  },
+  {
+    "id": "oskfr",
+    "field": "Name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "oskfr.length < 3",
+        "action": "showError('Invalid Name')"
+      }
+    ]
+  },
+  {
+    "id": "11qzn",
+    "field": "Role",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "11qzn",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "q0o7v",
+    "field": "Phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "q0o7v.length < 3",
+        "action": "showError('Invalid Phone')"
+      }
+    ]
+  },
+  {
+    "id": "vvmev",
+    "field": "Shift",
+    "logic": [
+      {
+        "type": "switch",
+        "variable": "vvmev",
+        "cases": []
+      }
+    ]
+  },
+  {
+    "id": "4aczs",
+    "field": "Salary",
+    "logic": []
+  },
+  {
+    "id": "pvlkr",
+    "field": "Hire Date",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "pvlkr.length < 3",
+        "action": "showError('Invalid Hire Date')"
+      }
+    ]
+  },
+  {
+    "id": "r7ub5",
+    "field": "Branch ID",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "r7ub5.length < 3",
+        "action": "showError('Invalid Branch ID')"
+      }
+    ]
+  },
+  {
+    "id": "gm0lg",
+    "field": "Name",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "gm0lg.length < 3",
+        "action": "showError('Invalid Name')"
+      }
+    ]
+  },
+  {
+    "id": "8m834",
+    "field": "Address",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "8m834.length < 3",
+        "action": "showError('Invalid Address')"
+      }
+    ]
+  },
+  {
+    "id": "vlo24",
+    "field": "Phone",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "vlo24.length < 3",
+        "action": "showError('Invalid Phone')"
+      }
+    ]
+  },
+  {
+    "id": "xsd9m",
+    "field": "Manager",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "xsd9m.length < 3",
+        "action": "showError('Invalid Manager')"
+      }
+    ]
+  },
+  {
+    "id": "87hs0",
+    "field": "Area sqm",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "87hs0 < 0",
+        "action": "showError('Area sqm must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "7gq1l",
+    "field": "Daily Sales",
+    "logic": []
+  },
+  {
+    "id": "g3tc0",
+    "field": "Date",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "g3tc0.length < 3",
+        "action": "showError('Invalid Date')"
+      }
+    ]
+  },
+  {
+    "id": "vrm3x",
+    "field": "Branch",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "vrm3x.length < 3",
+        "action": "showError('Invalid Branch')"
+      }
+    ]
+  },
+  {
+    "id": "1ssk7",
+    "field": "Total Sales",
+    "logic": []
+  },
+  {
+    "id": "fuaed",
+    "field": "Transactions",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "fuaed < 0",
+        "action": "showError('Transactions must be positive')"
+      }
+    ]
+  },
+  {
+    "id": "5whth",
+    "field": "Avg Basket",
+    "logic": []
+  },
+  {
+    "id": "c5vsl",
+    "field": "Peak Hour",
+    "logic": [
+      {
+        "type": "if",
+        "condition": "c5vsl.length < 3",
+        "action": "showError('Invalid Peak Hour')"
+      }
+    ]
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "name": "hospital_complex.json",
+    "path": "file:///android_asset/webapp/media/hospital_complex.json",
+    "size": 42983,
+    "ext": ".json"
+  },
+  {
+    "name": "hospital_complex.xlsx",
+    "path": "file:///android_asset/webapp/media/hospital_complex.xlsx",
+    "size": 12220,
+    "ext": ".xlsx"
+  },
+  {
+    "name": "hospital_contacts.txt",
+    "path": "file:///android_asset/webapp/media/hospital_contacts.txt",
+    "size": 491,
+    "ext": ".txt"
+  },
+  {
+    "name": "hospital_data.csv",
+    "path": "file:///android_asset/webapp/media/hospital_data.csv",
+    "size": 2895,
+    "ext": ".csv"
+  },
+  {
+    "name": "hospital_document.docx",
+    "path": "file:///android_asset/webapp/media/hospital_document.docx",
+    "size": 37759,
+    "ext": ".docx"
+  },
+  {
+    "name": "hospital_info.html",
+    "path": "file:///android_asset/webapp/media/hospital_info.html",
+    "size": 805,
+    "ext": ".html"
+  },
+  {
+    "name": "hospital_report.pdf",
+    "path": "file:///android_asset/webapp/media/hospital_report.pdf",
+    "size": 3433,
+    "ext": ".pdf"
+  },
+  {
+    "name": "supermarket_complex.json",
+    "path": "file:///android_asset/webapp/media/supermarket_complex.json",
+    "size": 22021,
+    "ext": ".json"
+  },
+  {
+    "name": "supermarket_complex.xlsx",
+    "path": "file:///android_asset/webapp/media/supermarket_complex.xlsx",
+    "size": 10067,
+    "ext": ".xlsx"
+  },
+  {
+    "name": "supermarket_inventory.txt",
+    "path": "file:///android_asset/webapp/media/supermarket_inventory.txt",
+    "size": 545,
+    "ext": ".txt"
+  },
+  {
+    "name": "supermarket_offers.html",
+    "path": "file:///android_asset/webapp/media/supermarket_offers.html",
+    "size": 661,
+    "ext": ".html"
+  },
+  {
+    "name": "supermarket_products.csv",
+    "path": "file:///android_asset/webapp/media/supermarket_products.csv",
+    "size": 2438,
+    "ext": ".csv"
+  },
+  {
+    "name": "test_samples.zip",
+    "path": "file:///android_asset/webapp/media/test_samples.zip",
+    "size": 71811,
+    "ext": ".zip"
+  }
+]

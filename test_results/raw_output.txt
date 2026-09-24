@@ -1,0 +1,221 @@
+==============================================================================
+  UNIVERSAL APK FACTORY — COMPREHENSIVE INTEGRATION TEST SUITE v2.1
+==============================================================================
+  Test samples: /home/z/my-project/download/test_samples
+  Results dir:  /home/z/my-project/test_results
+  Backend:      https://html-to-apk-1789777001.onrender.com
+==============================================================================
+
+[1/8] UNIVERSAL FILE PARSER — Testing all 7 formats
+------------------------------------------------------------------------------
+  JSON: 12 datasets, 124 items
+  CSV: 1 datasets, 20 items
+  TXT: 1 datasets
+  HTML: 1 datasets
+  Excel: 5 sheets, 71 total items
+  PDF: 3 datasets, 11 items
+  DOCX: 4 datasets, 29 items
+  Supermarket XLSX: 4 sheets
+
+[2/8] DATA ANALYZER v2 — 5-char ID system + config/strings
+------------------------------------------------------------------------------
+  Generated 200 unique 5-char IDs (no collisions)
+  Deterministic: 'patient_name' -> b4ec0
+  Collision resolution: salt 0 -> uws4h, salt 1 -> drzhs
+  Type detection: 7 base types + Email/URL/Phone all correct
+[data_analyzer_v2] Parsed hospital_complex.json (.json) -> 12 datasets
+[data_analyzer_v2] Parsed hospital_contacts.txt (.txt) -> 1 datasets
+[data_analyzer_v2] Parsed hospital_data.csv (.csv) -> 1 datasets
+[data_analyzer_v2] Parsed hospital_info.html (.html) -> 1 datasets
+[data_analyzer_v2] Parsed hospital_info.html (.xlsx) -> 5 datasets
+[data_analyzer_v2] config.json: 156 IDs, 20 datasets, 231 items
+[data_analyzer_v2] strings.json: 156 IDs, 2169 values
+[data_analyzer_v2] DONE: 156 IDs, 20 datasets, 231 items
+  Pipeline: 156 IDs, 20 datasets, 231 items
+
+[3/8] BUILDER FACTORY v2 — All 10 builders
+------------------------------------------------------------------------------
+[BuilderFactory] Registered: variables
+[BuilderFactory] Registered: list
+[BuilderFactory] Registered: control
+[BuilderFactory] Registered: operator
+[BuilderFactory] Registered: file
+[BuilderFactory] Registered: view
+[BuilderFactory] Registered: math
+[BuilderFactory] Registered: component
+[BuilderFactory] Registered: xml_strings
+[BuilderFactory] Registered: moreblock
+  Registered: 10/10 builders
+[BuilderFactory] Registered: variables
+[BuilderFactory] Registered: list
+[BuilderFactory] Registered: control
+[BuilderFactory] Registered: operator
+[BuilderFactory] Registered: file
+[BuilderFactory] Registered: view
+[BuilderFactory] Registered: math
+[BuilderFactory] Registered: component
+[BuilderFactory] Registered: xml_strings
+[BuilderFactory] Registered: moreblock
+  Execution order: variables, list, control, operator, file, view, math, component, xml_strings, moreblock
+[BuilderFactory] Registered: variables
+[BuilderFactory] Registered: list
+[BuilderFactory] Registered: control
+[BuilderFactory] Registered: operator
+[BuilderFactory] Registered: file
+[BuilderFactory] Registered: view
+[BuilderFactory] Registered: math
+[BuilderFactory] Registered: component
+[BuilderFactory] Registered: xml_strings
+[BuilderFactory] Registered: moreblock
+[BuilderFactory] Execution order: variables, list, control, operator, file, view, math, component, xml_strings, moreblock
+[VariablesBuilder] 151 Java vars, 151 JS vars
+[ListBuilder] 0 list manifests
+[ControlBuilder] 156 control blocks
+[OperatorBuilder] 107 operator sets
+[FileBuilder] 5 files registered
+[ViewBuilder] 66 XML layouts, 156 HTML widgets
+[MathBuilder] 6 formulas
+[ComponentBuilder] 5 components
+[XmlStringsBuilder] 1576 XML strings
+[MoreBlockBuilder] 160 code blocks
+[BuilderFactory] Pipeline complete: 10 builders, 10 succeeded
+  All 10 builders succeeded. Generated files: 2/19
+
+[4/8] TEMPLATE RENDERER — Dynamic template.html
+------------------------------------------------------------------------------
+  Generated template.html: 339,957 bytes, contains all IDs
+
+[5/8] ADMIN RENDERER — GrapesJS + Blockly + Fabric.js
+------------------------------------------------------------------------------
+  Generated Admin.html: 404,290 bytes with all 3 visual editors
+
+[6/8] NATIVE BRIDGE — RBAC + Offline Sync + Capacitor
+------------------------------------------------------------------------------
+  NativeBridge JS: 9,742 bytes, all Capacitor plugins present
+  RBAC: 5/5 roles, 156 permission rules (24,104 bytes)
+  Offline Sync: IndexedDB + syncQueue + queueChange detected (6,751 bytes)
+
+[7/8] LIVE BACKEND (Render) — API endpoints
+------------------------------------------------------------------------------
+  Backend healthy: 12 app types available
+  ✓ APK built on Render: 17,480 bytes in 56.9s
+    Download URL: https://html-to-apk-1789777001.onrender.com/download/custom_7cd72c01/TestHospital.apk
+
+[8/8] END-TO-END PIPELINE — All functions together
+------------------------------------------------------------------------------
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │ STAGE 1: Parse all 7 file formats                          │
+  └─────────────────────────────────────────────────────────────┘
+    ✓ supermarket_complex.json                 -> 6 datasets
+    ✓ supermarket_products.csv                 -> 1 datasets
+    ✓ hospital_document.docx                   -> 4 datasets
+    ✓ hospital_complex.xlsx                    -> 5 datasets
+    ✓ hospital_complex.json                    -> 12 datasets
+    ✓ hospital_info.html                       -> 1 datasets
+    ✓ hospital_report.pdf                      -> 3 datasets
+    ✓ hospital_contacts.txt                    -> 1 datasets
+    ✓ supermarket_inventory.txt                -> 1 datasets
+    ✓ supermarket_complex.xlsx                 -> 4 datasets
+    ✓ supermarket_offers.html                  -> 1 datasets
+    ✓ hospital_data.csv                        -> 1 datasets
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │ STAGE 2: Generate config.json + strings.json (5-char IDs)   │
+  └─────────────────────────────────────────────────────────────┘
+[data_analyzer_v2] Parsed hospital_complex.json (.json) -> 12 datasets
+[data_analyzer_v2] Parsed hospital_contacts.txt (.txt) -> 1 datasets
+[data_analyzer_v2] Parsed hospital_data.csv (.csv) -> 1 datasets
+[data_analyzer_v2] Parsed hospital_info.html (.html) -> 1 datasets
+[data_analyzer_v2] Parsed supermarket_complex.json (.json) -> 6 datasets
+[data_analyzer_v2] Parsed supermarket_inventory.txt (.txt) -> 1 datasets
+[data_analyzer_v2] Parsed supermarket_offers.html (.html) -> 1 datasets
+[data_analyzer_v2] Parsed supermarket_products.csv (.csv) -> 1 datasets
+[data_analyzer_v2] Parsed test_samples.zip (.xlsx) -> 5 datasets
+[data_analyzer_v2] Parsed test_samples.zip (.docx) -> 4 datasets
+[data_analyzer_v2] Parsed test_samples.zip (.pdf) -> 3 datasets
+[data_analyzer_v2] Parsed test_samples.zip (.xlsx) -> 4 datasets
+[data_analyzer_v2] config.json: 267 IDs, 40 datasets, 431 items
+[data_analyzer_v2] strings.json: 267 IDs, 3656 values
+[data_analyzer_v2] DONE: 267 IDs, 40 datasets, 431 items
+    ✓ 267 unique 5-char IDs generated
+    ✓ 40 datasets, 431 items
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │ STAGE 3: Run all 10 Builders (Factory + Registry)           │
+  └─────────────────────────────────────────────────────────────┘
+[BuilderFactory] Registered: variables
+[BuilderFactory] Registered: list
+[BuilderFactory] Registered: control
+[BuilderFactory] Registered: operator
+[BuilderFactory] Registered: file
+[BuilderFactory] Registered: view
+[BuilderFactory] Registered: math
+[BuilderFactory] Registered: component
+[BuilderFactory] Registered: xml_strings
+[BuilderFactory] Registered: moreblock
+[BuilderFactory] Execution order: variables, list, control, operator, file, view, math, component, xml_strings, moreblock
+[VariablesBuilder] 261 Java vars, 261 JS vars
+[ListBuilder] 0 list manifests
+[ControlBuilder] 267 control blocks
+[OperatorBuilder] 192 operator sets
+[FileBuilder] 13 files registered
+[ViewBuilder] 102 XML layouts, 267 HTML widgets
+[MathBuilder] 12 formulas
+[ComponentBuilder] 6 components
+[XmlStringsBuilder] 2579 XML strings
+[MoreBlockBuilder] 271 code blocks
+[BuilderFactory] Pipeline complete: 10 builders, 10 succeeded
+    ✓ 10/10 builders succeeded
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │ STAGE 4: Generate template.html (User UI)                   │
+  └─────────────────────────────────────────────────────────────┘
+    ✓ template.html: 570,328 bytes
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │ STAGE 5: Generate Admin.html (Control Panel)                │
+  └─────────────────────────────────────────────────────────────┘
+    ✓ Admin.html: 681,922 bytes (GrapesJS+Blockly+Fabric.js)
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │ STAGE 6: Generate Native Bridge (RBAC + Offline + Capacitor)│
+  └─────────────────────────────────────────────────────────────┘
+    ✓ native_bridge.js: 9,742 bytes
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │ STAGE 7: Verify all output artifacts                        │
+  └─────────────────────────────────────────────────────────────┘
+    ✓ 18 artifacts generated:
+      • Admin.html                     (683,432 bytes)
+      • _build_manifest.json           (782 bytes)
+      • _components_manifest.json      (1,193 bytes)
+      • _control_manifest.json         (47,596 bytes)
+      • _files_manifest.json           (2,017 bytes)
+      • _final_strings.xml             (129,939 bytes)
+      • _lists_manifest.json           (2 bytes)
+      • _math_manifest.json            (1,461 bytes)
+      • _moreblocks_manifest.json      (37,908 bytes)
+      • _operators_manifest.json       (28,007 bytes)
+      • _variables.java                (17,856 bytes)
+      • _variables.js                  (13,471 bytes)
+      • _view_fragments.html           (42,485 bytes)
+      • _view_styles.css               (42,756 bytes)
+      • config.json                    (113,036 bytes)
+      • native_bridge.js               (12,044 bytes)
+      • strings.json                   (709,160 bytes)
+      • template.html                  (572,594 bytes)
+
+  ✓ END-TO-END PIPELINE: ALL 7 STAGES SUCCEEDED
+
+==============================================================================
+  TEST SUMMARY
+==============================================================================
+  Total:    26
+  Passed:   25  ✓
+  Failed:   0  ✗
+  Skipped:  1  ⊘
+  Pass Rate:96.2%
+==============================================================================
+
+  Full report saved to: /home/z/my-project/test_results/test_report.json

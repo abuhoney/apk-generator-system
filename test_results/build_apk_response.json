@@ -1,0 +1,17 @@
+{
+  "apk_name": "TestHospital.apk",
+  "apk_path": "/opt/render/project/src/_output/custom_7cd72c01/TestHospital.apk",
+  "apk_size": 17480,
+  "apk_url": "/download/custom_7cd72c01/TestHospital.apk",
+  "build_mode": "apk-v3-signed",
+  "duration_sec": 56.903905630111694,
+  "error": null,
+  "function": "custom_7cd72c01",
+  "manifest": {
+    "app_name": "TestHospital",
+    "package": "com.test.hospital",
+    "version_code": 1,
+    "version_name": "1.0.0"
+  },
+  "success": true
+}

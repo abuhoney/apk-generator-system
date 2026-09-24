@@ -1,0 +1,1891 @@
+[
+  {
+    "name": "load__meta_5t07c",
+    "type": "data_load",
+    "id": "5t07c",
+    "field": "project",
+    "dataset": "_meta"
+  },
+  {
+    "name": "load__meta_1ouae",
+    "type": "data_load",
+    "id": "1ouae",
+    "field": "icon",
+    "dataset": "_meta"
+  },
+  {
+    "name": "load_patients_6e2w9",
+    "type": "data_load",
+    "id": "6e2w9",
+    "field": "patient_id",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_uws4h",
+    "type": "data_load",
+    "id": "uws4h",
+    "field": "name",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_f5guq",
+    "type": "data_load",
+    "id": "f5guq",
+    "field": "age",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_ntdpo",
+    "type": "data_load",
+    "id": "ntdpo",
+    "field": "gender",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_srev3",
+    "type": "data_load",
+    "id": "srev3",
+    "field": "phone",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_43fhy",
+    "type": "data_load",
+    "id": "43fhy",
+    "field": "blood",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_chwx7",
+    "type": "data_load",
+    "id": "chwx7",
+    "field": "weight",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_f99ry",
+    "type": "data_load",
+    "id": "f99ry",
+    "field": "height",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_7lte5",
+    "type": "data_load",
+    "id": "7lte5",
+    "field": "diagnosis",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_xlhu8",
+    "type": "data_load",
+    "id": "xlhu8",
+    "field": "department",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_l2l12",
+    "type": "data_load",
+    "id": "l2l12",
+    "field": "doctor",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_pgpq8",
+    "type": "data_load",
+    "id": "pgpq8",
+    "field": "status",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_xscd8",
+    "type": "data_load",
+    "id": "xscd8",
+    "field": "room",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_nrbqy",
+    "type": "data_load",
+    "id": "nrbqy",
+    "field": "admission",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_lt4lp",
+    "type": "data_load",
+    "id": "lt4lp",
+    "field": "discharge",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_patients_829c4",
+    "type": "data_load",
+    "id": "829c4",
+    "field": "photo",
+    "dataset": "patients"
+  },
+  {
+    "name": "load_doctors_s0ko8",
+    "type": "data_load",
+    "id": "s0ko8",
+    "field": "id",
+    "dataset": "doctors"
+  },
+  {
+    "name": "load_doctors_drzhs",
+    "type": "data_load",
+    "id": "drzhs",
+    "field": "name",
+    "dataset": "doctors"
+  },
+  {
+    "name": "load_doctors_70yoa",
+    "type": "data_load",
+    "id": "70yoa",
+    "field": "specialty",
+    "dataset": "doctors"
+  },
+  {
+    "name": "load_doctors_ptuyz",
+    "type": "data_load",
+    "id": "ptuyz",
+    "field": "phone",
+    "dataset": "doctors"
+  },
+  {
+    "name": "load_doctors_ajhun",
+    "type": "data_load",
+    "id": "ajhun",
+    "field": "email",
+    "dataset": "doctors"
+  },
+  {
+    "name": "load_doctors_8tsu9",
+    "type": "data_load",
+    "id": "8tsu9",
+    "field": "department",
+    "dataset": "doctors"
+  },
+  {
+    "name": "load_doctors_bjovl",
+    "type": "data_load",
+    "id": "bjovl",
+    "field": "patients_count",
+    "dataset": "doctors"
+  },
+  {
+    "name": "load_doctors_w8otj",
+    "type": "data_load",
+    "id": "w8otj",
+    "field": "shift",
+    "dataset": "doctors"
+  },
+  {
+    "name": "load_doctors_mwmsu",
+    "type": "data_load",
+    "id": "mwmsu",
+    "field": "rating",
+    "dataset": "doctors"
+  },
+  {
+    "name": "load_doctors_uzm69",
+    "type": "data_load",
+    "id": "uzm69",
+    "field": "photo",
+    "dataset": "doctors"
+  },
+  {
+    "name": "load_nurses_q6q7x",
+    "type": "data_load",
+    "id": "q6q7x",
+    "field": "id",
+    "dataset": "nurses"
+  },
+  {
+    "name": "load_nurses_ebx6u",
+    "type": "data_load",
+    "id": "ebx6u",
+    "field": "name",
+    "dataset": "nurses"
+  },
+  {
+    "name": "load_nurses_mwi2b",
+    "type": "data_load",
+    "id": "mwi2b",
+    "field": "department",
+    "dataset": "nurses"
+  },
+  {
+    "name": "load_nurses_n98po",
+    "type": "data_load",
+    "id": "n98po",
+    "field": "shift",
+    "dataset": "nurses"
+  },
+  {
+    "name": "load_nurses_daagq",
+    "type": "data_load",
+    "id": "daagq",
+    "field": "phone",
+    "dataset": "nurses"
+  },
+  {
+    "name": "load_nurses_tmuv4",
+    "type": "data_load",
+    "id": "tmuv4",
+    "field": "rating",
+    "dataset": "nurses"
+  },
+  {
+    "name": "load_nurses_tubxx",
+    "type": "data_load",
+    "id": "tubxx",
+    "field": "years_experience",
+    "dataset": "nurses"
+  },
+  {
+    "name": "load_appointments_ge0mx",
+    "type": "data_load",
+    "id": "ge0mx",
+    "field": "appt_id",
+    "dataset": "appointments"
+  },
+  {
+    "name": "load_appointments_pyjlg",
+    "type": "data_load",
+    "id": "pyjlg",
+    "field": "patient",
+    "dataset": "appointments"
+  },
+  {
+    "name": "load_appointments_4rbrx",
+    "type": "data_load",
+    "id": "4rbrx",
+    "field": "doctor",
+    "dataset": "appointments"
+  },
+  {
+    "name": "load_appointments_pdrni",
+    "type": "data_load",
+    "id": "pdrni",
+    "field": "date",
+    "dataset": "appointments"
+  },
+  {
+    "name": "load_appointments_v7l3r",
+    "type": "data_load",
+    "id": "v7l3r",
+    "field": "time",
+    "dataset": "appointments"
+  },
+  {
+    "name": "load_appointments_pnwwv",
+    "type": "data_load",
+    "id": "pnwwv",
+    "field": "type",
+    "dataset": "appointments"
+  },
+  {
+    "name": "load_appointments_f58sc",
+    "type": "data_load",
+    "id": "f58sc",
+    "field": "status",
+    "dataset": "appointments"
+  },
+  {
+    "name": "load_appointments_08re4",
+    "type": "data_load",
+    "id": "08re4",
+    "field": "department",
+    "dataset": "appointments"
+  },
+  {
+    "name": "load_rooms_f43ee",
+    "type": "data_load",
+    "id": "f43ee",
+    "field": "room",
+    "dataset": "rooms"
+  },
+  {
+    "name": "load_rooms_skm52",
+    "type": "data_load",
+    "id": "skm52",
+    "field": "type",
+    "dataset": "rooms"
+  },
+  {
+    "name": "load_rooms_f07z2",
+    "type": "data_load",
+    "id": "f07z2",
+    "field": "capacity",
+    "dataset": "rooms"
+  },
+  {
+    "name": "load_rooms_uo6nm",
+    "type": "data_load",
+    "id": "uo6nm",
+    "field": "occupied",
+    "dataset": "rooms"
+  },
+  {
+    "name": "load_rooms_377ru",
+    "type": "data_load",
+    "id": "377ru",
+    "field": "floor",
+    "dataset": "rooms"
+  },
+  {
+    "name": "load_rooms_ipurw",
+    "type": "data_load",
+    "id": "ipurw",
+    "field": "status",
+    "dataset": "rooms"
+  },
+  {
+    "name": "load_rooms_160hb",
+    "type": "data_load",
+    "id": "160hb",
+    "field": "daily_rate",
+    "dataset": "rooms"
+  },
+  {
+    "name": "load_rooms_t6dcf",
+    "type": "data_load",
+    "id": "t6dcf",
+    "field": "icon",
+    "dataset": "rooms"
+  },
+  {
+    "name": "load_medicines_boral",
+    "type": "data_load",
+    "id": "boral",
+    "field": "code",
+    "dataset": "medicines"
+  },
+  {
+    "name": "load_medicines_nreed",
+    "type": "data_load",
+    "id": "nreed",
+    "field": "name",
+    "dataset": "medicines"
+  },
+  {
+    "name": "load_medicines_9oydk",
+    "type": "data_load",
+    "id": "9oydk",
+    "field": "category",
+    "dataset": "medicines"
+  },
+  {
+    "name": "load_medicines_klm89",
+    "type": "data_load",
+    "id": "klm89",
+    "field": "stock",
+    "dataset": "medicines"
+  },
+  {
+    "name": "load_medicines_jcxbt",
+    "type": "data_load",
+    "id": "jcxbt",
+    "field": "min_stock",
+    "dataset": "medicines"
+  },
+  {
+    "name": "load_medicines_1fhng",
+    "type": "data_load",
+    "id": "1fhng",
+    "field": "price",
+    "dataset": "medicines"
+  },
+  {
+    "name": "load_medicines_kcut2",
+    "type": "data_load",
+    "id": "kcut2",
+    "field": "expiry",
+    "dataset": "medicines"
+  },
+  {
+    "name": "load_medicines_sf1ch",
+    "type": "data_load",
+    "id": "sf1ch",
+    "field": "icon",
+    "dataset": "medicines"
+  },
+  {
+    "name": "load_medicines_x9u2j",
+    "type": "data_load",
+    "id": "x9u2j",
+    "field": "supplier",
+    "dataset": "medicines"
+  },
+  {
+    "name": "load_invoices_122lx",
+    "type": "data_load",
+    "id": "122lx",
+    "field": "invoice_id",
+    "dataset": "invoices"
+  },
+  {
+    "name": "load_invoices_hj6eg",
+    "type": "data_load",
+    "id": "hj6eg",
+    "field": "patient_id",
+    "dataset": "invoices"
+  },
+  {
+    "name": "load_invoices_0c4ms",
+    "type": "data_load",
+    "id": "0c4ms",
+    "field": "service_cost",
+    "dataset": "invoices"
+  },
+  {
+    "name": "load_invoices_jzgz4",
+    "type": "data_load",
+    "id": "jzgz4",
+    "field": "discount_pct",
+    "dataset": "invoices"
+  },
+  {
+    "name": "load_invoices_30g05",
+    "type": "data_load",
+    "id": "30g05",
+    "field": "total_bill",
+    "dataset": "invoices"
+  },
+  {
+    "name": "load_invoices_yrwsg",
+    "type": "data_load",
+    "id": "yrwsg",
+    "field": "discount_amount",
+    "dataset": "invoices"
+  },
+  {
+    "name": "load_invoices_mwche",
+    "type": "data_load",
+    "id": "mwche",
+    "field": "net_payable",
+    "dataset": "invoices"
+  },
+  {
+    "name": "load_invoices_fl8ha",
+    "type": "data_load",
+    "id": "fl8ha",
+    "field": "date",
+    "dataset": "invoices"
+  },
+  {
+    "name": "load_invoices_gwsl0",
+    "type": "data_load",
+    "id": "gwsl0",
+    "field": "status",
+    "dataset": "invoices"
+  },
+  {
+    "name": "load_invoices_gtadg",
+    "type": "data_load",
+    "id": "gtadg",
+    "field": "icon",
+    "dataset": "invoices"
+  },
+  {
+    "name": "load_emergency_xac27",
+    "type": "data_load",
+    "id": "xac27",
+    "field": "case_id",
+    "dataset": "emergency"
+  },
+  {
+    "name": "load_emergency_ycbwe",
+    "type": "data_load",
+    "id": "ycbwe",
+    "field": "patient",
+    "dataset": "emergency"
+  },
+  {
+    "name": "load_emergency_jaa9v",
+    "type": "data_load",
+    "id": "jaa9v",
+    "field": "severity",
+    "dataset": "emergency"
+  },
+  {
+    "name": "load_emergency_oh4uo",
+    "type": "data_load",
+    "id": "oh4uo",
+    "field": "arrival",
+    "dataset": "emergency"
+  },
+  {
+    "name": "load_emergency_rcrmk",
+    "type": "data_load",
+    "id": "rcrmk",
+    "field": "status",
+    "dataset": "emergency"
+  },
+  {
+    "name": "load_emergency_4yyba",
+    "type": "data_load",
+    "id": "4yyba",
+    "field": "doctor",
+    "dataset": "emergency"
+  },
+  {
+    "name": "load_emergency_55wr1",
+    "type": "data_load",
+    "id": "55wr1",
+    "field": "triage_score",
+    "dataset": "emergency"
+  },
+  {
+    "name": "load_beds_stats_h4s3f",
+    "type": "data_load",
+    "id": "h4s3f",
+    "field": "type",
+    "dataset": "beds_stats"
+  },
+  {
+    "name": "load_beds_stats_olxfb",
+    "type": "data_load",
+    "id": "olxfb",
+    "field": "total",
+    "dataset": "beds_stats"
+  },
+  {
+    "name": "load_beds_stats_2efnv",
+    "type": "data_load",
+    "id": "2efnv",
+    "field": "occupied",
+    "dataset": "beds_stats"
+  },
+  {
+    "name": "load_beds_stats_3s5nx",
+    "type": "data_load",
+    "id": "3s5nx",
+    "field": "available",
+    "dataset": "beds_stats"
+  },
+  {
+    "name": "load_revenue_monthly_pjiba",
+    "type": "data_load",
+    "id": "pjiba",
+    "field": "month",
+    "dataset": "revenue_monthly"
+  },
+  {
+    "name": "load_revenue_monthly_43prs",
+    "type": "data_load",
+    "id": "43prs",
+    "field": "revenue",
+    "dataset": "revenue_monthly"
+  },
+  {
+    "name": "load_revenue_monthly_avm05",
+    "type": "data_load",
+    "id": "avm05",
+    "field": "expenses",
+    "dataset": "revenue_monthly"
+  },
+  {
+    "name": "load_revenue_monthly_quz34",
+    "type": "data_load",
+    "id": "quz34",
+    "field": "profit",
+    "dataset": "revenue_monthly"
+  },
+  {
+    "name": "load_operations_stats_3og0m",
+    "type": "data_load",
+    "id": "3og0m",
+    "field": "month",
+    "dataset": "operations_stats"
+  },
+  {
+    "name": "load_operations_stats_mn9x9",
+    "type": "data_load",
+    "id": "mn9x9",
+    "field": "operations",
+    "dataset": "operations_stats"
+  },
+  {
+    "name": "load_operations_stats_ir876",
+    "type": "data_load",
+    "id": "ir876",
+    "field": "emergency",
+    "dataset": "operations_stats"
+  },
+  {
+    "name": "load_operations_stats_x2qo0",
+    "type": "data_load",
+    "id": "x2qo0",
+    "field": "consultations",
+    "dataset": "operations_stats"
+  },
+  {
+    "name": "load_Hospital Contacts_g5qdf",
+    "type": "data_load",
+    "id": "g5qdf",
+    "field": "name",
+    "dataset": "Hospital Contacts"
+  },
+  {
+    "name": "load_Hospital Contacts_vldmz",
+    "type": "data_load",
+    "id": "vldmz",
+    "field": "value",
+    "dataset": "Hospital Contacts"
+  },
+  {
+    "name": "load_Hospital Data_34vhx",
+    "type": "data_load",
+    "id": "34vhx",
+    "field": "patient_id",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_bc9sa",
+    "type": "data_load",
+    "id": "bc9sa",
+    "field": "name",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_j8h6o",
+    "type": "data_load",
+    "id": "j8h6o",
+    "field": "age",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_6relu",
+    "type": "data_load",
+    "id": "6relu",
+    "field": "gender",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_pdnff",
+    "type": "data_load",
+    "id": "pdnff",
+    "field": "phone",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_wuej5",
+    "type": "data_load",
+    "id": "wuej5",
+    "field": "blood_type",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_bqwi6",
+    "type": "data_load",
+    "id": "bqwi6",
+    "field": "weight",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_65y7j",
+    "type": "data_load",
+    "id": "65y7j",
+    "field": "height",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_gx7n3",
+    "type": "data_load",
+    "id": "gx7n3",
+    "field": "diagnosis",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_dx5p7",
+    "type": "data_load",
+    "id": "dx5p7",
+    "field": "department",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_kt8cy",
+    "type": "data_load",
+    "id": "kt8cy",
+    "field": "doctor",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_ioyak",
+    "type": "data_load",
+    "id": "ioyak",
+    "field": "status",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_q4p7e",
+    "type": "data_load",
+    "id": "q4p7e",
+    "field": "room",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_ttpqb",
+    "type": "data_load",
+    "id": "ttpqb",
+    "field": "admission_date",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_q14py",
+    "type": "data_load",
+    "id": "q14py",
+    "field": "discharge_date",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Data_3aes7",
+    "type": "data_load",
+    "id": "3aes7",
+    "field": "fee",
+    "dataset": "Hospital Data"
+  },
+  {
+    "name": "load_Hospital Info_nr5q9",
+    "type": "data_load",
+    "id": "nr5q9",
+    "field": "content",
+    "dataset": "Hospital Info"
+  },
+  {
+    "name": "load_Hospital Info_01jmp",
+    "type": "data_load",
+    "id": "01jmp",
+    "field": "type",
+    "dataset": "Hospital Info"
+  },
+  {
+    "name": "load__meta_pf3cw",
+    "type": "data_load",
+    "id": "pf3cw",
+    "field": "project",
+    "dataset": "_meta"
+  },
+  {
+    "name": "load__meta_t76n7",
+    "type": "data_load",
+    "id": "t76n7",
+    "field": "icon",
+    "dataset": "_meta"
+  },
+  {
+    "name": "load_products_2pt4u",
+    "type": "data_load",
+    "id": "2pt4u",
+    "field": "product_id",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_2qniz",
+    "type": "data_load",
+    "id": "2qniz",
+    "field": "name",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_ympn2",
+    "type": "data_load",
+    "id": "ympn2",
+    "field": "category",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_mx63l",
+    "type": "data_load",
+    "id": "mx63l",
+    "field": "brand",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_9cnba",
+    "type": "data_load",
+    "id": "9cnba",
+    "field": "barcode",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_jvqxh",
+    "type": "data_load",
+    "id": "jvqxh",
+    "field": "price",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_e826n",
+    "type": "data_load",
+    "id": "e826n",
+    "field": "cost",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_oqtus",
+    "type": "data_load",
+    "id": "oqtus",
+    "field": "stock",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_mazoh",
+    "type": "data_load",
+    "id": "mazoh",
+    "field": "min_stock",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_c5mf6",
+    "type": "data_load",
+    "id": "c5mf6",
+    "field": "unit",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_yepxf",
+    "type": "data_load",
+    "id": "yepxf",
+    "field": "expiry",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_t9wg9",
+    "type": "data_load",
+    "id": "t9wg9",
+    "field": "supplier",
+    "dataset": "products"
+  },
+  {
+    "name": "load_products_zt9u3",
+    "type": "data_load",
+    "id": "zt9u3",
+    "field": "image",
+    "dataset": "products"
+  },
+  {
+    "name": "load_staff_7o9l5",
+    "type": "data_load",
+    "id": "7o9l5",
+    "field": "staff_id",
+    "dataset": "staff"
+  },
+  {
+    "name": "load_staff_vmbkl",
+    "type": "data_load",
+    "id": "vmbkl",
+    "field": "name",
+    "dataset": "staff"
+  },
+  {
+    "name": "load_staff_qyocn",
+    "type": "data_load",
+    "id": "qyocn",
+    "field": "role",
+    "dataset": "staff"
+  },
+  {
+    "name": "load_staff_iv5v6",
+    "type": "data_load",
+    "id": "iv5v6",
+    "field": "phone",
+    "dataset": "staff"
+  },
+  {
+    "name": "load_staff_3lmjy",
+    "type": "data_load",
+    "id": "3lmjy",
+    "field": "shift",
+    "dataset": "staff"
+  },
+  {
+    "name": "load_staff_ad61f",
+    "type": "data_load",
+    "id": "ad61f",
+    "field": "salary",
+    "dataset": "staff"
+  },
+  {
+    "name": "load_staff_c7i0x",
+    "type": "data_load",
+    "id": "c7i0x",
+    "field": "hire_date",
+    "dataset": "staff"
+  },
+  {
+    "name": "load_branches_sqsqg",
+    "type": "data_load",
+    "id": "sqsqg",
+    "field": "branch_id",
+    "dataset": "branches"
+  },
+  {
+    "name": "load_branches_u4l5o",
+    "type": "data_load",
+    "id": "u4l5o",
+    "field": "name",
+    "dataset": "branches"
+  },
+  {
+    "name": "load_branches_eoag5",
+    "type": "data_load",
+    "id": "eoag5",
+    "field": "address",
+    "dataset": "branches"
+  },
+  {
+    "name": "load_branches_jav7z",
+    "type": "data_load",
+    "id": "jav7z",
+    "field": "phone",
+    "dataset": "branches"
+  },
+  {
+    "name": "load_branches_v4thq",
+    "type": "data_load",
+    "id": "v4thq",
+    "field": "manager",
+    "dataset": "branches"
+  },
+  {
+    "name": "load_branches_61jdf",
+    "type": "data_load",
+    "id": "61jdf",
+    "field": "area_sqm",
+    "dataset": "branches"
+  },
+  {
+    "name": "load_branches_pso4a",
+    "type": "data_load",
+    "id": "pso4a",
+    "field": "daily_sales",
+    "dataset": "branches"
+  },
+  {
+    "name": "load_suppliers_25fup",
+    "type": "data_load",
+    "id": "25fup",
+    "field": "supplier_id",
+    "dataset": "suppliers"
+  },
+  {
+    "name": "load_suppliers_dr0lx",
+    "type": "data_load",
+    "id": "dr0lx",
+    "field": "name",
+    "dataset": "suppliers"
+  },
+  {
+    "name": "load_suppliers_6kdkj",
+    "type": "data_load",
+    "id": "6kdkj",
+    "field": "contact",
+    "dataset": "suppliers"
+  },
+  {
+    "name": "load_suppliers_as0i1",
+    "type": "data_load",
+    "id": "as0i1",
+    "field": "email",
+    "dataset": "suppliers"
+  },
+  {
+    "name": "load_suppliers_vt8dc",
+    "type": "data_load",
+    "id": "vt8dc",
+    "field": "category",
+    "dataset": "suppliers"
+  },
+  {
+    "name": "load_suppliers_brhgn",
+    "type": "data_load",
+    "id": "brhgn",
+    "field": "rating",
+    "dataset": "suppliers"
+  },
+  {
+    "name": "load_suppliers_cwyir",
+    "type": "data_load",
+    "id": "cwyir",
+    "field": "payment_terms",
+    "dataset": "suppliers"
+  },
+  {
+    "name": "load_daily_sales_yslbb",
+    "type": "data_load",
+    "id": "yslbb",
+    "field": "date",
+    "dataset": "daily_sales"
+  },
+  {
+    "name": "load_daily_sales_w42a9",
+    "type": "data_load",
+    "id": "w42a9",
+    "field": "branch",
+    "dataset": "daily_sales"
+  },
+  {
+    "name": "load_daily_sales_wi5x3",
+    "type": "data_load",
+    "id": "wi5x3",
+    "field": "total_sales",
+    "dataset": "daily_sales"
+  },
+  {
+    "name": "load_daily_sales_c8w2k",
+    "type": "data_load",
+    "id": "c8w2k",
+    "field": "transactions",
+    "dataset": "daily_sales"
+  },
+  {
+    "name": "load_daily_sales_nzo7q",
+    "type": "data_load",
+    "id": "nzo7q",
+    "field": "avg_basket",
+    "dataset": "daily_sales"
+  },
+  {
+    "name": "load_daily_sales_968rd",
+    "type": "data_load",
+    "id": "968rd",
+    "field": "peak_hour",
+    "dataset": "daily_sales"
+  },
+  {
+    "name": "load_Supermarket Inventory_4s4u2",
+    "type": "data_load",
+    "id": "4s4u2",
+    "field": "name",
+    "dataset": "Supermarket Inventory"
+  },
+  {
+    "name": "load_Supermarket Inventory_2u2en",
+    "type": "data_load",
+    "id": "2u2en",
+    "field": "value",
+    "dataset": "Supermarket Inventory"
+  },
+  {
+    "name": "load_Supermarket Offers_fa363",
+    "type": "data_load",
+    "id": "fa363",
+    "field": "content",
+    "dataset": "Supermarket Offers"
+  },
+  {
+    "name": "load_Supermarket Offers_bsc3n",
+    "type": "data_load",
+    "id": "bsc3n",
+    "field": "type",
+    "dataset": "Supermarket Offers"
+  },
+  {
+    "name": "load_Supermarket Products_ctucn",
+    "type": "data_load",
+    "id": "ctucn",
+    "field": "product_id",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Supermarket Products_vxwh5",
+    "type": "data_load",
+    "id": "vxwh5",
+    "field": "name",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Supermarket Products_xkw80",
+    "type": "data_load",
+    "id": "xkw80",
+    "field": "category",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Supermarket Products_7ev00",
+    "type": "data_load",
+    "id": "7ev00",
+    "field": "brand",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Supermarket Products_9qlly",
+    "type": "data_load",
+    "id": "9qlly",
+    "field": "price",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Supermarket Products_850le",
+    "type": "data_load",
+    "id": "850le",
+    "field": "cost",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Supermarket Products_xbyxz",
+    "type": "data_load",
+    "id": "xbyxz",
+    "field": "stock",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Supermarket Products_klkz4",
+    "type": "data_load",
+    "id": "klkz4",
+    "field": "min_stock",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Supermarket Products_qwpo0",
+    "type": "data_load",
+    "id": "qwpo0",
+    "field": "unit",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Supermarket Products_1wf0r",
+    "type": "data_load",
+    "id": "1wf0r",
+    "field": "expiry_date",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Supermarket Products_ig042",
+    "type": "data_load",
+    "id": "ig042",
+    "field": "supplier",
+    "dataset": "Supermarket Products"
+  },
+  {
+    "name": "load_Patients_oin9h",
+    "type": "data_load",
+    "id": "oin9h",
+    "field": "Patient ID",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_6054k",
+    "type": "data_load",
+    "id": "6054k",
+    "field": "Name",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_6gwkq",
+    "type": "data_load",
+    "id": "6gwkq",
+    "field": "Age",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_5oljm",
+    "type": "data_load",
+    "id": "5oljm",
+    "field": "Gender",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_dnyyf",
+    "type": "data_load",
+    "id": "dnyyf",
+    "field": "Phone",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_r8cpa",
+    "type": "data_load",
+    "id": "r8cpa",
+    "field": "Blood Type",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_odgko",
+    "type": "data_load",
+    "id": "odgko",
+    "field": "Weight",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_56dab",
+    "type": "data_load",
+    "id": "56dab",
+    "field": "Height",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_cq7cj",
+    "type": "data_load",
+    "id": "cq7cj",
+    "field": "Diagnosis",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_x2fk6",
+    "type": "data_load",
+    "id": "x2fk6",
+    "field": "Department",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_k8c3w",
+    "type": "data_load",
+    "id": "k8c3w",
+    "field": "Doctor",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_cb5bf",
+    "type": "data_load",
+    "id": "cb5bf",
+    "field": "Status",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_wuudg",
+    "type": "data_load",
+    "id": "wuudg",
+    "field": "Room",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_73joo",
+    "type": "data_load",
+    "id": "73joo",
+    "field": "Admission",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_1bw3o",
+    "type": "data_load",
+    "id": "1bw3o",
+    "field": "Discharge",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Patients_8n86a",
+    "type": "data_load",
+    "id": "8n86a",
+    "field": "Fee",
+    "dataset": "Patients"
+  },
+  {
+    "name": "load_Doctors_t2cb2",
+    "type": "data_load",
+    "id": "t2cb2",
+    "field": "ID",
+    "dataset": "Doctors"
+  },
+  {
+    "name": "load_Doctors_kbfpx",
+    "type": "data_load",
+    "id": "kbfpx",
+    "field": "Name",
+    "dataset": "Doctors"
+  },
+  {
+    "name": "load_Doctors_18e87",
+    "type": "data_load",
+    "id": "18e87",
+    "field": "Specialty",
+    "dataset": "Doctors"
+  },
+  {
+    "name": "load_Doctors_6jzvl",
+    "type": "data_load",
+    "id": "6jzvl",
+    "field": "Phone",
+    "dataset": "Doctors"
+  },
+  {
+    "name": "load_Doctors_ue3bm",
+    "type": "data_load",
+    "id": "ue3bm",
+    "field": "Email",
+    "dataset": "Doctors"
+  },
+  {
+    "name": "load_Doctors_ikazr",
+    "type": "data_load",
+    "id": "ikazr",
+    "field": "Department",
+    "dataset": "Doctors"
+  },
+  {
+    "name": "load_Doctors_1uiy1",
+    "type": "data_load",
+    "id": "1uiy1",
+    "field": "Patients Count",
+    "dataset": "Doctors"
+  },
+  {
+    "name": "load_Doctors_k9xgs",
+    "type": "data_load",
+    "id": "k9xgs",
+    "field": "Shift",
+    "dataset": "Doctors"
+  },
+  {
+    "name": "load_Doctors_tl6oa",
+    "type": "data_load",
+    "id": "tl6oa",
+    "field": "Rating",
+    "dataset": "Doctors"
+  },
+  {
+    "name": "load_Medicines_x177q",
+    "type": "data_load",
+    "id": "x177q",
+    "field": "Code",
+    "dataset": "Medicines"
+  },
+  {
+    "name": "load_Medicines_6d5nz",
+    "type": "data_load",
+    "id": "6d5nz",
+    "field": "Name",
+    "dataset": "Medicines"
+  },
+  {
+    "name": "load_Medicines_wljem",
+    "type": "data_load",
+    "id": "wljem",
+    "field": "Category",
+    "dataset": "Medicines"
+  },
+  {
+    "name": "load_Medicines_gac8q",
+    "type": "data_load",
+    "id": "gac8q",
+    "field": "Stock",
+    "dataset": "Medicines"
+  },
+  {
+    "name": "load_Medicines_4u1mb",
+    "type": "data_load",
+    "id": "4u1mb",
+    "field": "Min Stock",
+    "dataset": "Medicines"
+  },
+  {
+    "name": "load_Medicines_xxv65",
+    "type": "data_load",
+    "id": "xxv65",
+    "field": "Price",
+    "dataset": "Medicines"
+  },
+  {
+    "name": "load_Medicines_7sxjq",
+    "type": "data_load",
+    "id": "7sxjq",
+    "field": "Expiry",
+    "dataset": "Medicines"
+  },
+  {
+    "name": "load_Medicines_r0ue7",
+    "type": "data_load",
+    "id": "r0ue7",
+    "field": "Supplier",
+    "dataset": "Medicines"
+  },
+  {
+    "name": "load_Rooms_4gura",
+    "type": "data_load",
+    "id": "4gura",
+    "field": "Room",
+    "dataset": "Rooms"
+  },
+  {
+    "name": "load_Rooms_cdjt2",
+    "type": "data_load",
+    "id": "cdjt2",
+    "field": "Type",
+    "dataset": "Rooms"
+  },
+  {
+    "name": "load_Rooms_otiv2",
+    "type": "data_load",
+    "id": "otiv2",
+    "field": "Capacity",
+    "dataset": "Rooms"
+  },
+  {
+    "name": "load_Rooms_9i23y",
+    "type": "data_load",
+    "id": "9i23y",
+    "field": "Occupied",
+    "dataset": "Rooms"
+  },
+  {
+    "name": "load_Rooms_8g683",
+    "type": "data_load",
+    "id": "8g683",
+    "field": "Floor",
+    "dataset": "Rooms"
+  },
+  {
+    "name": "load_Rooms_1bh1l",
+    "type": "data_load",
+    "id": "1bh1l",
+    "field": "Status",
+    "dataset": "Rooms"
+  },
+  {
+    "name": "load_Rooms_xil2r",
+    "type": "data_load",
+    "id": "xil2r",
+    "field": "Daily Rate",
+    "dataset": "Rooms"
+  },
+  {
+    "name": "load_Invoices_5dcjp",
+    "type": "data_load",
+    "id": "5dcjp",
+    "field": "Invoice ID",
+    "dataset": "Invoices"
+  },
+  {
+    "name": "load_Invoices_khjy0",
+    "type": "data_load",
+    "id": "khjy0",
+    "field": "Patient ID",
+    "dataset": "Invoices"
+  },
+  {
+    "name": "load_Invoices_2ti11",
+    "type": "data_load",
+    "id": "2ti11",
+    "field": "Service Cost",
+    "dataset": "Invoices"
+  },
+  {
+    "name": "load_Invoices_2da67",
+    "type": "data_load",
+    "id": "2da67",
+    "field": "Discount Pct",
+    "dataset": "Invoices"
+  },
+  {
+    "name": "load_Invoices_19kuf",
+    "type": "data_load",
+    "id": "19kuf",
+    "field": "Total Bill",
+    "dataset": "Invoices"
+  },
+  {
+    "name": "load_Invoices_7hsww",
+    "type": "data_load",
+    "id": "7hsww",
+    "field": "Date",
+    "dataset": "Invoices"
+  },
+  {
+    "name": "load_Invoices_lbw4i",
+    "type": "data_load",
+    "id": "lbw4i",
+    "field": "Status",
+    "dataset": "Invoices"
+  },
+  {
+    "name": "load_Table1_btka3",
+    "type": "data_load",
+    "id": "btka3",
+    "field": "Department",
+    "dataset": "Table1"
+  },
+  {
+    "name": "load_Table1_76ys8",
+    "type": "data_load",
+    "id": "76ys8",
+    "field": "Head",
+    "dataset": "Table1"
+  },
+  {
+    "name": "load_Table1_itntg",
+    "type": "data_load",
+    "id": "itntg",
+    "field": "Phone",
+    "dataset": "Table1"
+  },
+  {
+    "name": "load_Table1_eqaoe",
+    "type": "data_load",
+    "id": "eqaoe",
+    "field": "Location",
+    "dataset": "Table1"
+  },
+  {
+    "name": "load_Table2_ppk4e",
+    "type": "data_load",
+    "id": "ppk4e",
+    "field": "ID",
+    "dataset": "Table2"
+  },
+  {
+    "name": "load_Table2_9wo7x",
+    "type": "data_load",
+    "id": "9wo7x",
+    "field": "Name",
+    "dataset": "Table2"
+  },
+  {
+    "name": "load_Table2_a7py3",
+    "type": "data_load",
+    "id": "a7py3",
+    "field": "Specialty",
+    "dataset": "Table2"
+  },
+  {
+    "name": "load_Table2_j770d",
+    "type": "data_load",
+    "id": "j770d",
+    "field": "Shift",
+    "dataset": "Table2"
+  },
+  {
+    "name": "load_Table2_1ucop",
+    "type": "data_load",
+    "id": "1ucop",
+    "field": "Rating",
+    "dataset": "Table2"
+  },
+  {
+    "name": "load_Document Text_nxstg",
+    "type": "data_load",
+    "id": "nxstg",
+    "field": "paragraph",
+    "dataset": "Document Text"
+  },
+  {
+    "name": "load_Headings_lq6p5",
+    "type": "data_load",
+    "id": "lq6p5",
+    "field": "heading",
+    "dataset": "Headings"
+  },
+  {
+    "name": "load_Headings_dk4eh",
+    "type": "data_load",
+    "id": "dk4eh",
+    "field": "level",
+    "dataset": "Headings"
+  },
+  {
+    "name": "load_Page1_Table1_z5bfe",
+    "type": "data_load",
+    "id": "z5bfe",
+    "field": "Department",
+    "dataset": "Page1_Table1"
+  },
+  {
+    "name": "load_Page1_Table1_iuw0i",
+    "type": "data_load",
+    "id": "iuw0i",
+    "field": "Patients",
+    "dataset": "Page1_Table1"
+  },
+  {
+    "name": "load_Page1_Table1_vk8p9",
+    "type": "data_load",
+    "id": "vk8p9",
+    "field": "Doctors",
+    "dataset": "Page1_Table1"
+  },
+  {
+    "name": "load_Page1_Table1_3952q",
+    "type": "data_load",
+    "id": "3952q",
+    "field": "Revenue (SAR)",
+    "dataset": "Page1_Table1"
+  },
+  {
+    "name": "load_Page1_Table1_hqu0t",
+    "type": "data_load",
+    "id": "hqu0t",
+    "field": "Satisfaction",
+    "dataset": "Page1_Table1"
+  },
+  {
+    "name": "load_Page1_Table2_oe7fx",
+    "type": "data_load",
+    "id": "oe7fx",
+    "field": "Quarter",
+    "dataset": "Page1_Table2"
+  },
+  {
+    "name": "load_Page1_Table2_677gs",
+    "type": "data_load",
+    "id": "677gs",
+    "field": "Revenue",
+    "dataset": "Page1_Table2"
+  },
+  {
+    "name": "load_Page1_Table2_aolia",
+    "type": "data_load",
+    "id": "aolia",
+    "field": "Expenses",
+    "dataset": "Page1_Table2"
+  },
+  {
+    "name": "load_Page1_Table2_11mfb",
+    "type": "data_load",
+    "id": "11mfb",
+    "field": "Net Profit",
+    "dataset": "Page1_Table2"
+  },
+  {
+    "name": "load_Page1_Text_1o8dl",
+    "type": "data_load",
+    "id": "1o8dl",
+    "field": "paragraph",
+    "dataset": "Page1_Text"
+  },
+  {
+    "name": "load_Page1_Text_marbc",
+    "type": "data_load",
+    "id": "marbc",
+    "field": "page",
+    "dataset": "Page1_Text"
+  },
+  {
+    "name": "load_Products_oq2cq",
+    "type": "data_load",
+    "id": "oq2cq",
+    "field": "Product ID",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Products_muogq",
+    "type": "data_load",
+    "id": "muogq",
+    "field": "Name",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Products_043tl",
+    "type": "data_load",
+    "id": "043tl",
+    "field": "Category",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Products_91esn",
+    "type": "data_load",
+    "id": "91esn",
+    "field": "Brand",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Products_de08b",
+    "type": "data_load",
+    "id": "de08b",
+    "field": "Price",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Products_da5cr",
+    "type": "data_load",
+    "id": "da5cr",
+    "field": "Cost",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Products_6dggb",
+    "type": "data_load",
+    "id": "6dggb",
+    "field": "Stock",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Products_qgrvd",
+    "type": "data_load",
+    "id": "qgrvd",
+    "field": "Min Stock",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Products_8lh2r",
+    "type": "data_load",
+    "id": "8lh2r",
+    "field": "Unit",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Products_mwvxf",
+    "type": "data_load",
+    "id": "mwvxf",
+    "field": "Expiry",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Products_ut626",
+    "type": "data_load",
+    "id": "ut626",
+    "field": "Supplier",
+    "dataset": "Products"
+  },
+  {
+    "name": "load_Staff_yqg3r",
+    "type": "data_load",
+    "id": "yqg3r",
+    "field": "Staff ID",
+    "dataset": "Staff"
+  },
+  {
+    "name": "load_Staff_oskfr",
+    "type": "data_load",
+    "id": "oskfr",
+    "field": "Name",
+    "dataset": "Staff"
+  },
+  {
+    "name": "load_Staff_11qzn",
+    "type": "data_load",
+    "id": "11qzn",
+    "field": "Role",
+    "dataset": "Staff"
+  },
+  {
+    "name": "load_Staff_q0o7v",
+    "type": "data_load",
+    "id": "q0o7v",
+    "field": "Phone",
+    "dataset": "Staff"
+  },
+  {
+    "name": "load_Staff_vvmev",
+    "type": "data_load",
+    "id": "vvmev",
+    "field": "Shift",
+    "dataset": "Staff"
+  },
+  {
+    "name": "load_Staff_4aczs",
+    "type": "data_load",
+    "id": "4aczs",
+    "field": "Salary",
+    "dataset": "Staff"
+  },
+  {
+    "name": "load_Staff_pvlkr",
+    "type": "data_load",
+    "id": "pvlkr",
+    "field": "Hire Date",
+    "dataset": "Staff"
+  },
+  {
+    "name": "load_Branches_r7ub5",
+    "type": "data_load",
+    "id": "r7ub5",
+    "field": "Branch ID",
+    "dataset": "Branches"
+  },
+  {
+    "name": "load_Branches_gm0lg",
+    "type": "data_load",
+    "id": "gm0lg",
+    "field": "Name",
+    "dataset": "Branches"
+  },
+  {
+    "name": "load_Branches_8m834",
+    "type": "data_load",
+    "id": "8m834",
+    "field": "Address",
+    "dataset": "Branches"
+  },
+  {
+    "name": "load_Branches_vlo24",
+    "type": "data_load",
+    "id": "vlo24",
+    "field": "Phone",
+    "dataset": "Branches"
+  },
+  {
+    "name": "load_Branches_xsd9m",
+    "type": "data_load",
+    "id": "xsd9m",
+    "field": "Manager",
+    "dataset": "Branches"
+  },
+  {
+    "name": "load_Branches_87hs0",
+    "type": "data_load",
+    "id": "87hs0",
+    "field": "Area sqm",
+    "dataset": "Branches"
+  },
+  {
+    "name": "load_Branches_7gq1l",
+    "type": "data_load",
+    "id": "7gq1l",
+    "field": "Daily Sales",
+    "dataset": "Branches"
+  },
+  {
+    "name": "load_Daily Sales_g3tc0",
+    "type": "data_load",
+    "id": "g3tc0",
+    "field": "Date",
+    "dataset": "Daily Sales"
+  },
+  {
+    "name": "load_Daily Sales_vrm3x",
+    "type": "data_load",
+    "id": "vrm3x",
+    "field": "Branch",
+    "dataset": "Daily Sales"
+  },
+  {
+    "name": "load_Daily Sales_1ssk7",
+    "type": "data_load",
+    "id": "1ssk7",
+    "field": "Total Sales",
+    "dataset": "Daily Sales"
+  },
+  {
+    "name": "load_Daily Sales_fuaed",
+    "type": "data_load",
+    "id": "fuaed",
+    "field": "Transactions",
+    "dataset": "Daily Sales"
+  },
+  {
+    "name": "load_Daily Sales_5whth",
+    "type": "data_load",
+    "id": "5whth",
+    "field": "Avg Basket",
+    "dataset": "Daily Sales"
+  },
+  {
+    "name": "load_Daily Sales_c5vsl",
+    "type": "data_load",
+    "id": "c5vsl",
+    "field": "Peak Hour",
+    "dataset": "Daily Sales"
+  },
+  {
+    "name": "search_all",
+    "type": "search",
+    "description": "Search across all datasets"
+  },
+  {
+    "name": "show_detail",
+    "type": "detail_view",
+    "description": "Show item details"
+  },
+  {
+    "name": "share_whatsapp",
+    "type": "action",
+    "description": "Share via WhatsApp"
+  },
+  {
+    "name": "rate_app",
+    "type": "action",
+    "description": "Rate the app"
+  }
+]

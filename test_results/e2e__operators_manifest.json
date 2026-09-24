@@ -1,0 +1,2003 @@
+[
+  {
+    "id": "5t07c",
+    "field": "project",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "1ouae",
+    "field": "icon",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "6e2w9",
+    "field": "patient_id",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "uws4h",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "f5guq",
+    "field": "age",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "43fhy",
+    "field": "blood",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "chwx7",
+    "field": "weight",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "f99ry",
+    "field": "height",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "7lte5",
+    "field": "diagnosis",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "xlhu8",
+    "field": "department",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "l2l12",
+    "field": "doctor",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "xscd8",
+    "field": "room",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "s0ko8",
+    "field": "id",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "drzhs",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "70yoa",
+    "field": "specialty",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "8tsu9",
+    "field": "department",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "bjovl",
+    "field": "patients_count",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "mwmsu",
+    "field": "rating",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "q6q7x",
+    "field": "id",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "ebx6u",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "mwi2b",
+    "field": "department",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "tmuv4",
+    "field": "rating",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "tubxx",
+    "field": "years_experience",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "ge0mx",
+    "field": "appt_id",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "pyjlg",
+    "field": "patient",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "4rbrx",
+    "field": "doctor",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "v7l3r",
+    "field": "time",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "08re4",
+    "field": "department",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "f43ee",
+    "field": "room",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "f07z2",
+    "field": "capacity",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "uo6nm",
+    "field": "occupied",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "377ru",
+    "field": "floor",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "160hb",
+    "field": "daily_rate",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "boral",
+    "field": "code",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "nreed",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "klm89",
+    "field": "stock",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "jcxbt",
+    "field": "min_stock",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "1fhng",
+    "field": "price",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "x9u2j",
+    "field": "supplier",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "122lx",
+    "field": "invoice_id",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "hj6eg",
+    "field": "patient_id",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "0c4ms",
+    "field": "service_cost",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "jzgz4",
+    "field": "discount_pct",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "30g05",
+    "field": "total_bill",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "yrwsg",
+    "field": "discount_amount",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "mwche",
+    "field": "net_payable",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "xac27",
+    "field": "case_id",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "ycbwe",
+    "field": "patient",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "4yyba",
+    "field": "doctor",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "55wr1",
+    "field": "triage_score",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "olxfb",
+    "field": "total",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "2efnv",
+    "field": "occupied",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "3s5nx",
+    "field": "available",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "43prs",
+    "field": "revenue",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "avm05",
+    "field": "expenses",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "quz34",
+    "field": "profit",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "mn9x9",
+    "field": "operations",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "ir876",
+    "field": "emergency",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "x2qo0",
+    "field": "consultations",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "g5qdf",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "vldmz",
+    "field": "value",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "34vhx",
+    "field": "patient_id",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "bc9sa",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "j8h6o",
+    "field": "age",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "pdnff",
+    "field": "phone",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "wuej5",
+    "field": "blood_type",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "bqwi6",
+    "field": "weight",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "65y7j",
+    "field": "height",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "gx7n3",
+    "field": "diagnosis",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "dx5p7",
+    "field": "department",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "kt8cy",
+    "field": "doctor",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "q4p7e",
+    "field": "room",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "3aes7",
+    "field": "fee",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "nr5q9",
+    "field": "content",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "pf3cw",
+    "field": "project",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "t76n7",
+    "field": "icon",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "2pt4u",
+    "field": "product_id",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "2qniz",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "mx63l",
+    "field": "brand",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "jvqxh",
+    "field": "price",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "e826n",
+    "field": "cost",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "oqtus",
+    "field": "stock",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "mazoh",
+    "field": "min_stock",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "c5mf6",
+    "field": "unit",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "t9wg9",
+    "field": "supplier",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "7o9l5",
+    "field": "staff_id",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "vmbkl",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "ad61f",
+    "field": "salary",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "sqsqg",
+    "field": "branch_id",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "u4l5o",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "eoag5",
+    "field": "address",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "v4thq",
+    "field": "manager",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "61jdf",
+    "field": "area_sqm",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "pso4a",
+    "field": "daily_sales",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "25fup",
+    "field": "supplier_id",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "dr0lx",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "brhgn",
+    "field": "rating",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "cwyir",
+    "field": "payment_terms",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "w42a9",
+    "field": "branch",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "wi5x3",
+    "field": "total_sales",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "c8w2k",
+    "field": "transactions",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "nzo7q",
+    "field": "avg_basket",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "968rd",
+    "field": "peak_hour",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "4s4u2",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "2u2en",
+    "field": "value",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "fa363",
+    "field": "content",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "ctucn",
+    "field": "product_id",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "vxwh5",
+    "field": "name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "7ev00",
+    "field": "brand",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "9qlly",
+    "field": "price",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "850le",
+    "field": "cost",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "xbyxz",
+    "field": "stock",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "klkz4",
+    "field": "min_stock",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "qwpo0",
+    "field": "unit",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "ig042",
+    "field": "supplier",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "oin9h",
+    "field": "Patient ID",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "6054k",
+    "field": "Name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "6gwkq",
+    "field": "Age",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "r8cpa",
+    "field": "Blood Type",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "odgko",
+    "field": "Weight",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "56dab",
+    "field": "Height",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "cq7cj",
+    "field": "Diagnosis",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "x2fk6",
+    "field": "Department",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "k8c3w",
+    "field": "Doctor",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "wuudg",
+    "field": "Room",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "8n86a",
+    "field": "Fee",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "t2cb2",
+    "field": "ID",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "kbfpx",
+    "field": "Name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "18e87",
+    "field": "Specialty",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "ikazr",
+    "field": "Department",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "1uiy1",
+    "field": "Patients Count",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "tl6oa",
+    "field": "Rating",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "x177q",
+    "field": "Code",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "6d5nz",
+    "field": "Name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "gac8q",
+    "field": "Stock",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "4u1mb",
+    "field": "Min Stock",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "xxv65",
+    "field": "Price",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "r0ue7",
+    "field": "Supplier",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "4gura",
+    "field": "Room",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "otiv2",
+    "field": "Capacity",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "9i23y",
+    "field": "Occupied",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "8g683",
+    "field": "Floor",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "xil2r",
+    "field": "Daily Rate",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "5dcjp",
+    "field": "Invoice ID",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "khjy0",
+    "field": "Patient ID",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "2ti11",
+    "field": "Service Cost",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "2da67",
+    "field": "Discount Pct",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "19kuf",
+    "field": "Total Bill",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "btka3",
+    "field": "Department",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "76ys8",
+    "field": "Head",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "eqaoe",
+    "field": "Location",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "ppk4e",
+    "field": "ID",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "9wo7x",
+    "field": "Name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "a7py3",
+    "field": "Specialty",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "1ucop",
+    "field": "Rating",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "nxstg",
+    "field": "paragraph",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "lq6p5",
+    "field": "heading",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "dk4eh",
+    "field": "level",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "z5bfe",
+    "field": "Department",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "iuw0i",
+    "field": "Patients",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "vk8p9",
+    "field": "Doctors",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "3952q",
+    "field": "Revenue (SAR)",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "hqu0t",
+    "field": "Satisfaction",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "oe7fx",
+    "field": "Quarter",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "677gs",
+    "field": "Revenue",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "aolia",
+    "field": "Expenses",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "11mfb",
+    "field": "Net Profit",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "1o8dl",
+    "field": "paragraph",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "marbc",
+    "field": "page",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "oq2cq",
+    "field": "Product ID",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "muogq",
+    "field": "Name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "91esn",
+    "field": "Brand",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "de08b",
+    "field": "Price",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "da5cr",
+    "field": "Cost",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "6dggb",
+    "field": "Stock",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "qgrvd",
+    "field": "Min Stock",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "8lh2r",
+    "field": "Unit",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "ut626",
+    "field": "Supplier",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "yqg3r",
+    "field": "Staff ID",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "oskfr",
+    "field": "Name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "4aczs",
+    "field": "Salary",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "r7ub5",
+    "field": "Branch ID",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "gm0lg",
+    "field": "Name",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "8m834",
+    "field": "Address",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "xsd9m",
+    "field": "Manager",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "87hs0",
+    "field": "Area sqm",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "7gq1l",
+    "field": "Daily Sales",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "vrm3x",
+    "field": "Branch",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  },
+  {
+    "id": "1ssk7",
+    "field": "Total Sales",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "fuaed",
+    "field": "Transactions",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "5whth",
+    "field": "Avg Basket",
+    "ops": [
+      "add",
+      "subtract",
+      "multiply",
+      "divide",
+      "compare"
+    ]
+  },
+  {
+    "id": "c5vsl",
+    "field": "Peak Hour",
+    "ops": [
+      "concat",
+      "compare",
+      "contains",
+      "startsWith"
+    ]
+  }
+]

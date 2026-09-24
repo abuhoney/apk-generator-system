@@ -1,0 +1,52 @@
+{
+  "builders_run": [
+    "variables",
+    "list",
+    "control",
+    "operator",
+    "file",
+    "view",
+    "math",
+    "component",
+    "xml_strings",
+    "moreblock"
+  ],
+  "total_builders": 10,
+  "results": {
+    "variables": {
+      "java_vars": 261,
+      "js_vars": 261
+    },
+    "list": {
+      "lists": 0
+    },
+    "control": {
+      "blocks": 267
+    },
+    "operator": {
+      "operations": 192
+    },
+    "file": {
+      "files": 13
+    },
+    "view": {
+      "layouts": 102,
+      "widgets": 267
+    },
+    "math": {
+      "formulas": 12
+    },
+    "component": {
+      "components": 6
+    },
+    "xml_strings": {
+      "xml_strings": 2579
+    },
+    "moreblock": {
+      "blocks": 271
+    }
+  },
+  "config_ids": 267,
+  "config_datasets": 40,
+  "config_items": 431
+}

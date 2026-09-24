@@ -1,0 +1,165 @@
+{
+  "total": 26,
+  "passed": 25,
+  "failed": 0,
+  "skipped": 1,
+  "pass_rate": "96.2%",
+  "details": [
+    {
+      "name": "test_universal_parser_json",
+      "status": "PASS",
+      "message": "OK (9ms)",
+      "duration_ms": 9
+    },
+    {
+      "name": "test_universal_parser_csv",
+      "status": "PASS",
+      "message": "OK (0ms)",
+      "duration_ms": 0
+    },
+    {
+      "name": "test_universal_parser_txt",
+      "status": "PASS",
+      "message": "OK (0ms)",
+      "duration_ms": 0
+    },
+    {
+      "name": "test_universal_parser_html",
+      "status": "PASS",
+      "message": "OK (0ms)",
+      "duration_ms": 0
+    },
+    {
+      "name": "test_universal_parser_excel",
+      "status": "PASS",
+      "message": "OK (405ms)",
+      "duration_ms": 405
+    },
+    {
+      "name": "test_universal_parser_pdf",
+      "status": "PASS",
+      "message": "OK (270ms)",
+      "duration_ms": 270
+    },
+    {
+      "name": "test_universal_parser_docx",
+      "status": "PASS",
+      "message": "OK (152ms)",
+      "duration_ms": 152
+    },
+    {
+      "name": "test_universal_parser_supermarket",
+      "status": "PASS",
+      "message": "OK (14ms)",
+      "duration_ms": 14
+    },
+    {
+      "name": "test_5char_id_generator",
+      "status": "PASS",
+      "message": "OK (4ms)",
+      "duration_ms": 4
+    },
+    {
+      "name": "test_5char_id_determinism",
+      "status": "PASS",
+      "message": "OK (0ms)",
+      "duration_ms": 0
+    },
+    {
+      "name": "test_5char_id_collision_resolution",
+      "status": "PASS",
+      "message": "OK (0ms)",
+      "duration_ms": 0
+    },
+    {
+      "name": "test_field_type_detection",
+      "status": "PASS",
+      "message": "OK (0ms)",
+      "duration_ms": 0
+    },
+    {
+      "name": "test_data_analyzer_pipeline",
+      "status": "PASS",
+      "message": "OK (54ms)",
+      "duration_ms": 54
+    },
+    {
+      "name": "test_builder_factory_registry",
+      "status": "PASS",
+      "message": "OK (4ms)",
+      "duration_ms": 4
+    },
+    {
+      "name": "test_builder_factory_topological_sort",
+      "status": "PASS",
+      "message": "OK (0ms)",
+      "duration_ms": 0
+    },
+    {
+      "name": "test_builder_factory_run_all",
+      "status": "PASS",
+      "message": "OK (11ms)",
+      "duration_ms": 11
+    },
+    {
+      "name": "test_template_renderer",
+      "status": "PASS",
+      "message": "OK (16ms)",
+      "duration_ms": 16
+    },
+    {
+      "name": "test_admin_renderer",
+      "status": "PASS",
+      "message": "OK (15ms)",
+      "duration_ms": 15
+    },
+    {
+      "name": "test_native_bridge_generation",
+      "status": "PASS",
+      "message": "OK (1ms)",
+      "duration_ms": 1
+    },
+    {
+      "name": "test_rbac_engine",
+      "status": "PASS",
+      "message": "OK (5ms)",
+      "duration_ms": 5
+    },
+    {
+      "name": "test_offline_sync",
+      "status": "PASS",
+      "message": "OK (0ms)",
+      "duration_ms": 0
+    },
+    {
+      "name": "test_backend_health",
+      "status": "PASS",
+      "message": "OK (538ms)",
+      "duration_ms": 538
+    },
+    {
+      "name": "test_backend_build_stats",
+      "status": "SKIP",
+      "message": "Endpoint unavailable: HTTP Error 500: Internal Server Error",
+      "duration_ms": 0
+    },
+    {
+      "name": "test_backend_build_stats",
+      "status": "PASS",
+      "message": "OK (561ms)",
+      "duration_ms": 561
+    },
+    {
+      "name": "test_backend_build_apk_from_html",
+      "status": "PASS",
+      "message": "OK (57098ms)",
+      "duration_ms": 57098
+    },
+    {
+      "name": "test_end_to_end_pipeline",
+      "status": "PASS",
+      "message": "OK (295ms)",
+      "duration_ms": 295
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "829c4",
+    "name": "patients_card",
+    "dataset": "patients",
+    "icon": "👥",
+    "lifecycle": [
+      "onCreate",
+      "onBind",
+      "onUpdate",
+      "onDestroy"
+    ]
+  },
+  {
+    "id": "uzm69",
+    "name": "doctors_card",
+    "dataset": "doctors",
+    "icon": "🩺",
+    "lifecycle": [
+      "onCreate",
+      "onBind",
+      "onUpdate",
+      "onDestroy"
+    ]
+  },
+  {
+    "id": "t6dcf",
+    "name": "rooms_card",
+    "dataset": "rooms",
+    "icon": "🛏️",
+    "lifecycle": [
+      "onCreate",
+      "onBind",
+      "onUpdate",
+      "onDestroy"
+    ]
+  },
+  {
+    "id": "sf1ch",
+    "name": "medicines_card",
+    "dataset": "medicines",
+    "icon": "💊",
+    "lifecycle": [
+      "onCreate",
+      "onBind",
+      "onUpdate",
+      "onDestroy"
+    ]
+  },
+  {
+    "id": "gtadg",
+    "name": "invoices_card",
+    "dataset": "invoices",
+    "icon": "💰",
+    "lifecycle": [
+      "onCreate",
+      "onBind",
+      "onUpdate",
+      "onDestroy"
+    ]
+  },
+  {
+    "id": "zt9u3",
+    "name": "products_card",
+    "dataset": "products",
+    "icon": "📦",
+    "lifecycle": [
+      "onCreate",
+      "onBind",
+      "onUpdate",
+      "onDestroy"
+    ]
+  }
+]
