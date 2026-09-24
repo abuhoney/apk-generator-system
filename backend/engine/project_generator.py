@@ -38,7 +38,7 @@ from typing import Optional
 
 from .config import get_config
 from .function_registry import get_registry
-from .template_renderer import render_function
+from .template_renderer import render_template_file as render_function
 
 
 # --------------------------------------------------------------------------- #

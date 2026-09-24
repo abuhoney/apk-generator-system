@@ -746,7 +746,7 @@ def build_apk(function_name: str,
     # Build metadata
     from .config_json_processor import write_config_json
     from .strings_json_processor import write_strings_json
-    from .template_renderer import render_to_file
+    from .template_renderer import render_template_file as render_to_file
     write_config_json(fm.path, fm.name)
     write_strings_json(fm.path, fm.name)
     if fm.has_template:

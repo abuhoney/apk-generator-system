@@ -46,7 +46,7 @@ from engine.config import get_config, PROJECT_ROOT
 from engine.function_registry import get_registry, reload_registry
 from engine.config_json_processor import build_config_json, write_config_json, build_all as build_all_config
 from engine.strings_json_processor import build_strings_json, write_strings_json, build_all as build_all_strings
-from engine.template_renderer import render_function, render_to_file
+from engine.template_renderer import render_template_file as render_to_file
 from engine.apk_builder import build_apk as _v1_build_apk, list_built_apks
 # Prefer the v3 builder (real installable APKs built from source with unique package/icon)
 try:
