@@ -1328,6 +1328,204 @@ def build_v3_apk():
         }), 500
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Unified Workflow: Analyze → Admin → Save → Build
+# ─────────────────────────────────────────────────────────────────────────────
+# Replaces 3 separate buttons (v1/v2/v3) with one workflow:
+#   1. POST /api/analyze-and-prepare → run engine stages 1-5, return function_id
+#   2. GET  /api/admin-html/<function_id> → returns Admin.html for editing
+#   3. POST /api/save-edits → persist user edits to config/strings/template
+#   4. POST /api/build-prepared-apk → build final APK from saved edits
+# ─────────────────────────────────────────────────────────────────────────────
+
+@app.route("/api/analyze-and-prepare", methods=["POST"])
+def analyze_and_prepare_route():
+    """Stage 1: Analyze uploaded files and prepare Admin.html for editing.
+
+    Pipeline:
+      1. Save uploaded files to functions/<id>/media/
+      2. data_analyzer_v2 → config.json + strings.json (5-char IDs)
+      3. BuilderFactory.run_all() → 10 builders
+      4. native_bridge.generate_native_files() → bridge + rbac + offline
+      5. admin_renderer.render_admin_file() → Admin.html (editable)
+
+    Returns function_id which is used in subsequent stages.
+    """
+    import traceback as _tb
+    import hashlib as _hashlib
+    import time as _time
+    import base64 as _b64
+    try:
+        bundle_file = request.files.get("bundle_file")
+        if not bundle_file:
+            return jsonify({"success": False, "error": "bundle_file required"}), 400
+
+        app_name = (request.form.get("app_name") or "").strip() or "App"
+        media_type = (request.form.get("media_type") or "any").strip().lower()
+
+        try:
+            bundle_data = json.loads(bundle_file.read().decode("utf-8"))
+        except Exception as e:
+            return jsonify({"success": False, "error": f"Invalid bundle JSON: {e}"}), 400
+
+        files_list = bundle_data.get("files", [])
+        if not files_list:
+            return jsonify({"success": False, "error": "bundle contains no files"}), 400
+
+        try:
+            from engine.admin_workflow import analyze_and_prepare
+            result = analyze_and_prepare(
+                PROJECT_ROOT / "functions", files_list, app_name, media_type
+            )
+            if "error" in result:
+                return jsonify({"success": False, "error": result["error"]}), 500
+
+            result["success"] = True
+            result["admin_url"] = f"/api/admin-html/{result['function_id']}"
+            result["save_url"] = f"/api/save-edits"
+            result["build_url"] = f"/api/build-prepared-apk"
+            return jsonify(result)
+        except Exception as e:
+            return jsonify({"success": False, "error": str(e),
+                            "traceback": _tb.format_exc()}), 500
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e),
+                        "traceback": _tb.format_exc()}), 500
+
+
+@app.route("/api/admin-html/<function_id>")
+def get_admin_html_route(function_id):
+    """Stage 2: Return Admin.html for the prepared function."""
+    from engine.admin_workflow import get_admin_html
+    admin_html = get_admin_html(PROJECT_ROOT / "functions", function_id)
+    if admin_html is None:
+        return jsonify({"error": f"Admin.html not found for function: {function_id}"}), 404
+    return admin_html, 200, {"Content-Type": "text/html; charset=utf-8"}
+
+
+@app.route("/api/save-edits", methods=["POST"])
+def save_edits_route():
+    """Stage 3: Persist user edits to config.json/strings.json/template.html.
+
+    Accepts JSON: {
+        function_id: str,
+        config: dict (edited config.json),
+        strings: dict (edited strings.json),
+        template_html: str (optional, from GrapesJS)
+    }
+    """
+    import traceback as _tb
+    try:
+        data = request.get_json(force=True, silent=True) or {}
+        function_id = data.get("function_id")
+        if not function_id:
+            return jsonify({"success": False, "error": "function_id required"}), 400
+
+        config_edits = data.get("config")
+        strings_edits = data.get("strings")
+        template_edits = data.get("template_html")
+
+        if not config_edits and not strings_edits and not template_edits:
+            return jsonify({"success": False, "error": "No edits provided (need config, strings, or template_html)"}), 400
+
+        from engine.admin_workflow import save_edits
+        result = save_edits(
+            PROJECT_ROOT / "functions", function_id,
+            config_edits or {}, strings_edits or {}, template_edits
+        )
+        if "error" in result:
+            return jsonify({"success": False, "error": result["error"]}), 404
+
+        result["success"] = True
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e),
+                        "traceback": _tb.format_exc()}), 500
+
+
+@app.route("/api/build-prepared-apk", methods=["POST"])
+def build_prepared_apk_route():
+    """Stage 4: Build the final APK from saved edits.
+
+    Accepts JSON or multipart:
+        function_id: str (required)
+        engine_version: 'v2' or 'v3' (default: v2)
+        app_name: str (optional override)
+        package_name: str (optional override)
+        version_name: str (default 1.0.0)
+        icon_file: file (optional, multipart only)
+    """
+    import traceback as _tb
+    import time as _time
+    try:
+        if request.files:
+            # Multipart mode (with optional icon)
+            function_id = request.form.get("function_id")
+            engine_version = request.form.get("engine_version", "v2")
+            app_name = request.form.get("app_name") or None
+            package_name = request.form.get("package_name") or None
+            version_name = request.form.get("version_name", "1.0.0") or "1.0.0"
+            icon_file = request.files.get("icon_file")
+            icon_bytes = icon_file.read() if icon_file and icon_file.filename else None
+        else:
+            data = request.get_json(force=True, silent=True) or {}
+            function_id = data.get("function_id")
+            engine_version = data.get("engine_version", "v2")
+            app_name = data.get("app_name")
+            package_name = data.get("package_name")
+            version_name = data.get("version_name", "1.0.0") or "1.0.0"
+            icon_bytes = None
+
+        if not function_id:
+            return jsonify({"success": False, "error": "function_id required"}), 400
+
+        if engine_version not in ("v2", "v3"):
+            engine_version = "v2"
+
+        from engine.admin_workflow import build_prepared_apk
+        result = build_prepared_apk(
+            PROJECT_ROOT / "functions", function_id,
+            engine_version=engine_version,
+            package_name=package_name,
+            app_name=app_name,
+            version_name=version_name,
+            icon_png_bytes=icon_bytes,
+        )
+
+        if isinstance(result, dict) and not result.get("success", True):
+            return jsonify(result), 500
+
+        # Record stats
+        try:
+            _record_build_stats({
+                "function": function_id,
+                "app_name": result.get("app_name", ""),
+                "media_type": "any",
+                "build_mode": f"prepared-{engine_version}",
+                "apk_size": result.get("apk_size", 0),
+                "duration_sec": result.get("duration_sec", 0),
+                "success": result.get("success", False),
+                "timestamp": _time.strftime("%Y-%m-%dT%H:%M:%SZ", _time.gmtime()),
+            })
+        except Exception as e:
+            print(f"[firebase] stats record failed: {e}", flush=True)
+
+        return jsonify(result), (200 if result.get("success") else 500)
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e),
+                        "traceback": _tb.format_exc()}), 500
+
+
+@app.route("/api/prepared-functions")
+def list_prepared_functions_route():
+    """List all prepared (not yet built) functions for the Admin dashboard."""
+    from engine.admin_workflow import list_prepared_functions
+    prepared = list_prepared_functions(PROJECT_ROOT / "functions")
+    return jsonify({"prepared": prepared, "count": len(prepared)})
+
+
 def _record_build_stats(stats: dict):
     """Record build stats to Firebase RTDB (counts/types only — no media files)."""
     import urllib.request as _ur
