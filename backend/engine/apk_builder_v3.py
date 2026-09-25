@@ -744,16 +744,49 @@ def build_apk(function_name: str,
         package_name = fm.manifest.get("package", f"com.bardom.app.{function_name}")
 
     # Build metadata
-    from .config_json_processor import write_config_json
-    from .strings_json_processor import write_strings_json
-    from .template_renderer import render_template_file as render_to_file
-    write_config_json(fm.path, fm.name)
-    write_strings_json(fm.path, fm.name)
-    if fm.has_template:
+    # Detect if v2 engine has already produced config.json + strings.json
+    # (v2 format has 'ids', 'datasets', 'project_id', 'total_ids' — v1 has 'function', 'files', 'ids_index')
+    # If v2 format present, SKIP v1 write_config_json/write_strings_json (would overwrite v2 output!)
+    _config_path = fm.path / "config.json"
+    _strings_path = fm.path / "strings.json"
+    _has_v2_config = False
+    _has_v2_strings = False
+    if _config_path.exists():
         try:
+            _cfg = json.loads(_config_path.read_text(encoding="utf-8"))
+            _has_v2_config = "ids" in _cfg and "total_ids" in _cfg
+        except Exception:
+            pass
+    if _strings_path.exists():
+        try:
+            _strs = json.loads(_strings_path.read_text(encoding="utf-8"))
+            _has_v2_strings = "by_id" in _strs
+        except Exception:
+            pass
+
+    if _has_v2_config:
+        print(f"[v3-build] v2 config.json detected ({_cfg.get('total_ids', '?')} IDs) — preserving v2 output", flush=True)
+    else:
+        from .config_json_processor import write_config_json
+        write_config_json(fm.path, fm.name)
+        print(f"[v3-build] generated v1 config.json (no v2 detected)", flush=True)
+
+    if _has_v2_strings:
+        print(f"[v3-build] v2 strings.json detected (by_id present) — preserving v2 output", flush=True)
+    else:
+        from .strings_json_processor import write_strings_json
+        write_strings_json(fm.path, fm.name)
+        print(f"[v3-build] generated v1 strings.json (no v2 detected)", flush=True)
+
+    # Re-render template only if v2 didn't already generate it (avoid overwriting v2 template)
+    if not fm.has_template and not (fm.path / "template.html").exists():
+        try:
+            from .template_renderer import render_template_file as render_to_file
             render_to_file(fm.path)
         except Exception:
             pass
+    else:
+        print(f"[v3-build] template.html exists ({(fm.path / 'template.html').stat().st_size:,} bytes) — preserving", flush=True)
 
     # Ensure tools
     if not _ensure_java():
