@@ -1103,6 +1103,231 @@ def build_v2_apk():
         }), 500
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# /api/build-v3-apk — v3.0 Declarative Web Components + Service Worker
+# ─────────────────────────────────────────────────────────────────────────────
+@app.route("/api/build-v3-apk", methods=["POST"])
+def build_v3_apk():
+    """Build an APK using v3.0 declarative Web Components.
+
+    Same pipeline as /api/build-v2-apk but uses template_renderer_v3 instead
+    of v2. The v3 renderer produces declarative HTML using custom elements:
+      <data-tabs></data-tabs>
+      <data-grid dataset="patients"></data-grid>
+      <data-field code="hfhcd" label="Name" type="String"></data-field>
+
+    These self-render via Shadow DOM, reducing the imperative HTML/CSS/JS
+    from ~270KB (v2) to ~12KB (v3) + 3 small JS files (~30KB total).
+
+    The apk_builder_v3 has been updated to copy core_engine.js, components.js,
+    and sw.js to assets/webapp/ so the declarative template can load them.
+
+    Returns the same JSON shape as /api/build-v2-apk plus v3_engine metadata.
+    """
+    import traceback as _tb
+    import hashlib as _hashlib
+    import time as _time
+    import base64 as _b64
+    try:
+        bundle_file = request.files.get("bundle_file")
+        if not bundle_file:
+            return jsonify({"success": False, "error": "bundle_file required"}), 400
+
+        app_name = (request.form.get("app_name") or "").strip() or "V3 App"
+        media_type = (request.form.get("media_type") or "any").strip().lower()
+        package_name = request.form.get("package_name") or None
+        version_name = request.form.get("version_name") or "1.0.0"
+
+        try:
+            bundle_data = json.loads(bundle_file.read().decode("utf-8"))
+        except Exception as e:
+            return jsonify({"success": False, "error": f"Invalid bundle JSON: {e}"}), 400
+
+        files_list = bundle_data.get("files", [])
+        if not files_list:
+            return jsonify({"success": False, "error": "bundle contains no files"}), 400
+
+        import re as _re
+        safe_app_name = _re.sub(r"[^A-Za-z0-9 _-]", "", app_name)[:30] or "V3App"
+        if not package_name:
+            slug = _re.sub(r"[^a-z0-9]", "", safe_app_name.lower()) or "v3app"
+            package_name = f"com.htmltoapk.v3.{slug}"
+
+        # Create a temp function folder
+        functions_dir = PROJECT_ROOT / "functions"
+        functions_dir.mkdir(parents=True, exist_ok=True)
+        temp_fn_name = "v3_" + _hashlib.md5(
+            (app_name + str(_time.time())).encode()).hexdigest()[:8]
+        temp_fn_dir = functions_dir / temp_fn_name
+        temp_fn_dir.mkdir(parents=True, exist_ok=True)
+
+        # 1. Save uploaded files to media/
+        media_dir = temp_fn_dir / "media"
+        media_dir.mkdir(parents=True, exist_ok=True)
+        saved_count = 0
+        for f in files_list:
+            fname = f.get("path", f.get("original_name", f"file_{saved_count}"))
+            fname = _re.sub(r"[^A-Za-z0-9._-]", "_", fname)
+            b64 = f.get("content_base64") or f.get("data") or ""
+            if not b64:
+                raw_text = f.get("content", "")
+                if raw_text:
+                    (media_dir / fname).write_text(raw_text, encoding="utf-8")
+                    saved_count += 1
+                continue
+            try:
+                content_bytes = _b64.b64decode(b64)
+                (media_dir / fname).write_bytes(content_bytes)
+                saved_count += 1
+            except Exception as e:
+                print(f"[v3-build] failed to save {fname}: {e}", flush=True)
+        print(f"[v3-build] saved {saved_count} files to {media_dir}", flush=True)
+
+        if saved_count == 0:
+            return jsonify({"success": False, "error": "No files could be saved"}), 400
+
+        # 2. Run data_analyzer_v2 → config.json + strings.json (5-char IDs)
+        try:
+            from engine.data_analyzer_v2 import analyze_data_files as _analyze_v2
+            config, strings = _analyze_v2(temp_fn_dir, app_name)
+            print(f"[v3-build] analyzer: {config['total_ids']} IDs, "
+                  f"{config['total_datasets']} datasets, {config['total_items']} items", flush=True)
+        except Exception as e:
+            return jsonify({"success": False, "error": f"data_analyzer_v2 failed: {e}",
+                            "traceback": _tb.format_exc()}), 500
+
+        # 3. Run all 10 builders
+        builders_ok = 0
+        try:
+            from engine.builder_factory_v2 import BuilderFactory as _BFactory
+            factory = _BFactory()
+            factory.register_all()
+            results = factory.run_all(config, strings, temp_fn_dir)
+            builders_ok = sum(1 for r in results.values() if r and "error" not in r)
+            print(f"[v3-build] builders: {builders_ok}/{len(results)} succeeded", flush=True)
+        except Exception as e:
+            print(f"[v3-build] WARNING: builders failed (continuing): {e}", flush=True)
+
+        # 4. Generate native_bridge.js + rbac_engine.js + offline_sync.js
+        native_bridge_size = 0
+        rbac_size = 0
+        offline_size = 0
+        try:
+            from engine.native_bridge import generate_native_files as _gen_native
+            nb_results = _gen_native(config, strings, temp_fn_dir)
+            native_bridge_size = nb_results.get("native_bridge", 0)
+            rbac_size = nb_results.get("rbac_engine", 0)
+            offline_size = nb_results.get("offline_sync", 0)
+            print(f"[v3-build] native_bridge: {native_bridge_size:,} bytes, "
+                  f"rbac: {rbac_size:,} bytes, offline: {offline_size:,} bytes", flush=True)
+        except Exception as e:
+            print(f"[v3-build] WARNING: native_bridge failed (continuing): {e}", flush=True)
+
+        # 5. Generate v3 declarative template (Web Components + Shadow DOM)
+        #    This is the v3 magic: replaces ~270KB v2 template with ~12KB declarative HTML
+        try:
+            from engine.template_renderer_v3 import render_template_v3_file as _render_v3
+            template_html = _render_v3(temp_fn_dir, app_name, media_type)
+            print(f"[v3-build] v3 template.html: {len(template_html):,} chars "
+                  f"(declarative Web Components, references core_engine.js + components.js)", flush=True)
+        except Exception as e:
+            return jsonify({"success": False, "error": f"template_renderer_v3 failed: {e}",
+                            "traceback": _tb.format_exc()}), 500
+
+        # 6. Write function.json with 5 Android permissions
+        (temp_fn_dir / "function.json").write_text(json.dumps({
+            "name": app_name,
+            "version": version_name,
+            "package": package_name,
+            "entry": "template.html",
+            "min_sdk": 24,
+            "target_sdk": 34,
+            "permissions": ["INTERNET", "ACCESS_NETWORK_STATE",
+                            "READ_EXTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE",
+                            "REQUEST_INSTALL_PACKAGES"],
+            "description": f"V3 engine APK with {config['total_ids']} IDs, Web Components, RBAC, Offline Sync, Service Worker",
+        }, indent=2), encoding="utf-8")
+
+        # Handle custom icon
+        icon_file = request.files.get("icon_file")
+        if icon_file and icon_file.filename:
+            try:
+                icon_bytes = icon_file.read()
+                if icon_bytes[:4] != b'\x89PNG':
+                    print(f"[v3-build] WARNING: icon not PNG", flush=True)
+                (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
+            except Exception as e:
+                print(f"[v3-build] icon save failed: {e}", flush=True)
+
+        # Force the registry to rescan
+        reload_registry()
+
+        # 7. Build the APK (apk_builder_v3 now copies core_engine.js + components.js + sw.js)
+        try:
+            from engine.apk_builder_v3 import build_apk as _v3_build_apk
+            res = _v3_build_apk(
+                temp_fn_name,
+                app_name=app_name,
+                package_name=package_name,
+                version_code=1,
+                version_name=version_name,
+            )
+            result = res.to_dict() if hasattr(res, "to_dict") else res
+        except Exception as e:
+            return jsonify({"success": False, "error": f"apk_builder_v3 failed: {e}",
+                            "traceback": _tb.format_exc()}), 500
+
+        # Add v3 metadata to the response
+        if isinstance(result, dict) and result.get("success"):
+            apk_filename = result.get("apk_path", "").split("/")[-1] if result.get("apk_path") else f"{app_name}.apk"
+            if not apk_filename.endswith(".apk"):
+                apk_filename = f"{app_name.replace(' ', '_')}.apk"
+            result["apk_name"] = apk_filename
+            result["apk_url"] = f"/download/{temp_fn_name}/{apk_filename}"
+            result["package_name"] = package_name
+            result["app_name"] = app_name
+            result["v3_engine"] = {
+                "ids_count": config.get("total_ids", 0),
+                "datasets_count": config.get("total_datasets", 0),
+                "items_count": config.get("total_items", 0),
+                "builders_run": builders_ok,
+                "native_bridge_bytes": native_bridge_size,
+                "rbac_engine_bytes": rbac_size,
+                "offline_sync_bytes": offline_size,
+                "template_size_bytes": len(template_html),
+                "core_engine_bytes": (temp_fn_dir / "core_engine.js").stat().st_size if (temp_fn_dir / "core_engine.js").exists() else 0,
+                "components_js_bytes": (temp_fn_dir / "components.js").stat().st_size if (temp_fn_dir / "components.js").exists() else 0,
+                "sw_js_bytes": (temp_fn_dir / "sw.js").stat().st_size if (temp_fn_dir / "sw.js").exists() else 0,
+                "engine_version": "v3.0",
+                "renderer": "declarative_web_components",
+            }
+            result["build_mode"] = "apk-v3-engine-signed"
+
+        # Record stats
+        try:
+            _record_build_stats({
+                "function": temp_fn_name,
+                "app_name": app_name,
+                "media_type": media_type,
+                "build_mode": "v3-engine",
+                "apk_size": result.get("apk_size", 0) if isinstance(result, dict) else 0,
+                "duration_sec": result.get("duration_sec", 0) if isinstance(result, dict) else 0,
+                "success": result.get("success", False) if isinstance(result, dict) else False,
+                "timestamp": _time.strftime("%Y-%m-%dT%H:%M:%SZ", _time.gmtime()),
+            })
+        except Exception as e:
+            print(f"[firebase] stats record failed: {e}", flush=True)
+
+        return jsonify(result), (200 if result.get("success") else 500)
+
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": str(e),
+            "traceback": _tb.format_exc(),
+        }), 500
+
+
 def _record_build_stats(stats: dict):
     """Record build stats to Firebase RTDB (counts/types only — no media files)."""
     import urllib.request as _ur

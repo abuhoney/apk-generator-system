@@ -514,6 +514,13 @@ def _prepare_project(function_name: str, app_name: str, package: str,
         src = function_dir / fname
         if src.exists():
             shutil.copy2(src, assets_dir / fname)
+    # v3 engine: copy Web Components JS files (core_engine.js, components.js, sw.js)
+    # These are referenced by the v3 declarative template
+    for fname in ("core_engine.js", "components.js", "sw.js", "native_bridge.js", "rbac_engine.js", "offline_sync.js"):
+        src = function_dir / fname
+        if src.exists():
+            shutil.copy2(src, assets_dir / fname)
+            print(f"[v3-build] copied {fname} ({src.stat().st_size:,} bytes) to assets/", flush=True)
     for sub in ("css", "js", "images", "data", "media"):
         src_dir = function_dir / sub
         print(f"[v3-debug] checking {src_dir} exists={src_dir.is_dir()}", flush=True)
