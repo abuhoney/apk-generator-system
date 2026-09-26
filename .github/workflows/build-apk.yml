@@ -11,18 +11,10 @@ on:
         description: 'App type (hospital/music/photo/video/any)'
         required: true
         default: 'any'
-      package_name:
-        description: 'Android package name'
-        required: false
-        default: ''
       engine:
         description: 'Engine (v2 or v3)'
         required: true
         default: 'v2'
-      whatsapp_channel_url:
-        description: 'WhatsApp channel URL'
-        required: false
-        default: 'https://whatsapp.com/channel/0029VaijFIC5Ejxq4oG6wX0E'
       files_b64:
         description: 'Base64-encoded JSON bundle of files'
         required: true
@@ -53,72 +45,65 @@ jobs:
           pip install openpyxl pdfplumber PyPDF2 python-docx huggingface_hub
           sudo apt-get update && sudo apt-get install -y default-jdk
 
-      - name: Download build tools + engine from HuggingFace
+      - name: Download tools + engine from HuggingFace
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
-          python3 - << 'PYEOF'
+          python3 - << 'EOF'
           import os, shutil
           from huggingface_hub import hf_hub_download
           repo = "BardomPro/html-to-apk-full-project"
-          token = os.environ.get("HF_TOKEN", "")
-          print(f"HF token: {token[:10]}...{token[-5:]}" if token else "No token!")
-
-          # Download build tools
-          tools = ["aapt2", "android.jar", "apksigner", "apksigner-lib.jar", "d8.jar", "debug.keystore"]
+          token = os.environ.get("HF_TOKEN", "") or None
+          
+          # Build tools
           os.makedirs("backend/build_tools", exist_ok=True)
-          for t in tools:
-              path = hf_hub_download(repo_id=repo, filename=f"html-to-apk/backend/build_tools/{t}", repo_type="model", token=token)
-              shutil.copy2(path, f"backend/build_tools/{t}")
-              if t in ("aapt2", "apksigner"):
-                  os.chmod(f"backend/build_tools/{t}", 0o755)
-              print(f"  ✓ {t} ({os.path.getsize(f'backend/build_tools/{t}'):,} bytes)")
-
-          # Download engine modules
-          engine_files = [
-              "data_analyzer_v2.py", "builder_factory_v2.py", "template_renderer.py",
-              "template_renderer_v3.py", "native_bridge.py", "admin_renderer.py",
-              "firebase_service.py", "apk_builder_v3.py", "apk_builder.py",
-              "build_pipeline.py", "config.py", "config_json_processor.py",
-              "strings_json_processor.py", "function_registry.py", "project_generator.py",
-              "code_extractor.py", "component_builder.py", "control_builder.py",
-              "data_analyzer.py", "excel_parser.py", "file_builder.py",
-              "list_builder.py", "math_builder.py", "moreblock_builder.py",
-              "operator_builder.py", "variables_builder.py", "view_builder.py",
-              "xml_strings_builder.py", "z_ai_wrapper.py",
-              "core_engine.js", "components.js", "sw.js", "__init__.py",
-          ]
+          for t in ["aapt2", "android.jar", "apksigner", "apksigner-lib.jar", "d8.jar", "debug.keystore"]:
+              p = hf_hub_download(repo_id=repo, filename=f"html-to-apk/backend/build_tools/{t}", repo_type="model", token=token)
+              shutil.copy2(p, f"backend/build_tools/{t}")
+              if t in ("aapt2", "apksigner"): os.chmod(f"backend/build_tools/{t}", 0o755)
+              print(f"✓ {t}")
+          
+          # Engine
           os.makedirs("backend/engine", exist_ok=True)
+          engine_files = ["data_analyzer_v2.py","builder_factory_v2.py","template_renderer.py",
+              "template_renderer_v3.py","native_bridge.py","admin_renderer.py","firebase_service.py",
+              "apk_builder_v3.py","apk_builder.py","build_pipeline.py","config.py",
+              "config_json_processor.py","strings_json_processor.py","function_registry.py",
+              "project_generator.py","code_extractor.py","component_builder.py","control_builder.py",
+              "data_analyzer.py","excel_parser.py","file_builder.py","list_builder.py",
+              "math_builder.py","moreblock_builder.py","operator_builder.py","variables_builder.py",
+              "view_builder.py","xml_strings_builder.py","z_ai_wrapper.py",
+              "core_engine.js","components.js","sw.js","__init__.py"]
           for f in engine_files:
               try:
-                  path = hf_hub_download(repo_id=repo, filename=f"apk-generator-system/backend/engine/{f}", repo_type="model", token=token)
-                  shutil.copy2(path, f"backend/engine/{f}")
-                  print(f"  ✓ engine/{f}")
-              except Exception as e:
-                  print(f"  - engine/{f}: {e}")
-
-          # Download templates
-          templates = ["music_player.html", "video_player.html", "photo_gallery.html",
-                       "hospital.html", "pharmacy.html", "supermarket.html", "store.html",
-                       "travel.html", "transport.html", "catalog.html", "file_browser.html"]
+                  p = hf_hub_download(repo_id=repo, filename=f"apk-generator-system/backend/engine/{f}", repo_type="model", token=token)
+                  shutil.copy2(p, f"backend/engine/{f}")
+              except: pass
+          
+          # Templates
           os.makedirs("backend/templates", exist_ok=True)
-          for t in templates:
+          for t in ["music_player.html","video_player.html","photo_gallery.html","hospital.html",
+                    "pharmacy.html","supermarket.html","store.html","travel.html","transport.html",
+                    "catalog.html","file_browser.html"]:
               try:
-                  path = hf_hub_download(repo_id=repo, filename=f"apk-generator-system/backend/templates/{t}", repo_type="model", token=token)
-                  shutil.copy2(path, f"backend/templates/{t}")
-                  print(f"  ✓ templates/{t}")
-              except Exception as e:
-                  print(f"  - templates/{t}: {e}")
-
-          # Download app_types.json
+                  p = hf_hub_download(repo_id=repo, filename=f"apk-generator-system/backend/templates/{t}", repo_type="model", token=token)
+                  shutil.copy2(p, f"backend/templates/{t}")
+              except: pass
+          
+          # app_types.json
           try:
-              path = hf_hub_download(repo_id=repo, filename="apk-generator-system/backend/app_types.json", repo_type="model", token=token)
-              shutil.copy2(path, "backend/app_types.json")
-              print(f"  ✓ app_types.json")
+              p = hf_hub_download(repo_id=repo, filename="apk-generator-system/backend/app_types.json", repo_type="model", token=token)
+              shutil.copy2(p, "backend/app_types.json")
           except: pass
-
-          print("\n✅ All files downloaded from HuggingFace!")
-          PYEOF
+          
+          # z.ai config for AI
+          try:
+              p = hf_hub_download(repo_id=repo, filename="z-ai-sdk/config-real.json", repo_type="model", token=token)
+              shutil.copy2(p, "backend/engine/.z-ai-config")
+          except: pass
+          
+          print("✅ All files downloaded!")
+          EOF
 
       - name: Build APK
         id: build
@@ -126,219 +111,22 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           INPUT_APP_NAME: ${{ github.event.inputs.app_name }}
           INPUT_MEDIA_TYPE: ${{ github.event.inputs.media_type }}
-          INPUT_PACKAGE_NAME: ${{ github.event.inputs.package_name }}
           INPUT_ENGINE: ${{ github.event.inputs.engine }}
-          INPUT_WHATSAPP_URL: ${{ github.event.inputs.whatsapp_channel_url }}
+          INPUT_WHATSAPP_URL: https://whatsapp.com/channel/0029VaijFIC5Ejxq4oG6wX0E
           INPUT_FILES_B64: ${{ github.event.inputs.files_b64 }}
           INPUT_AI_PROMPT: ${{ github.event.inputs.ai_prompt }}
           INPUT_ICON_B64: ${{ github.event.inputs.icon_b64 }}
-        run: |
-          python3 - << 'PYEOF'
-          import os, sys, json, base64, time, hashlib, re, shutil
-          from pathlib import Path
+        run: python3 build_apk_action.py
 
-          app_name = os.environ["INPUT_APP_NAME"]
-          media_type = os.environ["INPUT_MEDIA_TYPE"]
-          package_name = os.environ.get("INPUT_PACKAGE_NAME") or ""
-          engine = os.environ.get("INPUT_ENGINE", "v2")
-          wa_url = os.environ.get("INPUT_WHATSAPP_URL", "https://whatsapp.com/channel/0029VaijFIC5Ejxq4oG6wX0E")
-          files_b64 = os.environ.get("INPUT_FILES_B64", "")
-          ai_prompt = os.environ.get("INPUT_AI_PROMPT", "")
-          icon_b64 = os.environ.get("INPUT_ICON_B64", "")
-          hf_token = os.environ.get("HF_TOKEN", "")
-
-          print(f"Building APK: {app_name} ({media_type}, {engine})")
-
-          safe_name = re.sub(r"[^A-Za-z0-9 _-]", "", app_name)[:30] or "App"
-          if not package_name:
-              slug = re.sub(r"[^a-z0-9]", "", safe_name.lower()) or "app"
-              package_name = f"com.htmltoapk.{slug}"
-
-          PROJECT_ROOT = Path(".")
-          FUNCTIONS_DIR = PROJECT_ROOT / "functions"
-          OUTPUT_DIR = PROJECT_ROOT / "_output"
-          FUNCTIONS_DIR.mkdir(exist_ok=True)
-          OUTPUT_DIR.mkdir(exist_ok=True)
-
-          fn_name = "build_" + hashlib.md5((app_name + str(time.time())).encode()).hexdigest()[:8]
-          fn_dir = FUNCTIONS_DIR / fn_name
-          # Also create in backend/functions/ for the engine to find
-          backend_fns = PROJECT_ROOT / "backend" / "functions"
-          backend_fns.mkdir(exist_ok=True)
-          backend_fn_dir = backend_fns / fn_name
-          fn_dir.mkdir(parents=True, exist_ok=True)
-          media_dir = fn_dir / "media"
-          media_dir.mkdir(exist_ok=True)
-
-          files_list = []
-          if ai_prompt:
-              print(f"[AI] Generating HTML from prompt: {ai_prompt[:80]}...")
-              sys.path.insert(0, str(PROJECT_ROOT / "backend"))
-              from engine.z_ai_wrapper import ZAIWrapper
-              zai = ZAIWrapper()
-              html = zai.generate_html_app(ai_prompt, app_name)
-              print(f"[AI] HTML generated: {len(html):,} chars")
-              (media_dir / "app.html").write_text(html, encoding="utf-8")
-              files_list = [{"path": "app.html", "original_name": "app.html"}]
-          else:
-              print(f"Decoding files bundle...")
-              bundle = json.loads(base64.b64decode(files_b64).decode())
-              files_list = bundle.get("files", [])
-              for f in files_list:
-                  fname = re.sub(r"[^A-Za-z0-9._-]", "_", f.get("path", f.get("original_name", "file")))
-                  b64 = f.get("content_base64") or f.get("data") or ""
-                  if b64:
-                      (media_dir / fname).write_bytes(base64.b64decode(b64))
-              # Also copy to backend functions dir
-              bfn_media = backend_fn_dir / "media"
-              bfn_media.mkdir(exist_ok=True)
-              shutil.copy2(media_dir / fname, bfn_media / fname)
-                      print(f"  ✓ {fname}")
-
-          # Copy all config files to backend fn_dir too
-          for cfg_file in ["app_config.json", "function.json"]:
-              src = fn_dir / cfg_file
-              if src.exists():
-                  shutil.copy2(src, backend_fn_dir / cfg_file)
-          (fn_dir / "app_config.json").write_text(json.dumps({
-              "whatsapp_channel_url": wa_url,
-              "whatsapp_contact_number": "+967773458975",
-          }, indent=2), encoding="utf-8")
-
-          (fn_dir / "function.json").write_text(json.dumps({
-              "name": app_name, "version": "1.0.0", "package": package_name,
-              "entry": "template.html", "min_sdk": 24, "target_sdk": 34,
-              "permissions": ["INTERNET", "ACCESS_NETWORK_STATE", "READ_EXTERNAL_STORAGE",
-                              "WRITE_EXTERNAL_STORAGE", "REQUEST_INSTALL_PACKAGES"],
-          }, indent=2), encoding="utf-8")
-
-          if icon_b64:
-              try:
-                  icon_bytes = base64.b64decode(icon_b64)
-                  if icon_bytes[:4] == b'\x89PNG':
-                      (fn_dir / "app_icon.png").write_bytes(icon_bytes)
-              except: pass
-
-          sys.path.insert(0, str(PROJECT_ROOT / "backend"))
-          os.chdir(PROJECT_ROOT / "backend")  # Engine expects to be in backend/
-
-          try:
-              from engine.data_analyzer_v2 import analyze_data_files
-              config, strings = analyze_data_files(backend_fn_dir, app_name)
-              # Copy config.json + strings.json to backend fn_dir
-          for cfg in ["config.json", "strings.json"]:
-              src = fn_dir / cfg
-              if src.exists():
-                  shutil.copy2(src, backend_fn_dir / cfg)
-          print(f"[engine] {config['total_ids']} IDs, {config['total_datasets']} datasets")
-          except Exception as e:
-              print(f"[engine] analyzer warning: {e}")
-              config = {"total_ids": 0, "total_datasets": 0, "total_items": 0}
-              strings = {"by_id": {}}
-
-          try:
-              from engine.builder_factory_v2 import BuilderFactory
-              f = BuilderFactory(); f.register_all(); f.run_all(config, strings, backend_fn_dir)
-              print(f"[engine] builders done")
-          except: pass
-
-          try:
-              from engine.native_bridge import generate_native_files
-              generate_native_files(config, strings, backend_fn_dir)
-              print(f"[engine] native_bridge done")
-          except: pass
-
-          from engine.template_renderer import render_template_file
-          media_tpls = {"music": "music_player.html", "video": "video_player.html", "photo": "photo_gallery.html"}
-          tpl_name = media_tpls.get(media_type)
-
-          if tpl_name and (Path("templates") / tpl_name).exists():
-              tpl_html = (Path("templates") / tpl_name).read_text(encoding="utf-8")
-              _bundle = json.dumps({"files": [{"path": f.get("path", ""), "title": "", "size": 0, "duration": 0, "artist": ""} for f in files_list]})
-              template_html = tpl_html.replace("__APP_NAME__", app_name).replace("__MEDIA_BUNDLE__", _bundle).replace("__WHATSAPP_NUMBER__", "+967773458975").replace("__PRIVACY_URL__", "").replace("__RATE_URL__", "").replace("__GENERATED_DATE__", time.strftime("%Y-%m-%d"))
-              template_html = template_html.replace("const WHATSAPP_CHANNEL_URL='https://whatsapp.com/channel/0029VaijFIC5Ejxq4oG6wX0E';", f"const WHATSAPP_CHANNEL_URL='{wa_url}';")
-          elif ai_prompt:
-              template_html = html
-              if "WHATSAPP_CHANNEL_URL" not in template_html:
-                  wa_script = f"<script>const WHATSAPP_CHANNEL_URL='{wa_url}';function openWhatsAppChannel(){{var c=WHATSAPP_CHANNEL_URL.split('/').pop();window.location.href='intent://channel/'+c+'#Intent;package=com.whatsapp;S.browser_fallback_url='+encodeURIComponent(WHATSAPP_CHANNEL_URL)+';end';}}</script>"
-                  if "</head>" in template_html.lower():
-                      idx = template_html.lower().rfind("</head>")
-                      template_html = template_html[:idx] + wa_script + template_html[idx:]
-          else:
-              # Use backend_fn_dir (has config.json from analyzer)
-          template_html = render_template_file(backend_fn_dir, app_name, media_type)
-
-          injected = ""
-          for js in ["native_bridge.js", "rbac_engine.js", "offline_sync.js"]:
-              p = backend_fn_dir / js
-              if p.exists(): injected += f"\n<script>\n{p.read_text(encoding='utf-8')}\n</script>\n"
-          if injected and "</body>" in template_html.lower():
-              idx = template_html.lower().rfind("</body>")
-              template_html = template_html[:idx] + injected + template_html[idx:]
-          (backend_fn_dir / "template.html").write_text(template_html, encoding="utf-8")
-
-          import engine.apk_builder_v3 as ab3
-          ab3.AAPT2 = Path("build_tools/aapt2")
-          ab3.ANDROID_JAR = Path("build_tools/android.jar")
-          ab3.D8_JAR = Path("build_tools/d8.jar")
-          ab3.APKSIGNER_JAR = Path("build_tools/apksigner-lib.jar")
-          ab3.KEYSTORE = Path("build_tools/debug.keystore")
-          ab3.KEYSTORE_ALIAS = "bardom-debug"
-          ab3.KEYSTORE_PASS = "bardom123"
-          ab3.ANDROID_DIR = PROJECT_ROOT / "android_source"
-
-          from engine.function_registry import reload_registry
-          reload_registry()
-
-          from engine.apk_builder_v3 import build_apk
-          # Use backend_fn_dir (relative to backend/) for the registry
-          # fn_name is the dir name, registry finds it in functions/<fn_name>/
-          res = build_apk(fn_name, app_name=app_name, package_name=package_name, version_code=1, version_name="1.0.0")
-          result = res.to_dict() if hasattr(res, "to_dict") else res
-
-          if result.get("success"):
-              apk_path = Path(result.get("apk_path", ""))
-              apk_filename = apk_path.name if apk_path else f"{app_name}.apk"
-              out_dir = OUTPUT_DIR / fn_name
-              out_dir.mkdir(parents=True, exist_ok=True)
-              out_path = out_dir / apk_filename
-              if apk_path.exists():
-                  shutil.copy2(apk_path, out_path)
-
-              print(f"::notice::APK built: {apk_filename} ({out_path.stat().st_size:,} bytes)")
-
-              # Upload APK to HuggingFace using the HF token
-              from huggingface_hub import HfApi
-              api = HfApi(token=hf_token)
-              hf_path = f"builds/{fn_name}/{apk_filename}"
-              api.upload_file(path_or_fileobj=str(out_path), path_in_repo=hf_path,
-                             repo_id="BardomPro/html-to-apk-full-project", repo_type="model")
-              apk_url = f"https://huggingface.co/BardomPro/html-to-apk-full-project/resolve/main/{hf_path}"
-              print(f"::notice::APK uploaded to HuggingFace: {apk_url}")
-
-              with open(os.environ["GITHUB_OUTPUT"], "a") as f:
-                  f.write(f"apk_filename={apk_filename}\n")
-                  f.write(f"apk_size={out_path.stat().st_size}\n")
-                  f.write(f"build_id={fn_name}\n")
-                  f.write(f"apk_url={apk_url}\n")
-                  f.write(f"success=true\n")
-
-              print(f"✅ BUILD COMPLETE: {apk_filename} ({out_path.stat().st_size:,} bytes)")
-              print(f"   Download URL: {apk_url}")
-          else:
-              print(f"::error::Build failed: {result.get('error', 'unknown')}")
-              sys.exit(1)
-          PYEOF
-
-      - name: Upload APK as artifact (backup)
+      - name: Upload artifact (backup)
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: apk-output
+          name: apk-${{ github.event.inputs.app_name }}
           path: _output/**/*.apk
           retention-days: 7
 
-      - name: Build result
+      - name: Result
         run: |
           echo "APK: ${{ steps.build.outputs.apk_filename }}"
           echo "Size: ${{ steps.build.outputs.apk_size }} bytes"
