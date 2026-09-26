@@ -34,6 +34,10 @@ on:
         description: 'Base64-encoded PNG icon (optional)'
         required: false
         default: ''
+      hf_token:
+        description: 'HuggingFace token (for downloading tools + uploading APK)'
+        required: true
+        default: ''
 
 jobs:
   build:
@@ -53,37 +57,77 @@ jobs:
           pip install openpyxl pdfplumber PyPDF2 python-docx huggingface_hub
           sudo apt-get update && sudo apt-get install -y default-jdk
 
-      - name: Download build tools from HuggingFace
+      - name: Download build tools + engine from HuggingFace
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_TOKEN: ${{ github.event.inputs.hf_token }}
         run: |
           python3 - << 'PYEOF'
           import os, shutil
           from huggingface_hub import hf_hub_download
           repo = "BardomPro/html-to-apk-full-project"
-          # Use token if available, otherwise download anonymously (repo is public)
-          token = os.environ.get("HF_TOKEN", "") or None
-          if not token:
-              print("⚠ No HF_TOKEN secret set — downloading anonymously (repo is public)")
+          token = os.environ.get("HF_TOKEN", "")
+          print(f"HF token: {token[:10]}...{token[-5:]}" if token else "No token!")
+
+          # Download build tools
           tools = ["aapt2", "android.jar", "apksigner", "apksigner-lib.jar", "d8.jar", "debug.keystore"]
           os.makedirs("backend/build_tools", exist_ok=True)
           for t in tools:
+              path = hf_hub_download(repo_id=repo, filename=f"html-to-apk/backend/build_tools/{t}", repo_type="model", token=token)
+              shutil.copy2(path, f"backend/build_tools/{t}")
+              if t in ("aapt2", "apksigner"):
+                  os.chmod(f"backend/build_tools/{t}", 0o755)
+              print(f"  ✓ {t} ({os.path.getsize(f'backend/build_tools/{t}'):,} bytes)")
+
+          # Download engine modules
+          engine_files = [
+              "data_analyzer_v2.py", "builder_factory_v2.py", "template_renderer.py",
+              "template_renderer_v3.py", "native_bridge.py", "admin_renderer.py",
+              "firebase_service.py", "apk_builder_v3.py", "apk_builder.py",
+              "build_pipeline.py", "config.py", "config_json_processor.py",
+              "strings_json_processor.py", "function_registry.py", "project_generator.py",
+              "code_extractor.py", "component_builder.py", "control_builder.py",
+              "data_analyzer.py", "excel_parser.py", "file_builder.py",
+              "list_builder.py", "math_builder.py", "moreblock_builder.py",
+              "operator_builder.py", "variables_builder.py", "view_builder.py",
+              "xml_strings_builder.py", "z_ai_wrapper.py",
+              "core_engine.js", "components.js", "sw.js", "__init__.py",
+          ]
+          os.makedirs("backend/engine", exist_ok=True)
+          for f in engine_files:
               try:
-                  path = hf_hub_download(repo_id=repo, filename=f"html-to-apk/backend/build_tools/{t}", repo_type="model", token=token)
-                  shutil.copy2(path, f"backend/build_tools/{t}")
-                  if t in ("aapt2", "apksigner"):
-                      os.chmod(f"backend/build_tools/{t}", 0o755)
-                  print(f"  ✓ {t} ({os.path.getsize(f'backend/build_tools/{t}'):,} bytes)")
+                  path = hf_hub_download(repo_id=repo, filename=f"apk-generator-system/backend/engine/{f}", repo_type="model", token=token)
+                  shutil.copy2(path, f"backend/engine/{f}")
+                  print(f"  ✓ engine/{f}")
               except Exception as e:
-                  print(f"  ✗ {t}: {e}")
-                  raise
-          print("All build tools downloaded!")
+                  print(f"  - engine/{f}: {e}")
+
+          # Download templates
+          templates = ["music_player.html", "video_player.html", "photo_gallery.html",
+                       "hospital.html", "pharmacy.html", "supermarket.html", "store.html",
+                       "travel.html", "transport.html", "catalog.html", "file_browser.html"]
+          os.makedirs("backend/templates", exist_ok=True)
+          for t in templates:
+              try:
+                  path = hf_hub_download(repo_id=repo, filename=f"apk-generator-system/backend/templates/{t}", repo_type="model", token=token)
+                  shutil.copy2(path, f"backend/templates/{t}")
+                  print(f"  ✓ templates/{t}")
+              except Exception as e:
+                  print(f"  - templates/{t}: {e}")
+
+          # Download app_types.json
+          try:
+              path = hf_hub_download(repo_id=repo, filename="apk-generator-system/backend/app_types.json", repo_type="model", token=token)
+              shutil.copy2(path, "backend/app_types.json")
+              print(f"  ✓ app_types.json")
+          except: pass
+
+          print("\n✅ All files downloaded from HuggingFace!")
           PYEOF
 
       - name: Build APK
         id: build
         env:
-          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_TOKEN: ${{ github.event.inputs.hf_token }}
           INPUT_APP_NAME: ${{ github.event.inputs.app_name }}
           INPUT_MEDIA_TYPE: ${{ github.event.inputs.media_type }}
           INPUT_PACKAGE_NAME: ${{ github.event.inputs.package_name }}
@@ -105,6 +149,7 @@ jobs:
           files_b64 = os.environ.get("INPUT_FILES_B64", "")
           ai_prompt = os.environ.get("INPUT_AI_PROMPT", "")
           icon_b64 = os.environ.get("INPUT_ICON_B64", "")
+          hf_token = os.environ.get("HF_TOKEN", "")
 
           print(f"Building APK: {app_name} ({media_type}, {engine})")
 
@@ -245,32 +290,36 @@ jobs:
 
               print(f"::notice::APK built: {apk_filename} ({out_path.stat().st_size:,} bytes)")
 
-              # Upload to HuggingFace (anonymously if no token — repo is public for reads, but writes need token)
-              token = os.environ.get("HF_TOKEN", "") or None
-              if not token:
-                  print("⚠ No HF_TOKEN — cannot upload APK to HuggingFace")
-                  print(f"::notice::APK is at: {out_path}")
-              else:
-                  from huggingface_hub import HfApi
-                  api = HfApi(token=token)
-                  hf_path = f"builds/{fn_name}/{apk_filename}"
-                  api.upload_file(path_or_fileobj=str(out_path), path_in_repo=hf_path,
-                                 repo_id="BardomPro/html-to-apk-full-project", repo_type="model")
-                  print(f"::notice::APK uploaded to HuggingFace: {hf_path}")
+              # Upload APK to HuggingFace using the HF token
+              from huggingface_hub import HfApi
+              api = HfApi(token=hf_token)
+              hf_path = f"builds/{fn_name}/{apk_filename}"
+              api.upload_file(path_or_fileobj=str(out_path), path_in_repo=hf_path,
+                             repo_id="BardomPro/html-to-apk-full-project", repo_type="model")
+              apk_url = f"https://huggingface.co/BardomPro/html-to-apk-full-project/resolve/main/{hf_path}"
+              print(f"::notice::APK uploaded to HuggingFace: {apk_url}")
 
               with open(os.environ["GITHUB_OUTPUT"], "a") as f:
                   f.write(f"apk_filename={apk_filename}\n")
                   f.write(f"apk_size={out_path.stat().st_size}\n")
                   f.write(f"build_id={fn_name}\n")
-                  if token:
-                      f.write(f"apk_url=https://huggingface.co/BardomPro/html-to-apk-full-project/resolve/main/builds/{fn_name}/{apk_filename}\n")
+                  f.write(f"apk_url={apk_url}\n")
                   f.write(f"success=true\n")
 
               print(f"✅ BUILD COMPLETE: {apk_filename} ({out_path.stat().st_size:,} bytes)")
+              print(f"   Download URL: {apk_url}")
           else:
               print(f"::error::Build failed: {result.get('error', 'unknown')}")
               sys.exit(1)
           PYEOF
+
+      - name: Upload APK as artifact (backup)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: apk-output
+          path: _output/**/*.apk
+          retention-days: 7
 
       - name: Build result
         run: |
