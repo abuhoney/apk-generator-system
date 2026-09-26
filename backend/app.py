@@ -1664,8 +1664,33 @@ def ai_generate_image():
 @app.route("/api/service/config")
 def service_config_route():
     """Return service configuration: VIP levels, payment methods, coupons, WhatsApp URLs."""
-    from engine.firebase_service import get_service_config
-    return jsonify(get_service_config())
+    try:
+        from engine.firebase_service import get_service_config
+        result = get_service_config()
+        if "error" in result or not result.get("vipLevels"):
+            raise Exception("Firebase returned error")
+        return jsonify(result)
+    except Exception as e:
+        print(f"[service-config] Using defaults (Firebase unavailable: {e})", flush=True)
+        return jsonify({
+            "vipLevels": {
+                "VIP1": {"price": 5, "giftPalance": 50, "freeDays": 30},
+                "VIP2": {"price": 15, "giftPalance": 180, "freeDays": 90},
+                "VIP3": {"price": 30, "giftPalance": 400, "freeDays": 180},
+            },
+            "paymentMethods": {
+                "Binance": {"address": "BNB-xxx", "account": "binance@bardom.pro"},
+                "PayPal": {"id": "paypal.me/bardompro"},
+                "Banks": {"phone": "+967773458975", "account": "1234567890"},
+                "MasterCard": {"account": "**** **** **** 1234"},
+            },
+            "coupons": {
+                "registrationGiftId": 5,
+                "sharingGiftId": 4,
+            },
+            "whatsapp_channel_url": "https://whatsapp.com/channel/0029VaijFIC5Ejxq4oG6wX0E",
+            "whatsapp_contact_number": "+967773458975",
+        })
 
 
 @app.route("/api/service/user/<device_id>")
