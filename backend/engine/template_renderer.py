@@ -182,11 +182,19 @@ const WHATSAPP_CHANNEL_URL = (APP_CONFIG && APP_CONFIG.whatsapp_channel_url) || 
 const WHATSAPP_CONTACT_NUMBER = (APP_CONFIG && APP_CONFIG.whatsapp_contact_number) || '+967773458975';
 
 function openWhatsAppChannel() {{
-  window.open(WHATSAPP_CHANNEL_URL, '_blank');
+  // Try to open WhatsApp app directly via intent URI (Android)
+  // If app is not installed, falls back to web URL
+  const channelId = WHATSAPP_CHANNEL_URL.split('/').pop();
+  // Android intent: opens WhatsApp app directly, falls back to web URL
+  const intentUri = 'intent://channel/' + channelId + '#Intent;package=com.whatsapp;S.browser_fallback_url=' + encodeURIComponent(WHATSAPP_CHANNEL_URL) + ';end';
+  window.location.href = intentUri;
 }}
 function contactWhatsApp() {{
   const msg = encodeURIComponent('Hi I am from your Systems');
-  window.open('https://wa.me/' + WHATSAPP_CONTACT_NUMBER.replace(/[^0-9]/g, '') + '?text=' + msg, '_blank');
+  const num = WHATSAPP_CONTACT_NUMBER.replace(/[^0-9]/g, '');
+  // Try WhatsApp app first, fallback to web
+  const intentUri = 'intent://send/' + num + '#Intent;package=com.whatsapp;S.browser_fallback_url=' + encodeURIComponent('https://wa.me/' + num + '?text=' + msg) + ';end';
+  window.location.href = intentUri;
 }}
 function shareWhatsApp() {{
   // Legacy: now opens the channel (kept for backwards compatibility)

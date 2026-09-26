@@ -964,7 +964,10 @@ def build_v2_apk():
             print(f"[v2-build] WARNING: builders failed (continuing): {e}", flush=True)
 
         # 4. Generate template.html from config + strings (v2 dynamic rendering)
-        # First, write app_config.json (WhatsApp channel URL from settingsPickCard)
+        # For media types (music/video/photo/any), use the appropriate static template
+        # that knows how to display audio/video/image files as a player/gallery.
+        # The v2 engine still runs (data_analyzer + builders + native_bridge) to generate
+        # config.json/strings.json, but the template is the media-specific one.
         app_config_str = request.form.get("app_config", "")
         if app_config_str:
             try:
@@ -976,13 +979,70 @@ def build_v2_apk():
             except Exception as e:
                 print(f"[v2-build] WARNING: app_config parse failed: {e}", flush=True)
 
-        try:
-            from engine.template_renderer import render_template_file as _render_v2
-            template_html = _render_v2(temp_fn_dir, app_name, media_type)
-            print(f"[v2-build] template.html: {len(template_html):,} chars", flush=True)
-        except Exception as e:
-            return jsonify({"success": False, "error": f"template_renderer failed: {e}",
-                            "traceback": _tb.format_exc()}), 500
+        # Check if this is a media type that has a dedicated template
+        _media_templates = {
+            "music": "music_player.html",
+            "video": "video_player.html",
+            "photo": "photo_gallery.html",
+        }
+        _media_template_name = _media_templates.get(media_type)
+        _use_media_template = False
+
+        if _media_template_name:
+            _tpl_path = Path(__file__).parent / "templates" / _media_template_name
+            if _tpl_path.exists():
+                print(f"[v2-build] using media template: {_media_template_name} for type '{media_type}'", flush=True)
+                _tpl_html = _tpl_path.read_text(encoding="utf-8")
+                # Populate media bundle (same logic as /api/build-media-apk)
+                _media_bundle = json.dumps({"files": [
+                    {
+                        "path": f.get("path", f.get("original_name", f"file_{i}")),
+                        "title": f.get("title") or Path(f.get("original_name", f"file_{i}")).stem,
+                        "originalName": f.get("original_name", f"file_{i}"),
+                        "mime": f.get("mime", "application/octet-stream"),
+                        "size": f.get("size", 0),
+                        "duration": f.get("duration", 0),
+                        "artist": f.get("artist", ""),
+                    }
+                    for i, f in enumerate(files_list)
+                ]})
+                # Get WhatsApp URLs from app_config
+                _wa_url = ""
+                _wa_number = ""
+                if app_config_str:
+                    try:
+                        _ac = json.loads(app_config_str)
+                        _wa_url = _ac.get("whatsapp_channel_url", "")
+                        _wa_number = _ac.get("whatsapp_contact_number", "")
+                    except Exception:
+                        pass
+                rendered = (_tpl_html
+                    .replace("__APP_NAME__", app_name)
+                    .replace("__GENERATED_DATE__", _time.strftime("%Y-%m-%d"))
+                    .replace("__PRIVACY_URL__", "")
+                    .replace("__RATE_URL__", "")
+                    .replace("__WHATSAPP_NUMBER__", _wa_number)
+                    .replace("__MEDIA_BUNDLE__", _media_bundle)
+                )
+                # Also update the WhatsApp channel URL const
+                if _wa_url:
+                    rendered = rendered.replace(
+                        "const WHATSAPP_CHANNEL_URL='https://whatsapp.com/channel/0029VaijFIC5Ejxq4oG6wX0E';",
+                        f"const WHATSAPP_CHANNEL_URL='{_wa_url}';"
+                    )
+                (temp_fn_dir / "template.html").write_text(rendered, encoding="utf-8")
+                template_html = rendered
+                _use_media_template = True
+                print(f"[v2-build] media template rendered: {len(template_html):,} chars", flush=True)
+
+        if not _use_media_template:
+            try:
+                from engine.template_renderer import render_template_file as _render_v2
+                template_html = _render_v2(temp_fn_dir, app_name, media_type)
+                print(f"[v2-build] template.html: {len(template_html):,} chars", flush=True)
+            except Exception as e:
+                return jsonify({"success": False, "error": f"template_renderer failed: {e}",
+                                "traceback": _tb.format_exc()}), 500
 
         # 5. Generate native_bridge.js + rbac_engine.js + offline_sync.js
         native_bridge_size = 0
