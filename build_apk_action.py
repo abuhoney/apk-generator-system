@@ -53,7 +53,37 @@ if ai_prompt:
     (media_dir / "app.html").write_text(html, encoding="utf-8")
     files_list = [{"path": "app.html"}]
 else:
-    print(f"Decoding files...")
+    # Check if files_b64 is a HuggingFace reference (HF:<uploadId>)
+    if files_b64.startswith("HF:"):
+        upload_id = files_b64[3:]
+        print(f"Downloading files from HuggingFace (upload: {upload_id})...")
+        from huggingface_hub import hf_hub_download
+        import os as _os
+        token = _os.environ.get("HF_TOKEN", "") or None
+        try:
+            local_path = hf_hub_download(
+                repo_id="BardomPro/html-to-apk-full-project",
+                filename=f"uploads/{upload_id}/bundle.b64",
+                repo_type="model",
+                token=token,
+            )
+            files_b64 = Path(local_path).read_text(encoding="utf-8").strip()
+            print(f"Downloaded bundle: {len(files_b64):,} chars")
+        except Exception as e:
+            print(f"Error downloading from HF: {e}")
+            # Try alternative path
+            try:
+                local_path = hf_hub_download(
+                    repo_id="BardomPro/html-to-apk-full-project",
+                    filename=f"uploads/{upload_id}/bundle.b64",
+                    repo_type="model",
+                    token=token,
+                )
+                files_b64 = Path(local_path).read_text(encoding="utf-8").strip()
+            except:
+                pass
+
+    print(f"Decoding files ({len(files_b64):,} chars)...")
     bundle = json.loads(base64.b64decode(files_b64).decode())
     files_list = bundle.get("files", [])
     for f in files_list:
