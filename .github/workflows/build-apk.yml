@@ -50,7 +50,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install openpyxl pdfplumber PyPDF2 python-docx flask flask-cors huggingface_hub
+          pip install openpyxl pdfplumber PyPDF2 python-docx huggingface_hub
           sudo apt-get update && sudo apt-get install -y default-jdk
 
       - name: Download build tools from HuggingFace
@@ -61,15 +61,22 @@ jobs:
           import os, shutil
           from huggingface_hub import hf_hub_download
           repo = "BardomPro/html-to-apk-full-project"
-          token = os.environ.get("HF_TOKEN", "")
+          # Use token if available, otherwise download anonymously (repo is public)
+          token = os.environ.get("HF_TOKEN", "") or None
+          if not token:
+              print("⚠ No HF_TOKEN secret set — downloading anonymously (repo is public)")
           tools = ["aapt2", "android.jar", "apksigner", "apksigner-lib.jar", "d8.jar", "debug.keystore"]
           os.makedirs("backend/build_tools", exist_ok=True)
           for t in tools:
-              path = hf_hub_download(repo_id=repo, filename=f"html-to-apk/backend/build_tools/{t}", repo_type="model", token=token)
-              shutil.copy2(path, f"backend/build_tools/{t}")
-              if t in ("aapt2", "apksigner"):
-                  os.chmod(f"backend/build_tools/{t}", 0o755)
-              print(f"  ✓ {t} ({os.path.getsize(f'backend/build_tools/{t}'):,} bytes)")
+              try:
+                  path = hf_hub_download(repo_id=repo, filename=f"html-to-apk/backend/build_tools/{t}", repo_type="model", token=token)
+                  shutil.copy2(path, f"backend/build_tools/{t}")
+                  if t in ("aapt2", "apksigner"):
+                      os.chmod(f"backend/build_tools/{t}", 0o755)
+                  print(f"  ✓ {t} ({os.path.getsize(f'backend/build_tools/{t}'):,} bytes)")
+              except Exception as e:
+                  print(f"  ✗ {t}: {e}")
+                  raise
           print("All build tools downloaded!")
           PYEOF
 
@@ -90,7 +97,6 @@ jobs:
           import os, sys, json, base64, time, hashlib, re, shutil
           from pathlib import Path
 
-          # Read inputs
           app_name = os.environ["INPUT_APP_NAME"]
           media_type = os.environ["INPUT_MEDIA_TYPE"]
           package_name = os.environ.get("INPUT_PACKAGE_NAME") or ""
@@ -102,27 +108,24 @@ jobs:
 
           print(f"Building APK: {app_name} ({media_type}, {engine})")
 
-          # Sanitize
           safe_name = re.sub(r"[^A-Za-z0-9 _-]", "", app_name)[:30] or "App"
           if not package_name:
               slug = re.sub(r"[^a-z0-9]", "", safe_name.lower()) or "app"
               package_name = f"com.htmltoapk.{slug}"
 
-          # Setup paths
           PROJECT_ROOT = Path(".")
           FUNCTIONS_DIR = PROJECT_ROOT / "functions"
           OUTPUT_DIR = PROJECT_ROOT / "_output"
           FUNCTIONS_DIR.mkdir(exist_ok=True)
           OUTPUT_DIR.mkdir(exist_ok=True)
 
-          # Create function directory
           fn_name = "build_" + hashlib.md5((app_name + str(time.time())).encode()).hexdigest()[:8]
           fn_dir = FUNCTIONS_DIR / fn_name
           fn_dir.mkdir(parents=True, exist_ok=True)
           media_dir = fn_dir / "media"
           media_dir.mkdir(exist_ok=True)
 
-          # Decode files or generate via AI
+          files_list = []
           if ai_prompt:
               print(f"[AI] Generating HTML from prompt: {ai_prompt[:80]}...")
               sys.path.insert(0, str(PROJECT_ROOT / "backend"))
@@ -131,8 +134,9 @@ jobs:
               html = zai.generate_html_app(ai_prompt, app_name)
               print(f"[AI] HTML generated: {len(html):,} chars")
               (media_dir / "app.html").write_text(html, encoding="utf-8")
+              files_list = [{"path": "app.html", "original_name": "app.html"}]
           else:
-              print(f"Decoding {len(files_b64)} base64 chars...")
+              print(f"Decoding files bundle...")
               bundle = json.loads(base64.b64decode(files_b64).decode())
               files_list = bundle.get("files", [])
               for f in files_list:
@@ -142,13 +146,11 @@ jobs:
                       (media_dir / fname).write_bytes(base64.b64decode(b64))
                       print(f"  ✓ {fname}")
 
-          # Write app_config (WhatsApp channel — mandatory)
           (fn_dir / "app_config.json").write_text(json.dumps({
               "whatsapp_channel_url": wa_url,
               "whatsapp_contact_number": "+967773458975",
           }, indent=2), encoding="utf-8")
 
-          # Write function.json
           (fn_dir / "function.json").write_text(json.dumps({
               "name": app_name, "version": "1.0.0", "package": package_name,
               "entry": "template.html", "min_sdk": 24, "target_sdk": 34,
@@ -156,7 +158,6 @@ jobs:
                               "WRITE_EXTERNAL_STORAGE", "REQUEST_INSTALL_PACKAGES"],
           }, indent=2), encoding="utf-8")
 
-          # Custom icon
           if icon_b64:
               try:
                   icon_bytes = base64.b64decode(icon_b64)
@@ -164,7 +165,6 @@ jobs:
                       (fn_dir / "app_icon.png").write_bytes(icon_bytes)
               except: pass
 
-          # Run v2 engine
           sys.path.insert(0, str(PROJECT_ROOT / "backend"))
           os.chdir(PROJECT_ROOT / "backend")
 
@@ -180,7 +180,7 @@ jobs:
           try:
               from engine.builder_factory_v2 import BuilderFactory
               f = BuilderFactory(); f.register_all(); f.run_all(config, strings, fn_dir)
-              print(f"[engine] 10 builders done")
+              print(f"[engine] builders done")
           except: pass
 
           try:
@@ -189,19 +189,17 @@ jobs:
               print(f"[engine] native_bridge done")
           except: pass
 
-          # Generate template
           from engine.template_renderer import render_template_file
           media_tpls = {"music": "music_player.html", "video": "video_player.html", "photo": "photo_gallery.html"}
           tpl_name = media_tpls.get(media_type)
 
           if tpl_name and (Path("templates") / tpl_name).exists():
               tpl_html = (Path("templates") / tpl_name).read_text(encoding="utf-8")
-              _bundle = json.dumps({"files": [{"path": f.get("path", ""), "title": "", "size": 0, "duration": 0, "artist": ""} for f in files_list]} if not ai_prompt else '{"files":[]}')
+              _bundle = json.dumps({"files": [{"path": f.get("path", ""), "title": "", "size": 0, "duration": 0, "artist": ""} for f in files_list]})
               template_html = tpl_html.replace("__APP_NAME__", app_name).replace("__MEDIA_BUNDLE__", _bundle).replace("__WHATSAPP_NUMBER__", "+967773458975").replace("__PRIVACY_URL__", "").replace("__RATE_URL__", "").replace("__GENERATED_DATE__", time.strftime("%Y-%m-%d"))
               template_html = template_html.replace("const WHATSAPP_CHANNEL_URL='https://whatsapp.com/channel/0029VaijFIC5Ejxq4oG6wX0E';", f"const WHATSAPP_CHANNEL_URL='{wa_url}';")
           elif ai_prompt:
-              template_html = html if ai_prompt else ""
-              # Inject WhatsApp channel
+              template_html = html
               if "WHATSAPP_CHANNEL_URL" not in template_html:
                   wa_script = f"<script>const WHATSAPP_CHANNEL_URL='{wa_url}';function openWhatsAppChannel(){{var c=WHATSAPP_CHANNEL_URL.split('/').pop();window.location.href='intent://channel/'+c+'#Intent;package=com.whatsapp;S.browser_fallback_url='+encodeURIComponent(WHATSAPP_CHANNEL_URL)+';end';}}</script>"
                   if "</head>" in template_html.lower():
@@ -210,7 +208,6 @@ jobs:
           else:
               template_html = render_template_file(fn_dir, app_name, media_type)
 
-          # Inject native bridge
           injected = ""
           for js in ["native_bridge.js", "rbac_engine.js", "offline_sync.js"]:
               p = fn_dir / js
@@ -220,7 +217,6 @@ jobs:
               template_html = template_html[:idx] + injected + template_html[idx:]
           (fn_dir / "template.html").write_text(template_html, encoding="utf-8")
 
-          # Build APK
           import engine.apk_builder_v3 as ab3
           ab3.AAPT2 = Path("build_tools/aapt2")
           ab3.ANDROID_JAR = Path("build_tools/android.jar")
@@ -241,7 +237,6 @@ jobs:
           if result.get("success"):
               apk_path = Path(result.get("apk_path", ""))
               apk_filename = apk_path.name if apk_path else f"{app_name}.apk"
-              # Copy to output
               out_dir = OUTPUT_DIR / fn_name
               out_dir.mkdir(parents=True, exist_ok=True)
               out_path = out_dir / apk_filename
@@ -250,20 +245,25 @@ jobs:
 
               print(f"::notice::APK built: {apk_filename} ({out_path.stat().st_size:,} bytes)")
 
-              # Upload to HuggingFace
-              from huggingface_hub import HfApi
-              api = HfApi(token=os.environ.get("HF_TOKEN", ""))
-              hf_path = f"builds/{fn_name}/{apk_filename}"
-              api.upload_file(path_or_fileobj=str(out_path), path_in_repo=hf_path,
-                             repo_id="BardomPro/html-to-apk-full-project", repo_type="model")
-              print(f"::notice::APK uploaded to HuggingFace: {hf_path}")
+              # Upload to HuggingFace (anonymously if no token — repo is public for reads, but writes need token)
+              token = os.environ.get("HF_TOKEN", "") or None
+              if not token:
+                  print("⚠ No HF_TOKEN — cannot upload APK to HuggingFace")
+                  print(f"::notice::APK is at: {out_path}")
+              else:
+                  from huggingface_hub import HfApi
+                  api = HfApi(token=token)
+                  hf_path = f"builds/{fn_name}/{apk_filename}"
+                  api.upload_file(path_or_fileobj=str(out_path), path_in_repo=hf_path,
+                                 repo_id="BardomPro/html-to-apk-full-project", repo_type="model")
+                  print(f"::notice::APK uploaded to HuggingFace: {hf_path}")
 
-              # Write build result for GitHub Actions
               with open(os.environ["GITHUB_OUTPUT"], "a") as f:
                   f.write(f"apk_filename={apk_filename}\n")
                   f.write(f"apk_size={out_path.stat().st_size}\n")
                   f.write(f"build_id={fn_name}\n")
-                  f.write(f"apk_url=https://huggingface.co/BardomPro/html-to-apk-full-project/resolve/main/{hf_path}\n")
+                  if token:
+                      f.write(f"apk_url=https://huggingface.co/BardomPro/html-to-apk-full-project/resolve/main/builds/{fn_name}/{apk_filename}\n")
                   f.write(f"success=true\n")
 
               print(f"✅ BUILD COMPLETE: {apk_filename} ({out_path.stat().st_size:,} bytes)")
