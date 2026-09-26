@@ -1329,7 +1329,147 @@ def build_v3_apk():
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Unified Workflow: Analyze → Admin → Save → Build
+# Service Panel endpoints (Firebase-backed, real & direct)
+# ─────────────────────────────────────────────────────────────────────────────
+
+@app.route("/api/service/config")
+def service_config_route():
+    """Return service configuration: VIP levels, payment methods, coupons, WhatsApp URLs."""
+    from engine.firebase_service import get_service_config
+    return jsonify(get_service_config())
+
+
+@app.route("/api/service/user/<device_id>")
+def service_user_route(device_id):
+    """Fetch user account info + stats. Auto-registers new users."""
+    from engine.firebase_service import get_user_info
+    return jsonify(get_user_info(device_id))
+
+
+@app.route("/api/service/user/<device_id>", methods=["POST"])
+def service_user_update_route(device_id):
+    """Update user profile (name, phone, email)."""
+    from engine.firebase_service import update_user_profile
+    data = request.get_json(force=True, silent=True) or {}
+    result = update_user_profile(
+        device_id,
+        data.get("userName"),
+        data.get("userPhone"),
+        data.get("userGmail"),
+    )
+    return jsonify(result)
+
+
+@app.route("/api/service/verify-coupon", methods=["POST"])
+def service_verify_coupon_route():
+    """Verify a coupon code and grant reward.
+
+    JSON body: {device_id, coupon_code, recipientPhone?, recipientEmail?, recipientUserId?}
+    """
+    from engine.firebase_service import verify_coupon
+    data = request.get_json(force=True, silent=True) or {}
+    result = verify_coupon(
+        data.get("coupon_code", ""),
+        data.get("device_id", ""),
+        data.get("recipientPhone", ""),
+        data.get("recipientEmail", ""),
+        data.get("recipientUserId", ""),
+    )
+    return jsonify(result)
+
+
+@app.route("/api/service/transfer", methods=["POST"])
+def service_transfer_route():
+    """Initiate a balance transfer.
+
+    JSON body: {sender_device_id, amount, recipientPhone, recipientEmail, recipientUserId}
+    Returns receivingGiftId to share with recipient.
+    """
+    from engine.firebase_service import transfer_balance
+    data = request.get_json(force=True, silent=True) or {}
+    result = transfer_balance(
+        data.get("sender_device_id", ""),
+        int(data.get("amount", 0)),
+        data.get("recipientPhone", ""),
+        data.get("recipientEmail", ""),
+        data.get("recipientUserId", ""),
+    )
+    return jsonify(result)
+
+
+@app.route("/api/service/upgrade", methods=["POST"])
+def service_upgrade_route():
+    """Submit an account upgrade request with proof image.
+
+    JSON body: {device_id, level, payment_method, proof_image_base64?, note?}
+    """
+    from engine.firebase_service import upgrade_account
+    data = request.get_json(force=True, silent=True) or {}
+    result = upgrade_account(
+        data.get("device_id", ""),
+        data.get("level", ""),
+        data.get("payment_method", ""),
+        data.get("proof_image_base64", ""),
+        data.get("note", ""),
+    )
+    return jsonify(result)
+
+
+@app.route("/api/service/buy-points", methods=["POST"])
+def service_buy_points_route():
+    """Submit a buy-points request.
+
+    JSON body: {device_id, amount_usd, payment_method, proof_image_base64?, note?}
+    """
+    from engine.firebase_service import buy_points
+    data = request.get_json(force=True, silent=True) or {}
+    result = buy_points(
+        data.get("device_id", ""),
+        float(data.get("amount_usd", 0)),
+        data.get("payment_method", ""),
+        data.get("proof_image_base64", ""),
+        data.get("note", ""),
+    )
+    return jsonify(result)
+
+
+@app.route("/api/service/notifications/<device_id>")
+def service_notifications_route(device_id):
+    """Fetch all notifications for a user + system notifications."""
+    from engine.firebase_service import get_notifications
+    return jsonify({"notifications": get_notifications(device_id)})
+
+
+@app.route("/api/service/notifications/<device_id>/<notification_id>/read", methods=["POST"])
+def service_notification_read_route(device_id, notification_id):
+    """Mark a notification as read."""
+    from engine.firebase_service import mark_notification_read
+    return jsonify(mark_notification_read(device_id, notification_id))
+
+
+@app.route("/api/service/system-stats")
+def service_system_stats_route():
+    """Fetch system-wide statistics."""
+    from engine.firebase_service import get_system_stats
+    return jsonify(get_system_stats())
+
+
+@app.route("/api/service/record-build", methods=["POST"])
+def service_record_build_route():
+    """Record a build in Firebase and increment user's appsCount."""
+    from engine.firebase_service import record_build
+    data = request.get_json(force=True, silent=True) or {}
+    result = record_build(
+        data.get("device_id", ""),
+        data.get("app_name", ""),
+        int(data.get("apk_size", 0)),
+        data.get("function_id", ""),
+    )
+    return jsonify(result)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Unified Workflow: Analyze → Admin → Save → Build (kept for backward compat)
 # ─────────────────────────────────────────────────────────────────────────────
 # Replaces 3 separate buttons (v1/v2/v3) with one workflow:
 #   1. POST /api/analyze-and-prepare → run engine stages 1-5, return function_id
