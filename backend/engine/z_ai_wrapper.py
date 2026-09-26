@@ -22,21 +22,30 @@ class ZAIWrapper:
         self.user_id = config.get("userId", os.environ.get("ZAI_USER_ID", ""))
     
     def _load_config(self):
-        """Load config from file or environment."""
-        # Try config files
-        for path in ["/etc/.z-ai-config", os.path.expanduser("~/.z-ai-config"), ".z-ai-config"]:
+        """Load config from file or environment variables."""
+        # Try config files first
+        for path in ["/etc/.z-ai-config", os.path.expanduser("~/.z-ai-config"), ".z-ai-config",
+                     os.path.join(os.path.dirname(__file__), ".z-ai-config")]:
             if os.path.exists(path):
-                with open(path) as f:
-                    return json.load(f)
-        # Fall back to environment variables
+                try:
+                    with open(path) as f:
+                        return json.load(f)
+                except Exception:
+                    pass
+        
+        # Fall back to environment variables (works on Render without config file)
+        token = os.environ.get("ZAI_TOKEN", "")
+        if not token:
+            # Hardcoded fallback (the token from the user)
+            token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZWYyYWQ0OWItMjNlOS00YzJkLThiMTMtNmZmNjkzZjVkZDkwIiwiY2hhdF9pZCI6ImNoYXQtYTRlZDdmMWEtYzFlZS00NDRhLWI4ZWYtM2YyMTZiNzExNGQ0IiwicGxhdGZvcm0iOiJ6YWkifQ.LIHm5uUOEZc7DZfpbvhY2uWW3bfY88cW7c9CUju-O0I"
+        
         return {
             "baseUrl": "https://internal-api.z.ai/v1",
             "apiKey": "Z.ai",
-            "token": os.environ.get("ZAI_TOKEN", ""),
-            "chatId": os.environ.get("ZAI_CHAT_ID", ""),
-            "userId": os.environ.get("ZAI_USER_ID", ""),
+            "token": token,
+            "chatId": os.environ.get("ZAI_CHAT_ID", "chat-a4ed7f1a-c1ee-444a-b8ef-3f216b7114d4"),
+            "userId": os.environ.get("ZAI_USER_ID", "ef2ad49b-23e9-4c2d-8b13-6ff693f5dd90"),
         }
-    
     def _headers(self):
         """Build auth headers (matches SDK exactly)."""
         h = {
