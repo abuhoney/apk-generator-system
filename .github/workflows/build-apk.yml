@@ -162,6 +162,10 @@ jobs:
 
           fn_name = "build_" + hashlib.md5((app_name + str(time.time())).encode()).hexdigest()[:8]
           fn_dir = FUNCTIONS_DIR / fn_name
+          # Also create in backend/functions/ for the engine to find
+          backend_fns = PROJECT_ROOT / "backend" / "functions"
+          backend_fns.mkdir(exist_ok=True)
+          backend_fn_dir = backend_fns / fn_name
           fn_dir.mkdir(parents=True, exist_ok=True)
           media_dir = fn_dir / "media"
           media_dir.mkdir(exist_ok=True)
@@ -185,8 +189,17 @@ jobs:
                   b64 = f.get("content_base64") or f.get("data") or ""
                   if b64:
                       (media_dir / fname).write_bytes(base64.b64decode(b64))
+              # Also copy to backend functions dir
+              bfn_media = backend_fn_dir / "media"
+              bfn_media.mkdir(exist_ok=True)
+              shutil.copy2(media_dir / fname, bfn_media / fname)
                       print(f"  ✓ {fname}")
 
+          # Copy all config files to backend fn_dir too
+          for cfg_file in ["app_config.json", "function.json"]:
+              src = fn_dir / cfg_file
+              if src.exists():
+                  shutil.copy2(src, backend_fn_dir / cfg_file)
           (fn_dir / "app_config.json").write_text(json.dumps({
               "whatsapp_channel_url": wa_url,
               "whatsapp_contact_number": "+967773458975",
@@ -207,12 +220,17 @@ jobs:
               except: pass
 
           sys.path.insert(0, str(PROJECT_ROOT / "backend"))
-          os.chdir(PROJECT_ROOT / "backend")
+          os.chdir(PROJECT_ROOT / "backend")  # Engine expects to be in backend/
 
           try:
               from engine.data_analyzer_v2 import analyze_data_files
-              config, strings = analyze_data_files(fn_dir, app_name)
-              print(f"[engine] {config['total_ids']} IDs, {config['total_datasets']} datasets")
+              config, strings = analyze_data_files(backend_fn_dir, app_name)
+              # Copy config.json + strings.json to backend fn_dir
+          for cfg in ["config.json", "strings.json"]:
+              src = fn_dir / cfg
+              if src.exists():
+                  shutil.copy2(src, backend_fn_dir / cfg)
+          print(f"[engine] {config['total_ids']} IDs, {config['total_datasets']} datasets")
           except Exception as e:
               print(f"[engine] analyzer warning: {e}")
               config = {"total_ids": 0, "total_datasets": 0, "total_items": 0}
@@ -220,13 +238,13 @@ jobs:
 
           try:
               from engine.builder_factory_v2 import BuilderFactory
-              f = BuilderFactory(); f.register_all(); f.run_all(config, strings, fn_dir)
+              f = BuilderFactory(); f.register_all(); f.run_all(config, strings, backend_fn_dir)
               print(f"[engine] builders done")
           except: pass
 
           try:
               from engine.native_bridge import generate_native_files
-              generate_native_files(config, strings, fn_dir)
+              generate_native_files(config, strings, backend_fn_dir)
               print(f"[engine] native_bridge done")
           except: pass
 
@@ -247,16 +265,17 @@ jobs:
                       idx = template_html.lower().rfind("</head>")
                       template_html = template_html[:idx] + wa_script + template_html[idx:]
           else:
-              template_html = render_template_file(fn_dir, app_name, media_type)
+              # Use backend_fn_dir (has config.json from analyzer)
+          template_html = render_template_file(backend_fn_dir, app_name, media_type)
 
           injected = ""
           for js in ["native_bridge.js", "rbac_engine.js", "offline_sync.js"]:
-              p = fn_dir / js
+              p = backend_fn_dir / js
               if p.exists(): injected += f"\n<script>\n{p.read_text(encoding='utf-8')}\n</script>\n"
           if injected and "</body>" in template_html.lower():
               idx = template_html.lower().rfind("</body>")
               template_html = template_html[:idx] + injected + template_html[idx:]
-          (fn_dir / "template.html").write_text(template_html, encoding="utf-8")
+          (backend_fn_dir / "template.html").write_text(template_html, encoding="utf-8")
 
           import engine.apk_builder_v3 as ab3
           ab3.AAPT2 = Path("build_tools/aapt2")
@@ -272,6 +291,8 @@ jobs:
           reload_registry()
 
           from engine.apk_builder_v3 import build_apk
+          # Use backend_fn_dir (relative to backend/) for the registry
+          # fn_name is the dir name, registry finds it in functions/<fn_name>/
           res = build_apk(fn_name, app_name=app_name, package_name=package_name, version_code=1, version_name="1.0.0")
           result = res.to_dict() if hasattr(res, "to_dict") else res
 
