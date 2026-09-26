@@ -108,16 +108,22 @@ def detect_type(value: Any, field_name: str = "") -> dict:
         if "@" in lower_val and "." in lower_val:
             return {"type": "Email", "widget": "EditText", "input_type": "email",
                     "builders": ["Variables", "View", "Operator"]}
-        
-        # Phone detection
-        if re.match(r'^\+?[\d\s\-()]+$', lower_val) and len(lower_val) >= 7:
-            return {"type": "Phone", "widget": "EditText", "input_type": "tel",
-                    "builders": ["Variables", "View", "Operator"]}
-        
-        # Date detection
-        if re.match(r'^\d{4}-\d{2}-\d{2}', lower_val):
+
+        # Date detection (ISO date only YYYY-MM-DD) — must come BEFORE Phone (which matches digits/hyphens)
+        if re.match(r'^\d{4}-\d{2}-\d{2}$', lower_val):
             return {"type": "Date", "widget": "DatePicker", "input_type": "date",
                     "builders": ["Variables", "View", "Math"]}
+
+        # DateTime detection (ISO 8601 with time) — must also come before Phone
+        if re.match(r'^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}', value):
+            return {"type": "DateTime", "widget": "DateTimePicker", "input_type": "datetime-local",
+                    "builders": ["Variables", "View", "Math"]}
+
+        # Phone detection — must have at least 7 digits (after Date/DateTime checks)
+        if re.match(r'^\+?[\d\s\-()]+$', lower_val) and len(lower_val) >= 7 and \
+           sum(c.isdigit() for c in lower_val) >= 7:
+            return {"type": "Phone", "widget": "EditText", "input_type": "tel",
+                    "builders": ["Variables", "View", "Operator"]}
         
         # Image base64 detection
         if lower_val.startswith("data:image") or (len(value) > 100 and re.match(r'^[A-Za-z0-9+/=]+$', value)):
@@ -128,11 +134,108 @@ def detect_type(value: Any, field_name: str = "") -> dict:
         if len(value) <= 30 and lower_name in ("status", "type", "category", "severity", "gender", "shift", "role"):
             return {"type": "Enum", "widget": "Spinner", "input_type": "select",
                     "builders": ["Variables", "View", "Control", "List"]}
-        
+
+        # Currency detection (field name hints)
+        if any(k in lower_name for k in ["price", "cost", "amount", "salary", "total", "balance"]):
+            return {"type": "Currency", "widget": "EditText", "input_type": "numberDecimal",
+                    "builders": ["Variables", "View", "Math", "Operator"]}
+
+        # Percentage detection
+        if "%" in value or "percent" in lower_name or lower_name.endswith("_pct"):
+            return {"type": "Percentage", "widget": "SeekBar", "input_type": "range",
+                    "builders": ["Variables", "View", "Math"]}
+
+        # Rating detection
+        if "rating" in lower_name or "stars" in lower_name:
+            return {"type": "Rating", "widget": "RatingBar", "input_type": "range",
+                    "builders": ["Variables", "View", "Math"]}
+
+        # Color detection (#hex format)
+        if re.match(r'^#[0-9a-fA-F]{3,8}$', value):
+            return {"type": "Color", "widget": "ColorPicker", "input_type": "color",
+                    "builders": ["View", "Component"]}
+
+        # Location/LatLng detection (lat,lng format)
+        if re.match(r'^-?\d+\.?\d*,-?\d+\.?\d*$', value):
+            return {"type": "Location", "widget": "MapView", "input_type": "geo",
+                    "builders": ["View", "Component", "File"]}
+
+        # File extension detection (Image, Audio, Video, Document)
+        ext_match = re.match(r'^[\w/\.-]+\.(jpg|jpeg|png|gif|webp|bmp|svg|heic)$', value, re.I)
+        if ext_match or lower_name in ("photo", "image", "picture", "avatar", "icon"):
+            return {"type": "Image", "widget": "ImageView", "input_type": "file",
+                    "builders": ["File", "View", "Component"]}
+
+        ext_match = re.match(r'^[\w/\.-]+\.(mp3|wav|ogg|m4a|aac|flac|opus|wma)$', value, re.I)
+        if ext_match or lower_name in ("audio", "sound", "voice", "music", "track"):
+            return {"type": "Audio", "widget": "AudioPlayer", "input_type": "file",
+                    "builders": ["File", "View", "Component"]}
+
+        ext_match = re.match(r'^[\w/\.-]+\.(mp4|mkv|webm|mov|avi|flv|wmv|m4v|3gp)$', value, re.I)
+        if ext_match or lower_name in ("video", "movie", "clip", "film"):
+            return {"type": "Video", "widget": "VideoView", "input_type": "file",
+                    "builders": ["File", "View", "Component"]}
+
+        # File (generic document) detection — check value, not field name
+        if re.match(r'^[\w/\.-]+\.(pdf|doc|docx|xls|xlsx|ppt|pptx|zip|rar|7z|tar|gz)$', value, re.I):
+            return {"type": "File", "widget": "FileView", "input_type": "file",
+                    "builders": ["File", "View"]}
+
+        # Time detection (HH:MM)
+        if re.match(r'^\d{1,2}:\d{2}(:\d{2})?$', value):
+            return {"type": "Time", "widget": "TimePicker", "input_type": "time",
+                    "builders": ["Variables", "View", "Math"]}
+
+        # DateTime detection (ISO 8601 with time)
+        if re.match(r'^\d{4}-\d{2}-\d{2}[T ]\d{2}:\d{2}', value):
+            return {"type": "DateTime", "widget": "DateTimePicker", "input_type": "datetime-local",
+                    "builders": ["Variables", "View", "Math"]}
+
+        # Password detection (field name hints)
+        if any(k in lower_name for k in ["password", "passwd", "pwd", "secret"]):
+            return {"type": "Password", "widget": "EditText", "input_type": "password",
+                    "builders": ["Variables", "View", "Control"]}
+
+        # PIN code detection (4-6 digits)
+        if re.match(r'^\d{4,6}$', value) and "pin" in lower_name:
+            return {"type": "Pin", "widget": "EditText", "input_type": "numeric",
+                    "builders": ["Variables", "View", "Control"]}
+
+        # Verification code (6-8 digits)
+        if re.match(r'^\d{6,8}$', value) and any(k in lower_name for k in ["code", "otp", "token"]):
+            return {"type": "Code", "widget": "EditText", "input_type": "numeric",
+                    "builders": ["Variables", "View", "Control"]}
+
+        # Markdown content detection
+        if any(tag in value for tag in ["# ", "## ", "**", "[", "](", "- [x]"]):
+            return {"type": "Markdown", "widget": "MarkdownView", "input_type": "textarea",
+                    "builders": ["View", "Component"]}
+
+        # HTML content detection
+        if re.search(r'<(div|span|p|h[1-6]|table|ul|ol)\b', value, re.I):
+            return {"type": "HTML", "widget": "WebView", "input_type": "textarea",
+                    "builders": ["View", "Component"]}
+
+        # JSON content detection (starts with { or [)
+        stripped = value.strip()
+        if (stripped.startswith("{") and stripped.endswith("}")) or \
+           (stripped.startswith("[") and stripped.endswith("]")):
+            try:
+                json.loads(value)
+                return {"type": "JSON", "widget": "JsonView", "input_type": "textarea",
+                        "builders": ["View", "Component", "Control"]}
+            except Exception:
+                pass
+
+        # URL with reference pattern (e.g. "/api/users/123")
+        if value.startswith("/") and re.match(r'^/[a-z_]+/[a-z_]+/', value):
+            return {"type": "Reference", "widget": "TextView", "input_type": "text",
+                    "builders": ["View", "Control"]}
+
         # Default: plain string
         return {"type": "String", "widget": "EditText", "input_type": "text",
                 "builders": ["Variables", "View"]}
-    
+
     return {"type": "String", "widget": "EditText", "input_type": "text", "builders": ["View"]}
 
 
