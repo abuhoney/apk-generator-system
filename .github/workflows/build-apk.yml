@@ -34,10 +34,6 @@ on:
         description: 'Base64-encoded PNG icon (optional)'
         required: false
         default: ''
-      hf_token:
-        description: 'HuggingFace token (for downloading tools + uploading APK)'
-        required: true
-        default: ''
 
 jobs:
   build:
@@ -59,7 +55,7 @@ jobs:
 
       - name: Download build tools + engine from HuggingFace
         env:
-          HF_TOKEN: ${{ github.event.inputs.hf_token }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           python3 - << 'PYEOF'
           import os, shutil
@@ -127,7 +123,7 @@ jobs:
       - name: Build APK
         id: build
         env:
-          HF_TOKEN: ${{ github.event.inputs.hf_token }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
           INPUT_APP_NAME: ${{ github.event.inputs.app_name }}
           INPUT_MEDIA_TYPE: ${{ github.event.inputs.media_type }}
           INPUT_PACKAGE_NAME: ${{ github.event.inputs.package_name }}
