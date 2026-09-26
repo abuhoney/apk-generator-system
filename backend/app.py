@@ -258,7 +258,23 @@ def build_apk_from_html():
 
 @app.route("/")
 def dashboard():
-    return render_template_string(DASHBOARD_HTML, backend=cfg.backend_url or "local")
+    return jsonify({
+        "name": "Universal APK Factory",
+        "status": "ok",
+        "version": "3.3.0",
+        "backend_url": cfg.backend_url if cfg and cfg.backend_url else "local",
+        "endpoints": [
+            "GET  /api/health",
+            "POST /api/build-apk-from-html",
+            "POST /api/build-media-apk",
+            "POST /api/build-v2-apk",
+            "POST /api/build-v3-apk",
+            "POST /api/ai/generate-apk",
+            "POST /api/ai/generate-image",
+            "GET  /api/app-types",
+            "GET  /api/service/*",
+        ]
+    })
 
 
 @app.route("/api/health")
