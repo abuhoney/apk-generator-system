@@ -1413,7 +1413,236 @@ def build_v3_apk():
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Service Panel endpoints (Firebase-backed, real & direct)
+# AI endpoints — z.ai integration (autoApkAi + autoImageAi)
+# Uses z_ai_wrapper.py (Python equivalent of z-ai-web-dev-sdk)
+# Config: downloaded from HuggingFace at startup (z-ai-sdk/.z-ai-config)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def _get_zai_wrapper():
+    """Get or create a ZAIWrapper instance (lazy init)."""
+    if not hasattr(_get_zai_wrapper, '_instance'):
+        try:
+            import sys
+            sys.path.insert(0, str(Path(__file__).parent / "engine"))
+            from engine.z_ai_wrapper import ZAIWrapper
+            _get_zai_wrapper._instance = ZAIWrapper()
+        except Exception as e:
+            print(f"[z.ai] Failed to init wrapper: {e}", flush=True)
+            _get_zai_wrapper._instance = None
+    return _get_zai_wrapper._instance
+
+
+@app.route("/api/ai/generate-apk", methods=["POST"])
+def ai_generate_apk():
+    """AI-powered APK generation via z.ai.
+
+    Pipeline:
+      1. z.ai (glm-4-flash) generates complete HTML app from prompt
+      2. v2 engine runs (data_analyzer + 10 builders + native_bridge)
+      3. APK built with aapt2→javac→d8→zipalign→apksigner
+      4. WhatsApp channel URL auto-embedded (mandatory)
+
+    Accepts JSON: {prompt, app_name, configure?, icon_base64?}
+    Returns: same as /api/build-v2-apk + ai metadata
+    """
+    import traceback as _tb
+    import hashlib as _hashlib
+    import time as _time
+    import base64 as _b64
+    try:
+        data = request.get_json(force=True, silent=True) or {}
+        prompt = data.get("prompt", "").strip()
+        app_name = data.get("app_name", "").strip() or "AI App"
+        configure = data.get("configure", "").strip()
+        icon_b64 = data.get("icon_base64", "")
+
+        if not prompt:
+            return jsonify({"success": False, "error": "prompt required"}), 400
+
+        # Step 1: Generate HTML via z.ai
+        print(f"[ai-apk] Generating HTML: {prompt[:80]}...", flush=True)
+        zai = _get_zai_wrapper()
+        if zai is None:
+            return jsonify({"success": False, "error": "z.ai wrapper not available"}), 500
+
+        html = zai.generate_html_app(prompt, app_name, configure)
+        print(f"[ai-apk] HTML generated: {len(html):,} chars", flush=True)
+
+        if not html or len(html) < 50:
+            return jsonify({"success": False, "error": "AI generated empty HTML"}), 500
+
+        # Step 2: Build APK using the v2 engine pipeline
+        import re as _re
+        safe_app_name = _re.sub(r"[^A-Za-z0-9 _-]", "", app_name)[:30] or "AIApp"
+        slug = _re.sub(r"[^a-z0-9]", "", safe_app_name.lower()) or "aiapp"
+        package_name = f"com.htmltoapk.ai.{slug}"
+
+        temp_fn_name = "ai_" + _hashlib.md5(
+            (app_name + str(_time.time())).encode()).hexdigest()[:8]
+        temp_fn_dir = PROJECT_ROOT / "functions" / temp_fn_name
+        temp_fn_dir.mkdir(parents=True, exist_ok=True)
+
+        # Save the AI-generated HTML
+        media_dir = temp_fn_dir / "media"
+        media_dir.mkdir(parents=True, exist_ok=True)
+        (media_dir / "app.html").write_text(html, encoding="utf-8")
+
+        # Write app_config (mandatory WhatsApp channel)
+        (temp_fn_dir / "app_config.json").write_text(json.dumps({
+            "whatsapp_channel_url": "https://whatsapp.com/channel/0029VaijFIC5Ejxq4oG6wX0E",
+            "whatsapp_contact_number": "+967773458975",
+        }, indent=2), encoding="utf-8")
+
+        # Run data_analyzer_v2
+        try:
+            from engine.data_analyzer_v2 import analyze_data_files
+            config, strings = analyze_data_files(temp_fn_dir, app_name)
+            print(f"[ai-apk] analyzer: {config['total_ids']} IDs", flush=True)
+        except Exception as e:
+            print(f"[ai-apk] analyzer warning: {e}", flush=True)
+            config = {"total_ids": 0, "total_datasets": 0, "total_items": 0}
+            strings = {"by_id": {}}
+
+        # Run builders
+        try:
+            from engine.builder_factory_v2 import BuilderFactory
+            factory = BuilderFactory()
+            factory.register_all()
+            factory.run_all(config, strings, temp_fn_dir)
+        except Exception as e:
+            print(f"[ai-apk] builders warning: {e}", flush=True)
+
+        # Generate native bridge
+        try:
+            from engine.native_bridge import generate_native_files
+            generate_native_files(config, strings, temp_fn_dir)
+        except Exception as e:
+            print(f"[ai-apk] native_bridge warning: {e}", flush=True)
+
+        # Use AI-generated HTML as template (inject native bridge)
+        template_html = html
+        # Add WhatsApp channel URL const if not present
+        if "WHATSAPP_CHANNEL_URL" not in template_html:
+            wa_script = "<script>const WHATSAPP_CHANNEL_URL='https://whatsapp.com/channel/0029VaijFIC5Ejxq4oG6wX0E';const WHATSAPP_CONTACT_NUMBER='+967773458975';function openWhatsAppChannel(){var c=WHATSAPP_CHANNEL_URL.split('/').pop();window.location.href='intent://channel/'+c+'#Intent;package=com.whatsapp;S.browser_fallback_url='+encodeURIComponent(WHATSAPP_CHANNEL_URL)+';end';}</script>"
+            if "</head>" in template_html.lower():
+                idx = template_html.lower().rfind("</head>")
+                template_html = template_html[:idx] + wa_script + template_html[idx:]
+            else:
+                template_html = wa_script + template_html
+
+        # Inject native bridge scripts
+        injected = ""
+        for js_name in ["native_bridge.js", "rbac_engine.js", "offline_sync.js"]:
+            js_path = temp_fn_dir / js_name
+            if js_path.exists():
+                injected += f"\n<script>\n{js_path.read_text(encoding='utf-8')}\n</script>\n"
+        if injected and "</body>" in template_html.lower():
+            idx = template_html.lower().rfind("</body>")
+            template_html = template_html[:idx] + injected + template_html[idx:]
+        (temp_fn_dir / "template.html").write_text(template_html, encoding="utf-8")
+
+        # Write function.json
+        (temp_fn_dir / "function.json").write_text(json.dumps({
+            "name": app_name, "version": "1.0.0", "package": package_name,
+            "entry": "template.html", "min_sdk": 24, "target_sdk": 34,
+            "permissions": ["INTERNET", "ACCESS_NETWORK_STATE", "READ_EXTERNAL_STORAGE",
+                          "WRITE_EXTERNAL_STORAGE", "REQUEST_INSTALL_PACKAGES"],
+        }, indent=2), encoding="utf-8")
+
+        # Custom icon
+        if icon_b64:
+            try:
+                icon_bytes = _b64.b64decode(icon_b64)
+                if icon_bytes[:4] == b'\x89PNG':
+                    (temp_fn_dir / "app_icon.png").write_bytes(icon_bytes)
+            except Exception:
+                pass
+
+        # Build APK
+        reload_registry()
+        try:
+            from engine.apk_builder_v3 import build_apk as _v3_build_apk
+            res = _v3_build_apk(temp_fn_name, app_name=app_name, package_name=package_name,
+                              version_code=1, version_name="1.0.0")
+            result = res.to_dict() if hasattr(res, "to_dict") else res
+        except Exception as e:
+            return jsonify({"success": False, "error": f"apk_builder_v3 failed: {e}",
+                            "traceback": _tb.format_exc()}), 500
+
+        if isinstance(result, dict) and result.get("success"):
+            apk_filename = result.get("apk_path", "").split("/")[-1] if result.get("apk_path") else f"{app_name}.apk"
+            if not apk_filename.endswith(".apk"):
+                apk_filename = f"{app_name.replace(' ', '_')}.apk"
+            result["apk_name"] = apk_filename
+            result["apk_url"] = f"/download/{temp_fn_name}/{apk_filename}"
+            result["package_name"] = package_name
+            result["app_name"] = app_name
+            result["build_mode"] = "apk-ai-generated-signed"
+            result["ai"] = {
+                "prompt": prompt[:200],
+                "html_size": len(html),
+                "ids_count": config.get("total_ids", 0),
+                "engine": "z.ai + v2-engine",
+            }
+
+        return jsonify(result), (200 if result.get("success") else 500)
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e),
+                        "traceback": _tb.format_exc()}), 500
+
+
+@app.route("/api/ai/generate-image", methods=["POST"])
+def ai_generate_image():
+    """AI image generation via z.ai cogview-3-flash.
+
+    Accepts JSON: {prompt}
+    Returns: {success, image_base64, image_url, prompt, size}
+    """
+    import traceback as _tb
+    try:
+        data = request.get_json(force=True, silent=True) or {}
+        prompt = data.get("prompt", "").strip()
+        if not prompt:
+            return jsonify({"success": False, "error": "prompt required"}), 400
+
+        print(f"[ai-image] Generating: {prompt[:80]}...", flush=True)
+        zai = _get_zai_wrapper()
+        if zai is None:
+            return jsonify({"success": False, "error": "z.ai wrapper not available"}), 500
+
+        resp = zai.generate_image(prompt)
+        data_item = resp.get("data", [{}])[0]
+
+        img_id = hashlib.md5((prompt + str(time.time())).encode()).hexdigest()[:12]
+        img_dir = OUTPUT_DIR / "ai_images"
+        img_dir.mkdir(parents=True, exist_ok=True)
+        img_path = img_dir / f"{img_id}.jpg"
+
+        if "base64" in data_item:
+            import base64 as _b64
+            img_bytes = _b64.b64decode(data_item["base64"])
+            img_path.write_bytes(img_bytes)
+        elif "url" in data_item:
+            import urllib.request as _ur
+            _ur.urlretrieve(data_item["url"], img_path)
+        else:
+            return jsonify({"success": False, "error": "No image in response"}), 500
+
+        img_b64 = base64.b64encode(img_path.read_bytes()).decode()
+        print(f"[ai-image] Saved: {img_path} ({img_path.stat().st_size:,} bytes)", flush=True)
+
+        return jsonify({
+            "success": True,
+            "image_base64": img_b64,
+            "image_url": f"/download/ai_images/{img_id}.jpg",
+            "prompt": prompt,
+            "size": img_path.stat().st_size,
+        })
+
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e),
+                        "traceback": _tb.format_exc()}), 500
 # ─────────────────────────────────────────────────────────────────────────────
 
 @app.route("/api/service/config")
