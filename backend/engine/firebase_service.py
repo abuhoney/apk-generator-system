@@ -619,10 +619,14 @@ def get_service_config() -> dict:
     fb_payments = _firebase_request("GET", "/config/paymentMethods")
     fb_coupons = _firebase_request("GET", "/config/copouns")
 
+    # Use Firebase data only if it's valid (no "error" key)
+    def _valid(d):
+        return isinstance(d, dict) and d and "error" not in d
+
     return {
-        "vipLevels": fb_levels if isinstance(fb_levels, dict) and fb_levels else VIP_LEVELS,
-        "paymentMethods": fb_payments if isinstance(fb_payments, dict) and fb_payments else PAYMENT_METHODS,
-        "coupons": fb_coupons if isinstance(fb_coupons, dict) and fb_coupons else DEFAULT_COUPONS,
+        "vipLevels": fb_levels if _valid(fb_levels) else VIP_LEVELS,
+        "paymentMethods": fb_payments if _valid(fb_payments) else PAYMENT_METHODS,
+        "coupons": fb_coupons if _valid(fb_coupons) else DEFAULT_COUPONS,
         "whatsapp_channel_url": "https://whatsapp.com/channel/0029VaijFIC5Ejxq4oG6wX0E",
         "whatsapp_contact_number": "+967773458975",
     }
