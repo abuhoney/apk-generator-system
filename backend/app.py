@@ -964,6 +964,18 @@ def build_v2_apk():
             print(f"[v2-build] WARNING: builders failed (continuing): {e}", flush=True)
 
         # 4. Generate template.html from config + strings (v2 dynamic rendering)
+        # First, write app_config.json (WhatsApp channel URL from settingsPickCard)
+        app_config_str = request.form.get("app_config", "")
+        if app_config_str:
+            try:
+                app_config = json.loads(app_config_str)
+                (temp_fn_dir / "app_config.json").write_text(
+                    json.dumps(app_config, indent=2), encoding="utf-8"
+                )
+                print(f"[v2-build] app_config.json written (whatsapp_channel_url: {app_config.get('whatsapp_channel_url', 'default')})", flush=True)
+            except Exception as e:
+                print(f"[v2-build] WARNING: app_config parse failed: {e}", flush=True)
+
         try:
             from engine.template_renderer import render_template_file as _render_v2
             template_html = _render_v2(temp_fn_dir, app_name, media_type)
@@ -1225,6 +1237,18 @@ def build_v3_apk():
 
         # 5. Generate v3 declarative template (Web Components + Shadow DOM)
         #    This is the v3 magic: replaces ~270KB v2 template with ~12KB declarative HTML
+        # First, write app_config.json (WhatsApp channel URL from settingsPickCard)
+        app_config_str = request.form.get("app_config", "")
+        if app_config_str:
+            try:
+                app_config = json.loads(app_config_str)
+                (temp_fn_dir / "app_config.json").write_text(
+                    json.dumps(app_config, indent=2), encoding="utf-8"
+                )
+                print(f"[v3-build] app_config.json written (whatsapp_channel_url: {app_config.get('whatsapp_channel_url', 'default')})", flush=True)
+            except Exception as e:
+                print(f"[v3-build] WARNING: app_config parse failed: {e}", flush=True)
+
         try:
             from engine.template_renderer_v3 import render_template_v3_file as _render_v3
             template_html = _render_v3(temp_fn_dir, app_name, media_type)
